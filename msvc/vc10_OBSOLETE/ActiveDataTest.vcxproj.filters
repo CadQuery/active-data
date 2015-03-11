@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Data Model">
+      <UniqueIdentifier>{d2b46ebb-9f44-4aac-bc35-8c4529683b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data Model\Test Model">
+      <UniqueIdentifier>{74436089-3af8-4316-893c-3088d3557472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Model">
+      <UniqueIdentifier>{563cf0c5-fa07-4341-a74d-6e10aab3a160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Model\Test Model">
+      <UniqueIdentifier>{2a86c9f6-5a32-4002-bf7b-d9e107e1e4ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest_CaseIDs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest_DataFramework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubAPartition.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNode.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNodeConv.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBPartition.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNode.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNodeConv.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCPartition.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshNode.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshPartition.h">
+      <Filter>Header Files\Data Model\Test Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_AsciiStringParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BaseModel.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolArrayParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_CAFConversionCtx.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ComplexArrayParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_CopyPasteEngine.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ExtTransactionEngine.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_GroupParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntArrayParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshAttr.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_NameParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealArrayParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceListParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_SelectionParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ShapeParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_StringArrayParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStamp.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataTest\ActTest_DataFramework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\ActTest_Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubAPartition.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNode.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNodeConv.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBPartition.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNode.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNodeConv.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCPartition.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshNode.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshPartition.cpp">
+      <Filter>Source Files\Data Model\Test Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_AsciiStringParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BaseModel.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolArrayParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_CAFConversionCtx.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ComplexArrayParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_CopyPasteEngine.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ExtTransactionEngine.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_GroupParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntArrayParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshAttr.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_NameParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealArrayParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceListParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_SelectionParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ShapeParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_StringArrayParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStamp.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

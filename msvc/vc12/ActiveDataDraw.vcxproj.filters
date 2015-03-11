@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Data Model">
+      <UniqueIdentifier>{812d39f3-d926-41d8-a4e2-d662ee8b3d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Model">
+      <UniqueIdentifier>{470a3f33-d027-4d24-b7f6-84042aa19275}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\ActiveDataDraw\resources\ActiveDataDraw">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawTestSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_CAFDumperCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Commands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_MiscCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

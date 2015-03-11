@@ -1,0 +1,859 @@
+/*!
+
+\page page_backward_compatibility Backward Compatibility
+
+\section page_backward_compatibility_overview Overview
+
+Backward compatibility conversion mechanism for applications based on Active
+Data framework is conceptually composed of two components: framework's data
+converter and application's data converter.
+
+\image html compat_01.png
+\image latex compat_01.png "" width=150px
+
+This dualism is natural as it comes from the fact that versions of AD framework
+and custom application may evolve independently. E.g. a newer version of Active
+Data can re-organize the way how actual data chunks are stored in OCAF, but it
+cannot influence the structure of the actual domain-specific data model
+grounded on the framework. On the other hand, custom application is free to
+change the contents of its particular data model, but it should not care of
+the changes in the storage scheme which can appear after porting to a newer
+version of the framework. The first kind of evolutionary conversion must be
+performed automatically by the framework, while the second one remains under
+responsibility of the application developer.
+
+The following illustration highlights the necessity of the mentioned conversion
+process appealing to the technical organization of data. Let us consider that
+we have a Data Node composed of three Parameters: X, Y and Z. These Parameters
+could represent some point in 3D space. Internally, in order to have such Node
+in your application, you derive your Node class from <tt>ActData_BaseNode</tt>
+class and declare enumeration for your Parameter IDs:
+
+\verbatim
+enum ParamId
+{
+  PID_X = ActData_BaseNode::UserParam_Last,
+  PID_Y,
+  PID_Z,
+  PID_Last = ActData_BaseNode::UserParam_Last + ActData_BaseNode::RESERVED_PARAM_RANGE
+};
+\endverbatim
+
+Now let us check what will happen if we decide to remove Parameter Y in the
+succeeding version of the application. Without having the corresponding
+compatibility conversion performed, your actual Data Cursors (Nodes in that
+case) will become inconsistent with the loaded OCAF raw data. Indeed, new Data
+Node (with <tt>PID_X</tt> and <tt>PID_Z</tt> Parameters only) will be charged
+with more comprehensive raw data which is still containing Parameter Y.
+Actually, being settled down onto non-adjusted OCAF source, your recent Data
+Node will connect the persistent Y value to its <tt>PID_Z</tt> slot, while
+the persistent Z value itself will remain uncharged. The problem is even more
+insidious as such Data Node will be WELL-FORMED from the framework's point of
+view. Indeed, being unsynchronized with primary OCAF data source, it is
+nevertheless loaded will all necessary data of expected types (Y and Z are
+both Real Parameters in our case).
+
+\image html compat_02.png
+\image latex compat_02.png "" width=250px
+
+In order to fix that problem, we need to remove OCAF label number 2 from the
+imported CAF source and re-number (re-tag) label 3 to have ID equal to 2. This
+simple case is fully domain-specific, so the conversion routine performing
+such "fix" must be implemented at application level.
+
+\image html compat_03.png
+\image latex compat_03.png "" width=250px
+
+To make separation of framework/application conversion routines feasible, two
+version identifiers are bound to any data model grounded on Active Data
+framework:
+
+- Version of the Active Data framework which evolves along with the framework;
+- Version of the application which evolves along with a particular application
+  based on AD framework.
+
+The backward compatibility conversion process is launched automatically
+depending on the relations between the actual version identifiers and those
+restored from the project file being opened.
+
+\image html compat_04.png
+\image latex compat_04.png "" width=180px
+
+If any actual version identifier is less than the version identifier coming from
+the opened project file, the compatibility conversion is impossible. This
+situation is treated as attempting to open a newer version of data model in
+the older environment.
+
+In order to enable compatibility conversion mechanism in your application, it
+is necessary to use dedicated toolkit shipped with the Active Data Framework.
+This section describes the entire conversion process and gives a list of
+available tools.
+
+\section page_backward_compatibility_tools_caf_converter CAF Converter
+
+The evolutionary conversion of data model structures is approached by CAF
+Converter tool represented by <tt>ActData_CAFConverter</tt> class in <tt>Tools</tt>
+sub-package of <tt>ActiveData</tt> library. The instance of this class is
+charged with a set of static functions performing the actual upgrade logic. The
+oldest supported framework's version is 1.0.0 (this is the first release).
+
+CAF Converter tool must be enriched with a dedicated conversion method each
+time the version of the framework or application is incremented. All conversions
+are performed consequently, i.e. upgrading from hypothetical version 1 to
+version 3 will be carried out as conversion for version 1 to version 2 and
+then from version 2 to version 3. Thus the framework developer should take
+care of modification deltas between the consequent pairs of framework versions
+only.
+
+As a reflection of data conversion dualism, <tt>ActData_BaseModel</tt> class
+utilizes two CAF Converter instances: one for the framework conversion and
+another for the application conversion. As framework conversion is carried out
+automatically, the corresponding instance of CAF Converter is allocated and
+initialized by the framework itself. On the other hand, in order to enable the
+application-specific conversion mechanism, the application developer should
+implement pure virtual <tt>converterApp()</tt> method returning the properly
+charged CAF Converter instance. E.g:
+
+\verbatim
+Handle(ActData_CAFConverter) MyDemo_Model::converterApp()
+{
+  return new ActData_CAFConverter(
+    ActData_ConversionStream() << ActData_ConversionTuple(VersionLog_Lot1Iteration4,
+                                                          VersionLog_Lot2Iteration1,
+                                                          APP_CVRS::v040_to_v050)
+                               << ActData_ConversionTuple(VersionLog_Lot2Iteration1,
+                                                          VersionLog_Lot2Iteration2,
+                                                          APP_CVRS::v050_to_v060) );
+}
+\endverbatim
+
+If you are not planning to have any compatibility conversion mechanism in your
+application, just return a NULL value from the mentioned method. It will prevent
+framework from opening the older versions of OCAF documents and lead to graceful
+releasing of internal resources allocated during the loading operation.
+
+Notice that due to incremental nature of the conversion process, you should
+provide continuous set of version deltas along with their correspondent
+conversion routines. You are not forced to respect the versions order here.
+However, you should not introduce version gaps when charging your
+domain-specific CAF Converter. E.g. the following initialization code is
+faulty:
+
+\verbatim
+Handle(ActData_CAFConverter) MyDemo_Model::converterApp()
+{
+  return new ActData_CAFConverter(
+    ActData_ConversionStream() << ActData_ConversionTuple(VersionLog_v1,
+                                                          VersionLog_v2,
+                                                          APP_CVRS::v1_to_v2)
+                               << ActData_ConversionTuple(VersionLog_v3,
+                                                          VersionLog_v4,
+                                                          APP_CVRS::v3_to_v4) );
+}
+\endverbatim
+
+Indeed, being initialized in such a way, CAF Converter cannot perform
+incremental upgrade as there is a gap between version deltas: conversion
+from v2 to v3 is not specified. The following correction will make it work:
+
+\verbatim
+Handle(ActData_CAFConverter) MyDemo_Model::converterApp()
+{
+  return new ActData_CAFConverter(
+    ActData_ConversionStream() << ActData_ConversionTuple(VersionLog_v1,
+                                                          VersionLog_v2,
+                                                          APP_CVRS::v1_to_v2)
+                               << ActData_ConversionTuple(VersionLog_v2,
+                                                          VersionLog_v3,
+                                                          APP_CVRS::v2_to_v3)
+                               << ActData_ConversionTuple(VersionLog_v3,
+                                                          VersionLog_v4,
+                                                          APP_CVRS::v3_to_v4) );
+}
+\endverbatim
+
+Notice that the mentioned routines like v1_to_v2 are fully under responsibility
+of the application developer. It is a good practice to package all such routines
+into a dedicated namespace (<tt>APP_CVRS</tt> here) or even library.
+
+Even though the application-specific conversion process might perform any
+juggling with data and cannot be formalized so, it is nevertheless most often
+composed of series of atomic data modification requests. E.g. such typical
+operations as removing a Parameter from a Data Node or adding a new Parameter
+to the given place are not domain-specific, while their composition is. That
+is why Active Data framework comes with a tool set implementing all standard
+upgrading routines. This tool set contains the following utilities:
+
+- CAF Conversion Asset
+- CAF Conversion Context
+
+Both tools are described below.
+
+\section page_backward_compatibility_tools_caf_conversion_asset CAF Conversion Asset
+
+CAF Conversion Asset allows you performing some well-defined operations on your
+data model being converted. This is actually a container for useful conversion
+logic which can ease your domain-specific conversion. The collection of
+ready-to-use operations can grow with new releases of Active Data framework.
+Here we give an illustrative extraction of some useful functions which are
+currently available in Conversion Asset:
+
+- ActualizeVersions: updates the source versions (application plus framework)
+  of OCAF document to the actual ones. This is the most obvious and primary
+  upgrading routine which have to be performed in any case, even if there is
+  no actual need to perform domain-specific conversion of user data;
+
+- ChangeParameterType (obsolete): changes the type of the given (existing)
+  Parameter to the requested one. This method will clean up the initial
+  Parameter data without a care of any references which might exist in other
+  Data Nodes or even in the same Node. Ergo, use this method with care and do
+  not forget to update the referrers if any. Returns the new Parameter instance
+  of the desired type. This instance is a BAD-FORMED Data Cursor ATTACHED to
+  the CAF source and ready to be populated with actual data so.
+
+\section page_backward_compatibility_tools_caf_conversion_ctx CAF Conversion Context
+
+You could notice that Parameter removal and insertion functionality is not
+provided by Conversion Asset. Generally, these modifications cannot be easily
+achieved at a single pass. For instance, it is not enough to delete a Parameter
+data from the Node's OCAF source as the corresponding OCAF label might have
+been referenced by other Nodes somehow (via Tree Function, Reference Parameter
+etc). In this case all such references have to be normalized. Moreover, there
+is a known OCAF limitation concerning deletion operation. It is not possible
+to remove any label physically from transient OCAF structure. While the latter
+limitation makes a good deal for Undo/Redo mechanism (we always have some label
+to apply modification delta on), it significantly complicates any elegant
+approach to data conversion.
+
+CAF Conversion Context is another tool in framework's conversion gentlemen set.
+It addresses the following issues:
+
+- Insertion/Removal/Modification of Nodal Parameters. Whenever application
+  developer wants to perform such elementary operation, he needs to identify
+  the target Parameters in an exact way. Conversion Context presumes that
+  application developer _always works with original local Parameter IDs_ (PIDs).
+  E.g. you can ask Conversion Context to insert something before "this original PID".
+  It works regardless of whether the referenced PID corresponds to Parameter
+  being removed or not. While such an approach to addressing Parameters is
+  logically transparent, it, however, requires from application developer to
+  know what PIDs have been used in the previous versions of the application;
+
+- Normalization of references. Conversion Context not only applies atomic
+  modifications, but also ensures data consistency in terms of established
+  logical connectivity between Nodal Parameters. Tree Node connectivity is also
+  taken into account, ensuring that parent-child relations between data
+  objects are not lost (no special efforts are needed here as Tree Nodes
+  are established in internal section of Nodal Parameters which are out of
+  scope of compatibility conversion);
+
+- Fighting "ghost" labels. Conversion Context takes advantage of OCCT
+  persistence filtering rules which throw out any dummy non-referenced labels
+  once OCAF document is saved and restored. Therefore, the mentioned problem
+  with dummy labels remaining after deletion is resolved via sequential saving
+  and restoring OCAF document using a temporary file.
+
+\subsection page_backward_compatibility_tools_caf_conversion_ctx_descr General description
+
+As mentioned above, in order to assure that atomic modifications on the data
+model are performed in a consistent way, one should utilize Conversion Context
+tool rather than invoke low-level conversion utilities manually. Conversion
+Context works like a record book accumulating all modification requests to be
+applied on the data model. Once all such requests are gathered, user invokes
+method <tt>Apply()</tt> in order to get them propagated to the model physically.
+
+The philosophy behind this Conversion Context tool is the same as in Re-Shaper
+utility provided by OCCT geometric kernel for topological shapes. At the first
+stage all modification requests are recorded, but no one is applied. Moreover,
+at this stage we do not care of the actual data model instance being converted,
+so all modification records are fully abstract. At the second stage the
+modification requests are applied on a particular instance of a data model
+provided by user. Here Conversion Context ensures that their execution scheme
+is consistent and efficient.
+
+\image html compat_05.png
+\image latex compat_05.png "" width=150px
+
+\subsection page_backward_compatibility_tools_caf_conversion_ctx_ut_approach Approach to unit testing
+
+Unit tests are performed on test data model instances of different structures.
+Each particular type of data model has strictly defined contents and
+connectivity between its underlying Nodes. The following specific types of
+test models are supported at the present day:
+
+- ABC-01
+
+All tests concern only Conversion Context tool and organized in the following
+way:
+
+- Sample data model is created;
+- Instance of Conversion Context tool is used to perform different modifications
+  on this test model;
+- Once conversion is completed, the resulting project is dumped into file using
+  CAF Dumper functionality (the most verbose dumping mode is used here);
+- The output file is compared with referential one. The validity of the
+  referential file is ensured by its preliminary manual calibration. Such
+  calibration is performed only once (when unit tests are implemented).
+
+Atomic conversions are applied to a dedicated sample Data Node containing
+Parameters of almost all supported types, except those which are designed for
+internal usage only (Tree Node Parameter, Type Name Parameter etc).
+
+The general structure of test project ABC-01 is illustrated on the following
+drawing:
+
+\image html compat_06.png
+\image latex compat_06.png "" width=210px
+
+Test project ABC-01 is organized in both simple and illustrative way. Root Node
+A contains two children of different types: B and C. The Node of type C is a
+working Node which will be affected by Conversion Context tool. The Node of
+type B plays a role of external referrer. It holds three types of references
+to Node C:
+
+- Reference List Parameter;
+- Reference Parameter;
+- Tree Function Parameter (it has two inputs and one output).
+
+\subsection page_backward_compatibility_tools_caf_conversion_ctx_requests Conversion requests
+
+Conversion Context supports the following main atomic operations:
+
+- Insertion of a Parameter, including special treatment for appending case;
+- Modification of a Parameter;
+- Removal of a Parameter.
+
+One could easily notice that this triple is similar to well-known
+Create/Update/Delete data modification operations referred to by CRUD
+abbreviation ("R" stands for Read and is out of our interest here). These
+operations form a basis for any, even sophisticated, data morphing routine.
+The mentioned atomic operations can be mentally classified into the following groups:
+
+- Reference-safe;
+- Reference-unsafe.
+
+Reference-safe operations do not affect logical relationship between data
+objects. On the contrast, reference-unsafe operations do. The only
+reference-safe operation is updating as it prohibits any crucial data
+modifications. The remaining operations are reference-unsafe and require
+additional normalization stage to be performed on entire set of data model
+references.
+
+Even though all atomic operations concern Nodal Parameters, they do not
+actually work with Parameter instances. Indeed, Parameter is a transient
+Data Cursor which cannot be used for transferring data without being settled
+down onto OCAF structures. That is why we use a concept of
+DTO (Data Transfer Object) to represent Parameters from the conversion point
+of view. DTO is a well-known design pattern used to transfer data between
+service and persistence architectural layers.
+
+\image html compat_07.png
+\image latex compat_07.png "" width=150px
+
+\image html compat_08.png
+\image latex compat_08.png "" width=210px
+
+DTO is composed of global Parameter's ID (GID) and the actual data being
+transferred. GID is immanent to any DTO type. It contains local Parameter's
+ID (PID from application-specific enumeration) and Node's ID which together
+allow referring to any Parameter in a unique way.
+
+The following rules are established for modification recording:
+
+<ul>
+  <li>
+    One Parameter GID can correspond to a single type of modification only. I.e.
+    it is not possible to record Modification and Removal, Removal and Insertion
+    or Modification and Insertion at the same time for the given GID. In order
+    to do such things, you have to use several Conversion Contexts consequently.
+    Still, it is possible to record insertion "before this ID" multiple times as
+    this operation is logically transparent (new Parameters will appear
+    in the same order they were recorded);
+  </li>
+
+  <li>
+    Conversion Context itself is responsible for keeping Parameter tags in a
+    contiguous form. This requirement reflects the most intuitive way of
+    Parameter tagging in scope of their Data Nodes. It means that normally
+    application developer just adds or removes items from the corresponding
+    enumeration containing all Parameter IDs:
+
+    Version 1 (v1):
+
+    \verbatim
+    enum ParamId
+    {
+      PID_X, // 100
+      PID_Y, // 101
+      PID_Z  // 102
+    };
+    \endverbatim
+
+    Version 2 (v2):
+
+    \verbatim
+    enum ParamId
+    {
+      PID_X, // 100
+      PID_Y, // 101
+      PID_A, // 102
+      PID_B  // 103
+    };
+    \endverbatim
+
+    If application developer uses custom tagging scheme, compatibility conversion
+    should not utilize Conversion Context. In such exotic cases application
+    developer should take care of compatibility conversion process manually.
+  </li>
+
+  <li>
+    As already mentioned above, Insert/Update/Remove operations are specified
+    with use of original Parameter IDs.
+  </li>
+</ul>
+
+The entire workflow automated by Conversion Context is illustrated by example
+below:
+
+\image html compat_09.png
+\image latex compat_09.png "" width=380px
+
+In this example we convert sample Node composed of four Parameters with
+tags in range 100-103. Notice that according to the rules mentioned above,
+Parameter tags should be contiguous.
+
+Conversion Context is initialized with four modification requests (remove,
+update and two inserts). Notice that each modification request is followed by
+basis PID, which is essentially an original PID for data being converted.
+More precisely, the meaning of the basis PID is the following:
+
+- Deletion. Original PID of Parameter to remove;
+- Modification. Original PID of Parameter to update;
+- Insertion. Original PID of Parameter to insert new one before.
+
+Insertion logic presumes that new Parameter being added to the data model
+will get a new PID automatically. Application developer does not care of its
+PID at all. Application developer rather grounds his conversion logic on the
+knowledge of original PID tags in a Data Node being converted.
+
+\subsubsection page_backward_compatibility_tools_caf_conversion_ctx_requests_tmp_model Temporary Conversion Model
+
+Conversion Context uses a notion of temporary Conversion Model in order to
+represent the entire data morphing process. In fact, theoretically it is also
+possible to apply modification requests directly on the target OCAF data
+structures. Such direct approach, however, involves a necessity to perform
+granular modifications in OCAF tree, including re-tagging of labels, insertion
+of labels, partial removal etc. OCAF is not designed well for such kind
+of operational cases, so Conversion Context proceeds in a different way.
+
+All changes introduced during conversion deployment are recorded in a
+dedicated storage called Conversion Model. This storage has nothing to do
+with OCAF, and so it is free from the mentioned limitations.
+
+\image html compat_10.png
+\image latex compat_10.png "" width=150px
+
+Conversion Model distributes its data by Conversion Nodes. Each Conversion Node
+contains Conversion Parameter objects corresponding to a particular Node
+involved in compatibility conversion. Conversion Parameter is a simple wrapper
+under Parameter DTO enriched with conversion history information. History
+includes evolution mark (None, Updated, New, Deleted) and original PID for
+the Parameter (if it is not a NEW one).
+
+Once conversion is performed in a transient way for Conversion Nodes, their
+contents are dumped back to OCAF tree at once. In order to do this, the
+corresponding OCAF Nodal branches are cleaned up and completely
+re-populated from Conversion Model.
+
+\subsubsection page_backward_compatibility_tools_caf_conversion_ctx_requests_ins_app Insertion and appending
+
+Insertion modification request is useful if the newer version of environment
+re-organizes a set of reserved Parameter IDs, introducing new ones at desired
+positions.
+
+Version 1 (v1):
+
+\verbatim
+enum ParamId
+{
+  PID_X, // 100
+  PID_Y, // 101
+  PID_Z  // 102
+};
+\endverbatim
+
+Version 2 (v2):
+
+\verbatim
+enum ParamId
+{
+  PID_X,  // 100
+  PID_X1, // 101
+  PID_Y,  // 102
+  PID_Y1, // 103
+  PID_Z,  // 104
+  PID_Z1  // 105
+};
+\endverbatim
+
+It is not hard to see that such modification implies shifting of original OCAF
+data with inline associating of the shifted PIDs. Furthermore, all existing
+references must be adjusted correspondingly.
+
+\subsubsection page_backward_compatibility_tools_caf_conversion_ctx_requests_modif Modification
+
+Modification request allows changing Parameter data in a convenient way.
+With modification request it is not possible to change Parameter type or any
+other basic Parameter properties.
+
+\subsubsection page_backward_compatibility_tools_caf_conversion_ctx_requests_delete Removal
+
+Removal modification is based on the same approach as insertion and updating
+ones. I.e. removal is applied on the Sampler Model rather that on OCAF
+structures directly. Internally it means that the corresponding Conversion
+Parameter gets specific evolution flag and NULL associated data. This
+information will be taken into account at applying stage of conversion,
+where such nullified Conversion Parameters will not be expanded on the
+resulting OCAF tree.
+
+It is easy to see that removal operation is reference-unsafe. Once any
+Parameter is deleted, the following normalization actions should be
+carried out:
+
+<ul>
+  <li>
+    Check whether any back references exist for this Parameter. This can happen
+    if the target Parameter is one of the following types:
+
+    - Plain Reference;
+    - Reference List;
+    - Tree Function.
+
+    All entries of the target Parameter have to be cleaned up from the detected back reference holders.
+  </li>
+
+  <li>
+    Checks whether the target Parameter is pointed to by any references. The
+    possible reference types are the same as listed above. If any references
+    found, the following rules have to be applied:
+
+    - Plain reference must be nullified;
+    - Reference list must be adjusted to throw out target entries;
+    - Tree Function must be disconnected;
+  </li>
+</ul>
+
+\subsubsection page_backward_compatibility_tools_caf_conversion_ctx_requests_applying Applying
+
+Once modification requests are gathered, application developer can apply
+these requests on his data model being converted. The applying stage consists
+of the following data morphing types:
+
+-# Insertion is applied. Newly added Parameters get temporary dummy PIDs equal to -1;
+-# Removal is applied;
+-# Modification is applied. Modification is nothing but a simple
+   application of new values for the given Parameter. It is not possible, for
+   instance, to change Parameter type with modification request (you
+   should remove and re-create Parameter in the latter case);
+-# Normalization process is performed. Normalization will carry out consistent
+   re-tagging of the final Parameter set, starting from the minimal tag
+   preserved at the very beginning. Newly inserted Parameters will
+   get consistent PIDs instead of their dummy -1 tags. The most important
+   operation here is, however, adjusting of external references.
+
+All these modifications are applied on a copy of the initial data model.
+In order to produce a copy of OCAF document, we save the passed model to
+a temporary file and load this file into another model. Using this approach
+we benefit from OCCT automatic removal mechanism for "ghost" labels.
+Moreover, the initial data model instance remains unchanged.
+
+\section page_backward_compatibility_tools_caf_loader CAF Loader
+
+CAF Loader is a tool dedicated to data model loading operation. Unlike
+simple opening mechanism provided by standard OCAF services in OCCT,
+CAF Loader takes care of compatibility conversion. We use a separate class
+for such loading as compatibility conversion normally requires creation
+of several data model instances and copying of data between them.
+
+\section page_backward_compatibility_tools_caf_dumper CAF Dumper
+
+Generally speaking, it is not a simple process to track all changes introduced
+in the data model in the current development version comparing to its
+previous version. Even if the Active Data framework remains the same and the
+only affected thing is the design of a particular data model, the process of
+domain-specific conversion can be quite sophisticated. In the general case,
+such conversion affects not only the plain data structures, but also the
+explicit (Tree Nodes) and implicit (Tree Function Graph Nodes)
+connectivity of Nodes and Parameters.
+
+In each specific case the developer should possess exhaustive information
+of the contents of the modification delta to make the conversion routine
+complete. In order to facilitate the process of gathering such modification
+deltas, Active Data framework comes with a specific CAF Dumper tool represented
+by <tt>ActData_CAFDumper</tt> class from <tt>Tools</tt> sub-package. This
+class allows making textual human-readable dumps of the data model contents.
+The process of construction of modification delta by dint of CAF Dumper looks
+as follow:
+
+-# Using the previous version of the application (based on AD framework),
+   developer prepares a non-trivial test project. It is recommended to create
+   such a project in a way that the resulting connectivity between its Data
+   Nodes will be as complex as possible. The latter fact reduces the
+   hypothetical possibility to miss changes in some non-obvious associations.
+   E.g. if your application allows creation of Variable Nodes, it is a good
+   idea to design the test project so that the Variables mechanism is
+   actually used;
+
+-# Developer makes a dump of the prepared test project using CAF Dumper tool.
+   The actual dump will be available as an ASCII human-readable file;
+
+-# Using the recent version of the application, developer prepares just the
+   same test project as in the step 1;
+
+-# Developer makes a dump on the new test project using CAF Dumper tool;
+
+-# Developer compares the contents of these two dump files using a preferred
+   diff utility. Thus one is able to see what has been actually changed in
+   the data model structure. Such diff will guide one through the development
+   of a particular conversion routine which will programmatically apply the
+   manually detected modification delta.
+
+The described process is a formalization of a posteriori approach to
+elicitation of modification deltas between different versions of data models.
+Anyway, the ultimate goal here is to collect information about the introduced
+changes in order to build the conversion routine. Therefore, the simpler
+(but less secure) way of just keeping the changes in mind can be also
+reasonable in primitive cases.
+
+\note Please, do not forget also about a-priori way of tracking modification
+      deltas. Such direct tracking can be conveniently implemented via unit
+      tests. Such tests can attempt to load the former versions of your
+      specific projects in the actual environment. Obviously, such tests will
+      fail once the version of the framework or/and application is incremented.
+      Therefore, such scheme keeps you informed that any changes in the data
+      model (even in case of simple version incrementing) must be accompanied
+      with implementing of the correspondent conversion routine. Moreover, as
+      version grows, the test database must be extended with the project files
+      of the older versions. Maintaining such an approach carefully will
+      save your time significantly and can save you from using CAF Dumper
+      challenge in many cases. Just update the tests each time you affect the
+      data model. However, if technically the data model is converted
+      successfully, it does not mean that the conversion is really correct
+      and accurate (some problems can appear in run-time due to insignificant
+      difference in data).
+
+\section page_backward_compatibility_ut Unit tests
+
+\subsection page_backward_compatibility_ut_ins_app Insertion and appending
+
+\subsubsection page_backward_compatibility_ut_ins_app_01 Case INS-001: simple appending
+
+In this scenario new Parameter n5 is appended to a particular Node class.
+Other Parameters are not affected. No references are checked in this case.
+
+\image html compat_ut_01.png
+\image latex compat_ut_01.png "" width=150px
+
+This test is performed on ABC-01 model. New Parameter with PID 118
+(first non-occupied one) will be appended to the working Node of type C.
+Test checks all reasonable Parameter types attempting to append each one for
+a separate instance of data model.
+
+\image html compat_ut_01_1.png
+\image latex compat_ut_01_1.png "" width=150px
+
+\subsubsection page_backward_compatibility_ut_ins_app_02 Case INS-002: ordinary insertion
+
+In this scenario new Parameter is inserted before n4.
+
+\image html compat_ut_02.png
+\image latex compat_ut_02.png "" width=350px
+
+The following peculiarities are checked:
+
+- Parameter n5 gets PID of Parameter n4 (103).
+- Parameter n4 is shifted with a new PID (104).
+- All references and back-references to Parameter n4 are adjusted so that to refer to its new PID.
+
+This test is performed on ABC-01 Model and divided on several sub-tests:
+
+- (a) New Parameter is inserted before existing Timestamp
+      Parameter. The latter one is expected to get PID equal to 118 instead.
+      The only reference established by means of Reference Parameter should be
+      adjusted in that case;
+
+\image html compat_ut_01_2.png
+\image latex compat_ut_01_2.png "" width=150px
+
+- (b) New Parameter is inserted before existing Shape Parameter. The latter
+      Parameter with all the subsequent ones is expected to be shifted.
+      References established by means of Reference List Parameter and Reference
+      Parameter should be adjusted in that case;
+
+\image html compat_ut_01_3.png
+\image latex compat_ut_01_3.png "" width=150px
+
+- (c) New Parameter is inserted before existing ASCII String Parameter.
+      The latter Parameter with all the subsequent ones is expected to be
+      shifted. References established by means of Reference Parameter and
+      Reference List Parameter should be adjusted
+      in that case;
+
+\image html compat_ut_01_4.png
+\image latex compat_ut_01_4.png "" width=150px
+
+- (d) New Parameter is inserted before initialized Reference Parameter pointing
+      out from Node C. As the latter Reference Parameter will be moved, the
+      corresponding external back-references to it should be adjusted. The Reference
+      Parameter itself should keep its target value unchanged;
+
+\image html compat_ut_01_5.png
+\image latex compat_ut_01_5.png "" width=150px
+
+- (e) New Parameter is inserted before initialized Reference List Parameter
+      pointing out from Node C. As the latter Reference List Parameter will
+      be moved, the corresponding back-references to it should be adjusted.
+      The Reference List Parameter itself should keep its target values
+      unchanged;
+
+\image html compat_ut_01_6.png
+\image latex compat_ut_01_6.png "" width=150px
+
+- (f) New Parameter is inserted before initialized Tree Function Parameter
+      pointing out from Node C. As the latter Tree Function Parameter will be
+      moved, the corresponding back-references to it should be adjusted. The
+      Tree Function Parameter itself should keep its argument and result
+      Parameters unchanged. Moreover, its associated GUID should be preserved;
+
+- (g) New Parameter is inserted before initialized Reference Parameter
+      pointing to the moved Parameter of the same Node. As target of the
+      Reference Parameter will be moved, its value should be adjusted
+      correspondingly. No back references exist in such case;
+
+\image html compat_ut_01_7.png
+\image latex compat_ut_01_7.png "" width=150px
+
+- (h) New Parameter is inserted before initialized Reference List Parameter
+      pointing to the moved and not moved Parameters. As some targets of the
+      Reference List Parameter will be moved, these targets should be adjusted
+      correspondingly in the converted Model. For out-scoped targets, the
+      corresponding back references should be normalized as well;
+
+\image html compat_ut_01_8.png
+\image latex compat_ut_01_8.png "" width=150px
+
+- (i) New Parameter is inserted before initialized Tree Function Parameter
+      with references to moved and not moved Parameters. As some results and
+      arguments of Tree Function Parameter are moved, these results and arguments
+      should be adjusted correspondingly. For out-scoped targets, the
+      corresponding back references should be normalized as well;
+
+- (j) Several append operations. Check that if several insertion records are
+      passed with PIDs equal to -1, Conversion Context will not filter them
+      out according to its "request uniqueness" criterion;
+
+- (k) Check if Conversion Context prohibits twice removal, removal &
+      modification on the same PID, twice modification.
+
+Most of the described tests are performed with single Integer Parameter being
+inserted. This allows us to focus the unit tests on normalization use cases,
+rather than on insertion operation itself. The latter operation is exhaustively
+checked by previous test function.
+
+\subsubsection page_backward_compatibility_ut_prep_03 Case INS-003: prepending
+
+This scenario illustrates the "worst" case of insertion as all
+references have to be adjusted here.
+
+\image html compat_ut_03.png
+\image latex compat_ut_03.png "" width=350px
+
+In this case Parameter n5 is inserted before the first Parameter n1. All
+existing sibling Parameters are shifted in the underlying OCAF tree getting
+the corresponding PIDs. Notice that Parameter n1 will reuse former PID
+of Parameter n2 and so on. The corresponding references will be adjusted
+as well.
+
+This test is performed on ABC-01 model. New Parameter with undefined PID (-1)
+is inserted before existing Integer Parameter, which is the first one for the Node
+C. The latter Parameter with all the subsequent ones is expected to be shifted.
+References established by means of Reference Parameter, Reference List
+Parameter and Tree Function Parameter should be automatically adjusted in that case.
+
+\subsubsection page_backward_compatibility_ut_cumul_04 Case INS-004: cumulative insertion test
+
+This test applies several insertion requests on both Nodes C and B for test
+model ABC-01. The initial state with desired insertion positions is
+illustrated on the scheme below:
+
+\image html compat_ut_04.png
+\image latex compat_ut_04.png "" width=300px
+
+All references should be automatically normalized in both B and C Nodes.
+
+\subsection page_backward_compatibility_ut_modif Modification
+
+All unit tests are performed on test model ABC-01.
+
+\subsubsection page_backward_compatibility_ut_modif_01 Case MODIF-001: simple test on modification
+
+This test checks all reasonable Parameter types changing their DTOs.
+
+\subsubsection page_backward_compatibility_ut_modif_02 Case MODIF-002: type safety
+
+Attempts to change Parameter with DTO of different type. Conversion routine will
+fail.
+
+\subsection page_backward_compatibility_ut_delete Removal
+
+Unit tests are performed on test Model ABC-01. In all cases the resulting
+Parameters tagging should be contiguous. No "ghost" references should remain.
+
+\subsubsection page_backward_compatibility_ut_delete_01 Case REMOVE-001
+
+Some non-reference Parameter without any references is removed. Re-tagging
+and normalization should perform correctly.
+
+\image html compat_ut_06.png
+\image latex compat_ut_06.png "" width=350px
+
+\subsubsection page_backward_compatibility_ut_delete_02 Case REMOVE-002
+
+Plain reference exists for the target non-reference Parameter. Target Parameter
+has to be dropped with re-tagging of the remaining ones. Existing reference
+should be nullified. Existing back-reference corresponding to the nullified
+reference should be normalized.
+
+\image html compat_ut_07.png
+\image latex compat_ut_07.png "" width=350px
+
+\subsubsection page_backward_compatibility_ut_delete_03 Case REMOVE-003
+
+Reference list pointing to the target non-reference Parameter exists. Target
+Parameter has to be dropped with re-tagging of the remaining ones. Existing
+reference list should be normalized, so that all target entries have to be
+cleaned up. Existing back-reference should be normalized.
+
+\subsubsection page_backward_compatibility_ut_delete_04 Case REMOVE-004
+
+Tree Function pointing to the target non-reference Parameter exists.
+Target Parameter has to be dropped with re-tagging of the remaining ones.
+Existing Tree Function should be disconnected.
+
+\subsubsection page_backward_compatibility_ut_delete_05 Case REMOVE-005
+
+Plain reference exists for non-empty Reference List Parameter pointing
+to inside and outside of the target Node.
+
+\subsection page_backward_compatibility_ut_complex Complex modification
+
+The cumulative test works on the following initial data model:
+
+\image html compat_ut_08.png
+\image latex compat_ut_08.png "" width=250px
+
+To make this validation case complete, test function uses specific Data
+Node Cursor representing the converted data object. This Data Node is
+settled down onto the produced OCAF tree in order to check its WELL-FORMED
+state.
+
+*/

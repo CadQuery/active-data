@@ -1,0 +1,443 @@
+//-----------------------------------------------------------------------------
+// Created on: June 2012
+//-----------------------------------------------------------------------------
+// Copyright (c) 2017 Sergey Slyadnev
+// Code covered by the MIT License
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+//
+// Web: http://dev.opencascade.org
+//-----------------------------------------------------------------------------
+
+#ifndef ActTest_CopyPasteEngine_HeaderFile
+#define ActTest_CopyPasteEngine_HeaderFile
+
+// ACT Unit Test Suite includes
+#include <ActTest_DummyModel.h>
+
+// ACT Test Library includes
+#include <ActTestLib_Common.h>
+#include <ActTestLib_TestCase.h>
+
+// Active Data includes
+#include <ActData_BaseModel.h>
+#include <ActData_CopyPasteEngine.h>
+#include <ActData_ParameterFactory.h>
+
+//! \ingroup AD_TEST
+//!
+//! Test suite for Active Data.
+//! This class performs unit testing of Copy/Paste functionality provided
+//! by CopyPasteTool class shipped with Data Framework.
+class ActTest_CopyPasteEngine : public ActTestLib_TestCase
+{
+public:
+
+  typedef NCollection_Sequence<ActAPI_DataObjectId> TreeLevelSeq;
+
+public:
+
+  //! Returns Test Case ID.
+  //! \return ID of the Test Case.
+  static int ID()
+  {
+    return CaseID_CopyPasteEngine;
+  }
+
+  //! Returns filename for the description.
+  //! \return filename for the description of the Test Case.
+  static std::string DescriptionFn()
+  {
+    return "ActTest_CopyPasteEngine";
+  }
+
+  //! Returns Test Case description directory.
+  //! \return description directory for the Test Case.
+  static std::string DescriptionDir()
+  {
+    return "Tools";
+  }
+
+  //! Returns pointers to the Test Functions to launch.
+  //! \param functions [out] output collection of pointers.
+  static void Functions(QrTestFunctions& functions)
+  {
+    functions << &testCopyPaste_PlainToPlain
+              << &testCopyPaste_TreeToPlain
+              << &testCopyPaste_TreeWithReferencesToPlain_1
+              << &testCopyPaste_TreeWithReferencesToPlain_2
+              << &testCopyPaste_TreeWithReferencesToPlain_3
+              << &testCopyPaste_TreeWithReferencesToPlain_4
+              << &testCopyPaste_TreeWithReferencesToPlain_5
+              << &testCopyPaste_TreeWithEvalReferencesToPlain
+              << &testCopyPaste_TreeWithPlainReferenceToPlain_1
+              << &testCopyPaste_TreeWithPlainReferenceToPlain_2
+              << &testCopyPaste_TreeWithPlainReferenceToPlain_3
+              << &testCopyPaste_TreeWithPlainReferenceToPlain_4
+              << &testCopyPaste_TreeWithListReferenceToPlain_1
+              << &testCopyPaste_TreeWithListReferenceToPlain_2
+              << &testCopyPaste_TreeWithListReferenceToPlain_3
+              << &testCopyPaste_TreeWithListReferenceToPlain_4
+              << &testCopyPaste_PlainMeshToPlain
+              << &testCopyPaste_PasteWithDEAD_DFunctionArgument
+              << &testCopyPaste_PasteWithDEAD_DFunctionResult
+              << &testCopyPaste_PasteWithDEADReference;
+  }
+
+// Test functions:
+private:
+
+  static bool testCopyPaste_PlainToPlain                     (const int funcID); // Case 1
+  static bool testCopyPaste_TreeToPlain                      (const int funcID); // Case 2
+  static bool testCopyPaste_TreeWithReferencesToPlain_1      (const int funcID); // Case 3.1
+  static bool testCopyPaste_TreeWithReferencesToPlain_2      (const int funcID); // Case 3.2
+  static bool testCopyPaste_TreeWithReferencesToPlain_3      (const int funcID); // Case 3.3
+  static bool testCopyPaste_TreeWithReferencesToPlain_4      (const int funcID); // Case 3.4
+  static bool testCopyPaste_TreeWithReferencesToPlain_5      (const int funcID); // Case 3.5
+  static bool testCopyPaste_TreeWithEvalReferencesToPlain    (const int funcID); // Case 4
+  static bool testCopyPaste_TreeWithPlainReferenceToPlain_1  (const int funcID); // Case 5.1
+  static bool testCopyPaste_TreeWithPlainReferenceToPlain_2  (const int funcID); // Case 5.2
+  static bool testCopyPaste_TreeWithPlainReferenceToPlain_3  (const int funcID); // Case 5.3
+  static bool testCopyPaste_TreeWithPlainReferenceToPlain_4  (const int funcID); // Case 5.4
+  static bool testCopyPaste_TreeWithListReferenceToPlain_1   (const int funcID); // Case 6.1
+  static bool testCopyPaste_TreeWithListReferenceToPlain_2   (const int funcID); // Case 6.2
+  static bool testCopyPaste_TreeWithListReferenceToPlain_3   (const int funcID); // Case 6.3
+  static bool testCopyPaste_TreeWithListReferenceToPlain_4   (const int funcID); // Case 6.4
+  static bool testCopyPaste_PlainMeshToPlain                 (const int funcID); // Case 7
+  static bool testCopyPaste_PasteWithDEAD_DFunctionArgument  (const int funcID); // Case 8
+  static bool testCopyPaste_PasteWithDEAD_DFunctionResult    (const int funcID); // Case 9
+  static bool testCopyPaste_PasteWithDEADReference           (const int funcID); // Case 10
+
+private:
+
+  static bool
+    populateSampleTree(const Handle(ActTest_DummyModel)& M,
+                       ActAPI_DataObjectIdList& ANodeIDs,
+                       ActAPI_DataObjectIdList& BNodeIDs,
+                       ActAPI_DataObjectIdList& VARNodeIDs);
+
+  static void
+    verifyTree(const Handle(ActAPI_INode)& theRoot,
+               const ActData_CopyPasteEngine::RelocationTable& COPYReloc,
+               const ActData_CopyPasteEngine::RelocationTable& PASTEReloc,
+               TreeLevelSeq* TREELevels,
+               const Standard_Integer LevelIndex,
+               const Standard_Integer SiblingIndex,
+               Standard_Boolean& IsOK);
+
+  static TCollection_AsciiString
+    dumpPath();
+
+private:
+
+  //! Auxiliary tool performing validation of Nodal references.
+  class ReferenceValidator
+  {
+  public:
+
+    //! Default constructor.
+    ReferenceValidator() {}
+
+  public:
+
+    //! Nested validator for plain references.
+    class Reference
+    {
+    public:
+
+      //! Constructor initializing the nested reference with the given one.
+      //! \param Param [in] Reference Parameter to validate.
+      Reference(const Handle(ActAPI_IUserParameter)& Param)
+      {
+        param = ActData_ParameterFactory::AsReference(Param);
+      }
+
+      //! Checks whether the referenced target is equal to the given one.
+      //! \param theDC [in] expected target.
+      //! \return true/false.
+      Standard_Boolean TargetIs(const Handle(ActAPI_IDataCursor)& theDC)
+      {
+        return ActAPI_IDataCursor::IsEqual(param->GetTarget(), theDC);
+      }
+
+    private:
+
+      //! Reference Parameter being validated.
+      Handle(ActData_ReferenceParameter) param;
+
+    };
+
+    //! Nested validator for reference lists.
+    class ReferenceList
+    {
+    public:
+
+      //! Constructor initializing the nested reference with the given one.
+      //! \param theParam [in] Reference Parameter to validate.
+      ReferenceList(const Handle(ActAPI_IUserParameter)& theParam)
+      {
+        param = ActData_ParameterFactory::AsReferenceList(theParam);
+      }
+
+      //! Checks whether the Reference List Parameter points to the given
+      //! target.
+      //! \param theDC [in] expected target.
+      //! \return true/false.
+      Standard_Boolean HasTarget(const Handle(ActAPI_IDataCursor)& theDC)
+      {
+        return param->HasTarget(theDC) > 0;
+      }
+
+      //! Checks whether the working Reference List is empty.
+      //! \return true/false.
+      Standard_Boolean IsEmpty()
+      {
+        return param->AccessReferenceList().IsNull() || param->AccessReferenceList()->IsEmpty();
+      }
+
+    private:
+
+      //! Reference List Parameter being validated.
+      Handle(ActData_ReferenceListParameter) param;
+
+    };
+
+    //! Nested validator for Nodes from referencing perspective.
+    class Node
+    {
+    public:
+
+      //! Constructs Node validator initialized with the given Node.
+      //! \param Node [in] Data Node to validate.
+      Node(const Handle(ActAPI_INode)& Node)
+      {
+        m_node = Node;
+      }
+
+      //! Checks the exact equality of the registered INPUT Readers to the
+      //! passed list (stream) of Parameters.
+      Standard_Boolean InputReadersAre(const ActAPI_ParameterStream& theStream)
+      {
+        if ( m_node->GetInputReaders()->Length() != theStream.List->Length() )
+          return Standard_False;
+
+        Handle(ActAPI_HParameterList) IR = m_node->GetInputReaders();
+        for ( ActAPI_ParameterList::Iterator it( *IR.operator->() ); it.More(); it.Next() )
+        {
+          Standard_Boolean isObserverInStream = Standard_False;
+          for ( ActAPI_ParameterList::Iterator sit( *theStream.List.operator->() ); sit.More(); sit.Next() )
+          {
+            if ( ActAPI_IDataCursor::IsEqual( it.Value(), sit.Value() ) )
+            {
+              isObserverInStream = Standard_True;
+              break;
+            }
+          }
+          if ( !isObserverInStream )
+            return Standard_False;
+        }
+
+        return Standard_True;
+      }
+
+      //! Checks the exact equality of the registered OUTPUT Writers to the
+      //! passed list (stream) of Parameters.
+      Standard_Boolean OutputWritersAre(const ActAPI_ParameterStream& theStream)
+      {
+        if ( m_node->GetOutputWriters()->Length() != theStream.List->Length() )
+          return Standard_False;
+
+        Handle(ActAPI_HParameterList) OW = m_node->GetOutputWriters();
+        for ( ActAPI_ParameterList::Iterator it( *OW.operator->() ); it.More(); it.Next() )
+        {
+          Standard_Boolean isObserverInStream = Standard_False;
+          for ( ActAPI_ParameterList::Iterator sit( *theStream.List.operator->() ); sit.More(); sit.Next() )
+          {
+            if ( ActAPI_IDataCursor::IsEqual( it.Value(), sit.Value() ) )
+            {
+              isObserverInStream = Standard_True;
+              break;
+            }
+          }
+          if ( !isObserverInStream )
+            return Standard_False;
+        }
+
+        return Standard_True;
+      }
+
+      //! Checks the exact equality of the registered REFERRERS to the
+      //! passed list (stream) of Parameters.
+      Standard_Boolean ReferrersAre(const ActAPI_ParameterStream& theStream)
+      {
+        if ( m_node->GetReferrers()->Length() != theStream.List->Length() )
+          return Standard_False;
+
+        Handle(ActAPI_HParameterList) R = m_node->GetReferrers();
+        for ( ActAPI_ParameterList::Iterator it( *R.operator->() ); it.More(); it.Next() )
+        {
+          Standard_Boolean isObserverInStream = Standard_False;
+          for ( ActAPI_ParameterList::Iterator sit( *theStream.List.operator->() ); sit.More(); sit.Next() )
+          {
+            if ( ActAPI_IDataCursor::IsEqual( it.Value(), sit.Value() ) )
+            {
+              isObserverInStream = Standard_True;
+              break;
+            }
+          }
+          if ( !isObserverInStream )
+            return Standard_False;
+        }
+
+        return Standard_True;
+      }
+
+      //! Returns true if the validated Data Node has any observers, i.e. it
+      //! has non-empty list of back-references.
+      //! \return true/false.
+      Standard_Boolean HasObservers()
+      {
+        return this->HasInputReaders() || this->HasOutputWriters() || this->HasReferrers();
+      }
+
+      //! Returns true if the validated Data Node has any INPUT Readers.
+      //! \return true/false.
+      Standard_Boolean HasInputReaders()
+      {
+        return !m_node->GetInputReaders()->IsEmpty();
+      }
+
+      //! Returns true if the validated Data Node has any OUTPUT Writers.
+      //! \return true/false.
+      Standard_Boolean HasOutputWriters()
+      {
+        return !m_node->GetOutputWriters()->IsEmpty();
+      }
+
+      //! Returns true if the validated Data Node has any Referrers.
+      //! \return true/false.
+      Standard_Boolean HasReferrers()
+      {
+        return !m_node->GetReferrers()->IsEmpty();
+      }
+
+    private:
+
+      //! Data Node being validated.
+      Handle(ActAPI_INode) m_node;
+
+    };
+
+    //! Nested validator for Tree Function Parameters.
+    class TreeFunction
+    {
+    public:
+
+      //! Constructs Tree Function validator initialized with the given
+      //! reference.
+      //! \param Param [in] Tree Function Parameter to validate.
+      TreeFunction(const Handle(ActAPI_IUserParameter)& Param)
+      {
+        param = ActData_ParameterFactory::AsTreeFunction(Param);
+      }
+
+      //! Checks whether the validated Tree Function Parameter has output
+      //! Parameters from the given Node.
+      //! \param Node [in] Node to check.
+      //! \return true/false.
+      Standard_Boolean IsOutputWriterFor(const Handle(ActAPI_INode)& Node)
+      {
+        Handle(ActAPI_HParameterList) OW = Node->GetOutputWriters();
+        for ( ActAPI_ParameterList::Iterator it( *OW.operator->() ); it.More(); it.Next() )
+        {
+          if ( ActAPI_IDataCursor::IsEqual(it.Value(), param) )
+            return Standard_True;
+        }
+
+        return Standard_False;
+      }
+
+      //! Checks whether the validated Tree Function Parameter has output
+      //! Parameter equal the given one.
+      //! \param Param [in] Parameter to check.
+      //! \return true/false.
+      Standard_Boolean HasAsResult(const Handle(ActAPI_IUserParameter)& Param)
+      {
+        Handle(ActAPI_HParameterList) Results = param->Results();
+
+        if ( Results.IsNull() )
+          return Standard_False;
+
+        for ( ActAPI_ParameterList::Iterator it( *Results.operator->() ); it.More(); it.Next() )
+        {
+          if ( ActAPI_IDataCursor::IsEqual(it.Value(), Param) )
+            return Standard_True;
+        }
+
+        return Standard_False;
+      }
+
+      //! Checks whether the validated Tree Function Parameter has input
+      //! Parameters from the given Node.
+      //! \param Node [in] Node to check.
+      //! \return true/false.
+      Standard_Boolean IsInputReaderFor(const Handle(ActAPI_INode)& Node)
+      {
+        Handle(ActAPI_HParameterList) IR = Node->GetInputReaders();
+        for ( ActAPI_ParameterList::Iterator it( *IR.operator->() ); it.More(); it.Next() )
+        {
+          if ( ActAPI_IDataCursor::IsEqual(it.Value(), param) )
+            return Standard_True;
+        }
+
+        return Standard_False;
+      }
+
+      //! Checks whether the validated Tree Function Parameter has input
+      //! Parameter equal the given one.
+      //! \param Param [in] Parameter to check.
+      //! \return true/false.
+      Standard_Boolean HasAsArgument(const Handle(ActAPI_IUserParameter)& Param)
+      {
+        Handle(ActAPI_HParameterList) Args = param->Arguments();
+
+        if ( Args.IsNull() )
+          return Standard_False;
+
+        for ( ActAPI_ParameterList::Iterator it( *Args.operator->() ); it.More(); it.Next() )
+        {
+          if ( ActAPI_IDataCursor::IsEqual(it.Value(), Param) )
+            return Standard_True;
+        }
+
+        return Standard_False;
+      }
+
+    private:
+
+      //! Tree Function Parameter being checked.
+      Handle(ActData_TreeFunctionParameter) param;
+
+    };
+
+  };
+
+};
+
+#endif

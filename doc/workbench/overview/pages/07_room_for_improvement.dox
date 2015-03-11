@@ -1,0 +1,53 @@
+/*!
+
+\page page_room_for_improvement Room for Improvement
+
+\section page_room_for_improvement_common Common
+
+- Sample application for Active Data;
+
+- Update to standard OCCT mesh attribute once implemented;
+
+- Review possibility to merge ActiveDataAPI and ActiveDataAux with the main
+  ActiveData library;
+
+- Get rid of matrix parameters as they are not efficient. Or consider
+  introducing 2-dimensional arrays as OCAF attributes;
+
+- Format of AD is very verbose. Can we reduce the amount of meta-information
+  around Parameters?
+
+- Estimate memory footprint and performance.
+
+\section page_room_for_improvement_copy_paste Copy/Paste
+
+- Implement Cut operation as an alternative to Paste. This might be especially
+  useful when large data sets are copied. In the latter case it could be
+  reasonable not to keep the buffer at all;
+
+- Multi-buffering;
+
+- Copy/Paste buffer is saved to a file along with other data. This is, however,
+  redundant but we cannot just remove the buffering section before saving as it
+  will drop the buffer. The best option would be ignore the buffering section
+  (along with LogBook section too) when saving, however, it is not clear not
+  how to do it.
+
+\section page_room_for_improvement_UR Undo/Redo
+
+- Elaborate adaptive Undo limitation mechanism. E.g. it is a good idea to
+  establish limitation rules such as number of steps and maximum occupied memory;
+
+\section page_rrom_for_improvement_conversion Compatibility Conversion
+
+- Improve CAF Dumper, so that to allow dumping not only the structure of data
+  model, but also Dependency Graphs;
+
+- Improve Conversion Context with possibility to replicate any given
+  atomic operation for the given type of the Node. Without this possibility
+  application developer is forced to iterate over the entire model in
+  order to apply the same kind of data morphing to each Node instance;
+
+- Gather conversion statistics;
+
+*/

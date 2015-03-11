@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{526C1EEF-07AE-4487-9629-21535E8F7EEE}</ProjectGuid>
+    <RootNamespace>ActDraw</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\bind\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\objd\ActDraw\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <LinkDelaySign Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    </LinkDelaySign>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\DS\hxx;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\STD;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveDataDraw;$(AD_ROOT)\src\ActiveDataDraw\DataModel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ACT_DEBUG;ActDraw_EXPORTS;_WINDOWS;WNT;CSFDB;C40;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>..\..\win64\vc10\libd\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\DS\hxx;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\STD;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveDataDraw;$(AD_ROOT)\src\ActiveDataDraw\DataModel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ActDraw_EXPORTS;NDEBUG;_WINDOWS;WNT;CSFDB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>..\..\win64\vc10\lib\$(TargetName).lib</ImportLibrary>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="ActiveData.vcxproj">
+      <Project>{f44a1d41-002b-4419-bd23-2ae2d42ccc65}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAPI.vcxproj">
+      <Project>{a9e94fc0-f808-4186-b4f9-9ce039faf3f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAux.vcxproj">
+      <Project>{df35c4a5-fb18-423d-9cfd-679998a20999}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Commands.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Common.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawTestSuite.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.h" />
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_CAFDumperCommands.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Commands.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Common.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_MiscCommands.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\ActiveDataDraw\resources\ActiveDataDraw">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,22 @@
+[TITLE]
+
+  Extended Transaction Engine
+
+[1:OVERVIEW]
+
+  Performs several named commits and checks that the stored Undo collection
+  is well-formed, while Redo one is empty.
+
+[2:OVERVIEW]
+
+  After several commits, performs Undo operations and checks the UR collection
+  contents.
+
+[3:OVERVIEW]
+
+  After several commits and Undo operations, performs Redo operations and checks the
+  UR collection contents.
+
+[4:OVERVIEW]
+
+  Checks if Undo Limit works.

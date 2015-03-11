@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="1680" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_117" opacity="0.25" height="452.999975" width="892" y="1148.199984" x="244.5" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#aad4ff"/>
+  <rect opacity="0.25" id="svg_116" height="452.999975" width="892" y="679.199984" x="245.5" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#aad4ff"/>
+  <ellipse ry="66.500001" rx="143.806252" id="svg_64" cy="973.516433" cx="692.739643" opacity="0.65" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#7fff00"/>
+  <rect ry="43" rx="43" id="svg_63" height="83" width="404" y="769.016602" x="501.93335" opacity="0.65" stroke-width="3" stroke="#000000" fill="#ff7f00"/>
+  <rect opacity="0.65" id="svg_36" height="454" width="725" y="107" x="107" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#ffffaa"/>
+  <rect id="svg_1" height="53" width="145.999995" y="74.999999" x="70" stroke-width="4" stroke="#000000" fill="#ffb775"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_2" y="113" x="140" stroke-width="0" stroke="#000000" fill="#000000">Node</text>
+  <rect opacity="0.5" stroke-width="2" id="svg_3" height="85" width="608.000018" y="156" x="160" stroke-dasharray="2,2" stroke="#000000" fill="#aad4ff"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_4" y="151" x="733" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">User</text>
+  <rect id="svg_5" opacity="0.5" stroke-width="2" height="85" width="606.00001" y="299" x="160.999999" stroke-dasharray="2,2" stroke="#000000" fill="#aad4ff"/>
+  <text id="svg_6" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="293" x="702" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Internal</text>
+  <rect ry="5" rx="5" id="svg_7" height="94" width="112" y="186" x="187" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" id="svg_8" y="180" x="246" stroke-width="0" stroke="#000000" fill="#000000">Slot U1</text>
+  <rect id="svg_9" ry="5" rx="5" height="94" width="112" y="186" x="314" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_10" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="180" x="373" stroke-width="0" stroke="#000000" fill="#000000">Slot U2</text>
+  <rect id="svg_11" ry="5" rx="5" height="94" width="112" y="186" x="499" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_12" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="180" x="558" stroke-width="0" stroke="#000000" fill="#000000">Slot Un</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_13" y="226" x="460" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">...</text>
+  <rect id="svg_14" ry="5" rx="5" height="94" width="112" y="331" x="188" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_15" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="247" stroke-width="0" stroke="#000000" fill="#000000">Slot I1</text>
+  <rect id="svg_16" ry="5" rx="5" height="94" width="112" y="331" x="315" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_17" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="374" stroke-width="0" stroke="#000000" fill="#000000">Slot I2</text>
+  <rect id="svg_18" ry="5" rx="5" height="94" width="112" y="331" x="500" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_19" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="559" stroke-width="0" stroke="#000000" fill="#000000">Slot Im</text>
+  <text id="svg_20" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="371" x="461" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">...</text>
+  <rect id="svg_29" ry="5" rx="5" height="12.589285" width="15" y="500.500007" x="186.249999" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_30" transform="matrix(0.832847, 0, 0, 0.832847, 20.3933, 66.8879)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="510.05005" x="212.351947" stroke-width="0" stroke="#000000" fill="#000000">Slot Ui</text>
+  <rect id="svg_31" ry="5" rx="5" height="12.589285" width="15" y="500.000007" x="296.999999" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_32" transform="matrix(0.832847, 0, 0, 0.832847, 20.3933, 66.8879)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="509.449671" x="345.329543" stroke-width="0" stroke="#000000" fill="#000000">Slot Ij</text>
+  <line id="svg_33" y2="506" x2="285.027772" y1="506" x1="213" stroke-width="2" stroke="#000000" fill="none"/>
+  <path id="svg_34" d="m212.25,506.25l0,3.75l-3.75,-3.75l3.75,-3.75l0,3.75z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <path id="svg_35" transform="rotate(-180, 287.125, 505.75)" d="m289,505.75l0,3.75l-3.75,-3.75l3.75,-3.75l0,3.75z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_37" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="95" x="427" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Parameter Scope</text>
+  <ellipse ry="25" rx="25" id="svg_38" cy="614" cx="129" opacity="0.65" stroke-dasharray="5,5" stroke-width="4" stroke="#000000" fill="#ffffaa"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_39" y="625" x="244" opacity="0.65" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">TDF Label</text>
+  <g opacity="0.6" transform="rotate(13.8954, 242.166, 234.166)" id="svg_42">
+   <ellipse ry="12.603207" rx="8.731182" id="svg_40" cy="234.425308" cx="241.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_41" y2="214.292436" x2="258.286225" y1="254.041012" x1="226.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_43" opacity="0.6" transform="rotate(13.8954, 369.916, 234.166)">
+   <ellipse id="svg_44" ry="12.603207" rx="8.731182" cy="234.425308" cx="369.245732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_45" y2="214.292436" x2="386.036225" y1="254.041012" x1="353.798013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_46" opacity="0.6" transform="rotate(13.8954, 558.166, 234.166)">
+   <ellipse id="svg_47" ry="12.603207" rx="8.731182" cy="234.425308" cx="557.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_48" y2="214.292436" x2="574.286225" y1="254.041012" x1="542.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_49" opacity="0.6" transform="rotate(13.8954, 247.166, 377.166)">
+   <ellipse id="svg_50" ry="12.603207" rx="8.731182" cy="377.425308" cx="246.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_51" y2="357.292436" x2="263.286225" y1="397.041012" x1="231.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_52" opacity="0.6" transform="rotate(13.8954, 374.916, 377.166)">
+   <ellipse id="svg_53" ry="12.603207" rx="8.731182" cy="377.425308" cx="374.245732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_54" y2="357.292436" x2="391.036225" y1="397.041012" x1="358.798013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_55" opacity="0.6" transform="rotate(13.8954, 559.166, 376.666)">
+   <ellipse id="svg_56" ry="12.603207" rx="8.731182" cy="376.925308" cx="558.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_57" y2="356.792436" x2="575.286225" y1="396.541012" x1="543.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_58" opacity="0.6" transform="rotate(13.8954, 129.86, 613.904)">
+   <ellipse id="svg_59" ry="9.481258" rx="6.568376" cy="614.098686" cx="129.355613" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_60" y2="598.95294" x2="141.986923" y1="628.855371" x1="117.734459" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <text opacity="0.75" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_61" y="62.849976" x="145.033325" stroke-width="0" stroke="#000000" fill="#ff7f00">DETACHED</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="47" id="svg_62" y="823.116699" x="710.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">Tree Function</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="32" id="svg_65" y="963.016602" x="692.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">CAF-based</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="32" id="svg_66" y="1000.016602" x="692.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">algorithm</text>
+  <text font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="47" id="svg_67" y="730.016602" x="364.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#ff0000">Problem:</text>
+  <polyline id="svg_71" points="-834.11669921875,908.6500244140625 -833.11669921875,908.6500244140625 -826.11669921875,908.6500244140625 " opacity="0.75" stroke-linecap="round" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="none"/>
+  <g opacity="0.65" id="svg_72">
+   <path d="m501.023285,833.167114c-0.469086,0 -1.427887,0.837341 -2.814545,1.33905c-3.338989,1.207886 -4.851349,1.345337 -8.560913,2.789795c-13.256561,6.372192 -17.443665,10.79834 -20.93277,13.446106c-16.087067,19.686279 -13.780975,21.204834 -15.070068,23.936523c-1.034821,2.192505 -1.548004,5.318848 -1.876373,6.695435c-0.835907,3.509277 -1.277802,5.812439 -1.875977,12.051697c-0.385986,4.02533 -0.703369,6.232117 -0.938171,10.712646c-0.116913,2.229126 0,4.909973 0,7.141785c0,1.7854 -0.138672,4.023499 0,5.356323c0.235657,2.264771 0.01358,4.047546 0.469055,7.141724c0.473694,3.218262 1.125458,6.649902 2.110565,10.266296c0.627655,2.648682 2.184082,8.607605 3.987274,12.274902c0.656738,2.188049 2.094025,6.440979 4.925476,10.935791c0.929749,1.536438 3.632629,6.023193 6.801819,9.819946c1.889526,1.877441 4.401031,4.250244 5.62912,5.356323c1.704681,1.533691 4.13269,3.673523 7.505463,6.249023c1.829468,1.39624 5.858032,4.713623 10.320007,6.472229c3.155151,1.243591 7.450134,2.585327 10.789124,3.794067c2.773285,1.003479 6.07663,1.855103 7.505493,2.231812c2.995605,0.428467 6.109436,0.634705 9.381836,0.8927c2.843628,0.224121 4.690918,0.892761 7.036377,0.892761c0.469055,0 1.876404,0 2.814575,0c0.469055,0 1.407288,0 1.876343,0c0.469116,0 0.938171,0 1.407288,0c0.469116,0 0.938171,0 1.876343,0c0.938232,0 1.732849,-0.205322 2.345459,-0.446411c0.433472,-0.171387 1.407288,0 1.876404,0c0.938171,0 1.73938,-0.131165 1.407288,-0.44635c-0.331177,-0.315979 -1.407288,-0.44635 -2.814575,-0.8927c-18.258911,-11.330444 -11.023682,-6.695374 -19.232788,-11.605347" id="svg_69" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path d="m539.958252,992.29425c-1.407227,0 -2.301514,0.046143 -2.814514,0.446411c-16.982544,14.169006 -9.147278,8.034424 -17.8255,15.176208" id="svg_70" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <g transform="rotate(7.52523, 906.422, 928.043)" id="svg_73" opacity="0.65">
+   <path id="svg_74" d="m898.49292,839.808167c0.563782,0 1.716064,0.84552 3.382446,1.352173c4.012695,1.219788 5.830139,1.358582 10.288147,2.817261c15.931213,6.434814 20.963074,10.90448 25.156067,13.578308c19.332825,19.879761 16.561462,21.413269 18.110596,24.171814c1.243591,2.21405 1.860352,5.371155 2.254944,6.76123c1.004517,3.543823 1.535583,5.869629 2.254456,12.170227c0.463867,4.06488 0.845276,6.293335 1.127502,10.817932c0.140503,2.251038 0,4.958252 0,7.211975c0,1.802979 0.166626,4.063049 0,5.408997c-0.283203,2.287048 -0.016418,4.087341 -0.563721,7.211914c-0.569214,3.249878 -1.352539,6.715332 -2.536377,10.367249c-0.754333,2.674683 -2.624756,8.6922 -4.791748,12.39563c-0.789185,2.209473 -2.516541,6.504272 -5.91925,11.043274c-1.11731,1.551514 -4.365479,6.082336 -8.174072,9.916504c-2.270813,1.895813 -5.289001,4.291992 -6.764893,5.408936c-2.048584,1.548767 -4.966553,3.709656 -9.019714,6.310486c-2.198547,1.409973 -7.039917,4.759888 -12.4021,6.535889c-3.791809,1.255737 -8.953369,2.610718 -12.965942,3.831299c-3.332764,1.013367 -7.302551,1.873352 -9.019775,2.253784c-3.600037,0.432617 -7.342102,0.64093 -11.274719,0.901489c-3.417358,0.226257 -5.637329,0.901489 -8.456055,0.901489c-0.56366,0 -2.254944,0 -3.382385,0c-0.563721,0 -1.691223,0 -2.254944,0c-0.563721,0 -1.127441,0 -1.691162,0c-0.563782,0 -1.127502,0 -2.254883,0c-1.127563,0 -2.08252,-0.207336 -2.818726,-0.450806c-0.520874,-0.173035 -1.691223,0 -2.255005,0c-1.127441,0 -2.090332,-0.132385 -1.691162,-0.450684c0.397949,-0.319153 1.691162,-0.450806 3.382446,-0.901489c21.942688,-11.441833 13.247742,-6.76123 23.113098,-11.719421" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path id="svg_75" d="m851.702576,1000.499634c1.691162,0 2.765869,0.04657 3.382385,0.450867c20.408936,14.308289 10.992737,8.113342 21.421936,15.325378" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <text font-weight="bold" transform="rotate(23.9873, 473.021, 999)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" id="svg_76" y="1005.5" x="470.599976" stroke-width="0" stroke="#000000" fill="#ff7f00">INPUT Parameter</text>
+  <text id="svg_77" font-weight="bold" transform="rotate(-21.2633, 946.82, 1005)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" y="1011.5" x="943.599976" stroke-width="0" stroke="#000000" fill="#ff7f00">OUTPUT Parameter</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_78" y="1079.5" x="711.599976" opacity="0.75" stroke-width="0" stroke="#000000" fill="#ff0000">Algorithm depends on Data Model</text>
+  <ellipse id="svg_79" ry="66.500001" rx="143.806252" cy="1439.516433" cx="683.739643" opacity="0.65" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#7fff00"/>
+  <rect id="svg_80" ry="43" rx="43" height="83" width="404" y="1235.016602" x="492.93335" opacity="0.65" stroke-width="3" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_81" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="47" y="1289.116699" x="701.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">Tree Function</text>
+  <text id="svg_82" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="32" y="1431.016602" x="687.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">Generic</text>
+  <text id="svg_83" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="32" y="1466.016602" x="683.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">algorithm</text>
+  <text id="svg_84" font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="47" y="1199.016602" x="360.93335" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#007f00">Solution:</text>
+  <g transform="rotate(43.6256, 427.16, 1331.87)" id="svg_85" opacity="0.65">
+   <path id="svg_86" d="m434.53006,1247.153076c-0.524048,0 -1.595306,0.811646 -3.144531,1.298218c-3.730469,1.171021 -5.420074,1.304443 -9.564545,2.704712c-14.81076,6.178345 -19.488739,10.46936 -23.386902,13.036621c-17.973083,19.08667 -15.396606,20.55896 -16.836823,23.207275c-1.156158,2.125732 -1.729492,5.156738 -2.096405,6.491577c-0.933838,3.402344 -1.427551,5.63562 -2.095886,11.68457c-0.431274,3.902588 -0.785828,6.042358 -1.048157,10.386353c-0.130646,2.161133 0,4.760376 0,6.924316c0,1.730957 -0.154907,3.900757 0,5.192993c0.263336,2.195801 0.015198,3.924438 0.524078,6.924316c0.529205,3.120117 1.257446,6.447144 2.357971,9.953369c0.701233,2.567993 2.440155,8.345459 4.454773,11.901001c0.733704,2.121338 2.339539,6.244995 5.502899,10.602661c1.038727,1.489746 4.058472,5.839722 7.599243,9.520874c2.111053,1.820313 4.916992,4.121094 6.289093,5.193237c1.90451,1.486816 4.617188,3.561646 8.385376,6.058472c2.043884,1.353882 6.544739,4.570068 11.529877,6.275269c3.525024,1.205444 8.323547,2.506592 12.054016,3.678589c3.098389,0.972534 6.789001,1.798462 8.385468,2.163696c3.346741,0.415405 6.825684,0.615234 10.481781,0.865601c3.17688,0.217285 5.240753,0.865601 7.861206,0.865601c0.524048,0 2.096375,0 3.144623,0c0.523987,0 1.572235,0 2.096283,0c0.524078,0 1.048157,0 1.572205,0c0.52417,0 1.048248,0 2.096436,0c1.048218,0 1.935974,-0.199219 2.620361,-0.433105c0.484314,-0.166016 1.572296,0 2.096375,0c1.048157,0 1.943329,-0.126953 1.572235,-0.432495c-0.369904,-0.306519 -1.572235,-0.432739 -3.14447,-0.865601c-20.399597,-10.985352 -12.316132,-6.491455 -21.487579,-11.251831" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path id="svg_87" d="m478.029663,1401.432983c-1.572205,0 -2.571411,0.044556 -3.14444,0.432739c-18.973572,13.737305 -10.219788,7.789673 -19.915375,14.713745" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <text id="svg_91" font-weight="bold" transform="rotate(60.5062, 344.021, 1360)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" y="1366.5" x="341.599976" stroke-width="0" stroke="#000000" fill="#ff7f00">INPUT Parameter</text>
+  <text id="svg_92" font-weight="bold" transform="rotate(-45.5115, 1046.82, 1369)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" y="1375.5" x="1043.599976" stroke-width="0" stroke="#000000" fill="#ff7f00">OUTPUT Parameter</text>
+  <text id="svg_93" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" y="1545.5" x="702.599976" stroke-width="0" stroke="#000000" fill="#007f00">Algorithm defines generic adaptors</text>
+  <ellipse ry="26" rx="26" id="svg_94" cy="1429.100098" cx="444" opacity="0.65" stroke-width="3" stroke="#000000" fill="#7fff00"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" id="svg_95" y="1482.100098" x="440" opacity="0.75" stroke-width="0" stroke="#000000" fill="#000000">INPUT Adaptor</text>
+  <g id="svg_96" transform="rotate(-38.4371, 956.366, 1331.74)" opacity="0.65">
+   <path id="svg_97" d="m947.765747,1255.908691c0.611389,0 1.861084,0.72644 3.668579,1.162109c4.352234,1.048096 6.323364,1.167725 11.158508,2.421143c17.279114,5.530518 22.736755,9.371582 27.284607,11.6698c20.968506,17.085693 17.962585,18.403687 19.642883,20.774292c1.348938,1.902832 2.0177,4.616211 2.445801,5.811035c1.089417,3.045776 1.665527,5.0448 2.445129,10.459595c0.503174,3.493408 0.916931,5.408936 1.222961,9.297607c0.152283,1.934326 0,4.261108 0,6.198242c0,1.549683 0.180725,3.491943 0,4.648682c-0.307251,1.965576 -0.0177,3.513062 -0.611389,6.198364c-0.617493,2.792969 -1.467102,5.771118 -2.751099,8.909912c-0.818054,2.298828 -2.846863,7.470581 -5.197144,10.65332c-0.856018,1.898926 -2.729431,5.590332 -6.420044,9.491211c-1.211792,1.333374 -4.734863,5.227539 -8.865723,8.522705c-2.46283,1.629395 -5.736511,3.688965 -7.33728,4.648682c-2.221863,1.331055 -5.386658,3.188232 -9.782898,5.423462c-2.384521,1.211914 -7.635559,4.09082 -13.451416,5.61731c-4.112427,1.078979 -9.710815,2.243774 -14.063049,3.292969c-3.614746,0.870605 -7.92041,1.609863 -9.782837,1.93689c-3.904663,0.371704 -7.963257,0.550659 -12.22876,0.774658c-3.70636,0.19458 -6.114136,0.774902 -9.171448,0.774902c-0.611328,0 -2.445618,0 -3.668701,0c-0.611145,0 -1.834351,0 -2.445496,0c-0.611572,0 -1.222961,0 -1.83429,0c-0.611633,0 -1.223022,0 -2.445862,0c-1.222778,0 -2.258667,-0.178345 -3.057007,-0.387573c-0.565186,-0.14856 -1.834351,0 -2.445923,0c-1.222778,0 -2.267029,-0.113525 -1.834167,-0.387329c0.43158,-0.274414 1.834167,-0.387329 3.668457,-0.774658c23.799561,-9.833618 14.368835,-5.810913 25.068787,-10.072266" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path id="svg_98" d="m897.016418,1394.014282c1.834106,0 2.999939,0.040039 3.668457,0.387451c22.135803,12.297119 11.922974,6.9729 23.234375,13.171143" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <ellipse id="svg_99" ry="26" rx="26" cy="1436.100098" cx="923" opacity="0.65" stroke-width="3" stroke="#000000" fill="#7fff00"/>
+  <text id="svg_100" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="18" y="1489.100098" x="919" opacity="0.75" stroke-width="0" stroke="#000000" fill="#000000">OUTPUT Adaptor</text>
+  <g opacity="0.7" id="svg_103">
+   <path d="m475,1437.462402c1.420776,0 7.103912,0 17.759827,0c9.235077,0 13.497437,0 15.628662,0c6.393494,0 11.366211,0 18.470154,0c4.795105,0.287231 0,-1.148926 -0.710388,-2.297852l-6.748718,-5.026611l-10.30069,-7.037231" id="svg_101" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path d="m528.457031,1437.749634c-3.686401,1.847046 -11.543884,7.037231 -20.423798,12.351074" id="svg_102" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <g transform="rotate(-179.475, 861.982, 1439.6)" id="svg_104" opacity="0.7">
+   <path id="svg_105" d="m835,1440.462402c1.420776,0 7.103882,0 17.759827,0c9.235046,0 13.497437,0 15.628662,0c6.393494,0 11.366211,0 18.470154,0c4.795105,0.287231 0,-1.148926 -0.710388,-2.297852l-6.748718,-5.026611l-10.300659,-7.037231" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+   <path id="svg_106" d="m888.457031,1440.749634c-3.686401,1.847046 -11.543884,7.037231 -20.423828,12.351074" stroke-dasharray="2,2" stroke-width="3" stroke="#000000" fill="none"/>
+  </g>
+  <ellipse id="svg_107" ry="18.499999" rx="18.499999" cy="1348.600528" cx="443.500001" opacity="0.65" stroke-width="3" stroke="#000000" fill="#ff7f00"/>
+  <ellipse id="svg_108" ry="18.499999" rx="18.499999" cy="1354.850528" cx="923.250001" opacity="0.65" stroke-width="3" stroke="#000000" fill="#ff7f00"/>
+  <g opacity="0.75" id="svg_111">
+   <line id="svg_109" y2="1391.527607" x2="442.922791" y1="1371.509706" x1="442.922791" stroke-width="2" stroke="#000000" fill="none"/>
+   <path id="svg_110" d="m437.965057,1392.0177l10.034943,-0.09668l-4.883026,6.078979l-5.151917,-5.9823z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  </g>
+  <g id="svg_112" opacity="0.75">
+   <line id="svg_113" y2="1398.277607" x2="922.672791" y1="1378.259706" x1="922.672791" stroke-width="2" stroke="#000000" fill="none"/>
+   <path id="svg_114" d="m917.715088,1398.7677l10.034912,-0.09668l-4.883057,6.078979l-5.151855,-5.9823z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  </g>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_115" y="1572.649902" x="708.983276" stroke-width="0" stroke="#000000" fill="#007f00">and knows nothing about the actual data representation</text>
+  <rect id="svg_118" height="27" width="64" y="1615.199951" x="247.5" opacity="0.75" stroke-dasharray="2,2" stroke="#000000" fill="#ff7f00"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_119" y="1637.199951" x="382.5" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Data Model</text>
+  <rect id="svg_120" height="27" width="64" y="1615.199951" x="462.5" opacity="0.75" stroke-dasharray="2,2" stroke="#000000" fill="#7fff00"/>
+  <text id="svg_121" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" y="1637.199951" x="601.5" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Algorithms</text>
+ </g>
+</svg>

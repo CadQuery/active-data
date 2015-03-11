@@ -1,0 +1,26 @@
+[TITLE]
+
+  Real Matrix Parameter
+
+[1:OVERVIEW]
+
+  Test on accessing values for Real Matrix Parameter.
+
+[2:OVERVIEW]
+
+  Test on accessing individual elements stored by means of
+  Real Matrix Parameter.
+
+[3:OVERVIEW]
+
+  Test on accessing null data.
+
+[4:OVERVIEW]
+
+  Test on accessing null data after the document was saved and re-opened.
+
+[4:DETAILS]
+
+  The peculiarity here is that "ghost" Labels (those having no Attributes
+  and references) will disappear, so this can be a cause of faulty data
+  accessing in OCAF.

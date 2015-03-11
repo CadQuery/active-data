@@ -1,0 +1,91 @@
+[TITLE]
+
+  Copy/Paste Engine
+
+[1:OVERVIEW]
+
+  Case 1 is Copy/Paste specification.
+
+[2:OVERVIEW]
+
+  Case 2 is Copy/Paste specification.
+
+[3:OVERVIEW]
+
+  Case 3.1 is Copy/Paste specification.
+
+[4:OVERVIEW]
+
+  Case 3.2 is Copy/Paste specification.
+
+[5:OVERVIEW]
+
+  Case 3.3 is Copy/Paste specification.
+
+[6:OVERVIEW]
+
+  Case 3.4 is Copy/Paste specification.
+
+[7:OVERVIEW]
+
+  Case 3.5 is Copy/Paste specification.
+
+[8:OVERVIEW]
+
+  Case 4 is Copy/Paste specification.
+
+[9:OVERVIEW]
+
+  Case 5.1 is Copy/Paste specification.
+
+[10:OVERVIEW]
+
+  Case 5.2 is Copy/Paste specification.
+
+[11:OVERVIEW]
+
+  Case 5.3 is Copy/Paste specification.
+
+[12:OVERVIEW]
+
+  Case 5.4 is Copy/Paste specification.
+
+[13:OVERVIEW]
+
+  Case 6.1 is Copy/Paste specification.
+
+[14:OVERVIEW]
+
+  Case 6.2 is Copy/Paste specification.
+
+[15:OVERVIEW]
+
+  Case 6.3 is Copy/Paste specification.
+
+[16:OVERVIEW]
+
+  Case 6.4 is Copy/Paste specification.
+
+[17:OVERVIEW]
+
+  Case 7 is Copy/Paste specification.
+
+[18:OVERVIEW]
+
+  Case 8 is Copy/Paste specification.
+
+[19:OVERVIEW]
+
+  Case 9 is Copy/Paste specification.
+  <br><br>
+  Attempts to paste simple Node having Tree Function Parameter with
+  outdated result. This can happen if the problematic result has
+  been deleted between Copy & Paste invocations.
+
+[20:OVERVIEW]
+
+  Case 10 is Copy/Paste specification.
+  <br><br>
+  Attempts to paste simple Node having Reference Parameter with
+  outdated target. This can happen if the problematic target has
+  been deleted between Copy & Paste invocations.

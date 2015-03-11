@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F44A1D41-002B-4419-BD23-2AE2D42CCC65}</ProjectGuid>
+    <RootNamespace>ActData</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\bind\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\objd\ActData\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(AD_BIN)</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(CASFIX_INC);$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveData\STD;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ActData_EXPORTS;_WINDOWS;WNT;CSFDB;C40;ACT_DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKBin.lib;TKBinL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>..\..\win64\vc10\libd\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\BinDrivers\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Kernel\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.hxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.lxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Patterns\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\STD\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Tools\*.h $(AD_ROOT)\include</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(CASFIX_INC);$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveData\STD;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ActData_EXPORTS;_WINDOWS;WNT;CSFDB;C40;ACT_DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKBin.lib;TKBinL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(AD_LIB)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\BinDrivers\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Kernel\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.hxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.lxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Patterns\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\STD\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Tools\*.h $(AD_ROOT)\include</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>/DWNT %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(CASFIX_INC);$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveData\STD;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ActData_EXPORTS;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKBin.lib;TKBinL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>..\..\win64\vc10\lib\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\BinDrivers\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Kernel\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.hxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.lxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Patterns\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\STD\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Tools\*.h $(AD_ROOT)\include</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/DWNT %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(CASFIX_INC);$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveData\STD;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_OCC64;ActData_EXPORTS;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKBin.lib;TKBinL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>..\..\win64\vc10\lib\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\BinDrivers\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Kernel\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.hxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Mesh\OMFDS\hxx\*.lxx $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Patterns\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\STD\*.h $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveData\Tools\*.h $(AD_ROOT)\include</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="ActiveDataAPI.vcxproj">
+      <Project>{a9e94fc0-f808-4186-b4f9-9ce039faf3f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAux.vcxproj">
+      <Project>{df35c4a5-fb18-423d-9cfd-679998a20999}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveData\ActData.h" />
+    <ClInclude Include="..\..\src\ActiveData\ActData_Common.h" />
+    <ClInclude Include="..\..\src\ActiveData\ActData_Plugin.h" />
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinDrivers.h" />
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinRetrievalDriver.h" />
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinStorageDriver.h" />
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_MeshDriver.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_Application.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_AsciiStringParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseModel.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BasePartition.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseTreeFunction.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BoolArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BoolParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ComplexArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ComplexMatrixParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_CopyPasteEngine.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyAnalyzer.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraph.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraphIterator.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ExtTransactionEngine.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionCtx.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionTask.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_GraphFrozenException.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_GroupParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_IntArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_IntMatrixParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_IntParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_LogBook.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_MeshParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_NameParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_NodeFactory.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ParameterDTO.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ParameterFactory.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RealArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RealMatrixParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RealParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RefClassifier.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ReferenceListParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ReferenceParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SamplerTreeNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SelectionParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SequentialFuncIterator.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ShapeArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ShapeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_StringArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_StringMatrixParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TimeStampParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TransactionEngine.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionPriority.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TrsfParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TypeNameParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_Utils.h" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.h" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshDeltaEntities.h" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshMDelta.h" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_DataMapNodeOfDataMapOfPntInteger.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_EdgePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_FacePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_HSequenceOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_ListNodeOfListOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_ListNodeOfListOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_ListNodeOfListOfMeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_Mesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshEdge.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshFace.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshHexahedron.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshIDFactory.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshNode.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshObject.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshPrism.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshPyramid.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshQuadrangle.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshTetrahedron.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshTriangle.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_MeshVolume.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_Position.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_SequenceNodeOfSequenceOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_SpacePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_StdMapNodeOfExtendedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_StdMapNodeOfExtendedOrientedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\Handle_OMFDS_VertexPosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFAbs_ElementType.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFAbs_State.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_DataMapIteratorOfDataMapOfPntInteger.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_DataMapNodeOfDataMapOfPntInteger.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_DataMapOfPntInteger.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Direction.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_EdgePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ExtendedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ExtendedOrientedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_FacePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_HSequenceOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_IteratorOfVectorOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListIteratorOfListOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListIteratorOfListOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListIteratorOfListOfMeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListNodeOfListOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListNodeOfListOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListNodeOfListOfMeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_ListOfMeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapIteratorOfExtendedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapIteratorOfExtendedOrientedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfInteger.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshOrientedElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Mesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshEdge.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshEdgesIterator.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementMapHasher.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementsIterator.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshFace.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshFacesIterator.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshGroup.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshHexahedron.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshIDFactory.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshNode.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshNodesIterator.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshObject.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshOrientedElementMapHasher.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPrism.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPyramid.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshQuadrangle.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTetrahedron.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTriangle.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshVolume.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshVolumesIterator.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_PntHasher.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Position.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_PtrMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SequenceNodeOfSequenceOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SequenceOfMesh.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SpacePosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_StdMapNodeOfExtendedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_StdMapNodeOfExtendedOrientedMap.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_TypeOfPosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_VectorOfMeshElement.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_VertexPosition.hxx" />
+    <ClInclude Include="..\..\src\ActiveData\Patterns\ActData_RealArrayOwnerAPI.h" />
+    <ClInclude Include="..\..\src\ActiveData\Patterns\ActData_RecordCollectionOwnerAPI.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BaseVarNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BoolVarNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BoolVarPartition.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_IntVarNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_IntVarPartition.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_RealEvaluatorFunc.h" />
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_RealVarNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionAsset.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionCtx.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionModel.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionNode.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverterBase.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverterFw.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFDumper.h" />
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_EdgePosition.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_EdgePosition.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_EdgePosition.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_FacePosition.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_FacePosition.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_FacePosition.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshElement.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshElement.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshElement.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshOrientedElement.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshOrientedElement.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MapOfMeshOrientedElement.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Mesh.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Mesh.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Mesh.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshEdge.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshEdge.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshEdge.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElement.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElement.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElement.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementMapHasher.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementMapHasher.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementMapHasher.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementsIterator.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementsIterator.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshElementsIterator.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshFace.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshFace.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshFace.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshGroup.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshGroup.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshGroup.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshHexahedron.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshHexahedron.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshHexahedron.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshIDFactory.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshIDFactory.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshNode.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshNode.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshNode.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshObject.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshObject.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshOrientedElementMapHasher.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshOrientedElementMapHasher.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshOrientedElementMapHasher.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPrism.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPrism.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPrism.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPyramid.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPyramid.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshPyramid.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshQuadrangle.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshQuadrangle.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshQuadrangle.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTetrahedron.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTetrahedron.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTetrahedron.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTriangle.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTriangle.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshTriangle.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshVolume.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshVolume.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_MeshVolume.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_PntHasher.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_PntHasher.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_PntHasher.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Position.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Position.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_Position.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SpacePosition.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SpacePosition.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_SpacePosition.lxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_VertexPosition.ixx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_VertexPosition.jxx" />
+    <None Include="..\..\src\ActiveData\Mesh\OMFDS\hxx\OMFDS_VertexPosition.lxx" />
+    <CustomBuild Include="..\..\src\ActiveData\resources\Plugin">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\ActiveData\resources\Resources">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy %(FullPath) $(AD_RESOURCES)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copy resource file %(Filename)%(Extension) to resources...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(AD_RESOURCES)\%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveData\ActData_Plugin.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinDrivers.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinRetrievalDriver.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinStorageDriver.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_MeshDriver.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_Application.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_AsciiStringParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BasePartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseTreeFunction.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BoolArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BoolParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ComplexArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ComplexMatrixParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_CopyPasteEngine.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraph.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraphIterator.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ExtTransactionEngine.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionCtx.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionTask.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_GroupParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_IntArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_IntMatrixParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_IntParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_LogBook.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_MeshParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_NameParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_NodeFactory.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ParameterDTO.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ParameterFactory.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RealArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RealMatrixParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RealParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RefClassifier.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ReferenceListParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ReferenceParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SamplerTreeNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SelectionParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SequentialFuncIterator.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ShapeArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ShapeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_StringArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_StringMatrixParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TimeStampParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TransactionEngine.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TrsfParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TypeNameParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_Utils.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshDeltaEntities.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshMDelta.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_DataMapIteratorOfDataMapOfPntInteger_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_DataMapNodeOfDataMapOfPntInteger_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_DataMapOfPntInteger_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_Direction.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_EdgePosition.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ExtendedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ExtendedOrientedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_FacePosition.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_HSequenceOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListIteratorOfListOfMeshElement_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListIteratorOfListOfMeshGroup_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListIteratorOfListOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListNodeOfListOfMeshElement_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListNodeOfListOfMeshGroup_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListNodeOfListOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListOfMeshElement_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListOfMeshGroup_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_ListOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MapIteratorOfExtendedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MapIteratorOfExtendedOrientedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MapOfMeshElement.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MapOfMeshOrientedElement.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_Mesh.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshEdge.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshElement.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshElementMapHasher.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshElementsIterator.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshFace.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshGroup.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshHexahedron.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshIDFactory.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshNode.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshObject.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshOrientedElementMapHasher.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshPrism.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshPyramid.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshQuadrangle.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshTetrahedron.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshTriangle.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_MeshVolume.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_PntHasher.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_Position.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_SequenceNodeOfSequenceOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_SequenceOfMesh_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_SpacePosition.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_StdMapNodeOfExtendedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_StdMapNodeOfExtendedOrientedMap_0.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Mesh\OMFDS\cxx\OMFDS_VertexPosition.cxx" />
+    <ClCompile Include="..\..\src\ActiveData\Patterns\ActData_RealArrayOwnerAPI.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Patterns\ActData_RecordCollectionOwnerAPI.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BaseVarNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BoolVarNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BoolVarPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_IntVarNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_IntVarPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealEvaluatorFunc.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealVarNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealVarPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionAsset.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionCtx.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConverter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConverterFw.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFDumper.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFLoader.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1640" height="6980" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect ry="20" rx="20" opacity="0.75" id="svg_30" height="295" width="244.000007" y="104.550049" x="162.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_3" y2="482.556266" x2="151.333374" y1="80.549773" x1="151.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse ry="14" rx="14" id="svg_1" cy="73.550049" cx="152.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_2" y="80.550049" x="182.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_4" y2="133.550049" x2="177.639267" y1="133.550049" x1="151.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_5" y2="425.550049" x2="180.639267" y1="425.550049" x1="154.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_6" y2="482.550049" x2="178.639267" y1="482.550049" x1="152.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_7" ry="14" rx="14" cy="132.550049" cx="196.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_8" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="139.550049" x="238.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_9" y2="258.557967" x2="194.333374" y1="150.550513" x1="194.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_10" y2="203.550049" x2="220.639267" y1="203.550049" x1="194.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_11" y2="256.550049" x2="219.639267" y1="256.550049" x1="193.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_12" ry="14" rx="14" cy="201.550049" cx="240.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_13" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="208.550049" x="282.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_14" ry="14" rx="14" cy="254.550049" cx="241.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_15" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="263.550049" x="282.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_19" y2="379.557967" x2="237.333374" y1="271.550513" x1="237.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_20" y2="324.550049" x2="263.639267" y1="324.550049" x1="237.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_21" y2="377.550049" x2="262.639267" y1="377.550049" x1="236.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_22" ry="14" rx="14" cy="322.550049" cx="284.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_23" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="331.550049" x="327.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_24" ry="14" rx="14" cy="375.550049" cx="285.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_25" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="383.550049" x="328.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_26" ry="14" rx="14" cy="426.550049" cx="199.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_27" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="435.550049" x="243.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_28" ry="14" rx="14" cy="480.550049" cx="198.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_29" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="488.550049" x="242.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" id="svg_31" y="95.550049" x="298.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <ellipse id="svg_32" ry="5" rx="5" cy="230.550524" cx="25.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" id="svg_33" y="235.550049" x="86.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <ellipse id="svg_34" ry="5" rx="5" cy="257.550524" cx="25.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_35" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="262.550049" x="86.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_36" d="m116.911873,474.550415l21.088127,7.474121l-20.758606,8.793091l1.97702,-5.689667l-24.218414,-0.517242l0,-4.655151l24.218414,0l-2.306541,-5.405151z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" id="svg_37" y="487.550049" x="49.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_38" ry="8.5" rx="8.5" cy="254.550343" cx="241.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_46">
+   <line id="svg_40" y2="295.055271" x2="238.31498" y1="271.008416" x1="239.27679" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_41" y2="326.358561" x2="246.403138" y1="295.055652" x1="238.314456" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_42" y2="359.142074" x2="274.818484" y1="326.357722" x1="246.402858" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_44" y2="358.871146" x2="262.298021" y1="358.873455" x1="275.012665" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_43" y2="345.839343" x2="276.595987" y1="360.07916" x1="274.818887" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_59">
+   <line id="svg_53" y2="307.550049" x2="271.333374" y1="269.550049" x1="248.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_54" y2="303.550049" x2="258.333374" y1="307.550049" x1="273.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_55" y2="294.550049" x2="275.333374" y1="307.550049" x1="271.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g transform="rotate(13.0472, 219.832, 227.551)" id="svg_65">
+   <line id="svg_60" y2="237.665374" x2="215.910015" y1="246.715621" x1="230.033071" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_61" y2="221.694349" x2="209.633101" y1="237.665374" x1="215.910015" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_62" y2="208.385162" x2="221.402314" y1="222.226716" x1="210.417715" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_63" y2="210.514632" x2="209.633101" y1="208.917529" x1="222.186928" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_64" y2="216.370674" x2="223.756157" y1="209.449897" x1="221.402314" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+  </g>
+  <text transform="rotate(61.9526, 230.844, 325.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" id="svg_66" y="330.550049" x="230.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_67" transform="rotate(69.1404, 198.16, 235.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="240.550049" x="197.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <line id="svg_69" y2="491.556266" x2="589.333374" y1="89.549773" x1="589.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_70" ry="14" rx="14" cy="82.550049" cx="590.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_71" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="89.550049" x="620.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_72" y2="142.550049" x2="615.639267" y1="142.550049" x1="589.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_73" y2="434.550049" x2="618.639267" y1="434.550049" x1="592.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_74" y2="491.550049" x2="616.639267" y1="491.550049" x1="590.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_75" ry="14" rx="14" cy="141.550049" cx="634.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_76" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="148.550049" x="676.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_77" y2="267.557967" x2="632.333374" y1="159.550513" x1="632.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_78" y2="212.550049" x2="658.639267" y1="212.550049" x1="632.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_79" y2="265.550049" x2="657.639267" y1="265.550049" x1="631.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_80" ry="14" rx="14" cy="210.550049" cx="678.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_81" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="217.550049" x="720.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_82" ry="14" rx="14" cy="263.550049" cx="679.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_83" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="272.550049" x="720.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_84" y2="388.557967" x2="675.333374" y1="280.550513" x1="675.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_85" y2="333.550049" x2="701.639267" y1="333.550049" x1="675.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_86" y2="386.550049" x2="700.639267" y1="386.550049" x1="674.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_87" ry="14" rx="14" cy="331.550049" cx="722.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_88" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="340.550049" x="765.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_89" ry="14" rx="14" cy="384.550049" cx="723.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_90" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="392.550049" x="766.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_91" ry="14" rx="14" cy="435.550049" cx="637.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_92" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="444.550049" x="681.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_93" ry="14" rx="14" cy="489.550049" cx="636.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_94" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="497.550049" x="680.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_102" ry="8.5" rx="8.5" cy="263.550343" cx="679.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_103">
+   <line id="svg_104" y2="304.055271" x2="676.31498" y1="280.008416" x1="677.27679" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_105" y2="335.358561" x2="684.403138" y1="304.055652" x1="676.314456" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_106" y2="368.142074" x2="712.818484" y1="335.357722" x1="684.402858" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_107" y2="367.871146" x2="700.298021" y1="367.873455" x1="713.012665" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_108" y2="354.839343" x2="714.595987" y1="369.07916" x1="712.818887" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_109">
+   <line id="svg_110" y2="316.550049" x2="709.333374" y1="278.550049" x1="686.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_111" y2="312.550049" x2="696.333374" y1="316.550049" x1="711.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_112" y2="303.550049" x2="713.333374" y1="316.550049" x1="709.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_113" transform="rotate(13.0472, 657.832, 236.551)">
+   <line id="svg_114" y2="246.665374" x2="653.910015" y1="255.715621" x1="668.033071" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_115" y2="230.694349" x2="647.633101" y1="246.665374" x1="653.910015" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_116" y2="217.385162" x2="659.402314" y1="231.226716" x1="648.417715" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_117" y2="219.514632" x2="647.633101" y1="217.917529" x1="660.186928" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_118" y2="225.370674" x2="661.756157" y1="218.449897" x1="659.402314" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+  </g>
+  <text id="svg_119" transform="rotate(61.9526, 668.844, 334.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="339.550049" x="668.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_120" transform="rotate(69.1404, 636.16, 244.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="249.550049" x="635.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <line id="svg_121" y2="537.550049" x2="658.639267" y1="537.550049" x1="632.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_122" ry="14" rx="14" cy="536.550049" cx="677.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_123" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="543.550049" x="724.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_124" y2="662.557967" x2="675.333374" y1="554.550513" x1="675.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_125" y2="607.550049" x2="701.639267" y1="607.550049" x1="675.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_126" y2="660.550049" x2="700.639267" y1="660.550049" x1="674.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_127" ry="14" rx="14" cy="605.550049" cx="721.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_128" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="612.550049" x="767.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_129" ry="14" rx="14" cy="658.550049" cx="722.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_130" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="667.550049" x="768.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_131" y2="783.557967" x2="718.333374" y1="675.550513" x1="718.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_132" y2="728.550049" x2="744.639267" y1="728.550049" x1="718.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_133" y2="781.550049" x2="743.639267" y1="781.550049" x1="717.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_134" ry="14" rx="14" cy="726.550049" cx="765.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_135" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="735.550049" x="811.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_136" ry="14" rx="14" cy="779.550049" cx="766.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_137" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="787.550049" x="811.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <ellipse id="svg_138" ry="8.5" rx="8.5" cy="658.550343" cx="722.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_139">
+   <line id="svg_140" y2="699.055271" x2="719.31498" y1="675.008416" x1="720.27679" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_141" y2="730.358561" x2="727.403138" y1="699.055652" x1="719.314456" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_142" y2="763.142074" x2="755.818484" y1="730.357722" x1="727.402858" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_143" y2="762.871146" x2="743.298021" y1="762.873455" x1="756.012665" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_144" y2="749.839343" x2="757.595987" y1="764.07916" x1="755.818887" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_145">
+   <line id="svg_146" y2="711.550049" x2="752.333374" y1="673.550049" x1="729.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_147" y2="707.550049" x2="739.333374" y1="711.550049" x1="754.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_148" y2="698.550049" x2="756.333374" y1="711.550049" x1="752.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_149" transform="rotate(13.0472, 700.832, 631.551)">
+   <line id="svg_150" y2="641.665374" x2="696.910015" y1="650.715621" x1="711.033071" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_151" y2="625.694349" x2="690.633101" y1="641.665374" x1="696.910015" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_152" y2="612.385162" x2="702.402314" y1="626.226716" x1="691.417715" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_153" y2="614.514632" x2="690.633101" y1="612.917529" x1="703.186928" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_154" y2="620.370674" x2="704.756157" y1="613.449897" x1="702.402314" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+  </g>
+  <text id="svg_155" transform="rotate(61.9526, 711.844, 729.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="734.550049" x="711.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_156" transform="rotate(69.1404, 679.16, 639.523)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="644.550049" x="678.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <line id="svg_157" y2="538.558404" x2="633.333374" y1="508.550693" x1="633.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <rect id="svg_158" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="893.550049" x="168.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_159" y2="1271.556266" x2="157.333374" y1="869.549773" x1="157.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_160" ry="14" rx="14" cy="862.550049" cx="158.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_161" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="869.550049" x="188.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_162" y2="922.550049" x2="183.639267" y1="922.550049" x1="157.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_163" y2="1214.550049" x2="186.639267" y1="1214.550049" x1="160.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_164" y2="1271.550049" x2="184.639267" y1="1271.550049" x1="158.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_165" ry="14" rx="14" cy="921.550049" cx="202.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_166" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="928.550049" x="244.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_167" y2="1047.557967" x2="200.333374" y1="939.550513" x1="200.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_168" y2="992.550049" x2="226.639267" y1="992.550049" x1="200.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_169" y2="1045.550049" x2="225.639267" y1="1045.550049" x1="199.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_170" ry="14" rx="14" cy="990.550049" cx="246.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_171" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="997.550049" x="288.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_172" ry="14" rx="14" cy="1043.550049" cx="247.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_173" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1052.550049" x="288.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_174" y2="1168.557967" x2="243.333374" y1="1060.550513" x1="243.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_175" y2="1113.550049" x2="269.639267" y1="1113.550049" x1="243.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_176" y2="1166.550049" x2="268.639267" y1="1166.550049" x1="242.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_177" ry="14" rx="14" cy="1111.550049" cx="290.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_178" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1120.550049" x="333.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_179" ry="14" rx="14" cy="1164.550049" cx="291.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_180" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1172.550049" x="334.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_181" ry="14" rx="14" cy="1215.550049" cx="205.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_182" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1224.550049" x="249.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_183" ry="14" rx="14" cy="1269.550049" cx="204.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_184" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1277.550049" x="248.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_185" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="884.550049" x="304.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <ellipse id="svg_186" ry="5" rx="5" cy="1019.550524" cx="31.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_187" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1024.550049" x="92.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <ellipse id="svg_188" ry="5" rx="5" cy="1046.550524" cx="31.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_189" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1051.550049" x="92.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_190" d="m122.911865,1263.550415l21.088135,7.474121l-20.758606,8.793091l1.97702,-5.689697l-24.218414,-0.517212l0,-4.655151l24.218414,0l-2.306549,-5.405151z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_191" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="1276.550049" x="55.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_192" ry="8.5" rx="8.5" cy="1043.550343" cx="247.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_199">
+   <line id="svg_200" y2="1096.550049" x2="277.333374" y1="1058.550049" x1="254.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_201" y2="1092.550049" x2="264.333374" y1="1096.550049" x1="279.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_202" y2="1083.550049" x2="281.333374" y1="1096.550049" x1="277.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_203" transform="rotate(13.0472, 225.832, 1016.55)">
+   <line id="svg_204" y2="1026.665374" x2="221.910015" y1="1035.715621" x1="236.033071" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_205" y2="1010.694349" x2="215.633101" y1="1026.665374" x1="221.910015" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_206" y2="997.385162" x2="227.402314" y1="1011.226716" x1="216.417715" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_207" y2="999.514632" x2="215.633101" y1="997.917529" x1="228.186928" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_208" y2="1005.370674" x2="229.756157" y1="998.449897" x1="227.402314" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+  </g>
+  <text id="svg_209" transform="rotate(-39.2653, 251.844, 1121.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1126.550049" x="251.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_210" transform="rotate(69.1404, 204.16, 1024.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1029.550049" x="203.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_214">
+   <line id="svg_211" y2="1191.550104" x2="209.552755" y1="1058.550105" x1="239.333242" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_212" y2="1170.158495" x2="202.333243" y1="1191.550104" x1="209.552755" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_213" y2="1177.599055" x2="226.699096" y1="1188.759894" x1="209.552755" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <line id="svg_216" y2="1271.556266" x2="489.333374" y1="869.549773" x1="489.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_217" ry="14" rx="14" cy="862.550049" cx="490.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_218" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="869.550049" x="520.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_219" y2="922.550049" x2="515.639267" y1="922.550049" x1="489.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_220" y2="1214.550049" x2="518.639267" y1="1214.550049" x1="492.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_221" y2="1271.550049" x2="516.639267" y1="1271.550049" x1="490.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_222" ry="14" rx="14" cy="921.550049" cx="534.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_223" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="928.550049" x="576.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_224" y2="1047.557967" x2="532.333374" y1="939.550513" x1="532.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_225" y2="992.550049" x2="558.639267" y1="992.550049" x1="532.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_226" y2="1045.550049" x2="557.639267" y1="1045.550049" x1="531.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_227" ry="14" rx="14" cy="990.550049" cx="578.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_228" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="997.550049" x="620.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_229" ry="14" rx="14" cy="1043.550049" cx="579.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_230" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1052.550049" x="620.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_231" y2="1168.557967" x2="575.333374" y1="1060.550513" x1="575.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_232" y2="1113.550049" x2="601.639267" y1="1113.550049" x1="575.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_233" y2="1166.550049" x2="600.639267" y1="1166.550049" x1="574.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_234" ry="14" rx="14" cy="1111.550049" cx="622.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_235" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1120.550049" x="665.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_236" ry="14" rx="14" cy="1164.550049" cx="623.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_237" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1172.550049" x="666.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_238" ry="14" rx="14" cy="1215.550049" cx="537.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_239" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1224.550049" x="581.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_240" ry="14" rx="14" cy="1269.550049" cx="536.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_241" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1277.550049" x="580.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_249" ry="8.5" rx="8.5" cy="1043.550343" cx="579.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_250">
+   <line id="svg_251" y2="1096.550049" x2="609.333374" y1="1058.550049" x1="586.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_252" y2="1092.550049" x2="596.333374" y1="1096.550049" x1="611.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_253" y2="1083.550049" x2="613.333374" y1="1096.550049" x1="609.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_254" transform="rotate(13.0472, 557.832, 1016.55)">
+   <line id="svg_255" y2="1026.665374" x2="553.910015" y1="1035.715621" x1="568.033071" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_256" y2="1010.694349" x2="547.633101" y1="1026.665374" x1="553.910015" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_257" y2="997.385162" x2="559.402314" y1="1011.226716" x1="548.417715" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_258" y2="999.514632" x2="547.633101" y1="997.917529" x1="560.186928" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+   <line id="svg_259" y2="1005.370674" x2="561.756157" y1="998.449897" x1="559.402314" stroke-width="4" stroke="#3f7f00" fill="#00ff00"/>
+  </g>
+  <text id="svg_260" transform="rotate(-39.2653, 583.844, 1121.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1126.550049" x="583.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_261" transform="rotate(69.1404, 536.16, 1024.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1029.550049" x="535.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_262">
+   <line id="svg_263" y2="1191.550104" x2="541.552755" y1="1058.550105" x1="571.333242" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_264" y2="1170.158495" x2="534.333243" y1="1191.550104" x1="541.552755" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_265" y2="1177.599055" x2="558.699096" y1="1188.759894" x1="541.552755" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <line id="svg_266" y2="1317.550049" x2="560.639267" y1="1317.550049" x1="534.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_267" ry="14" rx="14" cy="1316.550049" cx="579.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_268" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1323.550049" x="626.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_269" y2="1442.557967" x2="577.333374" y1="1334.550513" x1="577.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_270" y2="1387.550049" x2="603.639267" y1="1387.550049" x1="577.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_271" y2="1440.550049" x2="602.639267" y1="1440.550049" x1="576.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_272" ry="14" rx="14" cy="1385.550049" cx="623.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_273" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1392.550049" x="669.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_274" ry="14" rx="14" cy="1438.550049" cx="624.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_275" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1447.550049" x="670.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_276" y2="1563.557967" x2="620.333374" y1="1455.550513" x1="620.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_277" y2="1508.550049" x2="646.639267" y1="1508.550049" x1="620.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_278" y2="1561.550049" x2="645.639267" y1="1561.550049" x1="619.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_279" ry="14" rx="14" cy="1506.550049" cx="667.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_280" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1515.550049" x="713.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_281" ry="14" rx="14" cy="1559.550049" cx="668.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_282" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1567.550049" x="713.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_302" y2="1318.558404" x2="535.333374" y1="1288.550693" x1="535.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <rect id="svg_303" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="1702.550049" x="167.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_304" y2="2080.556266" x2="156.333374" y1="1678.549773" x1="156.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_305" ry="14" rx="14" cy="1671.550049" cx="157.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_306" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1678.550049" x="187.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_307" y2="1731.550049" x2="182.639267" y1="1731.550049" x1="156.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_308" y2="2023.550049" x2="185.639267" y1="2023.550049" x1="159.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_309" y2="2080.550049" x2="183.639267" y1="2080.550049" x1="157.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_310" ry="14" rx="14" cy="1730.550049" cx="201.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_311" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1737.550049" x="243.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_312" y2="1856.557967" x2="199.333374" y1="1748.550513" x1="199.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_313" y2="1801.550049" x2="225.639267" y1="1801.550049" x1="199.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_314" y2="1854.550049" x2="224.639267" y1="1854.550049" x1="198.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_315" ry="14" rx="14" cy="1799.550049" cx="245.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_316" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1806.550049" x="287.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_317" ry="14" rx="14" cy="1852.550049" cx="246.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_318" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1861.550049" x="287.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_319" y2="1977.557967" x2="242.333374" y1="1869.550513" x1="242.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_320" y2="1922.550049" x2="268.639267" y1="1922.550049" x1="242.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_321" y2="1975.550049" x2="267.639267" y1="1975.550049" x1="241.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_322" ry="14" rx="14" cy="1920.550049" cx="289.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_323" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1929.550049" x="332.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_324" ry="14" rx="14" cy="1973.550049" cx="290.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_325" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1981.550049" x="333.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_326" ry="14" rx="14" cy="2024.550049" cx="204.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_327" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2033.550049" x="248.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_328" ry="14" rx="14" cy="2078.550049" cx="203.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_329" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2086.550049" x="247.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_330" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="1693.550049" x="303.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_331" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1833.550049" x="91.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_332" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1860.550049" x="91.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_333" d="m121.911865,2072.550293l21.088135,7.474121l-20.758606,8.793213l1.97702,-5.689697l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_334" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="2085.550049" x="54.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_335" ry="8.5" rx="8.5" cy="1852.550343" cx="246.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_336">
+   <line id="svg_337" y2="1905.550049" x2="276.333374" y1="1867.550049" x1="253.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_338" y2="1901.550049" x2="263.333374" y1="1905.550049" x1="278.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_339" y2="1892.550049" x2="280.333374" y1="1905.550049" x1="276.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <text id="svg_346" transform="rotate(14.1962, 299.844, 1885.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1890.550049" x="299.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_347" transform="rotate(-77.9032, 212.16, 1910.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1915.550049" x="211.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_348">
+   <line id="svg_349" y2="2000.550104" x2="208.552755" y1="1867.550105" x1="238.333242" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_350" y2="1979.158495" x2="201.333243" y1="2000.550104" x1="208.552755" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_351" y2="1986.599055" x2="225.699096" y1="1997.759894" x1="208.552755" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+  </g>
+  <ellipse id="svg_356" ry="5" rx="5" cy="1828.550524" cx="31.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_357" ry="5" rx="5" cy="1855.550524" cx="31.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <line id="svg_358" y2="1922.916504" x2="246.333374" y1="1870.916504" x1="246.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_359" y2="1956.916504" x2="272.333374" y1="1922.916504" x1="246.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_360" y2="1936.916504" x2="272.333374" y1="1958.916504" x1="274.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_361" y2="1956.916504" x2="252.333374" y1="1957.916504" x1="274.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_363" y2="2078.556266" x2="467.333374" y1="1676.549773" x1="467.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_364" ry="14" rx="14" cy="1669.550049" cx="468.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_365" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1676.550049" x="498.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_366" y2="1729.550049" x2="493.639267" y1="1729.550049" x1="467.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_367" y2="2021.550049" x2="496.639267" y1="2021.550049" x1="470.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_368" y2="2078.550049" x2="494.639267" y1="2078.550049" x1="468.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_369" ry="14" rx="14" cy="1728.550049" cx="512.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_370" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1735.550049" x="554.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_371" y2="1854.557967" x2="510.333374" y1="1746.550513" x1="510.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_372" y2="1799.550049" x2="536.639267" y1="1799.550049" x1="510.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_373" y2="1852.550049" x2="535.639267" y1="1852.550049" x1="509.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_374" ry="14" rx="14" cy="1797.550049" cx="556.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_375" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1804.550049" x="598.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_376" ry="14" rx="14" cy="1850.550049" cx="557.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_377" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1859.550049" x="598.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_378" y2="1975.557967" x2="553.333374" y1="1867.550513" x1="553.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_379" y2="1920.550049" x2="579.639267" y1="1920.550049" x1="553.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_380" y2="1973.550049" x2="578.639267" y1="1973.550049" x1="552.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_381" ry="14" rx="14" cy="1918.550049" cx="600.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_382" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1927.550049" x="643.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_383" ry="14" rx="14" cy="1971.550049" cx="601.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_384" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1979.550049" x="644.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_385" ry="14" rx="14" cy="2022.550049" cx="515.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_386" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2031.550049" x="559.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_387" ry="14" rx="14" cy="2076.550049" cx="514.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_388" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2084.550049" x="558.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_390" ry="8.5" rx="8.5" cy="1850.550343" cx="557.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <g id="svg_391">
+   <line id="svg_392" y2="1903.550049" x2="587.333374" y1="1865.550049" x1="564.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_393" y2="1899.550049" x2="574.333374" y1="1903.550049" x1="589.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_394" y2="1890.550049" x2="591.333374" y1="1903.550049" x1="587.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <text id="svg_395" transform="rotate(14.1962, 610.844, 1883.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1888.550049" x="610.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_396" transform="rotate(-77.9032, 523.16, 1908.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1913.550049" x="522.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_397">
+   <line id="svg_398" y2="1998.550104" x2="519.552755" y1="1865.550105" x1="549.333242" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_399" y2="1977.158495" x2="512.333243" y1="1998.550104" x1="519.552755" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_400" y2="1984.599055" x2="536.699096" y1="1995.759894" x1="519.552755" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+  </g>
+  <line id="svg_401" y2="1920.916504" x2="557.333374" y1="1868.916504" x1="557.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_402" y2="1954.916504" x2="583.333374" y1="1920.916504" x1="557.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_403" y2="1934.916504" x2="583.333374" y1="1956.916504" x1="585.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_404" y2="1954.916504" x2="563.333374" y1="1955.916504" x1="585.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_405" y2="2123.550049" x2="539.639267" y1="2123.550049" x1="513.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_406" ry="14" rx="14" cy="2122.550049" cx="558.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_407" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2129.550049" x="605.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_408" y2="2248.557967" x2="556.333374" y1="2140.550513" x1="556.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_409" y2="2193.550049" x2="582.639267" y1="2193.550049" x1="556.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_410" y2="2246.550049" x2="581.639267" y1="2246.550049" x1="555.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_411" ry="14" rx="14" cy="2191.550049" cx="602.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_412" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2198.550049" x="648.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_413" ry="14" rx="14" cy="2244.550049" cx="603.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_414" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2253.550049" x="649.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_415" y2="2369.557967" x2="599.333374" y1="2261.550513" x1="599.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_416" y2="2314.550049" x2="625.639267" y1="2314.550049" x1="599.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_417" y2="2367.550049" x2="624.639267" y1="2367.550049" x1="598.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_418" ry="14" rx="14" cy="2312.550049" cx="646.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_419" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2321.550049" x="692.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_420" ry="14" rx="14" cy="2365.550049" cx="647.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_421" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2373.550049" x="692.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_422" y2="2124.558404" x2="514.333374" y1="2094.550693" x1="514.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <rect id="svg_423" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="2479.550049" x="164.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_424" y2="2857.556266" x2="153.333374" y1="2455.549773" x1="153.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_425" ry="14" rx="14" cy="2448.550049" cx="154.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_426" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2455.550049" x="184.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_427" y2="2508.550049" x2="179.639267" y1="2508.550049" x1="153.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_428" y2="2800.550049" x2="182.639267" y1="2800.550049" x1="156.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_429" y2="2857.550049" x2="180.639267" y1="2857.550049" x1="154.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_430" ry="14" rx="14" cy="2507.550049" cx="198.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_431" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2514.550049" x="240.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_432" y2="2633.557967" x2="196.333374" y1="2525.550513" x1="196.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_433" y2="2578.550049" x2="222.639267" y1="2578.550049" x1="196.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_434" y2="2631.550049" x2="221.639267" y1="2631.550049" x1="195.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_435" ry="14" rx="14" cy="2576.550049" cx="242.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_436" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2583.550049" x="284.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_437" ry="14" rx="14" cy="2629.550049" cx="243.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_438" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2638.550049" x="284.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_439" y2="2754.557967" x2="239.333374" y1="2646.550513" x1="239.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_440" y2="2699.550049" x2="265.639267" y1="2699.550049" x1="239.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_441" y2="2752.550049" x2="264.639267" y1="2752.550049" x1="238.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_442" ry="14" rx="14" cy="2697.550049" cx="286.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_443" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2706.550049" x="329.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_444" ry="14" rx="14" cy="2750.550049" cx="287.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_445" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2758.550049" x="330.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_446" ry="14" rx="14" cy="2801.550049" cx="201.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_447" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2810.550049" x="245.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_448" ry="14" rx="14" cy="2855.550049" cx="200.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_449" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2863.550049" x="244.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_450" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="2470.550049" x="300.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_451" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="2610.550049" x="88.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_452" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="2637.550049" x="88.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_453" d="m118.911865,2849.550293l21.088135,7.474121l-20.758606,8.793213l1.97702,-5.689697l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_454" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="2862.550049" x="51.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_455" ry="8.5" rx="8.5" cy="2801.550343" cx="201.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_460" transform="rotate(-73.6289, 209.844, 2698.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2703.550049" x="209.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_461" transform="rotate(-38.2737, 240.16, 2757.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2762.550049" x="239.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g transform="rotate(-144.945, 247.332, 2777.05)" id="svg_462">
+   <line id="svg_463" y2="2805.079559" x2="239.707551" y1="2749.022362" x1="259.838381" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_464" y2="2796.063367" x2="234.82735" y1="2805.079559" x1="239.707551" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_465" y2="2799.199434" x2="251.298029" y1="2803.903534" x1="239.707551" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+  </g>
+  <ellipse id="svg_466" ry="5" rx="5" cy="2605.550524" cx="28.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_467" ry="5" rx="5" cy="2632.550524" cx="28.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <line id="svg_472" y2="2651.266602" x2="240.333374" y1="2785.266602" x1="204.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_473" y2="2661.266602" x2="226.333374" y1="2651.266602" x1="240.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_474" y2="2666.266602" x2="246.333374" y1="2652.266602" x1="240.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_520" y2="2859.556266" x2="456.333374" y1="2457.549773" x1="456.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_521" ry="14" rx="14" cy="2450.550049" cx="457.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_522" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2457.550049" x="487.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_523" y2="2510.550049" x2="482.639267" y1="2510.550049" x1="456.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_524" y2="2802.550049" x2="485.639267" y1="2802.550049" x1="459.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_525" y2="2859.550049" x2="483.639267" y1="2859.550049" x1="457.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_526" ry="14" rx="14" cy="2509.550049" cx="501.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_527" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2516.550049" x="543.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_528" y2="2635.557967" x2="499.333374" y1="2527.550513" x1="499.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_529" y2="2580.550049" x2="525.639267" y1="2580.550049" x1="499.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_530" y2="2633.550049" x2="524.639267" y1="2633.550049" x1="498.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_531" ry="14" rx="14" cy="2578.550049" cx="545.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_532" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2585.550049" x="587.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_533" ry="14" rx="14" cy="2631.550049" cx="546.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_534" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2640.550049" x="587.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_535" y2="2756.557967" x2="542.333374" y1="2648.550513" x1="542.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_536" y2="2701.550049" x2="568.639267" y1="2701.550049" x1="542.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_537" y2="2754.550049" x2="567.639267" y1="2754.550049" x1="541.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_538" ry="14" rx="14" cy="2699.550049" cx="589.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_539" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2708.550049" x="632.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_540" ry="14" rx="14" cy="2752.550049" cx="590.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_541" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2760.550049" x="633.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_542" ry="14" rx="14" cy="2803.550049" cx="504.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_543" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2812.550049" x="548.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_544" ry="14" rx="14" cy="2857.550049" cx="503.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_545" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2865.550049" x="547.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_547" ry="8.5" rx="8.5" cy="2803.550343" cx="504.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_548" transform="rotate(-73.6289, 512.844, 2700.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2705.550049" x="512.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_549" transform="rotate(-38.2737, 543.16, 2759.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2764.550049" x="542.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_550" transform="rotate(-144.945, 550.332, 2779.05)">
+   <line id="svg_551" y2="2807.079559" x2="542.707551" y1="2751.022362" x1="562.838381" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_552" y2="2798.063367" x2="537.82735" y1="2807.079559" x1="542.707551" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+   <line id="svg_553" y2="2801.199434" x2="554.298029" y1="2805.903534" x1="542.707551" stroke-width="4" stroke="#3f7f00" fill="#3f7f00"/>
+  </g>
+  <line id="svg_554" y2="2653.266602" x2="543.333374" y1="2787.266602" x1="507.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_555" y2="2663.266602" x2="529.333374" y1="2653.266602" x1="543.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_556" y2="2668.266602" x2="549.333374" y1="2654.266602" x1="543.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_557" y2="2905.550049" x2="528.639267" y1="2905.550049" x1="502.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_558" ry="14" rx="14" cy="2904.550049" cx="547.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_559" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2911.550049" x="594.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_560" y2="3030.557967" x2="545.333374" y1="2922.550513" x1="545.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_561" y2="2975.550049" x2="571.639267" y1="2975.550049" x1="545.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_562" y2="3028.550049" x2="570.639267" y1="3028.550049" x1="544.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_563" ry="14" rx="14" cy="2973.550049" cx="591.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_564" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2980.550049" x="637.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_565" ry="14" rx="14" cy="3026.550049" cx="592.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_566" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3035.550049" x="638.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_567" y2="3151.557967" x2="588.333374" y1="3043.550513" x1="588.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_568" y2="3096.550049" x2="614.639267" y1="3096.550049" x1="588.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_569" y2="3149.550049" x2="613.639267" y1="3149.550049" x1="587.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_570" ry="14" rx="14" cy="3094.550049" cx="635.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_571" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3103.550049" x="681.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_572" ry="14" rx="14" cy="3147.550049" cx="636.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_573" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3155.550049" x="681.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_574" y2="2906.558404" x2="503.333374" y1="2876.550693" x1="503.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <rect id="svg_575" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="3287.550049" x="158.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_576" y2="3665.556266" x2="147.333374" y1="3263.549773" x1="147.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_577" ry="14" rx="14" cy="3256.550049" cx="148.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_578" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3263.550049" x="178.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_579" y2="3316.550049" x2="173.639267" y1="3316.550049" x1="147.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_580" y2="3608.550049" x2="176.639267" y1="3608.550049" x1="150.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_581" y2="3665.550049" x2="174.639267" y1="3665.550049" x1="148.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_582" ry="14" rx="14" cy="3315.550049" cx="192.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_583" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3322.550049" x="234.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_584" y2="3441.557967" x2="190.333374" y1="3333.550513" x1="190.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_585" y2="3386.550049" x2="216.639267" y1="3386.550049" x1="190.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_586" y2="3439.550049" x2="215.639267" y1="3439.550049" x1="189.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_587" ry="14" rx="14" cy="3384.550049" cx="236.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_588" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3391.550049" x="278.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_589" ry="14" rx="14" cy="3437.550049" cx="237.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_590" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3446.550049" x="277.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_591" y2="3562.557967" x2="233.333374" y1="3454.550513" x1="233.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_592" y2="3507.550049" x2="259.639267" y1="3507.550049" x1="233.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_593" y2="3560.550049" x2="258.639267" y1="3560.550049" x1="232.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_594" ry="14" rx="14" cy="3505.550049" cx="280.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_595" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3514.550049" x="323.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_596" ry="14" rx="14" cy="3558.550049" cx="281.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_597" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3566.550049" x="324.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_598" ry="14" rx="14" cy="3609.550049" cx="195.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_599" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3618.550049" x="239.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_600" ry="14" rx="14" cy="3663.550049" cx="194.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_601" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3671.550049" x="238.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_602" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="3278.550049" x="294.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_603" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="3418.550049" x="82.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_604" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="3445.550049" x="82.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_605" d="m112.911865,3657.550293l21.088135,7.474121l-20.758606,8.793213l1.97702,-5.689697l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_606" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="3670.550049" x="45.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_607" ry="8.5" rx="8.5" cy="3437.550343" cx="237.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_608" transform="rotate(18.8923, 201.844, 3496.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3501.550049" x="201.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_609" transform="rotate(-38.2737, 196.16, 3380.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3385.550049" x="195.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <ellipse id="svg_614" ry="5" rx="5" cy="3413.550524" cx="22.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_615" ry="5" rx="5" cy="3440.550524" cx="22.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <g id="svg_627">
+   <line transform="rotate(-16.0569, 224.832, 3465.72)" id="svg_620" y2="3474.717144" x2="218.333194" y1="3456.717144" x1="231.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_621" y2="3481.716797" x2="200.333374" y1="3478.716797" x1="219.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_622" y2="3469.716797" x2="191.333374" y1="3481.716797" x1="200.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_623" y2="3452.716797" x2="195.333374" y1="3469.716797" x1="191.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_624" y2="3448.716797" x2="218.333374" y1="3452.716797" x1="195.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_625" y2="3441.716797" x2="202.333374" y1="3448.716797" x1="218.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_626" y2="3460.716797" x2="208.333374" y1="3448.716797" x1="217.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g transform="rotate(92.1674, 211.961, 3412.72)" id="svg_628">
+   <line id="svg_629" transform="rotate(-16.0569, 226.832, 3416.72)" y2="3425.717144" x2="220.333194" y1="3407.717144" x1="233.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_630" y2="3432.716797" x2="202.333374" y1="3429.716797" x1="221.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_631" y2="3420.716797" x2="193.333374" y1="3432.716797" x1="202.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_632" y2="3403.716797" x2="197.333374" y1="3420.716797" x1="193.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_633" y2="3399.716797" x2="220.333374" y1="3403.716797" x1="197.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_634" y2="3392.716797" x2="204.333374" y1="3399.716797" x1="220.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_635" y2="3411.716797" x2="210.333374" y1="3399.716797" x1="219.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <line id="svg_637" y2="3665.556266" x2="473.333374" y1="3263.549773" x1="473.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_638" ry="14" rx="14" cy="3256.550049" cx="474.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_639" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3263.550049" x="504.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_640" y2="3316.550049" x2="499.639267" y1="3316.550049" x1="473.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_641" y2="3608.550049" x2="502.639267" y1="3608.550049" x1="476.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_642" y2="3665.550049" x2="500.639267" y1="3665.550049" x1="474.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_643" ry="14" rx="14" cy="3315.550049" cx="518.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_644" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3322.550049" x="560.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_645" y2="3441.557967" x2="516.333374" y1="3333.550513" x1="516.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_646" y2="3386.550049" x2="542.639267" y1="3386.550049" x1="516.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_647" y2="3439.550049" x2="541.639267" y1="3439.550049" x1="515.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_648" ry="14" rx="14" cy="3384.550049" cx="562.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_649" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3391.550049" x="604.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_650" ry="14" rx="14" cy="3437.550049" cx="563.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_651" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3446.550049" x="603.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_652" y2="3562.557967" x2="559.333374" y1="3454.550513" x1="559.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_653" y2="3507.550049" x2="585.639267" y1="3507.550049" x1="559.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_654" y2="3560.550049" x2="584.639267" y1="3560.550049" x1="558.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_655" ry="14" rx="14" cy="3505.550049" cx="606.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_656" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3514.550049" x="649.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_657" ry="14" rx="14" cy="3558.550049" cx="607.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_658" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3566.550049" x="650.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_659" ry="14" rx="14" cy="3609.550049" cx="521.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_660" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3618.550049" x="565.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_661" ry="14" rx="14" cy="3663.550049" cx="520.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_662" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3671.550049" x="564.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_664" ry="8.5" rx="8.5" cy="3437.550343" cx="563.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_665" transform="rotate(18.8923, 527.844, 3496.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3501.550049" x="527.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_666" transform="rotate(-38.2737, 522.16, 3380.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3385.550049" x="521.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_667">
+   <line id="svg_668" transform="rotate(-16.0569, 550.832, 3465.72)" y2="3474.717144" x2="544.333194" y1="3456.717144" x1="557.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_669" y2="3481.716797" x2="526.333374" y1="3478.716797" x1="545.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_670" y2="3469.716797" x2="517.333374" y1="3481.716797" x1="526.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_671" y2="3452.716797" x2="521.333374" y1="3469.716797" x1="517.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_672" y2="3448.716797" x2="544.333374" y1="3452.716797" x1="521.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_673" y2="3441.716797" x2="528.333374" y1="3448.716797" x1="544.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_674" y2="3460.716797" x2="534.333374" y1="3448.716797" x1="543.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_675" transform="rotate(92.1674, 537.961, 3412.72)">
+   <line id="svg_676" transform="rotate(-16.0569, 552.832, 3416.72)" y2="3425.717144" x2="546.333194" y1="3407.717144" x1="559.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_677" y2="3432.716797" x2="528.333374" y1="3429.716797" x1="547.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_678" y2="3420.716797" x2="519.333374" y1="3432.716797" x1="528.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_679" y2="3403.716797" x2="523.333374" y1="3420.716797" x1="519.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_680" y2="3399.716797" x2="546.333374" y1="3403.716797" x1="523.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_681" y2="3392.716797" x2="530.333374" y1="3399.716797" x1="546.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_682" y2="3411.716797" x2="536.333374" y1="3399.716797" x1="545.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <line id="svg_683" y2="3712.550049" x2="545.639267" y1="3712.550049" x1="519.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_684" ry="14" rx="14" cy="3711.550049" cx="564.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_685" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3718.550049" x="611.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_686" y2="3837.557967" x2="562.333374" y1="3729.550513" x1="562.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_687" y2="3782.550049" x2="588.639267" y1="3782.550049" x1="562.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_688" y2="3835.550049" x2="587.639267" y1="3835.550049" x1="561.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_689" ry="14" rx="14" cy="3780.550049" cx="608.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_690" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3787.550049" x="654.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_691" ry="14" rx="14" cy="3833.550049" cx="609.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_692" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3842.550049" x="655.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_693" y2="3958.557967" x2="605.333374" y1="3850.550513" x1="605.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_694" y2="3903.550049" x2="631.639267" y1="3903.550049" x1="605.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_695" y2="3956.550049" x2="630.639267" y1="3956.550049" x1="604.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_696" ry="14" rx="14" cy="3901.550049" cx="652.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_697" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3910.550049" x="698.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_698" ry="14" rx="14" cy="3954.550049" cx="653.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_699" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3962.550049" x="698.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_700" y2="3713.558404" x2="520.333374" y1="3683.550693" x1="520.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <text id="svg_701" transform="rotate(18.8923, 570.844, 3893.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3898.550049" x="570.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_702" transform="rotate(-38.2737, 565.16, 3777.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3782.550049" x="564.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_703">
+   <line id="svg_704" transform="rotate(-16.0569, 593.832, 3862.72)" y2="3871.717144" x2="587.333194" y1="3853.717144" x1="600.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_705" y2="3878.716797" x2="569.333374" y1="3875.716797" x1="588.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_706" y2="3866.716797" x2="560.333374" y1="3878.716797" x1="569.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_707" y2="3849.716797" x2="564.333374" y1="3866.716797" x1="560.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_708" y2="3845.716797" x2="587.333374" y1="3849.716797" x1="564.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_709" y2="3838.716797" x2="571.333374" y1="3845.716797" x1="587.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_710" y2="3857.716797" x2="577.333374" y1="3845.716797" x1="586.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_711" transform="rotate(92.1674, 580.961, 3809.72)">
+   <line id="svg_712" transform="rotate(-16.0569, 595.832, 3813.72)" y2="3822.717144" x2="589.333194" y1="3804.717144" x1="602.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_713" y2="3829.716797" x2="571.333374" y1="3826.716797" x1="590.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_714" y2="3817.716797" x2="562.333374" y1="3829.716797" x1="571.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_715" y2="3800.716797" x2="566.333374" y1="3817.716797" x1="562.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_716" y2="3796.716797" x2="589.333374" y1="3800.716797" x1="566.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_717" y2="3789.716797" x2="573.333374" y1="3796.716797" x1="589.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_718" y2="3808.716797" x2="579.333374" y1="3796.716797" x1="588.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <ellipse id="svg_719" ry="8.5" rx="8.5" cy="3833.550343" cx="609.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <rect id="svg_720" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="4068.550049" x="161.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_721" y2="4558.556715" x2="150.333374" y1="4044.549487" x1="150.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_722" ry="14" rx="14" cy="4037.550049" cx="151.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_723" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4044.550049" x="181.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_724" y2="4097.550049" x2="176.639267" y1="4097.550049" x1="150.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_725" y2="4389.550049" x2="179.639267" y1="4389.550049" x1="153.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_726" y2="4446.550049" x2="177.639267" y1="4446.550049" x1="151.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_727" ry="14" rx="14" cy="4096.550049" cx="195.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_728" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4103.550049" x="237.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_729" y2="4222.557967" x2="193.333374" y1="4114.550513" x1="193.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_730" y2="4167.550049" x2="219.639267" y1="4167.550049" x1="193.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_731" y2="4220.550049" x2="218.639267" y1="4220.550049" x1="192.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_732" ry="14" rx="14" cy="4165.550049" cx="239.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_733" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4172.550049" x="281.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_734" ry="14" rx="14" cy="4218.550049" cx="240.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_735" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4227.550049" x="280.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_736" y2="4343.557967" x2="236.333374" y1="4235.550513" x1="236.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_737" y2="4288.550049" x2="262.639267" y1="4288.550049" x1="236.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_738" y2="4341.550049" x2="261.639267" y1="4341.550049" x1="235.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_739" ry="14" rx="14" cy="4286.550049" cx="283.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_740" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4295.550049" x="326.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_741" ry="14" rx="14" cy="4339.550049" cx="284.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_742" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4347.550049" x="327.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_743" ry="14" rx="14" cy="4390.550049" cx="198.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_744" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4399.550049" x="242.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_745" ry="14" rx="14" cy="4444.550049" cx="197.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_746" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4452.550049" x="241.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_747" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="4059.550049" x="297.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_748" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="4199.550049" x="85.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_749" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="4226.550049" x="85.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_750" d="m115.911865,4438.550293l21.088135,7.474121l-20.758606,8.792969l1.97702,-5.689453l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_751" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="4451.550049" x="48.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_752" ry="8.5" rx="8.5" cy="4218.550343" cx="240.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_753" transform="rotate(28.0627, 196.844, 4274.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4279.550049" x="196.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_754" transform="rotate(-38.2737, 199.16, 4161.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4166.550049" x="198.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <ellipse id="svg_755" ry="5" rx="5" cy="4194.550524" cx="25.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_756" ry="5" rx="5" cy="4221.550524" cx="25.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <g id="svg_757">
+   <line id="svg_758" transform="rotate(-16.0569, 227.832, 4246.72)" y2="4255.717144" x2="221.333194" y1="4237.717144" x1="234.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_759" y2="4262.716797" x2="203.333374" y1="4259.716797" x1="222.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_760" y2="4250.716797" x2="194.333374" y1="4262.716797" x1="203.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_761" y2="4233.716797" x2="198.333374" y1="4250.716797" x1="194.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_762" y2="4229.716797" x2="221.333374" y1="4233.716797" x1="198.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_763" y2="4222.716797" x2="205.333374" y1="4229.716797" x1="221.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_764" y2="4241.716797" x2="211.333374" y1="4229.716797" x1="220.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_765" transform="rotate(92.1674, 214.961, 4193.72)">
+   <line id="svg_766" transform="rotate(-16.0569, 229.832, 4197.72)" y2="4206.717144" x2="223.333194" y1="4188.717144" x1="236.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_767" y2="4213.716797" x2="205.333374" y1="4210.716797" x1="224.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_768" y2="4201.716797" x2="196.333374" y1="4213.716797" x1="205.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_769" y2="4184.716797" x2="200.333374" y1="4201.716797" x1="196.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_770" y2="4180.716797" x2="223.333374" y1="4184.716797" x1="200.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_771" y2="4173.716797" x2="207.333374" y1="4180.716797" x1="223.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_772" y2="4192.716797" x2="213.333374" y1="4180.716797" x1="222.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <line id="svg_773" y2="4500.550049" x2="178.639267" y1="4500.550049" x1="152.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_774" y2="4557.550049" x2="176.639267" y1="4557.550049" x1="150.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_775" ry="14" rx="14" cy="4501.550049" cx="197.333374" stroke-width="0" stroke="#000000" fill="#0000ff"/>
+  <text id="svg_776" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4509.550049" x="256.333374" stroke-width="0" stroke="#000000" fill="#0000ff">VAR_1</text>
+  <ellipse id="svg_777" ry="14" rx="14" cy="4555.550049" cx="197.333374" stroke-width="0" stroke="#000000" fill="#0000ff"/>
+  <text id="svg_778" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4567.550049" x="253.333374" stroke-width="0" stroke="#000000" fill="#0000ff">VAR_2</text>
+  <line id="svg_779" y2="4519.716797" x2="323.333374" y1="4232.716797" x1="250.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_780" y2="4540.716797" x2="211.333374" y1="4519.716797" x1="323.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_781" y2="4529.716797" x2="224.333374" y1="4541.716797" x1="211.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_782" y2="4546.716797" x2="229.333374" y1="4540.716797" x1="212.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_783" y2="4483.716797" x2="197.333374" y1="4235.716797" x1="240.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_784" y2="4468.716797" x2="189.333374" y1="4483.716797" x1="197.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_785" y2="4473.716797" x2="212.333374" y1="4482.716797" x1="196.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_787" y2="4560.556715" x2="443.333374" y1="4046.549487" x1="443.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_788" ry="14" rx="14" cy="4039.550049" cx="444.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_789" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4046.550049" x="474.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_790" y2="4099.550049" x2="469.639267" y1="4099.550049" x1="443.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_791" y2="4391.550049" x2="472.639267" y1="4391.550049" x1="446.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_792" y2="4448.550049" x2="470.639267" y1="4448.550049" x1="444.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_793" ry="14" rx="14" cy="4098.550049" cx="488.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_794" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4105.550049" x="530.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_795" y2="4224.557967" x2="486.333374" y1="4116.550513" x1="486.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_796" y2="4169.550049" x2="512.639267" y1="4169.550049" x1="486.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_797" y2="4222.550049" x2="511.639267" y1="4222.550049" x1="485.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_798" ry="14" rx="14" cy="4167.550049" cx="532.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_799" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4174.550049" x="574.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_800" ry="14" rx="14" cy="4220.550049" cx="533.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_801" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4229.550049" x="573.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_802" y2="4345.557967" x2="529.333374" y1="4237.550513" x1="529.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_803" y2="4290.550049" x2="555.639267" y1="4290.550049" x1="529.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_804" y2="4343.550049" x2="554.639267" y1="4343.550049" x1="528.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_805" ry="14" rx="14" cy="4288.550049" cx="576.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_806" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4297.550049" x="619.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_807" ry="14" rx="14" cy="4341.550049" cx="577.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_808" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4349.550049" x="620.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_809" ry="14" rx="14" cy="4392.550049" cx="491.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_810" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4401.550049" x="535.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_811" ry="14" rx="14" cy="4446.550049" cx="490.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_812" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4454.550049" x="534.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <ellipse id="svg_814" ry="8.5" rx="8.5" cy="4220.550343" cx="533.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <text id="svg_815" transform="rotate(28.0627, 489.844, 4276.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4281.550049" x="489.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_816" transform="rotate(-38.2737, 492.16, 4163.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4168.550049" x="491.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_817">
+   <line id="svg_818" transform="rotate(-16.0569, 520.832, 4248.72)" y2="4257.717144" x2="514.333194" y1="4239.717144" x1="527.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_819" y2="4264.716797" x2="496.333374" y1="4261.716797" x1="515.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_820" y2="4252.716797" x2="487.333374" y1="4264.716797" x1="496.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_821" y2="4235.716797" x2="491.333374" y1="4252.716797" x1="487.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_822" y2="4231.716797" x2="514.333374" y1="4235.716797" x1="491.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_823" y2="4224.716797" x2="498.333374" y1="4231.716797" x1="514.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_824" y2="4243.716797" x2="504.333374" y1="4231.716797" x1="513.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_825" transform="rotate(92.1674, 507.961, 4195.72)">
+   <line id="svg_826" transform="rotate(-16.0569, 522.832, 4199.72)" y2="4208.717144" x2="516.333194" y1="4190.717144" x1="529.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_827" y2="4215.716797" x2="498.333374" y1="4212.716797" x1="517.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_828" y2="4203.716797" x2="489.333374" y1="4215.716797" x1="498.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_829" y2="4186.716797" x2="493.333374" y1="4203.716797" x1="489.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_830" y2="4182.716797" x2="516.333374" y1="4186.716797" x1="493.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_831" y2="4175.716797" x2="500.333374" y1="4182.716797" x1="516.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_832" y2="4194.716797" x2="506.333374" y1="4182.716797" x1="515.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <line id="svg_833" y2="4502.550049" x2="471.639267" y1="4502.550049" x1="445.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_834" y2="4559.550049" x2="469.639267" y1="4559.550049" x1="443.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_835" ry="14" rx="14" cy="4503.550049" cx="490.333374" stroke-width="0" stroke="#000000" fill="#0000ff"/>
+  <text id="svg_836" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4511.550049" x="549.333374" stroke-width="0" stroke="#000000" fill="#0000ff">VAR_1</text>
+  <ellipse id="svg_837" ry="14" rx="14" cy="4557.550049" cx="490.333374" stroke-width="0" stroke="#000000" fill="#0000ff"/>
+  <text id="svg_838" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4569.550049" x="546.333374" stroke-width="0" stroke="#000000" fill="#0000ff">VAR_2</text>
+  <line id="svg_839" y2="4521.716797" x2="616.333374" y1="4234.716797" x1="543.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_840" y2="4542.716797" x2="504.333374" y1="4521.716797" x1="616.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_841" y2="4531.716797" x2="517.333374" y1="4543.716797" x1="504.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_842" y2="4548.716797" x2="522.333374" y1="4542.716797" x1="505.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_843" y2="4485.716797" x2="490.333374" y1="4237.716797" x1="533.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_844" y2="4470.716797" x2="482.333374" y1="4485.716797" x1="490.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_845" y2="4475.716797" x2="505.333374" y1="4484.716797" x1="489.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_846" y2="4607.550049" x2="513.639267" y1="4607.550049" x1="487.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_847" ry="14" rx="14" cy="4606.550049" cx="532.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_848" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4613.550049" x="579.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_849" y2="4732.557967" x2="530.333374" y1="4624.550513" x1="530.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_850" y2="4677.550049" x2="556.639267" y1="4677.550049" x1="530.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_851" y2="4730.550049" x2="555.639267" y1="4730.550049" x1="529.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_852" ry="14" rx="14" cy="4675.550049" cx="576.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_853" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4682.550049" x="622.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_854" ry="14" rx="14" cy="4728.550049" cx="577.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_855" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4737.550049" x="623.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_856" y2="4853.557967" x2="573.333374" y1="4745.550513" x1="573.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_857" y2="4798.550049" x2="599.639267" y1="4798.550049" x1="573.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_858" y2="4851.550049" x2="598.639267" y1="4851.550049" x1="572.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_859" ry="14" rx="14" cy="4796.550049" cx="620.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_860" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4805.550049" x="666.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_861" ry="14" rx="14" cy="4849.550049" cx="621.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_862" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4857.550049" x="666.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_863" y2="4608.558404" x2="488.333374" y1="4578.550693" x1="488.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <text id="svg_864" transform="rotate(-12.1906, 490.844, 4747.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4752.550049" x="490.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#ff0000">INPUTS</text>
+  <text id="svg_865" transform="rotate(-38.2737, 533.16, 4672.52)" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="4677.550049" x="532.333374" stroke-dasharray="5,5" stroke-width="0" stroke="#3f7f00" fill="#3f7f00">OUTPUTS</text>
+  <g id="svg_866">
+   <line id="svg_867" transform="rotate(-16.0569, 561.832, 4757.72)" y2="4766.717144" x2="555.333194" y1="4748.717144" x1="568.333194" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_868" y2="4773.716797" x2="537.333374" y1="4770.716797" x1="556.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_869" y2="4761.716797" x2="528.333374" y1="4773.716797" x1="537.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_870" y2="4744.716797" x2="532.333374" y1="4761.716797" x1="528.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_871" y2="4740.716797" x2="555.333374" y1="4744.716797" x1="532.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_872" y2="4733.716797" x2="539.333374" y1="4740.716797" x1="555.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+   <line id="svg_873" y2="4752.716797" x2="545.333374" y1="4740.716797" x1="554.333374" stroke-linecap="round" stroke-width="4" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_874" transform="rotate(92.1674, 548.961, 4704.72)">
+   <line id="svg_875" transform="rotate(-16.0569, 563.832, 4708.72)" y2="4717.717144" x2="557.333194" y1="4699.717144" x1="570.333194" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_876" y2="4724.716797" x2="539.333374" y1="4721.716797" x1="558.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_877" y2="4712.716797" x2="530.333374" y1="4724.716797" x1="539.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_878" y2="4695.716797" x2="534.333374" y1="4712.716797" x1="530.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_879" y2="4691.716797" x2="557.333374" y1="4695.716797" x1="534.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_880" y2="4684.716797" x2="541.333374" y1="4691.716797" x1="557.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+   <line id="svg_881" y2="4703.716797" x2="547.333374" y1="4691.716797" x1="556.333374" stroke-linecap="round" stroke-width="4" stroke="#3f7f00" fill="none"/>
+  </g>
+  <ellipse id="svg_882" ry="8.5" rx="8.5" cy="4728.550343" cx="577.332865" stroke-width="0" stroke="#000000" fill="#ff0000"/>
+  <line id="svg_883" y2="4707.016602" x2="473.333437" y1="4724.016602" x1="542.333435" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_884" y2="4580.016602" x2="489.333374" y1="4707.016602" x1="475.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_885" y2="4595.016602" x2="478.333374" y1="4580.016602" x1="489.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_886" y2="4600.016602" x2="497.333374" y1="4582.016602" x1="489.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_887" y2="4719.016602" x2="442.333374" y1="4728.016602" x1="532.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_888" y2="4518.016602" x2="475.333374" y1="4719.016602" x1="442.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_889" y2="4528.016602" x2="459.333374" y1="4518.016602" x1="475.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_890" y2="4518.016602" x2="475.333374" y1="4518.016602" x1="474.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <line id="svg_891" y2="4534.016602" x2="486.333374" y1="4517.016602" x1="475.333374" stroke-width="4" stroke="#ff0000" fill="none"/>
+  <text id="svg_892" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="4253.550049" x="86.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Variable Node</text>
+  <ellipse id="svg_893" ry="5" rx="5" cy="4247.550524" cx="25.332515" stroke-width="0" stroke="#000000" fill="#0000ff"/>
+  <rect id="svg_894" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="4945.550049" x="156.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_895" y2="5323.556266" x2="145.333374" y1="4921.549773" x1="145.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_896" ry="14" rx="14" cy="4914.550049" cx="146.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_897" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4921.550049" x="176.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_898" y2="4974.550049" x2="171.639267" y1="4974.550049" x1="145.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_899" y2="5266.550049" x2="174.639267" y1="5266.550049" x1="148.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_900" y2="5323.550049" x2="172.639267" y1="5323.550049" x1="146.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_901" ry="14" rx="14" cy="4973.550049" cx="190.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_902" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4980.550049" x="232.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_903" y2="5099.557967" x2="188.333374" y1="4991.550513" x1="188.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_904" y2="5044.550049" x2="214.639267" y1="5044.550049" x1="188.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_905" y2="5097.550049" x2="213.639267" y1="5097.550049" x1="187.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_906" ry="14" rx="14" cy="5042.550049" cx="234.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_907" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5049.550049" x="276.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_908" ry="14" rx="14" cy="5095.550049" cx="235.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_909" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5104.550049" x="275.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_910" y2="5220.557967" x2="231.333374" y1="5112.550513" x1="231.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_911" y2="5165.550049" x2="257.639267" y1="5165.550049" x1="231.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_912" y2="5218.550049" x2="256.639267" y1="5218.550049" x1="230.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_913" ry="14" rx="14" cy="5163.550049" cx="278.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_914" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5172.550049" x="321.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_915" ry="14" rx="14" cy="5216.550049" cx="279.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_916" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5224.550049" x="322.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_917" ry="14" rx="14" cy="5267.550049" cx="193.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_918" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5276.550049" x="237.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_919" ry="14" rx="14" cy="5321.550049" cx="192.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_920" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5329.550049" x="236.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_921" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="4936.550049" x="292.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_922" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="5076.550049" x="80.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_923" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="5103.550049" x="80.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_924" d="m110.911865,5315.550293l21.088135,7.474121l-20.758606,8.792969l1.97702,-5.689453l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_925" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="5328.550049" x="43.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_929" ry="5" rx="5" cy="5071.550524" cx="20.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_930" ry="5" rx="5" cy="5098.550524" cx="20.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <path transform="rotate(-2.85139, 258.525, 5135.5)" id="svg_947" d="m242.695648,5112.314941l-1.72084,21.595703l7.064407,-6.668945l10.324921,31.44043l7.064423,-8.892578l10.646332,-4.174316l-22.601501,-21.867676l8.694641,-2.85791l-19.472382,-8.574707z" stroke-width="3" stroke="#ff7f00" fill="#ff0000"/>
+  <line id="svg_949" y2="5323.556266" x2="446.333374" y1="4921.549773" x1="446.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_950" ry="14" rx="14" cy="4914.550049" cx="447.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_951" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4921.550049" x="477.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_952" y2="4974.550049" x2="472.639267" y1="4974.550049" x1="446.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_953" y2="5266.550049" x2="475.639267" y1="5266.550049" x1="449.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_954" y2="5323.550049" x2="473.639267" y1="5323.550049" x1="447.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_955" ry="14" rx="14" cy="4973.550049" cx="491.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_956" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4980.550049" x="533.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_957" y2="5099.557967" x2="489.333374" y1="4991.550513" x1="489.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_958" y2="5044.550049" x2="515.639267" y1="5044.550049" x1="489.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_959" y2="5097.550049" x2="514.639267" y1="5097.550049" x1="488.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_960" ry="14" rx="14" cy="5042.550049" cx="535.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_961" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5049.550049" x="577.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_962" ry="14" rx="14" cy="5095.550049" cx="536.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_963" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5104.550049" x="576.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_964" y2="5220.557967" x2="532.333374" y1="5112.550513" x1="532.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_965" y2="5165.550049" x2="558.639267" y1="5165.550049" x1="532.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_966" y2="5218.550049" x2="557.639267" y1="5218.550049" x1="531.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_967" ry="14" rx="14" cy="5163.550049" cx="579.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_968" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5172.550049" x="622.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_969" ry="14" rx="14" cy="5216.550049" cx="580.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_970" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5224.550049" x="623.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_971" ry="14" rx="14" cy="5267.550049" cx="494.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_972" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5276.550049" x="538.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_973" ry="14" rx="14" cy="5321.550049" cx="493.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_974" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5329.550049" x="537.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <path id="svg_976" transform="rotate(-2.85139, 559.525, 5135.5)" d="m543.695984,5112.310059l-1.721008,21.600098l7.064026,-6.669922l10.325012,31.439941l7.064941,-8.890137l10.646057,-4.169922l-22.60199,-21.870117l8.694946,-2.859863l-19.471985,-8.580078z" stroke-width="3" stroke="#ff7f00" fill="#ff0000"/>
+  <line id="svg_977" y2="5369.550049" x2="519.639267" y1="5369.550049" x1="493.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_978" ry="14" rx="14" cy="5368.550049" cx="538.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_979" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5375.550049" x="585.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_980" y2="5494.557967" x2="536.333374" y1="5386.550513" x1="536.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_981" y2="5439.550049" x2="562.639267" y1="5439.550049" x1="536.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_982" y2="5492.550049" x2="561.639267" y1="5492.550049" x1="535.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_983" ry="14" rx="14" cy="5437.550049" cx="582.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_984" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5444.550049" x="628.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_985" ry="14" rx="14" cy="5490.550049" cx="583.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_986" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5499.550049" x="629.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_987" y2="5615.557967" x2="579.333374" y1="5507.550513" x1="579.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_988" y2="5560.550049" x2="605.639267" y1="5560.550049" x1="579.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_989" y2="5613.550049" x2="604.639267" y1="5613.550049" x1="578.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_990" ry="14" rx="14" cy="5558.550049" cx="626.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_991" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5567.550049" x="672.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_992" ry="14" rx="14" cy="5611.550049" cx="627.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_993" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5619.550049" x="672.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_994" y2="5370.558404" x2="494.333374" y1="5340.550693" x1="494.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <path id="svg_1014" transform="rotate(-2.85139, 607.525, 5530.5)" d="m591.695984,5507.310059l-1.721008,21.600098l7.064026,-6.669922l10.325012,31.439941l7.064941,-8.890137l10.646057,-4.169922l-22.60199,-21.870117l8.694946,-2.859863l-19.471985,-8.580078z" stroke-width="3" stroke="#ff7f00" fill="#ff0000"/>
+  <rect id="svg_1015" ry="20" rx="20" opacity="0.75" height="295" width="244.000007" y="5746.550049" x="157.333337" stroke-dasharray="5,5" stroke-width="3" stroke="#999999" fill="#e5e5e5"/>
+  <line id="svg_1016" y2="6124.556266" x2="146.333374" y1="5722.549773" x1="146.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1017" ry="14" rx="14" cy="5715.550049" cx="147.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1018" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5722.550049" x="177.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_1019" y2="5775.550049" x2="172.639267" y1="5775.550049" x1="146.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1020" y2="6067.550049" x2="175.639267" y1="6067.550049" x1="149.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1021" y2="6124.550049" x2="173.639267" y1="6124.550049" x1="147.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1022" ry="14" rx="14" cy="5774.550049" cx="191.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1023" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5781.550049" x="233.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_1024" y2="5900.557967" x2="189.333374" y1="5792.550513" x1="189.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1025" y2="5845.550049" x2="215.639267" y1="5845.550049" x1="189.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1026" y2="5898.550049" x2="214.639267" y1="5898.550049" x1="188.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1027" ry="14" rx="14" cy="5843.550049" cx="235.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1028" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5850.550049" x="277.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_1029" ry="14" rx="14" cy="5896.550049" cx="236.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1030" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5905.550049" x="276.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_1031" y2="6021.557967" x2="232.333374" y1="5913.550513" x1="232.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1032" y2="5966.550049" x2="258.639267" y1="5966.550049" x1="232.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1033" y2="6019.550049" x2="257.639267" y1="6019.550049" x1="231.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1034" ry="14" rx="14" cy="5964.550049" cx="279.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1035" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5973.550049" x="322.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_1036" ry="14" rx="14" cy="6017.550049" cx="280.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1037" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6025.550049" x="323.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_1038" ry="14" rx="14" cy="6068.550049" cx="194.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1039" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6077.550049" x="238.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_1040" ry="14" rx="14" cy="6122.550049" cx="193.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1041" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6130.550049" x="237.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <text id="svg_1042" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="22" y="5737.550049" x="293.333374" opacity="0.75" stroke-dasharray="5,5" stroke-width="0" stroke="#999999" fill="#3f3f3f">DATA TO COPY</text>
+  <text id="svg_1043" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="5877.550049" x="81.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [A]</text>
+  <text id="svg_1044" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="5904.550049" x="81.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">Test Node [B]</text>
+  <path id="svg_1045" d="m111.911865,6116.550293l21.088135,7.474121l-20.758606,8.792969l1.97702,-5.689453l-24.218414,-0.51709l0,-4.655273l24.218414,0l-2.306549,-5.405273z" opacity="0.6" stroke-width="0" stroke="#000000" fill="#7f7f7f"/>
+  <text id="svg_1046" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="13" y="6129.550049" x="44.333374" opacity="0.6" stroke-width="0" stroke="#000000" fill="#000000">COPY HERE</text>
+  <ellipse id="svg_1047" ry="5" rx="5" cy="5872.550524" cx="21.332515" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <ellipse id="svg_1048" ry="5" rx="5" cy="5899.550524" cx="21.332515" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <path id="svg_1049" transform="rotate(-106.362, 239.422, 6008.94)" d="m208.908798,5962.789551l-1.720978,21.600098l7.063995,-6.669922l35.403351,77.364746l5.876694,-15.492188l16.121368,-1.52002l-51.967392,-63.842773l8.694977,-2.859863l-19.472015,-8.580078z" stroke-width="3" stroke="#ff7f00" fill="#ff0000"/>
+  <line id="svg_1051" y2="6124.556266" x2="441.333374" y1="5722.549773" x1="441.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1052" ry="14" rx="14" cy="5715.550049" cx="442.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1053" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5722.550049" x="472.333374" stroke-width="0" stroke="#000000" fill="#007fff">A</text>
+  <line id="svg_1054" y2="5775.550049" x2="467.639267" y1="5775.550049" x1="441.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1055" y2="6067.550049" x2="470.639267" y1="6067.550049" x1="444.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1056" y2="6124.550049" x2="468.639267" y1="6124.550049" x1="442.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1057" ry="14" rx="14" cy="5774.550049" cx="486.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1058" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5781.550049" x="528.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1</text>
+  <line id="svg_1059" y2="5900.557967" x2="484.333374" y1="5792.550513" x1="484.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1060" y2="5845.550049" x2="510.639267" y1="5845.550049" x1="484.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1061" y2="5898.550049" x2="509.639267" y1="5898.550049" x1="483.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1062" ry="14" rx="14" cy="5843.550049" cx="530.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1063" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5850.550049" x="572.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1</text>
+  <ellipse id="svg_1064" ry="14" rx="14" cy="5896.550049" cx="531.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1065" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5905.550049" x="571.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2</text>
+  <line id="svg_1066" y2="6021.557967" x2="527.333374" y1="5913.550513" x1="527.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1067" y2="5966.550049" x2="553.639267" y1="5966.550049" x1="527.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1068" y2="6019.550049" x2="552.639267" y1="6019.550049" x1="526.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1069" ry="14" rx="14" cy="5964.550049" cx="574.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1070" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="5973.550049" x="617.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2</text>
+  <ellipse id="svg_1071" ry="14" rx="14" cy="6017.550049" cx="575.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1072" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6025.550049" x="618.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3</text>
+  <ellipse id="svg_1073" ry="14" rx="14" cy="6068.550049" cx="489.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1074" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6077.550049" x="533.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_3</text>
+  <ellipse id="svg_1075" ry="14" rx="14" cy="6122.550049" cx="488.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1076" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6130.550049" x="532.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_4</text>
+  <path id="svg_1078" transform="rotate(-106.362, 534.422, 6008.94)" d="m503.908997,5962.790039l-1.721008,21.600098l7.064026,-6.669922l35.403015,77.359863l5.876953,-15.490234l16.121033,-1.52002l-51.96698,-63.839844l8.694946,-2.859863l-19.471985,-8.580078z" stroke-width="3" stroke="#ff7f00" fill="#ff0000"/>
+  <line id="svg_1079" y2="6171.550049" x2="512.639267" y1="6171.550049" x1="486.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1080" ry="14" rx="14" cy="6170.550049" cx="531.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1081" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6177.550049" x="578.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_1*</text>
+  <line id="svg_1082" y2="6296.557967" x2="529.333374" y1="6188.550513" x1="529.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1083" y2="6241.550049" x2="555.639267" y1="6241.550049" x1="529.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1084" y2="6294.550049" x2="554.639267" y1="6294.550049" x1="528.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1085" ry="14" rx="14" cy="6239.550049" cx="575.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1086" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6246.550049" x="621.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_1*</text>
+  <ellipse id="svg_1087" ry="14" rx="14" cy="6292.550049" cx="576.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1088" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6301.550049" x="622.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_2*</text>
+  <line id="svg_1089" y2="6417.557967" x2="572.333374" y1="6309.550513" x1="572.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1090" y2="6362.550049" x2="598.639267" y1="6362.550049" x1="572.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <line id="svg_1091" y2="6415.550049" x2="597.639267" y1="6415.550049" x1="571.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+  <ellipse id="svg_1092" ry="14" rx="14" cy="6360.550049" cx="619.333374" stroke-width="0" stroke="#000000" fill="#ff7f00"/>
+  <text id="svg_1093" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6369.550049" x="665.333374" stroke-width="0" stroke="#000000" fill="#ff7f00">B_2*</text>
+  <ellipse id="svg_1094" ry="14" rx="14" cy="6413.550049" cx="620.333374" stroke-width="0" stroke="#000000" fill="#007fff"/>
+  <text id="svg_1095" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6421.550049" x="665.333374" stroke-width="0" stroke="#000000" fill="#007fff">A_3*</text>
+  <line id="svg_1096" y2="6172.558404" x2="487.333374" y1="6142.550693" x1="487.333374" stroke-dasharray="2,2" stroke-width="3" stroke="#b2b2b2" fill="none"/>
+ </g>
+</svg>

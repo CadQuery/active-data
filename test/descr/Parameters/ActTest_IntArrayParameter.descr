@@ -1,0 +1,12 @@
+[TITLE]
+
+  Integer Array Parameter
+
+[1:OVERVIEW]
+
+  Test on accessing values for Integer Array Parameter.
+
+[2:OVERVIEW]
+
+  Test on accessing individual elements stored by means of
+  Integer Array Parameter.

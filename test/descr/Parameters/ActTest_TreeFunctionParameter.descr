@@ -1,0 +1,21 @@
+[TITLE]
+
+  Tree Function Parameter
+
+[1:OVERVIEW]
+
+  Performs test on accessing Function Driver GUID and other related
+  TDF Attributes which are forming the core of the OCCT TFunction mechanism.
+
+[2:OVERVIEW]
+
+  Performs test on "soft" disconnecting of Tree Function from CAF document. This operation
+  presumes that all underlying CAF Attributes will be cleaned up, so that Parameter
+  becomes void. However, the corresponding Tree Function is not completely erased from
+  global map of functions.
+
+[3:OVERVIEW]
+
+  Performs test on full disconnecting of Tree Function from CAF document. This operation
+  presumes that all underlying CAF Attributes will be cleaned up along with all
+  references to the root TDF Label of Tree Function.

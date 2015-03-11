@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1640" height="4480" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_285" stroke-dasharray="5,5" height="838.999995" width="861.999981" y="2460.999831" x="25.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect id="svg_161" stroke-dasharray="5,5" height="838.999995" width="861.999981" y="1573.999831" x="24.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect id="svg_19" stroke-dasharray="5,5" height="586.999983" width="861.999981" y="300.999994" x="24.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect stroke-width="5" id="svg_56" transform="rotate(-90, 452.084, 816.02)" ry="107" rx="107" height="290.984207" width="109.167296" y="670.529171" x="397.500627" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <g id="svg_83">
+   <rect id="svg_84" transform="matrix(1.98913e-11, -0.491766, 0.443048, 2.20785e-11, 888.323, 964.068)" ry="48" rx="48" height="290.984207" width="109.167296" y="-1193.946857" x="250.519022" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_85" ry="21" rx="21" height="11.802343" width="106.774251" y="790.414873" x="370.599973" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_86" transform="matrix(6.33519e-12, -0.491766, 0.141106, 2.20785e-11, 1184.53, 964.068)" ry="100" rx="100" height="290.98419" width="109.167296" y="-4877.632901" x="250.518917" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_87" ry="21" rx="21" height="11.802343" width="34.006515" y="790.414873" x="499.853566" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <path id="svg_48" transform="rotate(90, 365.508, 516.613)" stroke-width="0" d="m290.913177,500.698181l116.417297,-0.691162l0.132446,-15.490234l32.64035,31.846558l-32.496979,32.348755l-0.13739,-16.78595l-116.555725,0.44104l0,-31.669006z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_45" transform="rotate(-90, 460.084, 654.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="508.529171" x="405.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_46" ry="21" rx="21" height="23.999999" width="241.000009" y="606" x="340.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <rect stroke-dasharray="5,5" id="svg_17" height="182.999999" width="861.999981" y="77" x="24.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect transform="rotate(-90, 462.646, 153.02)" ry="48" rx="48" id="svg_5" height="290.984207" width="109.167296" y="7.529171" x="408.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect opacity="0.7" stroke-dasharray="2,2" id="svg_3" height="60" width="289" y="122" x="38" stroke="#494949" fill="#7fff00"/>
+  <text opacity="0.7" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="32" id="svg_1" y="53" x="465" stroke-width="0" stroke="#000000" fill="#000000">OCAF Undo/Redo workflow: sample scenario</text>
+  <text font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" id="svg_2" y="158" x="178" stroke-width="0" stroke="#000000" fill="#000000">Set Mesh Attribute on TDF Label</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_4" y="104" x="119" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #1</text>
+  <rect ry="21" rx="21" id="svg_6" height="23.999999" width="241.000009" y="106" x="340.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" id="svg_8" y="157" x="464" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <rect id="svg_11" transform="rotate(-90, 503.646, 214.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="68.529141" x="471.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_12" ry="21" rx="21" height="13.999999" width="241.000009" y="188.999997" x="380.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_13" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="222" x="487" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <path id="svg_14" d="m659,210.273956l23.80127,0l-0.161499,-9.273956l12.860229,11.951324l-12.598267,12.597351l-0.121155,-9.00119l-23.780579,0l0,-6.273529z" opacity="0.7" stroke="#ff0000" fill="#ff5656"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" id="svg_15" y="210" x="788" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup is not done due to</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" id="svg_16" y="227" x="787" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">TDF_Label:::AddAttribute</text>
+  <path transform="rotate(90, 464.762, 280.617)" id="svg_18" d="m450.167023,274.696899l16.858246,-0.069977l-0.023285,-5.856445l12.352539,11.664551l-12.275391,12.031738l0.022308,-6.239319l-16.934418,0.070007l0,-11.600555z" opacity="0.8" stroke="#9e9e9e" fill="#ffff00"/>
+  <rect id="svg_20" transform="rotate(-90, 460.083, 378.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="232.529171" x="405.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_21" opacity="0.7" stroke-dasharray="2,2" height="60" width="289" y="346" x="38" stroke="#494949" fill="#7fff00"/>
+  <text id="svg_22" font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="373" x="182" stroke-width="0" stroke="#000000" fill="#000000">Add series of nodes to</text>
+  <text id="svg_23" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="328" x="119" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #2</text>
+  <rect id="svg_24" ry="21" rx="21" height="23.999999" width="241.000009" y="330" x="340.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_25" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="381" x="454.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <rect id="svg_26" transform="rotate(-90, 503.646, 438.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="292.529141" x="471.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_27" ry="21" rx="21" height="13.999999" width="241.000009" y="412.999997" x="380.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_28" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="446" x="487" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" id="svg_33" y="391" x="179" opacity="0.8" stroke-width="0" stroke="#000000" fill="#000000">Mesh Attribute</text>
+  <rect id="svg_34" transform="rotate(-90, 539.646, 485.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="339.529141" x="507.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_35" ry="21" rx="21" height="13.999999" width="241.000009" y="459.999997" x="416.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_36" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="491" x="541" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">BackupCopy</text>
+  <rect id="svg_37" transform="rotate(-90, 576.646, 532.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="386.529141" x="544.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_38" ry="21" rx="21" height="13.999999" width="241.000009" y="506.999997" x="453.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_39" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="538" x="567" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">NewEmpty</text>
+  <rect id="svg_40" transform="rotate(-90, 577.646, 579.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="433.529141" x="545.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_41" ry="21" rx="21" height="13.999999" width="241.000009" y="553.999997" x="454.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_42" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="585" x="568" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">Restore</text>
+  <path id="svg_43" transform="rotate(90, 652.258, 557.117)" stroke-width="0" d="m617.163635,546.446777l40.538696,-0.12616l-0.055298,-10.552673l29.705322,21.016968l-29.520264,21.678345l0.052979,-11.242798l-40.721436,0.126099l0,-20.89978z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <text id="svg_44" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="537" x="749" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup copy is prepared</text>
+  <text id="svg_49" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="491" x="208" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Prepared Delta instance</text>
+  <text id="svg_50" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="510" x="209" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">presenting modifications done</text>
+  <text id="svg_51" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="529" x="210" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">between actual states of the Attribute</text>
+  <text opacity="0.7" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" id="svg_52" y="549" x="212" stroke-width="0" stroke="#9e9e9e" fill="#000000">for the moments of opening transactional</text>
+  <text id="svg_53" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="569" x="208" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">scope and committing the transaction</text>
+  <text id="svg_47" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="657" x="454.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text opacity="0.7" font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="12" id="svg_54" y="678" x="456" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">between Backup and initial Attributes</text>
+  <path stroke-width="0" id="svg_55" transform="rotate(90, 446.258, 737.117)" d="m425.163818,726.946228l24.366547,-0.120239l-0.033234,-10.05835l17.85495,20.032471l-17.743713,20.662842l0.03183,-10.716125l-24.476379,0.120178l0,-19.920776z" stroke="#ff7f00" fill="#007fff"/>
+  <rect id="svg_57" ry="100" rx="100" height="16.000001" width="181.000012" y="769.000005" x="360.000008" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_58" y="862" x="454" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">TDF_Delta</text>
+  <text id="svg_62" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="816.75" x="426.25" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <ellipse ry="6.75" rx="6.75" id="svg_66" cy="814.00001" cx="516.999997" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="#e5e5e5"/>
+  <line id="svg_67" y2="804.722244" x2="525.777756" y1="822.75" x1="507.75" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="none"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" id="svg_70" y="735" x="701" opacity="0.7" stroke-width="0" stroke="#3f7f00" fill="#ff0000"/>
+  <rect id="svg_88" stroke-dasharray="5,5" height="586.999983" width="861.999981" y="934.999994" x="25.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect id="svg_89" stroke-width="5" transform="rotate(-90, 453.084, 1450.02)" ry="107" rx="107" height="290.984207" width="109.167296" y="1304.529171" x="398.500627" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <g id="svg_90">
+   <rect id="svg_91" transform="matrix(1.98913e-11, -0.491766, 0.443048, 2.20785e-11, 888.323, 964.068)" ry="48" rx="48" height="290.984207" width="109.167296" y="-1191.689644" x="-1038.712492" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_92" ry="21" rx="21" height="11.802343" width="106.774251" y="1424.414873" x="371.599973" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_93" transform="matrix(6.33519e-12, -0.491766, 0.141106, 2.20785e-11, 1184.53, 964.068)" ry="100" rx="100" height="290.98419" width="109.167296" y="-4870.544597" x="-1038.712597" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_94" ry="21" rx="21" height="11.802343" width="34.006515" y="1424.414873" x="500.853566" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <path id="svg_95" transform="rotate(90, 366.508, 1150.61)" stroke-width="0" d="m291.912994,1134.697998l116.416992,-0.69104l0.133026,-15.48999l32.639984,31.846069l-32.497009,32.348877l-0.136993,-16.785889l-116.556,0.440918l0,-31.668945z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_96" transform="rotate(-90, 461.084, 1288.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="1142.529171" x="406.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_97" ry="21" rx="21" height="23.999999" width="241.000009" y="1240" x="341.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <path id="svg_100" transform="rotate(90, 465.762, 912.119)" d="m448.66684,906.197021l19.74588,-0.070007l-0.026947,-5.856995l14.469147,11.664978l-14.378937,12.032043l0.025787,-6.240051l-19.83493,0.070007l0,-11.599976z" opacity="0.8" stroke="#9e9e9e" fill="#ffff00"/>
+  <rect id="svg_101" transform="rotate(-90, 461.083, 1012.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="866.529171" x="406.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_102" opacity="0.7" stroke-dasharray="2,2" height="60" width="289" y="980" x="39" stroke="#494949" fill="#7fff00"/>
+  <text id="svg_103" font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1007" x="183" stroke-width="0" stroke="#000000" fill="#000000">Add series of elements to</text>
+  <text id="svg_104" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="962" x="120" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #3</text>
+  <rect id="svg_105" ry="21" rx="21" height="23.999999" width="241.000009" y="964" x="341.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_106" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1015" x="455.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <rect id="svg_107" transform="rotate(-90, 504.646, 1072.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="926.529141" x="472.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_108" ry="21" rx="21" height="13.999999" width="241.000009" y="1046.999997" x="381.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_109" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1080" x="488" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <text id="svg_110" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1025" x="180" opacity="0.8" stroke-width="0" stroke="#000000" fill="#000000">Mesh Attribute</text>
+  <rect id="svg_111" transform="rotate(-90, 540.646, 1119.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="973.529141" x="508.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_112" ry="21" rx="21" height="13.999999" width="241.000009" y="1093.999997" x="417.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_113" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1125" x="542" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">BackupCopy</text>
+  <rect id="svg_114" transform="rotate(-90, 577.646, 1166.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1020.529141" x="545.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_115" ry="21" rx="21" height="13.999999" width="241.000009" y="1140.999997" x="454.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_116" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1172" x="568" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">NewEmpty</text>
+  <rect id="svg_117" transform="rotate(-90, 578.646, 1213.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1067.529141" x="546.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_118" ry="21" rx="21" height="13.999999" width="241.000009" y="1187.999997" x="455.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_119" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1219" x="569" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">Restore</text>
+  <path id="svg_120" transform="rotate(90, 653.258, 1191.12)" stroke-width="0" d="m618.163635,1180.446777l40.538696,-0.126221l-0.055298,-10.552612l29.705322,21.016968l-29.520264,21.678345l0.052979,-11.242798l-40.721436,0.126099l0,-20.89978z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <text id="svg_121" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1171" x="750" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup copy is prepared</text>
+  <text id="svg_122" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1125" x="209" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Prepared Delta instance</text>
+  <text id="svg_123" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1144" x="210" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">presenting modifications done</text>
+  <text id="svg_124" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1163" x="211" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">between actual states of the Attribute</text>
+  <text opacity="0.7" id="svg_125" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1183" x="213" stroke-width="0" stroke="#9e9e9e" fill="#000000">for the moments of opening transactional</text>
+  <text id="svg_126" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1203" x="209" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">scope and committing the transaction</text>
+  <text id="svg_127" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1291" x="455.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text id="svg_128" opacity="0.7" font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="12" y="1312" x="457" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">between Backup and initial Attributes</text>
+  <path stroke-width="0" id="svg_129" transform="rotate(90, 447.258, 1371.11)" d="m426.163818,1360.946289l24.366547,-0.120361l-0.033234,-10.05835l17.85495,20.032471l-17.743713,20.662842l0.03183,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#ff7f00" fill="#007fff"/>
+  <rect id="svg_130" ry="100" rx="100" height="16.000001" width="181.000012" y="1403.000005" x="361.000008" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_131" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1496" x="455" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">TDF_Delta</text>
+  <text id="svg_132" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="1450.75" x="427.25" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <ellipse id="svg_133" ry="6.75" rx="6.75" cy="1448.00001" cx="517.999997" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="#e5e5e5"/>
+  <line id="svg_134" y2="1438.722244" x2="526.777756" y1="1456.75" x1="508.75" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="none"/>
+  <text id="svg_137" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="1369" x="702" opacity="0.7" stroke-width="0" stroke="#3f7f00" fill="#ff0000"/>
+  <rect id="svg_162" transform="rotate(-90, 462.646, 1650.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="1504.529171" x="408.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_163" opacity="0.7" stroke-dasharray="2,2" height="60" width="289" y="1619" x="38" stroke="#494949" fill="#7fff00"/>
+  <text id="svg_165" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="1601" x="173" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #4 (implicit)</text>
+  <rect id="svg_166" ry="21" rx="21" height="23.999999" width="241.000009" y="1603" x="340.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_167" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1654" x="464" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeUndo</text>
+  <path id="svg_170" transform="rotate(90, 450.762, 1547.12)" d="m433.66687,1541.197021l19.74585,-0.070068l-0.026978,-5.856934l14.469177,11.665039l-14.378967,12.031982l0.025818,-6.23999l-19.8349,0.069946l0,-11.599976z" opacity="0.8" stroke="#9e9e9e" fill="#ffff00"/>
+  <text id="svg_171" font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="1656" x="177" stroke-width="0" stroke="#000000" fill="#000000">UNDO</text>
+  <rect id="svg_197" transform="rotate(-90, 463.646, 1729.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="1583.529171" x="409.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_198" ry="21" rx="21" height="23.999999" width="241.000009" y="1682" x="341.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_199" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1737" x="469" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">MDelta::Apply</text>
+  <rect id="svg_200" transform="rotate(-90, 466.083, 1811.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="1665.529171" x="411.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_201" ry="21" rx="21" height="23.999999" width="241.000009" y="1763" x="346.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_202" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1815" x="464.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <path id="svg_203" transform="rotate(90, 370.508, 1948.61)" stroke-width="0" d="m295.912994,1932.697998l116.416992,-0.69104l0.133026,-15.48999l32.639984,31.846069l-32.497009,32.348877l-0.136993,-16.785889l-116.556,0.440918l0,-31.668945z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_204" transform="rotate(-90, 465.084, 2086.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="1940.529171" x="410.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_205" ry="21" rx="21" height="23.999999" width="241.000009" y="2038" x="345.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <rect id="svg_206" transform="rotate(-90, 508.646, 1870.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1724.529141" x="476.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_207" ry="21" rx="21" height="13.999999" width="241.000009" y="1844.999997" x="385.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_208" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1878" x="492" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <rect id="svg_209" transform="rotate(-90, 544.646, 1917.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1771.529141" x="512.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_210" ry="21" rx="21" height="13.999999" width="241.000009" y="1891.999997" x="421.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_211" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1923" x="546" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">BackupCopy</text>
+  <rect id="svg_212" transform="rotate(-90, 581.646, 1964.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1818.529141" x="549.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_213" ry="21" rx="21" height="13.999999" width="241.000009" y="1938.999997" x="458.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_214" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="1970" x="572" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">NewEmpty</text>
+  <rect id="svg_215" transform="rotate(-90, 582.646, 2011.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="1865.529141" x="550.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_216" ry="21" rx="21" height="13.999999" width="241.000009" y="1985.999997" x="459.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_217" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2017" x="573" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">Restore</text>
+  <text id="svg_218" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1983" x="754" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup copy is prepared</text>
+  <text id="svg_219" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1923" x="213" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Prepared Delta instance</text>
+  <text id="svg_220" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1942" x="214" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">presenting modifications done</text>
+  <text id="svg_221" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1961" x="215" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">between actual states of the Attribute</text>
+  <text id="svg_222" opacity="0.7" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="1981" x="217" stroke-width="0" stroke="#9e9e9e" fill="#000000">for the moments of opening transactional</text>
+  <text id="svg_223" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2001" x="213" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">scope and committing the transaction</text>
+  <text id="svg_224" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2089" x="459.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text id="svg_225" opacity="0.7" font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="12" y="2110" x="461" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">between Backup and initial Attributes</text>
+  <path id="svg_226" transform="rotate(90, 656.258, 1990.12)" stroke-width="0" d="m621.163635,1979.446777l40.538696,-0.126221l-0.055298,-10.552612l29.705322,21.016968l-29.520264,21.678345l0.052979,-11.242798l-40.721436,0.126099l0,-20.89978z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_227" transform="rotate(-90, 464.646, 2174.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2028.529171" x="410.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_228" ry="21" rx="21" height="23.999999" width="241.000009" y="2127" x="342.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_229" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2178" x="469" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">AfterUndo</text>
+  <rect id="svg_230" stroke-width="5" transform="rotate(-90, 469.084, 2336.02)" ry="107" rx="107" height="290.984207" width="109.167296" y="2190.529171" x="414.500627" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+  <g id="svg_231">
+   <rect id="svg_232" transform="matrix(1.98913e-11, -0.491766, 0.443048, 2.20785e-11, 888.323, 964.068)" ry="48" rx="48" height="290.984207" width="109.167296" y="-1155.576054" x="-2840.382826" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_233" ry="21" rx="21" height="11.802343" width="106.774251" y="2310.414873" x="387.599973" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_234" transform="matrix(6.33519e-12, -0.491766, 0.141106, 2.20785e-11, 1184.53, 964.068)" ry="100" rx="100" height="290.98419" width="109.167296" y="-4757.153209" x="-2840.382931" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_235" ry="21" rx="21" height="11.802343" width="34.006515" y="2310.414873" x="516.853566" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <path stroke-width="0" id="svg_236" transform="rotate(90, 463.258, 2257.11)" d="m442.163818,2246.946289l24.366577,-0.120361l-0.033264,-10.05835l17.854919,20.032471l-17.743652,20.662842l0.031799,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#4c4c4c" fill="#ff7f00"/>
+  <rect id="svg_237" ry="100" rx="100" height="16.000001" width="181.000012" y="2289.000005" x="377.000008" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_238" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2382" x="471" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">TDF_Delta</text>
+  <text id="svg_239" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="2336.75" x="443.25" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <ellipse id="svg_264" ry="6.75" rx="6.75" cy="2333.75001" cx="533.749997" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="#e5e5e5"/>
+  <line id="svg_240" y2="2324.722244" x2="542.777756" y1="2342.75" x1="524.75" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="none"/>
+  <rect id="svg_287" transform="rotate(-90, 463.646, 2537.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2391.529171" x="409.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_288" opacity="0.7" stroke-dasharray="2,2" height="60" width="289" y="2506" x="39" stroke="#494949" fill="#7fff00"/>
+  <text id="svg_289" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2488" x="174" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #5 (implicit)</text>
+  <rect id="svg_290" ry="21" rx="21" height="23.999999" width="241.000009" y="2490" x="341.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_291" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2541" x="465" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeUndo</text>
+  <rect id="svg_300" transform="rotate(-90, 464.646, 2616.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2470.529171" x="410.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_301" ry="21" rx="21" height="23.999999" width="241.000009" y="2569" x="342.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_302" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2624" x="470" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">MDelta::Apply</text>
+  <rect id="svg_303" transform="rotate(-90, 467.083, 2698.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2552.529171" x="412.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <path id="svg_304" transform="rotate(90, 371.508, 2835.61)" stroke-width="0" d="m296.912994,2819.697998l116.416992,-0.691162l0.133026,-15.489746l32.639984,31.845947l-32.497009,32.348877l-0.136993,-16.785889l-116.556,0.440918l0,-31.668945z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_305" transform="rotate(-90, 466.084, 2973.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2827.529171" x="411.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_306" ry="21" rx="21" height="23.999999" width="241.000009" y="2925" x="346.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <rect id="svg_307" transform="rotate(-90, 509.646, 2757.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="2611.529141" x="477.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_308" ry="21" rx="21" height="13.999999" width="241.000009" y="2731.999997" x="386.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_309" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2765" x="493" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <rect id="svg_310" transform="rotate(-90, 545.646, 2804.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="2658.529141" x="513.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_311" ry="21" rx="21" height="13.999999" width="241.000009" y="2778.999997" x="422.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_312" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2810" x="547" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">BackupCopy</text>
+  <rect id="svg_313" transform="rotate(-90, 582.646, 2851.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="2705.529141" x="550.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_314" ry="21" rx="21" height="13.999999" width="241.000009" y="2825.999997" x="459.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_315" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2857" x="573" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">NewEmpty</text>
+  <rect id="svg_316" transform="rotate(-90, 583.646, 2898.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="2752.529141" x="551.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_317" ry="21" rx="21" height="13.999999" width="241.000009" y="2872.999997" x="460.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_318" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2904" x="574" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">Restore</text>
+  <text id="svg_319" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2870" x="755" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup copy is prepared</text>
+  <text id="svg_320" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2810" x="214" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Prepared Delta instance</text>
+  <text id="svg_321" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2829" x="215" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">presenting modifications done</text>
+  <text id="svg_322" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2848" x="216" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">between actual states of the Attribute</text>
+  <text id="svg_323" opacity="0.7" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2868" x="218" stroke-width="0" stroke="#9e9e9e" fill="#000000">for the moments of opening transactional</text>
+  <text id="svg_324" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="2888" x="214" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">scope and committing the transaction</text>
+  <text id="svg_325" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2976" x="460.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text id="svg_326" opacity="0.7" font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="12" y="2997" x="462" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">between Backup and initial Attributes</text>
+  <path id="svg_327" transform="rotate(90, 657.258, 2877.12)" stroke-width="0" d="m622.163635,2866.446777l40.538696,-0.126221l-0.055298,-10.55249l29.705322,21.016846l-29.520264,21.678467l0.052979,-11.24292l-40.721436,0.126221l0,-20.899902z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_328" transform="rotate(-90, 465.646, 3061.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="2915.529171" x="411.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_329" ry="21" rx="21" height="23.999999" width="241.000009" y="3014" x="343.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_330" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3065" x="470" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">AfterUndo</text>
+  <rect id="svg_331" stroke-width="5" transform="rotate(-90, 470.084, 3223.02)" ry="107" rx="107" height="290.984207" width="109.167296" y="3077.529171" x="415.500627" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+  <g id="svg_332">
+   <rect id="svg_333" transform="matrix(1.98913e-11, -0.491766, 0.443048, 2.20785e-11, 888.323, 964.068)" ry="48" rx="48" height="290.984207" width="109.167296" y="-1153.318843" x="-4644.086691" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_334" ry="21" rx="21" height="11.802343" width="106.774251" y="3197.414873" x="388.599973" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_335" transform="matrix(6.33519e-12, -0.491766, 0.141106, 2.20785e-11, 1184.53, 964.068)" ry="100" rx="100" height="290.98419" width="109.167296" y="-4750.064892" x="-4644.086796" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_336" ry="21" rx="21" height="11.802343" width="34.006515" y="3197.414873" x="517.853566" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <path stroke-width="0" id="svg_337" transform="rotate(90, 464.258, 3144.11)" d="m443.163818,3133.946289l24.366577,-0.120361l-0.033264,-10.05835l17.854919,20.032471l-17.743652,20.662842l0.031799,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#4c4c4c" fill="#ff7f00"/>
+  <rect id="svg_338" ry="100" rx="100" height="16.000001" width="181.000012" y="3176.000005" x="378.000008" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_339" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3269" x="472" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">TDF_Delta</text>
+  <text id="svg_340" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="3223.75" x="444.25" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <ellipse id="svg_364" ry="6.75" rx="6.75" cy="3220.75001" cx="534.749997" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="#e5e5e5"/>
+  <line id="svg_365" y2="3211.722244" x2="543.777756" y1="3229.75" x1="525.75" opacity="0.7" stroke-width="2" stroke="#ff0000" fill="none"/>
+  <text id="svg_398" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="2703" x="466.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <rect id="svg_399" ry="21" rx="21" height="23.999999" width="241.000009" y="2653" x="345.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_402" font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="2543" x="180" stroke-width="0" stroke="#000000" fill="#000000">UNDO</text>
+  <path id="svg_426" transform="rotate(90, 464.762, 2438.12)" d="m447.66687,2432.197021l19.74585,-0.070068l-0.026978,-5.856934l14.469177,11.665039l-14.378967,12.031982l0.025818,-6.23999l-19.8349,0.069824l0,-11.599854z" opacity="0.8" stroke="#9e9e9e" fill="#ffff00"/>
+  <rect id="svg_427" stroke-dasharray="5,5" height="838.999995" width="861.999981" y="3345.999831" x="26.999982" opacity="0.5" stroke="#494949" fill="#ffff00"/>
+  <rect id="svg_429" transform="rotate(-90, 464.646, 3422.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="3276.529171" x="410.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_430" opacity="0.7" stroke-dasharray="2,2" height="60" width="289" y="3391" x="40" stroke="#494949" fill="#7fff00"/>
+  <text id="svg_431" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="3373" x="175" opacity="0.35" stroke-dasharray="5,5" stroke-width="0" stroke="#494949" fill="#000000">Transaction #6 (implicit)</text>
+  <rect id="svg_432" ry="21" rx="21" height="23.999999" width="241.000009" y="3375" x="342.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_433" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3426" x="466" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeUndo</text>
+  <rect id="svg_441" transform="rotate(-90, 465.646, 3501.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="3355.529171" x="411.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_442" ry="21" rx="21" height="23.999999" width="241.000009" y="3454" x="343.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_443" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3509" x="471" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">MDelta::Apply</text>
+  <rect id="svg_444" transform="rotate(-90, 468.083, 3583.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="3437.529171" x="413.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <path id="svg_445" transform="rotate(90, 372.508, 3720.61)" stroke-width="0" d="m297.912994,3704.697998l116.416992,-0.691162l0.133026,-15.489746l32.639984,31.845947l-32.497009,32.348877l-0.136993,-16.785889l-116.556,0.440918l0,-31.668945z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_446" transform="rotate(-90, 467.084, 3858.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="3712.529171" x="412.500627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_447" ry="21" rx="21" height="23.999999" width="241.000009" y="3810" x="347.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <rect id="svg_448" transform="rotate(-90, 510.646, 3642.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="3496.529141" x="478.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_449" ry="21" rx="21" height="13.999999" width="241.000009" y="3616.999997" x="387.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_450" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3650" x="494" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">Backup</text>
+  <rect id="svg_451" transform="rotate(-90, 546.646, 3689.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="3543.529141" x="514.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_452" ry="21" rx="21" height="13.999999" width="241.000009" y="3663.999997" x="423.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_453" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3695" x="548" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#000000">BackupCopy</text>
+  <rect id="svg_454" transform="rotate(-90, 583.646, 3736.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="3590.529141" x="551.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_455" ry="21" rx="21" height="13.999999" width="241.000009" y="3710.999997" x="460.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_456" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3742" x="574" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">NewEmpty</text>
+  <rect id="svg_457" transform="rotate(-90, 584.646, 3783.02)" ry="48" rx="48" height="290.984207" width="65.167566" y="3637.529141" x="552.061894" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_458" ry="21" rx="21" height="13.999999" width="241.000009" y="3757.999997" x="461.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_459" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3789" x="575" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">Restore</text>
+  <text id="svg_460" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3755" x="756" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Backup copy is prepared</text>
+  <text id="svg_461" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3695" x="215" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">Prepared Delta instance</text>
+  <text id="svg_462" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3714" x="216" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">presenting modifications done</text>
+  <text id="svg_463" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3733" x="217" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">between actual states of the Attribute</text>
+  <text id="svg_464" opacity="0.7" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3753" x="219" stroke-width="0" stroke="#9e9e9e" fill="#000000">for the moments of opening transactional</text>
+  <text id="svg_465" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="14" y="3773" x="215" opacity="0.7" stroke-width="0" stroke="#9e9e9e" fill="#000000">scope and committing the transaction</text>
+  <text id="svg_466" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3861" x="461.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text id="svg_467" opacity="0.7" font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="12" y="3882" x="463" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">between Backup and initial Attributes</text>
+  <path id="svg_468" transform="rotate(90, 658.258, 3762.12)" stroke-width="0" d="m623.163635,3751.446777l40.538696,-0.126221l-0.055298,-10.55249l29.705322,21.016846l-29.520264,21.678467l0.052979,-11.24292l-40.721436,0.126221l0,-20.899902z" stroke="#9e9e9e" fill="#bfbfbf"/>
+  <rect id="svg_469" transform="rotate(-90, 466.646, 3946.02)" ry="48" rx="48" height="290.984207" width="109.167296" y="3800.529171" x="412.063127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+  <rect id="svg_470" ry="21" rx="21" height="23.999999" width="241.000009" y="3899" x="344.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <rect id="svg_471" stroke-width="5" transform="rotate(-90, 471.084, 4108.02)" ry="107" rx="107" height="290.984207" width="109.167296" y="3962.529171" x="416.500627" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <g id="svg_472">
+   <rect id="svg_473" transform="matrix(1.98913e-11, -0.491766, 0.443048, 2.20785e-11, 888.323, 964.068)" ry="48" rx="48" height="290.984207" width="109.167296" y="-1151.061637" x="-6443.723536" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_474" ry="21" rx="21" height="11.802343" width="106.774251" y="4082.414873" x="389.599973" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_475" transform="matrix(6.33519e-12, -0.491766, 0.141106, 2.20785e-11, 1184.53, 964.068)" ry="100" rx="100" height="290.98419" width="109.167296" y="-4742.976571" x="-6443.723636" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_476" ry="21" rx="21" height="11.802343" width="34.006515" y="4082.414873" x="518.853566" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <rect id="svg_477" ry="100" rx="100" height="16.000001" width="181.000012" y="4061.000005" x="379.000008" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_478" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4154" x="473" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">TDF_Delta</text>
+  <text id="svg_479" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="10" y="4108.75" x="445.25" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">DeltaOnModification</text>
+  <text id="svg_517" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3588" x="467.5" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">BeforeCommitTransaction</text>
+  <rect id="svg_518" ry="21" rx="21" height="23.999999" width="241.000009" y="3538" x="346.00001" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  <text id="svg_521" font-weight="bold" opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="16" y="3428" x="181" stroke-width="0" stroke="#000000" fill="#000000">REDO</text>
+  <path id="svg_538" transform="rotate(90, 465.762, 3323.12)" d="m448.66687,3317.197021l19.74585,-0.070068l-0.026978,-5.856934l14.469177,11.665039l-14.378967,12.031982l0.025818,-6.23999l-19.8349,0.069824l0,-11.599854z" opacity="0.8" stroke="#9e9e9e" fill="#ffff00"/>
+  <path stroke-width="0" id="svg_553" transform="rotate(90, 473.258, 4026.11)" d="m452.163818,4015.946289l24.366577,-0.120361l-0.033264,-10.05835l17.854919,20.032471l-17.743652,20.662842l0.031799,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#4c4c4c" fill="#007fff"/>
+  <text id="svg_554" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="18" y="3952" x="470" opacity="0.7" stroke-dasharray="2,2" stroke-width="0" stroke="#494949" fill="#ff0000">AfterUndo</text>
+  <g id="svg_573">
+   <rect id="svg_557" height="10" width="115.000002" y="715" x="755.249984" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_561" height="159.749995" width="117" y="556.250012" x="754.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_562" height="156.750006" width="117" y="724.250006" x="754.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+   <text id="svg_556" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="17" y="577" x="813" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">Double Stack</text>
+   <path opacity="0.4" stroke-width="0" id="svg_565" transform="rotate(90, 814.262, 789.617)" d="m759.667358,772.452515l63.064331,-0.202942l-0.086304,-16.978882l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089233l-63.348389,0.202881l0,-33.627136z" stroke="#ff7f00" fill="#ffffff"/>
+   <path opacity="0.4" id="svg_566" stroke-width="0" transform="rotate(-90, 814.262, 654.617)" d="m759.667358,637.452515l63.064331,-0.202942l-0.086304,-16.978882l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089233l-63.348389,0.202881l0,-33.627136z" stroke="#ff7f00" fill="#ffffff"/>
+  </g>
+  <g id="svg_574">
+   <rect id="svg_72" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="1161.496565" x="398.867703" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+   <rect id="svg_73" ry="100" rx="100" height="6.047576" width="68.413201" y="731.793762" x="777.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text transform="matrix(0.409966, 0, 0, 0.409966, 321.966, 576.077)" id="svg_74" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="457.551994" x="1196.055889" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_82">
+    <rect id="svg_78" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2955.204575" x="665.297491" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_79" ry="21" rx="21" height="2.567967" width="25.786671" y="742.139701" x="793.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_80" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="8150.014022" x="665.297387" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_81" ry="21" rx="21" height="2.567967" width="8.212793" y="742.139701" x="824.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse ry="15" rx="15" id="svg_148" cy="747" cx="871" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" id="svg_147" y="751.5" x="871.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  </g>
+  <path id="svg_575" stroke-width="0" d="m605.913025,798.613281l108.613586,-0.644714l0.124146,-14.45166l30.452148,29.711365l-30.318787,30.180664l-0.127747,-15.660828l-108.743347,0.411438l0,-29.546265z" stroke="#9e9e9e" fill="#007fff"/>
+  <g id="svg_576">
+   <rect id="svg_577" height="10" width="115.000002" y="1350" x="748.249984" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_578" height="159.749995" width="117" y="1191.250012" x="747.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_579" height="156.750006" width="117" y="1359.250006" x="747.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+   <text id="svg_580" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="17" y="1212" x="806" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">Double Stack</text>
+   <path id="svg_581" opacity="0.4" stroke-width="0" transform="rotate(90, 807.262, 1424.62)" d="m752.667358,1407.452515l63.064331,-0.203003l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.627075z" stroke="#ff7f00" fill="#ffffff"/>
+   <path id="svg_582" opacity="0.4" stroke-width="0" transform="rotate(-90, 807.262, 1289.62)" d="m752.667358,1272.452515l63.064331,-0.203003l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.627075z" stroke="#ff7f00" fill="#ffffff"/>
+  </g>
+  <g id="svg_583">
+   <rect id="svg_151" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="1142.977117" x="-1405.493293" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+   <rect id="svg_152" ry="100" rx="100" height="6.047576" width="68.413201" y="1413.793762" x="770.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_153" transform="matrix(0.409966, 0, 0, 0.409966, 336.966, 387.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2582.11857" x="1142.392864" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_154">
+    <rect id="svg_155" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2889.779832" x="-5708.592686" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_156" ry="21" rx="21" height="2.567967" width="25.786671" y="1424.139701" x="786.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_157" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="7944.596669" x="-5708.592775" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_158" ry="21" rx="21" height="2.567967" width="8.212793" y="1424.139701" x="817.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_159" ry="15" rx="15" cy="1430" cx="867" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_160" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="1434.5" x="867.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">3</text>
+  </g>
+  <g id="svg_584">
+   <rect id="svg_138" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="1145.622939" x="-1283.791504" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+   <rect id="svg_139" ry="100" rx="100" height="6.047576" width="68.413201" y="1367.793762" x="771.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_140" transform="matrix(0.409966, 0, 0, 0.409966, 316.966, 367.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="2518.698416" x="1193.6165" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_142">
+    <rect id="svg_143" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2899.126036" x="-5278.682259" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_144" ry="21" rx="21" height="2.567967" width="25.786671" y="1378.139701" x="787.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_145" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="7973.942591" x="-5278.682363" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_146" ry="21" rx="21" height="2.567967" width="8.212793" y="1378.139701" x="818.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_149" ry="15" rx="15" cy="1384" cx="868" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_150" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="1388.5" x="868.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  </g>
+  <path transform="rotate(38.9655, 640.432, 1719.05)" id="svg_616" d="m728.035522,1650.594482c7.174561,13.643921 2.972107,4.163696 8.887268,17.835449c3.313965,16.434692 -0.202148,36.522217 -5.230103,52.442871c-3.282227,10.385132 -8.318726,16.173462 -17.756897,27.691528c-3.250183,4.498535 -15.630005,14.411133 -24.252502,20.736206c-7.698975,5.742798 -16.99469,9.086914 -25.374695,11.926636c-16.323303,5.790771 -27.448242,6.093872 -38.257141,6.285278c-9.289795,-0.207397 -16.052307,-1.308105 -22.961975,-2.504517c-11.055298,-2.185547 -15.15686,-3.844727 -24.736328,-8.981323c-8.06604,-4.610352 -12.970154,-8.056152 -17.660889,-12.02832c-2.543884,-2.137451 -4.858826,-4.370972 -6.889709,-6.700073c-2.141418,-2.233154 -4.60791,-4.865601 -5.575256,-6.588257l-5.582947,-9.093018" stroke-dasharray="5,5" stroke-width="3" stroke="#007fff" fill="none"/>
+  <path transform="rotate(38.9655, 550.002, 1679.93)" id="svg_617" d="m541.159912,1669.418335l-0.693604,21.014526l8.432373,-9.847778l10.640747,-4.1875l-18.379517,-6.979248z" stroke-width="3" stroke="#007fff" fill="#007fff"/>
+  <g id="svg_593">
+   <rect id="svg_587" height="4.026174" width="71.752138" y="1658.165568" x="717.873911" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_588" height="64.318127" width="73" y="1594.250062" x="717.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_589" height="63.110279" width="73" y="1661.889781" x="717.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+  </g>
+  <g id="svg_595">
+   <rect id="svg_596" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1014.661388" x="-2027.670888" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_597" ry="100" rx="100" height="3.628546" width="41.047922" y="1694.976272" x="731.767943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <g id="svg_598">
+    <rect id="svg_599" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2436.504104" x="-7906.433345" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_600" ry="21" rx="21" height="1.54078" width="15.472003" y="1701.183837" x="741.087329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_601" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="6521.393313" x="-7906.433447" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_602" ry="21" rx="21" height="1.54078" width="4.927676" y="1701.183837" x="759.816677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_603" ry="9" rx="9" cy="1704.700016" cx="789.500015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_604" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="1669.667364" x="818.999984" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">3</text>
+  </g>
+  <rect id="svg_607" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1014.220592" x="-1904.64713" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <rect id="svg_608" ry="100" rx="100" height="3.628546" width="41.047922" y="1666.076274" x="730.667943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_609">
+   <rect id="svg_610" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2419.370675" x="-7456.272543" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_611" ry="21" rx="21" height="1.54078" width="15.472003" y="1672.283838" x="739.987329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_612" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="6467.5872" x="-7456.272648" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_613" ry="21" rx="21" height="1.54078" width="4.927676" y="1672.283838" x="758.716677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_614" ry="9" rx="9" cy="1675.800017" cx="788.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_615" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="1621.500282" x="817.166657" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  <rect id="svg_620" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="644.264863" x="-2384.838623" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <rect id="svg_621" ry="100" rx="100" height="3.628546" width="41.047922" y="1775.976272" x="646.767943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_622">
+   <rect id="svg_623" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="1112.504092" x="-9168.127995" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_624" ry="21" rx="21" height="1.54078" width="15.472003" y="1782.183837" x="656.087329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_625" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="2364.242224" x="-9168.128097" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_626" ry="21" rx="21" height="1.54078" width="4.927676" y="1782.183837" x="674.816677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_627" ry="9" rx="9" cy="1785.700016" cx="704.500015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_628" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="1806.334185" x="678.999981" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">3</text>
+  <path id="svg_585" stroke-width="0" d="m604.913025,1431.613281l108.613586,-0.644775l0.124146,-14.45166l30.452148,29.711426l-30.318787,30.180664l-0.127747,-15.660889l-108.743347,0.411499l0,-29.546265z" stroke="#9e9e9e" fill="#007fff"/>
+  <g id="svg_629">
+   <rect id="svg_630" height="10" width="115.000002" y="2234" x="680.249984" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_631" height="159.749995" width="117" y="2075.250012" x="679.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_632" height="156.750006" width="117" y="2243.250006" x="679.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+   <text id="svg_633" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="17" y="2096" x="738" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">Double Stack</text>
+   <path id="svg_634" opacity="0.4" stroke-width="0" transform="rotate(90, 739.262, 2308.62)" d="m684.667358,2291.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+   <path id="svg_635" opacity="0.4" stroke-width="0" transform="rotate(-90, 739.262, 2173.62)" d="m684.667358,2156.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+  </g>
+  <g id="svg_647">
+   <rect id="svg_648" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="963.07008" x="-3617.291502" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+   <rect id="svg_649" ry="100" rx="100" height="6.047576" width="68.413201" y="2249.793762" x="702.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_650" transform="matrix(0.409966, 0, 0, 0.409966, 336.966, 387.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4621.312012" x="976.52532" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_651">
+    <rect id="svg_652" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2254.259836" x="-13521.748627" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_653" ry="21" rx="21" height="2.567967" width="25.786671" y="2260.139701" x="718.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_654" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5949.168512" x="-13521.748716" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_655" ry="21" rx="21" height="2.567967" width="8.212793" y="2260.139701" x="749.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_656" ry="15" rx="15" cy="2266" cx="799" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_657" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="2270.5" x="799.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  </g>
+  <g id="svg_658">
+   <rect id="svg_637" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="960.424258" x="-3738.993291" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_638" ry="100" rx="100" height="6.047576" width="68.413201" y="2295.793762" x="701.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_639" transform="matrix(0.409966, 0, 0, 0.409966, 356.966, 407.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4684.732145" x="925.301668" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_640">
+    <rect id="svg_641" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2244.913632" x="-13951.659054" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_642" ry="21" rx="21" height="2.567967" width="25.786671" y="2306.139701" x="717.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_643" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5919.822591" x="-13951.659127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_644" ry="21" rx="21" height="2.567967" width="8.212793" y="2306.139701" x="748.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_645" ry="15" rx="15" cy="2312" cx="798" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_646" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="2316.5" x="798.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">3</text>
+  </g>
+  <g transform="rotate(2.82713, 733, 2310.5)" id="svg_416">
+   <line id="svg_414" y2="2325" x2="800" y1="2297" x1="666" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+   <line id="svg_415" y2="2294" x2="800" y1="2327" x1="670" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_662">
+   <text id="svg_659" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="2302" x="847" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">Removed</text>
+   <text id="svg_660" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="2318" x="848" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">from</text>
+   <text id="svg_661" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="2336" x="845" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">UNDO list</text>
+  </g>
+  <g id="svg_663">
+   <rect id="svg_275" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="963.070059" x="-3466.487121" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+   <rect id="svg_276" ry="100" rx="100" height="6.047576" width="68.413201" y="2192.793762" x="704.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_277" transform="matrix(0.409966, 0, 0, 0.409966, 356.966, 407.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="4433.49172" x="927.74085" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_278">
+    <rect id="svg_279" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2254.259711" x="-12989.033022" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_280" ry="21" rx="21" height="2.567967" width="25.786671" y="2203.139701" x="718.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_281" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5949.168537" x="-12989.033127" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_282" ry="21" rx="21" height="2.567967" width="8.212793" y="2203.139701" x="749.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_283" ry="15" rx="15" cy="2209" cx="799" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_284" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="2213.5" x="799.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">4</text>
+  </g>
+  <g id="svg_689">
+   <rect id="svg_690" height="4.026174" width="71.752138" y="2559.165568" x="748.873911" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_691" height="64.318127" width="73" y="2495.250062" x="748.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_692" height="63.110279" width="73" y="2562.889781" x="748.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+  </g>
+  <rect id="svg_703" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1150.914554" x="-5877.590146" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+  <rect id="svg_704" ry="100" rx="100" height="3.628546" width="41.047922" y="2567.076274" x="761.667943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_705">
+   <rect id="svg_706" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2902.240762" x="-21490.67217" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_707" ry="21" rx="21" height="1.54078" width="15.472003" y="2573.283838" x="770.987329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_708" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="7983.721172" x="-21490.672275" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_709" ry="21" rx="21" height="1.54078" width="4.927676" y="2573.283838" x="789.716677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_710" ry="9" rx="9" cy="2576.800017" cx="819.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_711" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3123.16721" x="868.833363" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  <path id="svg_664" stroke-width="0" d="m623.163818,2326.946289l24.366577,-0.120361l-0.033264,-10.05835l17.854919,20.032471l-17.743652,20.662842l0.031799,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#4c4c4c" fill="#ff7f00"/>
+  <rect id="svg_721" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1150.914523" x="-5723.258095" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+  <rect id="svg_722" ry="100" rx="100" height="3.628546" width="41.047922" y="2532.076274" x="761.667943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_723">
+   <rect id="svg_724" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2902.240447" x="-20945.496814" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_725" ry="21" rx="21" height="1.54078" width="15.472003" y="2538.283838" x="770.987329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_726" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="7983.719798" x="-20945.496919" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_727" ry="21" rx="21" height="1.54078" width="4.927676" y="2538.283838" x="789.716677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_728" ry="9" rx="9" cy="2541.800017" cx="819.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <path id="svg_687" transform="rotate(38.9655, 674.432, 2598.05)" d="m762.036011,2529.589844c7.17395,13.650146 2.972046,4.170166 8.886963,17.840332c3.314087,16.429688 -0.202026,36.519775 -5.22998,52.439941c-3.283081,10.389893 -8.31897,16.179932 -17.756958,27.689941c-3.25,4.5 -15.630005,14.419922 -24.253052,20.73999c-7.698975,5.73999 -16.994019,9.090088 -25.373901,11.929932c-16.324097,5.790039 -27.449097,6.089844 -38.258057,6.280029c-9.289001,-0.199951 -16.052002,-1.310059 -22.962036,-2.5c-11.054993,-2.190186 -15.156006,-3.849854 -24.735962,-8.97998c-8.06604,-4.610107 -12.970032,-8.060059 -17.661011,-12.030029c-2.544006,-2.140137 -4.859009,-4.370117 -6.889038,-6.699951c-2.141968,-2.230225 -4.607971,-4.869873 -5.575989,-6.590088l-5.583008,-9.089844" stroke-dasharray="5,5" stroke-width="3" stroke="#007fff" fill="none"/>
+  <path id="svg_688" transform="rotate(38.9655, 584.002, 2558.93)" d="m575.159912,2548.418457l-0.693604,21.014404l8.432373,-9.8479l10.640747,-4.1875l-18.379517,-6.979004z" stroke-width="3" stroke="#007fff" fill="#007fff"/>
+  <rect id="svg_712" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="794.187263" x="-6260.772972" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <rect id="svg_713" ry="100" rx="100" height="3.628546" width="41.047922" y="2654.976272" x="680.767943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_714">
+   <rect id="svg_715" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="1642.103484" x="-22859.845676" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_716" ry="21" rx="21" height="1.54078" width="15.472003" y="2661.183837" x="690.087329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_717" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="4027.098685" x="-22859.845779" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_718" ry="21" rx="21" height="1.54078" width="4.927676" y="2661.183837" x="708.816677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_719" ry="9" rx="9" cy="2664.700016" cx="738.500015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_720" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3269.667888" x="734.000017" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  <text id="svg_729" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3064.834035" x="868.833358" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">4</text>
+  <g id="svg_730">
+   <rect id="svg_731" height="10" width="115.000002" y="3120" x="680.249984" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_732" height="159.749995" width="117" y="2961.250012" x="679.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_733" height="156.750006" width="117" y="3129.250006" x="679.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+   <text id="svg_734" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="17" y="2982" x="738" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">Double Stack</text>
+   <path id="svg_735" opacity="0.4" stroke-width="0" transform="rotate(90, 739.262, 3194.62)" d="m684.667358,3177.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+   <path id="svg_736" opacity="0.4" stroke-width="0" transform="rotate(-90, 739.262, 3059.62)" d="m684.667358,3042.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+  </g>
+  <g id="svg_762">
+   <text id="svg_763" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3142" x="847" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">Removed</text>
+   <text id="svg_764" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3158" x="848" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">from</text>
+   <text id="svg_765" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3176" x="845" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">UNDO list</text>
+  </g>
+  <g id="svg_766">
+   <rect id="svg_767" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="960.424158" x="-5810.569847" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+   <rect id="svg_768" ry="100" rx="100" height="6.047576" width="68.413201" y="3078.793762" x="703.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_769" transform="matrix(0.409966, 0, 0, 0.409966, 376.966, 427.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6545.862428" x="876.517032" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_770">
+    <rect id="svg_771" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2244.913222" x="-21269.482573" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_772" ry="21" rx="21" height="2.567967" width="25.786671" y="3089.139701" x="717.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_773" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5919.821797" x="-21269.482678" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_774" ry="21" rx="21" height="2.567967" width="8.212793" y="3089.139701" x="748.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_775" ry="15" rx="15" cy="3095" cx="798" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_776" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3099.5" x="798.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">4</text>
+  </g>
+  <path id="svg_777" stroke-width="0" d="m622.163818,3212.946289l24.366577,-0.120361l-0.033264,-10.05835l17.854919,20.032471l-17.743652,20.662842l0.031799,-10.716064l-24.476379,0.120117l0,-19.920654z" stroke="#4c4c4c" fill="#ff7f00"/>
+  <g id="svg_778">
+   <rect id="svg_738" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="960.424108" x="-5961.374215" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_739" ry="100" rx="100" height="6.047576" width="68.413201" y="3135.793762" x="701.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_740" transform="matrix(0.409966, 0, 0, 0.409966, 356.966, 407.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6733.682583" x="925.30152" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_741">
+    <rect id="svg_742" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2244.913187" x="-21802.198114" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_743" ry="21" rx="21" height="2.567967" width="25.786671" y="3146.139701" x="717.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_744" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5919.821102" x="-21802.198198" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_745" ry="21" rx="21" height="2.567967" width="8.212793" y="3146.139701" x="748.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_746" ry="15" rx="15" cy="3152" cx="798" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_747" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3156.5" x="798.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">2</text>
+  </g>
+  <g id="svg_759" transform="rotate(2.82713, 736, 3150.5)">
+   <line id="svg_760" y2="3165" x2="803" y1="3137" x1="669" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+   <line id="svg_761" y2="3134" x2="803" y1="3167" x1="673" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+  </g>
+  <g id="svg_790">
+   <rect id="svg_780" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="960.424078" x="-5691.513704" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+   <rect id="svg_781" ry="100" rx="100" height="6.047576" width="68.413201" y="3033.793762" x="703.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_782" transform="matrix(0.409966, 0, 0, 0.409966, 396.966, 447.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="6387.312286" x="827.73222" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_783">
+    <rect id="svg_784" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2244.913054" x="-20848.917785" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_785" ry="21" rx="21" height="2.567967" width="25.786671" y="3044.139701" x="717.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_786" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5919.820454" x="-20848.917889" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_787" ry="21" rx="21" height="2.567967" width="8.212793" y="3044.139701" x="748.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_788" ry="15" rx="15" cy="3050" cx="798" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_789" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3054.5" x="798.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">5</text>
+  </g>
+  <g id="svg_791">
+   <rect id="svg_792" height="4.026174" width="71.752138" y="3516.165568" x="723.873911" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_793" height="64.318127" width="73" y="3452.250062" x="723.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_794" height="63.110279" width="73" y="3519.889781" x="723.24999" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+  </g>
+  <rect id="svg_795" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1036.267926" x="-9819.666573" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+  <rect id="svg_796" ry="100" rx="100" height="3.628546" width="41.047922" y="3461.076274" x="735.667943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_797">
+   <rect id="svg_798" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2497.251829" x="-35416.037464" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_799" ry="21" rx="21" height="1.54078" width="15.472003" y="3467.283838" x="744.987329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_800" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="6712.120406" x="-35416.037568" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_801" ry="21" rx="21" height="1.54078" width="4.927676" y="3467.283838" x="763.716677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_802" ry="9" rx="9" cy="3470.800017" cx="793.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_803" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="4613.167516" x="825.500056" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">5</text>
+  <rect id="svg_804" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="1040.677394" x="-9943.132004" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+  <rect id="svg_805" ry="100" rx="100" height="3.628546" width="41.047922" y="3489.076274" x="736.667943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_806">
+   <rect id="svg_807" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="2512.828185" x="-35852.178882" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_808" ry="21" rx="21" height="1.54078" width="15.472003" y="3495.283838" x="745.987329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_809" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="6761.027598" x="-35852.178986" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_810" ry="21" rx="21" height="1.54078" width="4.927676" y="3495.283838" x="764.716677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_811" ry="9" rx="9" cy="3498.800017" cx="794.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_823" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="4659.83423" x="827.16672" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">4</text>
+  <path id="svg_824" d="m758.5,3457.5c0,-0.5 0.25,-7 0,-17.5c-0.25,-10.51001 -2.952026,-21.02002 -7.5,-31c-2.968994,-6.51001 -8.245972,-12.76001 -14.875,-20.120117c-2.939941,-2.819824 -7.86792,-6.929932 -15.207031,-11.040039c-6.963989,-3.599854 -15.087891,-5.939941 -22.667969,-7.719727c-14.765015,-3.630127 -24.828003,-3.820068 -34.60498,-3.939941c-8.403015,0.129883 -14.52002,0.819824 -20.77002,1.569824c-10,1.370117 -13.710022,2.410156 -22.375,5.629883c-7.296021,2.890137 -11.731995,5.050293 -15.974976,7.540039c-2.301025,1.340088 -4.39502,2.740234 -6.231995,4.200195c-1.937012,1.399902 -4.16803,3.049805 -5.04303,4.129883l-5.049988,5.699951" stroke-dasharray="5,5" stroke-width="3" stroke="#ff7f00" fill="none"/>
+  <path id="svg_825" d="m578.049988,3404.600098l4.125,-15.75l2.875,8.75l9.625,2.625l-16.625,4.375z" stroke-width="3" stroke="#ff7f00" fill="#ff7f00"/>
+  <rect id="svg_826" stroke-width="7" transform="matrix(1.01818e-11, -0.226784, 0.226784, 1.01818e-11, 489.547, 1258.18)" ry="107" rx="107" height="290.984207" width="109.167296" y="615.603123" x="-9360.639343" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+  <rect id="svg_827" ry="100" rx="100" height="3.628546" width="41.047922" y="3358.976272" x="642.267943" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <g id="svg_828">
+   <rect id="svg_829" transform="matrix(2.88232e-12, -0.0641994, 0.0641994, 2.88232e-12, 583.035, 1200.18)" ry="48" rx="48" height="290.984207" width="109.167296" y="1042.409493" x="-33825.678091" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_830" ry="21" rx="21" height="1.54078" width="15.472003" y="3365.183837" x="651.587329" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_831" transform="matrix(9.17994e-13, -0.0641994, 0.0204467, 2.88232e-12, 625.956, 1200.18)" ry="100" rx="100" height="290.98419" width="109.167296" y="2144.157719" x="-33825.678196" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_832" ry="21" rx="21" height="1.54078" width="4.927676" y="3365.183837" x="670.316677" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_833" ry="9" rx="9" cy="3367.925017" cx="700.400015" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_834" transform="matrix(0.6, 0, 0, 0.6, 298.4, 705.6)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="4441.750884" x="670.041732" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">5</text>
+  <text id="svg_843" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3926" x="842" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">Removed</text>
+  <text id="svg_844" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3942" x="843" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">from</text>
+  <text id="svg_845" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="15" y="3960" x="840" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ff0000">REDO list</text>
+  <g id="svg_835">
+   <rect id="svg_836" height="10" width="115.000002" y="4008" x="667.249984" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_837" height="159.749995" width="117" y="3849.250012" x="666.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#ff0000"/>
+   <rect id="svg_838" height="156.750006" width="117" y="4017.250006" x="666.25" opacity="0.6" stroke-width="2" stroke="#ffffff" fill="#0000ff"/>
+   <text id="svg_839" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="17" y="3870" x="725" opacity="0.6" stroke-width="0" stroke="#000000" fill="#ffffff">Double Stack</text>
+   <path id="svg_840" opacity="0.4" stroke-width="0" transform="rotate(90, 726.262, 4082.62)" d="m671.667358,4065.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879395l0.082153,-18.088867l-63.348389,0.202637l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+   <path id="svg_841" opacity="0.4" stroke-width="0" transform="rotate(-90, 726.262, 3947.62)" d="m671.667358,3930.452637l63.064331,-0.203125l-0.086304,-16.97876l46.211304,33.815674l-45.923096,34.879639l0.082153,-18.089355l-63.348389,0.202881l0,-33.626953z" stroke="#ff7f00" fill="#ffffff"/>
+  </g>
+  <g id="svg_846">
+   <rect id="svg_847" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="926.02996" x="-8159.94398" stroke-dasharray="2,2" stroke="#ffffff" fill="#ff7f00"/>
+   <rect id="svg_848" ry="100" rx="100" height="6.047576" width="68.413201" y="3966.793762" x="690.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_849" transform="matrix(0.409966, 0, 0, 0.409966, 396.966, 447.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="8663.111082" x="796.022292" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_850">
+    <rect id="svg_851" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2123.416266" x="-29568.623883" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_852" ry="21" rx="21" height="2.567967" width="25.786671" y="3977.139701" x="704.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_853" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5538.340534" x="-29568.623988" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_854" ry="21" rx="21" height="2.567967" width="8.212793" y="3977.139701" x="735.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_855" ry="15" rx="15" cy="3983" cx="785" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_856" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3987.5" x="785.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">4</text>
+  </g>
+  <path id="svg_857" stroke-width="0" d="m621.163818,4097.946289l24.366577,-0.120117l-0.033264,-10.058594l17.854919,20.032227l-17.743652,20.663086l0.031799,-10.71582l-24.476379,0.120117l0,-19.920898z" stroke="#4c4c4c" fill="#007fff"/>
+  <g id="svg_883">
+   <rect id="svg_873" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="926.029796" x="-8038.242125" stroke-dasharray="2,2" stroke="#ffffff" fill="#7f7f7f"/>
+   <rect id="svg_874" ry="100" rx="100" height="6.047576" width="68.413201" y="3920.793762" x="690.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+   <text id="svg_875" transform="matrix(0.409966, 0, 0, 0.409966, 416.966, 467.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="8502.122143" x="747.237681" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+   <g id="svg_876">
+    <rect id="svg_877" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2123.4159" x="-29138.713113" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_878" ry="21" rx="21" height="2.567967" width="25.786671" y="3931.139701" x="704.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+    <rect id="svg_879" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5538.338093" x="-29138.713217" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+    <rect id="svg_880" ry="21" rx="21" height="2.567967" width="8.212793" y="3931.139701" x="735.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   </g>
+   <ellipse id="svg_881" ry="15" rx="15" cy="3937" cx="785" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+   <text id="svg_882" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="3941.5" x="785.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">5</text>
+  </g>
+  <rect id="svg_859" stroke-width="7" transform="matrix(1.69697e-11, -0.377973, 0.377973, 1.69697e-11, 318.578, 920.959)" ry="107" rx="107" height="290.984207" width="109.167296" y="928.675418" x="-8313.394012" stroke-dasharray="2,2" stroke="#ffffff" fill="#007fff"/>
+  <rect id="svg_860" ry="100" rx="100" height="6.047576" width="68.413201" y="4024.793762" x="689.779885" opacity="0.3" stroke-dasharray="2,2" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+  <text id="svg_861" transform="matrix(0.409966, 0, 0, 0.409966, 376.966, 427.077)" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" y="8853.370973" x="847.246209" opacity="0.6" stroke-width="0" stroke="#ffffff" fill="#ffffff">TDF_Delta</text>
+  <g id="svg_862">
+   <rect id="svg_863" transform="matrix(4.80387e-12, -0.106999, 0.106999, 4.80387e-12, 474.391, 824.304)" ry="48" rx="48" height="290.984207" width="109.167296" y="2132.761935" x="-30110.685172" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_864" ry="21" rx="21" height="2.567967" width="25.786671" y="4035.139701" x="705.312195" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+   <rect id="svg_865" transform="matrix(1.52999e-12, -0.106999, 0.0340779, 4.80387e-12, 545.927, 824.304)" ry="100" rx="100" height="290.98419" width="109.167296" y="5567.683589" x="-30110.685254" stroke-dasharray="2,2" stroke="#9e9e9e" fill="#e2e2e2"/>
+   <rect id="svg_866" ry="21" rx="21" height="2.567967" width="8.212793" y="4035.139701" x="736.527772" opacity="0.8" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#ededed"/>
+  </g>
+  <ellipse id="svg_867" ry="15" rx="15" cy="4041" cx="786" opacity="0.75" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#000000"/>
+  <text id="svg_868" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="15" y="4045.5" x="786.5" stroke-dasharray="2,2" stroke-width="0" stroke="#9e9e9e" fill="#ffffff">6</text>
+  <g id="svg_869" transform="rotate(2.82713, 728, 3934.5)">
+   <line id="svg_870" y2="3949" x2="795" y1="3921" x1="661" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+   <line id="svg_871" y2="3918" x2="795" y1="3951" x1="665" stroke-linecap="round" stroke-width="5" stroke="#ff0000" fill="none"/>
+  </g>
+ </g>
+</svg>

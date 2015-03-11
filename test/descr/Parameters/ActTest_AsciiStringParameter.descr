@@ -1,0 +1,12 @@
+[TITLE]
+
+  ASCII String Parameter
+
+[1:OVERVIEW]
+
+  Accessor for ASCII string persistent value.
+
+[1:DETAILS]
+
+  Checks whether ASCII string can be correctly saved and restored to/from OCAF
+  by means of a dedicated Data Framework Parameter.

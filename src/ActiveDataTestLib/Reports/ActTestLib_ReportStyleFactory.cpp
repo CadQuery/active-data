@@ -1,0 +1,47 @@
+//-----------------------------------------------------------------------------
+// Created on: 26 November 2013
+//-----------------------------------------------------------------------------
+// Copyright (c) 2017 Sergey Slyadnev
+// Code covered by the MIT License
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+//
+// Web: http://dev.opencascade.org
+//-----------------------------------------------------------------------------
+
+// ActTestLib includes
+#include <ActTestLib_ReportStyleFactory.h>
+
+//! CSS style with background color suitable for highlighting of "bad" data.
+//! \return requested style.
+ActTestLib_ReportStyle ActTestLib_ReportStyleFactory::Bad()
+{
+  ActTestLib_ReportStyle ResStyle;
+  ResStyle.SetBgColor( ActTestLib_ReportStyle::Color(240, 100, 100) );
+  return ResStyle;
+}
+
+//! CSS style with background color suitable for highlighting of "good" data.
+//! \return requested style.
+ActTestLib_ReportStyle ActTestLib_ReportStyleFactory::Good()
+{
+  ActTestLib_ReportStyle ResStyle;
+  ResStyle.SetBgColor( ActTestLib_ReportStyle::Color(190, 235, 100) );
+  return ResStyle;
+}

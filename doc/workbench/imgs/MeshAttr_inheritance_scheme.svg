@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_18" height="46.000002" width="283.999982" y="213.249999" x="297.250004" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <rect id="svg_4" height="46.000002" width="226.000009" y="133.249999" x="18.250003" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <rect id="svg_3" height="42" width="183" y="42" x="39" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_1" y="71" x="130" stroke-width="0" stroke="#000000" fill="#000000">TDF_Attribute</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_2" y="163.25" x="130.25" stroke-width="0" stroke="#000000" fill="#000000">SbmData_MeshAttr</text>
+  <line id="svg_8" y2="331.999996" x2="125.75" y1="186.999997" x1="125.75" stroke-dasharray="5,5" stroke-width="2" stroke="#000000" fill="none"/>
+  <line id="svg_9" y2="332.5" x2="289.79119" y1="332.5" x1="124.750002" stroke-dasharray="5,5" stroke-width="2" stroke="#000000" fill="none"/>
+  <path transform="rotate(90, 297.5, 332.555)" id="svg_11" stroke-width="2" d="m297.284973,327.608398l-10.034973,9.891602l20.5,-0.143372l-10.465027,-9.74823z" stroke="#000000" fill="#000000"/>
+  <g id="svg_7">
+   <path stroke-width="2" id="svg_5" d="m125.284973,88.358398l-10.034973,9.891602l20.5,-0.143372l-10.465027,-9.74823z" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_6" y2="130.015744" x2="125.5" y1="98.25" x1="125.5" stroke-width="2" stroke="#000000" fill="none"/>
+  </g>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="16" id="svg_14" y="326.5" x="170" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">uses</text>
+  <rect id="svg_15" height="46.000002" width="266" y="308.249999" x="307.250004" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_16" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" y="339.25" x="441.25" stroke-width="0" stroke="#000000" fill="#000000">SbmData_MeshMDelta</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_17" y="243" x="438" stroke-width="0" stroke="#000000" fill="#000000">TDF_DeltaOnModification</text>
+  <g id="svg_19">
+   <path id="svg_20" stroke-width="2" d="m441.284973,263.358398l-10.034973,9.891602l20.5,-0.143372l-10.465027,-9.74823z" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_21" y2="305.015744" x2="441.5" y1="273.25" x1="441.5" stroke-width="2" stroke="#000000" fill="none"/>
+  </g>
+ </g>
+</svg>

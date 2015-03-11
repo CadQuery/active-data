@@ -1,0 +1,66 @@
+[TITLE]
+
+  Data Model expression evaluation
+
+[1:OVERVIEW]
+
+  Checks that Integer Variable Node is removed correctly. This means that all
+  involved evaluation Tree Functions established in dependent Nodes have to be
+  disconnected.
+
+[2:OVERVIEW]
+
+  Test on Dependency Analyzer tool: simple loop should be detected.
+
+[3:OVERVIEW]
+
+  Test on Dependency Analyzer tool: no loops should be detected.
+
+[4:OVERVIEW]
+
+  Test on Dependency Analyzer tool: simple loop should be detected.
+
+[5:OVERVIEW]
+
+  Test on Dependency Analyzer tool: no loops should be detected.
+  
+[6:OVERVIEW]
+
+  Test on Dependency Analyzer tool: no loops should be detected.
+
+[7:OVERVIEW]
+
+  Test on Dependency Analyzer tool: infinite loop should be detected.
+
+[7:DETAILS]
+
+  The following case is checked:
+  <pre>
+    +==========+============+
+    | Variable | Expression |
+    +==========+============+
+    | rX       | 1.0        |
+    +----------+------------+
+    | rY       | iX         |
+    +----------+------------+
+    | iX       | rX*rY      |
+    +==========+============+
+  </pre>
+  Therefore, rY depends on iX, while iX depends on rY.
+
+[8:OVERVIEW]
+
+  Test function for renaming functionality for Variable Nodes.
+
+[9:OVERVIEW]
+
+  Test function for renaming functionality for Variable Nodes.
+
+[10:OVERVIEW]
+
+  Test function for renaming functionality for Variable Nodes. This one will
+  test some special characters in Variable names, e.g. "_".
+
+[11:OVERVIEW]
+
+  Test function for adding new variable.

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_Common.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IAlgorithm.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IDataCursor.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_ILogger.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IModel.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_INode.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IPartition.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IPlotter.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_IProgressNotifier.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_ITreeFunction.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_TxData.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_Variables.h" />
+    <ClInclude Include="..\..\src\ActiveDataAPI\ActAPI_Version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IAlgorithm.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IDataCursor.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_ILogger.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_INode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IPlotter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_IProgressNotifier.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_ITreeFunction.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAPI\ActAPI_Variables.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A9E94FC0-F808-4186-B4F9-9CE039FAF3F6}</ProjectGuid>
+    <RootNamespace>ActAPI</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\bind\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\objd\ActAPI\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CASFIX_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN64;_OCC64;_WINDOWS;WNT;ACT_DEBUG;_DEBUG;ActAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>..\..\win64\vc10\libd\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataAPI\*.h $(AD_ROOT)\include
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CASFIX_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level4</WarningLevel>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN64;_OCC64;_WINDOWS;WNT;NDEBUG;ActAPI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>..\..\win64\vc10\lib\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copy headers to installation directory</Message>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataAPI\*.h $(AD_ROOT)\include
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

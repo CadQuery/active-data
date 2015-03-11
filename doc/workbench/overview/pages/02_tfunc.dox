@@ -1,0 +1,223 @@
+/*!
+
+\page page_tfunc Tree Functions
+
+\section page_tfunc_overview Overview
+
+If you ever worked with relational databases, then the notion of a
+_stored procedure_ should be familiar to you. If not, then there are just few
+things to keep in mind about these monsters:
+
+- Stored procedure is an _algorithm stored together with data_ (at the same architectural level).
+- Stored procedure can simplify the logic of your software: some part of
+  this logic is transferred from your code to the database.
+
+The reasons to keep some algorithms right at the database level could be different.
+In client-server architectures we can figure out the followings:
+
+- Performance: stored procedures can accelerate your calculations.
+- Architecture: sometimes it is just more natural to have a stored procedure
+  instead of a classical algorithm.
+- Observer: necessity to react automatically on data modification
+  events (what is known as "trigger" concept).
+
+In OCAF it is possible to have a similar sort of *persistent algorithms.*
+There are some differences in the conception as we are speaking about
+desktop applications without any client-server architecture inside.
+Therefore, performance is basically not an issue as everything is operating
+on a local station. Likewise, there is no concurrent access to the data by several
+consumers and no protection or locking is required so. You should normally consider
+usage of persistent algorithms in the following situations:
+
+- You want to organize your hierarchical data into dependency graphs. This way you
+  establish one more relationship between your data objects expressing the
+  computational graph.
+- You want to re-execute automatically all dependent algorithms once their
+  inputs are changed.
+
+Injecting this mechanism makes your data model more intelligent
+regarding the process of data update. Doing so, you only need to build your
+dependency graph (you may also rebuild it dynamically according to some rules) and
+implement each algorithm as a node in this graph. Of course, such a mechanism
+is not always something what you *need* to have. It fits best those engineering
+problems where calculations can be naturally organized into the graph structures
+(CAE, parametric CAD, CAD optimization, etc.).
+
+\section page_tfunc_architecture Architecture
+
+It should be clearly understood that having or not the execution graphs in
+your data model is a major architectural question which you have to decide on
+your own. Let us consider a classical situation when you build up your
+algorithms around the *passive* bank of data (no persistent algorithms
+are used). In that case the algorithm is typically aware of the data
+model and can manipulate with the data objects directly.
+
+\image html tfunc_01.png
+\image latex tfunc_01.png "" width=70px
+
+Let us now consider a kind of *active* data model. In that case the data model
+maintains a graph of algorithmic dependencies. It also takes responsibility
+of supplying the algorithms with inputs and updating their outputs once computation
+is done. In AD framework, any modification of the input data leads to invocation of a conventional
+<tt>Execute()</tt> method of a domain-specific class inheriting from
+<tt>ActData_BaseTreeFunction</tt>. Normally you need to have a number of
+Tree Function classes dealing with your custom logic inside their <tt>Execute()</tt>
+methods. At a first glance it looks like the algorithmic stuff is
+mixed up with the data model internals.
+
+Basically, you are not restricted to put your entire algorithm possessing,
+for example, 1 billion instructions right into <tt>Execute()</tt> method.
+It will work, but from architectural point of view this is pure evil. The
+more graceful decision is to separate your algorithms from the data
+model conceptually (e.g. put them into different libraries). Doing so, you
+decouple your domain-specific "business logic" from the data organization
+format. Such a solution gives you the following advantages:
+
+- You may change your data model without affecting the algorithms;
+- You may test your algorithms without necessity to build up a sample data model;
+- You may use your algorithms outside your software as a usual library.
+
+\image html tfunc_02.png
+\image latex tfunc_02.png "" width=85px
+
+In order to break the link from an algorithm to a data model, a well-known
+_Adapter_ pattern can be employed. The idea is very simple: you build a thin
+"bridge" from your data model to an algorithm using a specific realization of
+an abstract adapter class. The algorithm in its turn works with its inputs
+and outputs via the corresponding adapters only. The deal is better clarified
+by the following picture:
+
+\image html tfunc_03.png
+\image latex tfunc_03.png "" width=350px
+
+Here _Your Custom Algorithm_ uses _Abstract Input_ and _Abstract Output_ as
+adapters for input and output data. The algorithm knows nothing about the data
+model and can operate with only those information available via adapters. In
+our sample it can get three floating-point values \f$X\f$, \f$Y\f$ and \f$Z\f$ by means
+of <tt>GetX()</tt>, <tt>GetY()</tt> and <tt>GetZ()</tt> methods. Internally
+it will do something with the input values and then it will set the calculation results
+to an abstract output by means of <tt>SetNewX()</tt>, <tt>SetNewY()</tt> and
+<tt>SetNewZ()</tt> methods. There is no word about OCAF and the actual data model,
+so your algorithm comes with the pure domain-specific logic. The real
+connection of your data model with the algorithm is achieved by extending the
+abstract adapter classes and implementing the declared interface methods.
+
+Wrapping your algorithms with Tree Functions and configuring their dependencies,
+you obtain an execution graph as a model of your calculation network.
+The picture below gives an exemplary graph for some hypothetical calculations
+in hydrodynamics domain:
+
+\image html tfunc_04.png
+\image latex tfunc_04.png "" width=400px
+
+Let us comment a bit on the provided sample. The first "Prepare CAD model"
+function is used as a source of CAD geometry. It can read the model from file or
+build it from scratch. Once the CAD model is ready, we have several jobs to
+do: to build a mesh for subsequent analysis (e.g. CFD or diffraction/radiation)
+or to calculate mass-inertia properties of our geometry. The directed links
+between the parent node and these two child functions mean that the latter
+functions have some inputs in common with the outputs of "Prepare CAD model".
+Another way to get a mesh is to import it from file. The latter possibility
+is represented by "Import mesh" function. Whatever approach for meshing you
+use, it will end up in "Validate mesh" function which will check the correctness
+of your panels before the real hydrodynamics analysis is launched. We skip the rest
+of dependencies illustrated in the given graph as the main idea should be already
+clear enough.
+
+Your job as a developer is to feed each function with its direct input and
+output Parameters. You do not care of how these Parameters are traversed in
+order to build up the execution graph. The latter is a job of Active Data.
+
+\section page_tfunc_variables Variables
+
+Active Data comes with a specialization of Tree Function mechanism for
+implementation of global variables. By a variable we understand a specific
+data object having the following properties:
+
+- Name;
+- Value;
+- Semantic ID;
+- Evaluation string (expression).
+
+_Semantic ID_ is purposed to address the real physical nature of your variable. Using
+it, you can associate with your variable the measurement units, validity range
+or whatever else. Active Data does not provide any concrete solutions for
+semantic IDs as any such solution will be too domain-specific. One good practice
+is to prepare a kind of XML dictionary enumerating all useful physical quantities
+employed in your software. Then it is natural to bind an ID of the proper
+XML entry as a semantic ID of your variable.
+
+_Evaluation string_ gives a mathematical expression to be parsed and evaluated
+in order to calculate the value of your variable.
+It should contain only those operands which correspond to other variables in
+your project. Active Data does not attempt to specialize syntax for these
+mathematical expressions as well as it does not come with a concrete evaluator.
+You may use any 3-rd party or your own evaluation tool for processing these
+expressions. E.g. it is customary to use interpreters like Python or Tcl.
+
+The following variable types are currently supported: integer, real, bool and
+string. However, technically there is no problem to introduce other variable
+types. The only challenge is how are you going to evaluate them. Currently
+evaluation mechanism is available for floating-point variables only. In order
+to start using it, you may take advantage of the standard <tt>ActData_RealEvaluatorFunc</tt>
+Tree Function.
+
+\image html tfunc_06.png
+\image latex tfunc_06.png "" width=200px
+
+In order to connect variables with the Parameters of your Nodes, you have
+to register your Parameters as "expressible". This is done in the constructor
+of your Node by means of a convenient macro.
+
+\verbatim
+//! Default constructor.
+ActTest_StubANode::ActTest_StubANode()
+{
+  REGISTER_PARAMETER     (Name,         PID_Name);
+  REGISTER_PARAMETER     (Shape,        PID_DummyShapeA);
+  REGISTER_PARAMETER     (Shape,        PID_DummyShapeB);
+  REGISTER_PARAMETER_EXPR(Real,         PID_Real); // (!) This Parameter can be evaluated
+  REGISTER_PARAMETER     (TreeFunction, PID_TFunc);
+  REGISTER_PARAMETER     (Reference,    PID_Ref);
+}
+\endverbatim
+
+As the mechanism of variables is nothing but a specialization of Tree Function
+mechanism, you have to explicitly connect your <tt>ActData_RealEvaluatorFunc</tt>
+to the proper input and output Parameters. This is done by <tt>ConnectEvaluator()</tt>
+method of the target Node where the Parameter being evaluated lives.
+
+\verbatim
+// Real Variable 1 depends on Integer Variables 1 & 2
+RealVarNode1->ConnectEvaluator( ActData_RealVarNode::Param_Value,
+                                ActAPI_ParameterStream() << IntParam1 << IntParam2 );
+\endverbatim
+
+The dependency graph below illustrates two variables \f$x\f$ and \f$y\f$ bound
+with some \f$y = f(x)\f$ law. There are also three application-specific Parameters
+with IDs <tt>0:1</tt>, <tt>0:2</tt> and <tt>0:3</tt> which are
+evaluated using the declared variables.
+
+\image html tfunc_05.png
+\image latex tfunc_05.png "" width=200px
+
+There are few service methods at the level of <tt>ActData_BaseModel</tt>
+which facilitate implementation of a powerful variables mechanism in your
+application:
+
+- <tt>AddVariable()</tt>:    creates a new variable Node in the project;
+- <tt>RenameVariable()</tt>: renames the variable with the given ID and adjusts all existing
+                             references to this variable in all expressions of your project;
+
+\note In order to delete variable with all existing references use the standard
+      <tt>DeleteNode()</tt> method.
+
+Summarizing, we would like to underline that introduction of Tree Function mechanism
+at the data model level makes implementation of variables mechanism easy and
+natural. We do not discuss the programmatic aspects of its realization as you
+can find enough examples in the unit tests of Active Data framework: check out
+<tt>ActTest_BaseModelEvaluation</tt> test case as reference.
+
+\todo SpyLog functionality still needs to be described.
+
+*/

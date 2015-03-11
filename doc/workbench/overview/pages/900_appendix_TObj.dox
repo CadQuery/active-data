@@ -1,0 +1,55 @@
+/*!
+
+\page page_appendix_tobj APPENDIX: Comparison with TObj
+
+TObj is another framework shipped with Open CASCADE Technology and
+providing means for designing your data models. Here we discuss the
+differences between TObj and Active Data. Such discussion is necessary
+in order to have full overview on the available OCAF-based tools.
+
+-# Separation between user tree and storage tree. In TObj the storage
+   hierarchy is exactly the same as user hierarchy (<tt>TDataStd_TreeNode</tt> attribute is not used). In Active Data the
+   storage hierarchy has nothing to do with the user hierarchy. TObj approach
+   is more straightforward and does not require any sophisticated tools for
+   copy/paste;
+
+-# In Active Data there is no need to work with entities like <tt>TDF_Label</tt> at all.
+   All OCAF internals are completely hidden from programmatical point of view.
+   In TObj you need to have a <tt>TDF_Label</tt> to create a new object. Moreover, you
+   have to descend to bare OCAF in order to set non-standard attributes
+   which are forbidden in Active Data;
+
+-# Sub-models are not supported as a concept in Active Data. TObj, however,
+   comes with such a principle;
+
+-# TObj intensively uses custom OCAF attributes, while Active Data provides
+   a basis set of property types to express any kind of type. Therefore
+   TObj requires its own storage/retrieval drivers while Active Data can work
+   with the standard ones;
+
+-# Active Data allows to bind application-specific flags without disclosing their actual nature.
+   TObj comes with standard "Object State" flags containing "hidden", "saved"
+   etc;
+
+-# TObj is a passive data framework, while Active Data is designed to support
+   <tt>TFunction</tt> mechanism and enables parametric dependencies so;
+
+-# TObj is easier to study;
+
+-# Active Data comes with compatibility conversion tools which allow
+   adding/removal of object properties without a need to reserve space for
+   "future extensions";
+
+-# Active Data comes with <tt>TFunction</tt>-based mechanism of global variables.
+
+To summarize, Active Data framework has the following main differences
+comparing to TObj:
+
+-# Activeness (<tt>TFunction</tt> mechanism enabled + variables mechanism inside);
+-# Standard OCAF under the cover;
+-# Compatibility conversion utilities;
+-# More flexible in terms of relations between objects;
+-# Active Data is rather a _practice_ of using OCAF, while TObj is an abstracted
+   OCAF-based product.
+
+*/

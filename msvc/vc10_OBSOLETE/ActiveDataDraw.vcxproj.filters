@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1855aa12-17d7-4580-89d5-641d4b0ea425}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{54d9267a-6db2-4658-a066-c569b786ae80}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{1403601d-e492-41c7-b441-21862256dfe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Model">
+      <UniqueIdentifier>{76bd7e3d-3203-4755-9a26-3f3e83b11d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data Model">
+      <UniqueIdentifier>{f6896240-7177-4705-babb-85adf4bc4800}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawTestSuite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_CAFDumperCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Commands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_MiscCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_DummyModel.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubANode.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_StubAPartition.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordNode.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\DataModel\ActDraw_CoordPartition.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataDraw\ActDraw_DrawableModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\ActiveDataDraw\resources\ActiveDataDraw">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

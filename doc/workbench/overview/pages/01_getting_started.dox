@@ -1,0 +1,956 @@
+/*!
+
+\page page_getting_started Getting Started
+
+\section page_getting_started_distribution What is in the distribution?
+
+Active Data is shipped as a collection of six libraries:
+
+<table>
+<tr>
+  <td class='inhead'>
+    Library
+  </td>
+  <td class='inhead'>
+    Purpose
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveDataAPI</tt>
+  </td>
+  <td>
+    Contains pure abstract classes (interfaces) for the main data types
+    and utilities of the library. Think of this package as of an entry point to
+    the Active Data basics.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveDataAux</tt>
+  </td>
+  <td>
+    Some useful utilities which are not related to OCAF and data framework
+    but intensively used internally.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveData</tt>
+  </td>
+  <td>
+    Core classes representing the atomic blocks for constructing
+    your data objects. This package also contains the algorithmic kernel
+    of the framework (dependency graphs, undo/redo, copy/paste etc).
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveDataTestLib</tt>
+  </td>
+  <td>
+    Test engine. Contains launching mechanism for unit tests, processor of
+    description files, report generator etc.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveDataTest</tt>
+  </td>
+  <td>
+    Actual test cases. Normally these tests are launched automatically after
+    compilation of AD libraries.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActiveDataDraw</tt>
+  </td>
+  <td>
+    Draw extensions for working with Active Data via command line.
+  </td>
+</tr>
+</table>
+
+As a software developer you are normally interested in only three libraries
+doing all the job: <tt>ActiveDataAPI</tt>, <tt>ActiveDataAux</tt> and
+<tt>ActiveData</tt>:
+
+\image html libs_01.png
+\image latex libs_01.png "" width=120px
+
+API and Aux packages are very small and you can wonder if we really need to
+have them separated. Well, the possibility to merge them is really considered
+for the future (check out the \ref page_room_for_improvement "room for improvement"
+section), but we have to admit that such separation is quite convenient. Indeed,
+API gives you a list of main entities you are supposed to work with. Aux package
+has nothing to do with OCAF and persistence, but provides some utilities which
+are normally revolving around data models (e.g. abstract mechanism of message
+logging, expression evaluation etc).
+
+\section page_getting_started_dependencies Dependencies from 3-rd parties
+
+The dependencies of Active Data library from the 3-rd party products are
+reduced to essential minimum. The required products are listed in the following
+table:
+
+<table>
+<tr>
+  <td class='inhead'>
+    3-rd party
+  </td>
+  <td class='inhead'>
+    Why do I need this stuff?
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>Open CASCADE Technology (OCCT)</tt>
+  </td>
+  <td>
+    As we already mentioned above, AD is based on OCAF. That is why OCCT
+    is the essential groundwork for Active Data. Moreover, our framework
+    takes advantage of the entire OCCT ecosystem: we use the
+    mechanism of smart pointers, standard OCCT collections and plenty of
+    different tools.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>Intel TBB</tt>
+  </td>
+  <td>
+    This is the way how CPU-based parallelism is injected into AD. Basically, this
+    dependency is not very strict and can be avoided. However, we keep it essential
+    in the standard delivery as TBB is widely used in OCCT itself. Therefore,
+    normally there is no problem to have TBB plugged. At the price of introducing
+    the additional 3-rd party, we benefit from the friendly and powerful
+    parallelism capabilities of TBB.
+  </td>
+</tr>
+</table>
+
+\section page_getting_started_overview Overview
+
+Active Data framework provides a toolkit for creation of custom data models
+based on OCAF. This toolkit contains a set of basic classes and common
+mechanisms for connecting objects into hierarchical structures and
+binding algorithms with them (if necessary). From the very general point of view,
+the data model implemented with help of Active Data framework represents an _interface_ to
+the underlying OCAF structures. We use the idea (pattern) of _data access object_ which
+is popular in enterprise software domain dealing with databases. It is easy
+to draw a parallel between OCAF and a database, so that the concept of data access
+object is just the same. This object does not contain your real data. It rather
+allows getting access to your data stored aside.
+
+AD data access objects are called _Data Cursors:_ this way we emphasize the
+volatile nature of these objects. The Data Cursors are classified by their
+locality as described in the following table:
+
+<table>
+<tr>
+  <td class='inhead'>
+    Data Cursor type
+  </td>
+  <td class='inhead'>
+    Purpose
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActAPI_IModel</tt>
+  </td>
+  <td>
+    The biggest Cursor. Normally you have only one Model instance for your
+    data. It covers the entire project hierarchy.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActAPI_IPartition</tt>
+  </td>
+  <td>
+    Interface for accessing a "folder" containing data objects of the same type.
+    Using Partitions it is very easy to iterate over the objects of a specific
+    type in their actual storage order (used internally by OCAF).
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActAPI_INode</tt>
+  </td>
+  <td>
+    Accessor to a data object. It should be understood from the very
+    beginning that _your job as a developer is to design your data objects_.
+    Unlike doing this with pure OCAF (where you have a complete freedom in
+    assembling the so called labels and attributes), in Active Data you are a bit more
+    restricted. The main rule is that your data object should be expressed as
+    a collection of primitive-type properties called _Parameters_.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActAPI_IParameter</tt>
+  </td>
+  <td>
+    Accessor to a primitive-type property of the data object. In Active Data
+    framework this is the terminal type of entity: you are not
+    supposed to deal with any entities which are "more atomic" than Parameters.
+  </td>
+</tr>
+</table>
+
+Keeping the internal OCAF tree in mind, you can think of a Data Cursor as of a
+"sliding window" moving on the surface of labyrinthine OCAF substance. Such
+architecture allows you constructing the data access objects by demand,
+once you really need to work with the persistent data. Hereinafter we
+discuss this concept more precisely.
+
+\subsection page_getting_started_overview_structure_model Structure of Model
+
+Active Data uses the following main object types:
+
+- Data Model: the root object playing as an entry point to the entire data. A
+  single Model object owns one or several Partition instances depending on
+  the number of Node types in your application. Each Partition contains Nodes
+  of a particular type. Such structure represents an internal data tree: it
+  is not supposed to be shown to the user;
+
+- Partition: dedicated abstraction to group Nodes of a particular type together.
+  Such distribution of Nodes by the corresponding Partitions allows us having
+  well-structured internal OCAF tree where different types of Nodes are not
+  mixed up. Physically the data model structure is a single-level list of
+  Partitions, each containing a set of Nodes of a certain type;
+
+- Node: the main abstraction representing an interface to the domain-specific
+  data object. Internally each Node is a composition of properties and
+  relations between them. Each such property and relation is represented by
+  a Parameter object.
+
+- Parameter: primitive portion of data or relation attribute associated with
+  the Node. Active Data provides a set of ready-to-use Parameters for
+  primitive data types, such as Integer, Real, String, Unicode String,
+  OCCT Shape etc. Relations are represented by Tree Functions, Tree Nodes
+  and general-purpose References;
+
+- Tree Function: the abstraction for a parametric dependency in the data model
+  between an arbitrary set of input Parameters and an arbitrary set of output
+  Parameters. A Tree Function is responsible for updating the output Parameters
+  using the input Parameters and some application-specific algorithm. All
+  Tree Functions defined by the end-user application are invoked automatically
+  by the framework each time the update of the data model is requested.
+  Tree Functions are identified with global unique IDs.
+
+\image html model_01.png
+\image latex model_01.png "" width=150px
+
+For daily development it is enough to keep in mind the following structure:
+
+\image html model_02.png
+\image latex model_02.png "" width=150px
+
+\subsection page_getting_started_overview_structure_nodes Structure of Nodes
+
+The data structures based on OCAF are normally quite sophisticated in their
+internal organization. Without a super-layer like Active Data or any other
+convenience framework it is not easy to operate with your persistent objects.
+Data Node is a concept giving you a higher level of abstraction over the
+unfriendly OCAF. As we already said, a Data Node can be seen as a sliding window
+moved in a space of raw OCAF data and settled down on those portions of
+the internal hierarchy (<tt>TDF_Label</tt> entities) which you want to
+_interpret as data objects_. A single Data Node corresponds to a single object.
+
+\note Most often in practice there is no sense to distinguish between Data Nodes and
+      the underlying data objects. Even though it is possible to charge a single
+      Node consequently with several objects, normally you do not proceed like this.
+      It is programmatically more convenient just to recreate a Data Node in each
+      working session with your data object. As Data Nodes are manipulated by
+      smart pointers, they will die automatically once they are not used any longer.
+      Just notice that destruction of a Data Node does not mean destruction of
+      a data object. The latter will be kept in your project regardless of the lifetime
+      of your Data Cursors.
+
+If we recall that a Data Node is a concrete realization of the data access object
+pattern, it will not be surprising that it has three possible states:
+
+- DETACHED: the Data Node is not bound to any raw data (<tt>TDF_Label</tt>) and cannot
+  be used for data manipulation so;
+
+- ATTACHED + WELL-FORMED: the Data Node is charged with valid raw data
+  and can be used for data manipulation so;
+
+- ATTACHED + BAD-FORMED: the Data Node is charged with invalid raw data. This
+  may happen if the Data Cursor is moved to improper OCAF label or if the
+  underlying data object is not yet initialized. This state of a Data Node
+  gives you a limited access to the underlying data. E.g. you can populate the
+  underlying OCAF and switch your cursor to a WELL-FORMED state so, but
+  you cannot read the underlying data until you perform such population.
+
+As mentioned above, each Data Node is represented by a set of Parameters. Just
+like Data Nodes, the Parameters also follow the Data Cursor ideology. They are
+designed as object-oriented accessors to primitive properties of your
+data objects. Each Node contains two groups of Parameters:
+
+- Internal Parameters;
+- Custom Parameters.
+
+_Internal_ Parameters represent some technical aspects of the framework
+itself. They exist for any kind of Data Node forming up its immutable kernel.
+For instance, internal Parameters are used to store the object type,
+parent-child relations, back-references etc. Normally you never deal with
+these internal Parameters directly and affect them only implicitly (e.g.
+when you create a reference, the back-reference appears automatically).
+
+Normally you are always focused on the _custom_ Parameters which are stored
+separately from the internal ones. Actually, the overall data model design
+is reduced to the following activities:
+
+- Design your Data Node classes, specifying which Parameters exactly your
+  objects contain. One object type corresponds to one Data Node class which
+  can deal with it;
+
+- Think over the relations between your data objects and configure these
+  relations using the convenience methods of each Node. E.g. you can add one
+  object as a child of another one.
+
+\subsection page_getting_started_overview_parameters Parameters
+
+This section describes the set of pre-implemented Parameters which can be
+(and supposed to be) used for composition of your custom data objects. Each
+Parameter is a convenient wrapper under some OCAF type (<tt>TDF_Attribute</tt>).
+A Parameter contains only the primitive setter and getter logic which allows transferring data
+to/from OCAF following the data access object ideology. The following
+Parameters are shipped with the framework:
+
+<table>
+<tr>
+  <td class='inhead'>
+    Parameter type
+  </td>
+  <td class='inhead'>
+    Description
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_AsciiStringParameter</tt>
+  </td>
+  <td>
+    Represents ASCII string property. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_StringArrayParameter</tt>
+  </td>
+  <td>
+    Represents one-dimensional array of ASCII strings. A Node can contain
+    any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_StringMatrixParameter</tt>
+  </td>
+  <td>
+    Represents two-dimensional array of ASCII strings. A Node can contain
+    any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_BoolParameter</tt>
+  </td>
+  <td>
+    Represents Boolean value. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_BoolArrayParameter</tt>
+  </td>
+  <td>
+    Represents one-dimensional array of Boolean values. A Node can contain
+    any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_BoolMatrixParameter</tt>
+  </td>
+  <td>
+    Represents two-dimensional array of Boolean values. A Node can contain
+    any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_IntParameter</tt>
+  </td>
+  <td>
+    Represents integer value. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_IntArrayParameter</tt>
+  </td>
+  <td>
+    Represents one-dimensional array of integer values. A Node can contain any
+    number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_IntMatrixParameter</tt>
+  </td>
+  <td>
+    Represents two-dimensional array of integer values. A Node can contain any
+    number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_RealParameter</tt>
+  </td>
+  <td>
+    Represents floating-point (double precision) value. A Node can contain
+    any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_RealArrayParameter</tt>
+  </td>
+  <td>
+    Represents one-dimensional array of floating-point values. A Node can
+    contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_RealMatrixParameter</tt>
+  </td>
+  <td>
+    Represents two-dimensional array of floating-point values. A Node can
+    contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_GroupParameter</tt>
+  </td>
+  <td>
+    Represents a sort of "header" for each logical group of Parameters.
+    Group Parameter does not have any value. A Node can contain any number of
+    such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_ShapeParameter</tt>
+  </td>
+  <td>
+    Represents CAD shape. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_MeshParameter</tt>
+  </td>
+  <td>
+    Represents mesh data. This is the only non-standard
+    data type implemented in AD framework comparing to the pure OCAF.
+    A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_SelectionParameter</tt>
+  </td>
+  <td>
+    Represents a mask of integer IDs. You can think of this Parameter type as
+    of a bitset. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_NameParameter</tt>
+  </td>
+  <td>
+    Represents a Unicode string. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_TypeNameParameter</tt>
+  </td>
+  <td>
+    Represents an ASCII string for Node type. A Node can contain only a
+    single instance of this Parameter.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_TreeNodeParameter</tt>
+  </td>
+  <td>
+    Relational Parameter which allows creation of a parent-child hierarchy of
+    Nodes. This hierarchy normally represents a user-tree of Nodes which is
+    supposed to be shown in GUI. A Node can contain only a single instance of
+    this Parameter.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_TreeFunctionParameter</tt>
+  </td>
+  <td>
+    Relational Parameter which allows creation of a dependency graph between
+    arbitrary Parameters. This graph is traversed by execution mechanism in
+    order to perform automatic re-calculation of dependent values with custom
+    algorithms. A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_ReferenceParameter</tt>
+  </td>
+  <td>
+    Represents a reference to an arbitrary data object (or its property). This Parameter
+    type is used to establish general-purpose relations within your model.
+    A Node can contain any number of such Parameters.
+  </td>
+</tr>
+<tr>
+  <td>
+    <tt>ActData_ReferenceListParameter</tt>
+  </td>
+  <td>
+    Represents a reference list to arbitrary data objects (or their properties). This Parameter
+    type is used to establish a set of general-purpose relations within your model.
+    A Node can contain any number of such Parameters.
+  </td>
+</tr>
+</table>
+
+It should be clear now that using Active Data you have to express your custom
+data objects using only a limited set of Parameters. It is known from practice
+that the available Parameter types are enough to construct even very
+sophisticated objects. However, there are some key points to keep in mind
+when designing your data model:
+
+- All Parameters corresponding to the collections (except only the Reference List 
+  Parameter) are of static sizes. The lack of dynamically growing collections
+  is a serious limitation, but it can be easily compensated by the fact, that
+  you can dynamically link your data objects to each other. Each time you need
+  to have a non-static collection, consider using auxiliary objects (most likely
+  hidden for the end-users) for solving this problem;
+
+- Normally people who use OCAF do not neglect the possibility to introduce their
+  custom attribute (<tt>TDF_Attribute</tt>) types. The latter may seem convenient, because
+  this way you do not have to decompose your tricky object onto the standard primitives
+  available in OCAF. We strongly discourage this practice and do not allow
+  extension of available Parameters due to the following reasons:
+
+  - Just like everything in the digit world can be expressed with 1 and 0,
+    nothing prevents you from expressing your sophisticated structures with
+    available set of Parameters. Sometimes this implies construction of hidden
+    Nodes and sub-Nodes;
+
+  - Each non-standard Parameter decreases compatibility of your Data Model with
+    the standard OCAF format. Currently (if we exclude Mesh Parameter from
+    consideration) it is possible to read Active Data documents using common
+    tools available for OCAF. This generality is very valuable in our vision.
+    It not only gives you possibility to use all common OCAF utilities (e.g. for
+    browsing your model), but also fits into the primary philosophy of AD
+    framework: _to be an OCAF-usage practice, rather than OCAF-using product._
+
+\image html ad_standard_view.png
+\image latex ad_standard_view.png "" width=200px
+
+Looking inside a Parameter, you will shortly notice that besides its name, type
+and value, it can also store something called a "semantic ID". The latter concept
+is very useful in engineering applications when you treat your Parameters as
+variables having some physical nature. In that case the semantic ID could be a reference
+to the measurement units, range of validity or whatever else. It is a job of
+a concrete software to properly handle these semantic IDs.
+
+\subsection page_getting_started_overview_example Example
+
+Now let us design a simple data object having the following structure:
+
+\image html model_03.png
+\image latex model_03.png "" width=100px
+
+It is a single point in a three-dimensional space given its Cartesian
+coordinates. On this simple case we will study how to design the corresponding
+data object using Active Data. We start with the real OCAF source
+corresponding to this object in AD:
+
+\verbatim
+ACT Data Model dump. Bound FRAMEWORK version: 1.0.0
+ACT Data Model dump. Bound APPLICATION version: 1.0.0
+L >> [0:]
+A >> [TDocStd_Owner] - ### cannot dump ###
+A >> [TDataStd_TreeNode] - ### cannot dump ###
+A >> [TFunction_Scope] - ### cannot dump ###
+A >> [TNaming_UsedShapes] - ### cannot dump ###
+L >> [0:1]
+     L >> [0:1:1]
+     A >> [TDataStd_Integer] - 65536
+     L >> [0:1:2]
+     A >> [TDataStd_Integer] - 65536
+====================================================================================================
++-> [0:2:10] PARTITION [ABCData_XYZPartition]
+     L >> [0:2:10]
+     A >> [TDF_TagSource] - ### cannot dump ###
+     L >> [0:2:10:1]
+    **************************************************************************************
++-> [0:2:10:1] NODE [ABCData_XYZNode] - 
+    **************************************************************************************
+          L >> [0:2:10:1:1]
+               L >> [0:2:10:1:1:1]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:1] PARAMETER [ActData_TypeNameParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:1:1]
+                    A >> [TDataStd_Integer {Type}] - 1024
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:1:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:1:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:1:1:101]
+                    A >> [TDataStd_AsciiString] - ABCData_XYZNode
+               L >> [0:2:10:1:1:2]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:2] PARAMETER [ActData_TreeNodeParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:2:1]
+                    A >> [TDataStd_Integer {Type}] - 128
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:2:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:2:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:1:2:101]
+                    A >> [TDataStd_TreeNode] - ### cannot dump ###
+               L >> [0:2:10:1:1:3]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:3] PARAMETER [ActData_ReferenceListParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:3:1]
+                    A >> [TDataStd_Integer {Type}] - 524288
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:3:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:3:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+               L >> [0:2:10:1:1:4]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:4] PARAMETER [ActData_ReferenceListParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:4:1]
+                    A >> [TDataStd_Integer {Type}] - 524288
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:4:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:4:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+               L >> [0:2:10:1:1:5]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:5] PARAMETER [ActData_ReferenceListParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:5:1]
+                    A >> [TDataStd_Integer {Type}] - 524288
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:5:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:5:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:1:5:101]
+                    A >> [TDataStd_ReferenceList] - {0:2:5:1:2:109}
+               L >> [0:2:10:1:1:6]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:6] PARAMETER [ActData_IntParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:6:1]
+                    A >> [TDataStd_Integer {Type}] - 1
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:6:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:6:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:1:6:101]
+                    A >> [TDataStd_Integer] - 13
+               L >> [0:2:10:1:1:7]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:7] PARAMETER [ActData_TreeFunctionParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:7:1]
+                    A >> [TDataStd_Integer {Type}] - 64
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:7:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:7:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+               L >> [0:2:10:1:1:8]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:8] PARAMETER [ActData_TreeFunctionParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:8:1]
+                    A >> [TDataStd_Integer {Type}] - 64
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:8:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:8:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+               L >> [0:2:10:1:1:9]
+                   -------------------------------------------------------------
+                    [0:2:10:1:1:9] PARAMETER [ActData_TreeFunctionParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:1:9:1]
+                    A >> [TDataStd_Integer {Type}] - 64
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:1:9:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:1:9:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+          L >> [0:2:10:1:2]
+               L >> [0:2:10:1:2:100]
+                   -------------------------------------------------------------
+                    [0:2:10:1:2:100] PARAMETER [ActData_NameParameter]
+                   -------------------------------------------------------------
+               A >> [TDataStd_Name] - Point 1
+                    L >> [0:2:10:1:2:100:1]
+                    A >> [TDataStd_Integer {Type}] - 512
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:2:100:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:2:100:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+               L >> [0:2:10:1:2:101]
+                   -------------------------------------------------------------
+                    [0:2:10:1:2:101] PARAMETER [ActData_RealParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:2:101:1]
+                    A >> [TDataStd_Integer {Type}] - 2
+                    L >> [0:2:10:1:2:101:2]
+                    A >> [TDataStd_Name {Name}] - X
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:2:101:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:2:101:7]
+                    A >> [TDataStd_Integer {UFlags}] - 0
+                    L >> [0:2:10:1:2:101:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:2:101:101]
+                    A >> [TDataStd_Real] - 0
+               L >> [0:2:10:1:2:102]
+                   -------------------------------------------------------------
+                    [0:2:10:1:2:102] PARAMETER [ActData_RealParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:2:102:1]
+                    A >> [TDataStd_Integer {Type}] - 2
+                    L >> [0:2:10:1:2:102:2]
+                    A >> [TDataStd_Name {Name}] - Y
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:2:102:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:2:102:7]
+                    A >> [TDataStd_Integer {UFlags}] - 0
+                    L >> [0:2:10:1:2:102:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:2:102:101]
+                    A >> [TDataStd_Real] - 0
+               L >> [0:2:10:1:2:103]
+                   -------------------------------------------------------------
+                    [0:2:10:1:2:103] PARAMETER [ActData_RealParameter]
+                   -------------------------------------------------------------
+                    L >> [0:2:10:1:2:103:1]
+                    A >> [TDataStd_Integer {Type}] - 2
+                    L >> [0:2:10:1:2:103:2]
+                    A >> [TDataStd_Name {Name}] - Z
+                    L >> <MTime is not dumped>: tag = 5
+                    L >> [0:2:10:1:2:103:6]
+                    A >> [TDataStd_Integer {Validity}] - 1
+                    L >> [0:2:10:1:2:103:7]
+                    A >> [TDataStd_Integer {UFlags}] - 0
+                    L >> [0:2:10:1:2:103:8]
+                    A >> [TDataStd_Integer {Pending}] - 0
+                    L >> [0:2:10:1:2:103:101]
+                    A >> [TDataStd_Real] - 0
+\endverbatim
+
+Here <tt>L</tt> denotes <tt>TDF_Label</tt> and <tt>A</tt> &mdash;
+<tt>TDF_Attribute</tt>.
+
+\note In order to understand the listing above, you have to possess the basic knowledge
+      of OCAF. If you do not feel confident in this area, just skip this part of
+      discussion: understanding the provided information is not required for
+      successful usage of AD framework.
+
+At a first glance we see that in order to have just three floating-point
+values persistent, we are forced to occupy much more additional space for
+different environmental stuff. In this regard we recommend you never to
+express a cloud of \f$N\f$ points with \f$N\f$ data objects.
+Doing so you will sacrifice a lot of memory to internal technical attributes
+of the framework. You would better store all coordinates in a single
+array or use three arrays for \f$X\f$, \f$Y\f$ and \f$Z\f$ coordinates
+respectively. Now let us take a closer look on the contents of this listing.
+
+The first block in the given listing corresponds to the version header. There
+are two version numbers (both equal to <tt>1.0.0</tt> in our sample) associated
+with the AD-based data model: one is the version of AD framework, another &mdash;
+the version of your application. These two version numbers can be used for
+compatibility conversion.
+
+\verbatim
+ACT Data Model dump. Bound FRAMEWORK version: 1.0.0
+ACT Data Model dump. Bound APPLICATION version: 1.0.0
+L >> [0:]
+A >> [TDocStd_Owner] - ### cannot dump ###
+A >> [TDataStd_TreeNode] - ### cannot dump ###
+A >> [TFunction_Scope] - ### cannot dump ###
+A >> [TNaming_UsedShapes] - ### cannot dump ###
+L >> [0:1]
+     L >> [0:1:1]
+     A >> [TDataStd_Integer] - 65536
+     L >> [0:1:2]
+     A >> [TDataStd_Integer] - 65536
+\endverbatim
+
+Note also that there is a bunch of standard attributes like <tt>TDocStd_Owner</tt>,
+<tt>TDataStd_TreeNode</tt>, <tt>TFunction_Scope</tt> and <tt>TNaming_UsedShapes</tt>.
+We do not want to start a detailed discussion of these attributes as we are limited
+in paper here. Just keep in mind that being associated to the root label, these
+attributes play an essential role in forming of a valid document.
+
+Starting from <tt>[0:2:10]</tt> entry the section with Partitions follows.
+It contains the XYZ data objects as children. It should be noted that this
+parent-child relationship is only a technical (storage) hierarchy, so it is
+not supposed to be shown to the user. In order to produce an alternative
+(user-oriented) tree the <tt>ActData_TreeNodeParameter</tt> has to be used.
+We have to pay a special attention to sections <tt>[0:2:10:1:1]</tt>
+and <tt>[0:2:10:1:2]</tt> under the data object <tt>[0:2:10:1]</tt>. The first
+section contains the internal properties which are not accessible for application
+developer and used by the framework itself (type information, back-references,
+optional evaluator functions etc). The second section with entry <tt>[0:2:10:1:2]</tt>
+is a container of custom properties designed by the application developer.
+
+Now let us take a look on the class definition for <tt>ABCData_XYZNode</tt>
+object. We refer you to the unit tests of AD framework for live exercises and
+limit our discussion here with only a brief overview of Data Node class.
+
+\verbatim
+DEFINE_STANDARD_HANDLE(ABCData_XYZNode, ActData_BaseNode)
+
+class ABCData_XYZNode : public ActData_BaseNode
+{
+public:
+
+  //! IDs of the involved Parameters.
+  enum ParamId
+  {
+    PID_PointName = ActData_BaseNode::UserParam_Last,
+    PID_X,
+    PID_Y,
+    PID_Z,
+    PID_Last = ActData_BaseNode::UserParam_Last + ActData_BaseNode::RESERVED_PARAM_RANGE
+  };
+
+public:
+
+  DEFINE_STANDARD_RTTI(ABCData_XYZNode, ActData_BaseNode) // OCCT RTTI
+  DEFINE_NODE_FACTORY(ABCData_XYZNode, Instance)
+
+public:
+
+  ABCData_EXPORT static Handle(ActAPI_INode) Instance();
+
+// Generic naming support:
+public:
+
+  ABCData_EXPORT virtual TCollection_ExtendedString
+    GetName();
+
+  ABCData_EXPORT virtual void
+    SetName(const TCollection_ExtendedString& theName);
+
+// Initialization:
+public:
+
+  ABCData_EXPORT void
+    Init();
+
+private:
+
+  //! Allocation is allowed only via Instance method.
+  ABCData_XYZNode();
+
+};
+\endverbatim
+
+In this header file we declare <tt>ABCData_XYZNode</tt> as a subclass of
+<tt>ActData_BaseNode</tt>. For people familiar with Open CASCADE Technology
+it is not surprising to see <tt>DEFINE_STANDARD_HANDLE</tt> definition which
+binds a smart pointer for our Data Node.
+
+\note Theoretically, it is not required to use smart pointers for the Data Cursors.
+      However, we do so as the basic <tt>ActAPI_IDataCursor</tt>
+      class inherits <tt>Standard_Transient</tt> designed for reference counting.
+      Moreover, AD framework uses these smart pointers very intensively.
+
+Then the enumeration with Parameter IDs follows:
+
+\verbatim
+enum ParamId
+{
+  PID_PointName = ActData_BaseNode::UserParam_Last,
+  PID_X,
+  PID_Y,
+  PID_Z,
+  PID_Last = ActData_BaseNode::UserParam_Last + ActData_BaseNode::RESERVED_PARAM_RANGE
+};
+\endverbatim
+
+This enumeration declares the integer tags which will be used for the root
+labels of the corresponding Parameters. If you do not care of the internal OCAF
+peculiarities, just think of these numbers as of unique identifiers to address
+your atomic Parameters. However, this enumeration is not enough to have
+your Data Node completely defined. In order to finish Parameters definition,
+you have to implement the <tt>ABCData_XYZNode()</tt> constructor using the
+following magic macro:
+
+\verbatim
+//! Default constructor. Registers the internal set of Parameters.
+ABCData_XYZNode::ABCData_XYZNode() : ActData_BaseNode()
+{
+  REGISTER_PARAMETER     (Name, PID_PointName);
+  REGISTER_PARAMETER_EXPR(Real, PID_X);
+  REGISTER_PARAMETER_EXPR(Real, PID_Y);
+  REGISTER_PARAMETER_EXPR(Real, PID_Z);
+}
+\endverbatim
+
+Notice that there are two kinds of macro available:
+
+- <tt>REGISTER_PARAMETER</tt>: simply associates your ID with the given Parameter type;
+- <tt>REGISTER_PARAMETER_EXPR</tt>: does the same, but also binds an expression evaluation
+  mechanism to the corresponding property. The latter mechanism is designed
+  for automatic calculation of your numerical (but not only) properties
+  using an abstract expression evaluator (see <tt>ActData_RealEvalFunc</tt> for
+  example). If you do not need this kind of parametric dependencies
+  in your data model, use simple <tt>REGISTER_PARAMETER</tt> macro.
+
+Construction of the Data Node is done via factory method <tt>Instance()</tt>.
+This rule has to be respected in order to allow the framework automatic
+creation of your Data Nodes (the latter is achieved thanks to
+<tt>DEFINE_NODE_FACTORY</tt> macro).
+
+For the complete example on designing your custom data model, please, refer
+to <tt>ActiveDataTest</tt> library (sample classes can be found in
+<tt>/Data/TestModel</tt> directory).
+
+*/

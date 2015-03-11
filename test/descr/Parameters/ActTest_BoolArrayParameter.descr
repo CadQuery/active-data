@@ -1,0 +1,12 @@
+[TITLE]
+
+  Boolean Array Parameter
+
+[1:OVERVIEW]
+
+  Test on accessing values for Boolean Array Parameter.
+
+[2:OVERVIEW]
+
+  Test on accessing individual elements stored by means of
+  Boolean Array Parameter.

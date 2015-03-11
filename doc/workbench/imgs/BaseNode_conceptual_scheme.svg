@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1040" height="1080" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect opacity="0.65" id="svg_36" height="454" width="725" y="107" x="107" stroke-dasharray="5,5" stroke-width="3" stroke="#000000" fill="#ffffaa"/>
+  <rect id="svg_1" height="53" width="145.999995" y="74.999999" x="70" stroke-width="4" stroke="#000000" fill="#ffb775"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_2" y="113" x="140" stroke-width="0" stroke="#000000" fill="#000000">Node</text>
+  <rect opacity="0.5" stroke-width="2" id="svg_3" height="85" width="608.000018" y="156" x="160" stroke-dasharray="2,2" stroke="#000000" fill="#aad4ff"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_4" y="151" x="733" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">User</text>
+  <rect id="svg_5" opacity="0.5" stroke-width="2" height="85" width="606.00001" y="299" x="160.999999" stroke-dasharray="2,2" stroke="#000000" fill="#aad4ff"/>
+  <text id="svg_6" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="293" x="702" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Internal</text>
+  <rect ry="5" rx="5" id="svg_7" height="94" width="112" y="186" x="187" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" id="svg_8" y="180" x="246" stroke-width="0" stroke="#000000" fill="#000000">Slot U1</text>
+  <rect id="svg_9" ry="5" rx="5" height="94" width="112" y="186" x="314" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_10" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="180" x="373" stroke-width="0" stroke="#000000" fill="#000000">Slot U2</text>
+  <rect id="svg_11" ry="5" rx="5" height="94" width="112" y="186" x="499" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_12" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="180" x="558" stroke-width="0" stroke="#000000" fill="#000000">Slot Un</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_13" y="226" x="460" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">...</text>
+  <rect id="svg_14" ry="5" rx="5" height="94" width="112" y="331" x="188" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_15" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="247" stroke-width="0" stroke="#000000" fill="#000000">Slot I1</text>
+  <rect id="svg_16" ry="5" rx="5" height="94" width="112" y="331" x="315" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_17" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="374" stroke-width="0" stroke="#000000" fill="#000000">Slot I2</text>
+  <rect id="svg_18" ry="5" rx="5" height="94" width="112" y="331" x="500" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_19" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="325" x="559" stroke-width="0" stroke="#000000" fill="#000000">Slot Im</text>
+  <text id="svg_20" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="371" x="461" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">...</text>
+  <rect id="svg_29" ry="5" rx="5" height="12.589285" width="15" y="500.500007" x="186.249999" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_30" transform="matrix(0.832847, 0, 0, 0.832847, 20.3933, 66.8879)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="510.05005" x="212.351947" stroke-width="0" stroke="#000000" fill="#000000">Slot Ui</text>
+  <rect id="svg_31" ry="5" rx="5" height="12.589285" width="15" y="500.000007" x="296.999999" opacity="0.5" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_32" transform="matrix(0.832847, 0, 0, 0.832847, 20.3933, 66.8879)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="21" y="509.449671" x="345.329543" stroke-width="0" stroke="#000000" fill="#000000">Slot Ij</text>
+  <line id="svg_33" y2="506" x2="285.027772" y1="506" x1="213" stroke-width="2" stroke="#000000" fill="none"/>
+  <path id="svg_34" d="m212.25,506.25l0,3.75l-3.75,-3.75l3.75,-3.75l0,3.75z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <path id="svg_35" transform="rotate(-180, 287.125, 505.75)" d="m289,505.75l0,3.75l-3.75,-3.75l3.75,-3.75l0,3.75z" stroke-width="2" stroke="#000000" fill="#ffffff"/>
+  <text id="svg_37" font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" y="95" x="427" opacity="0.5" stroke-dasharray="2,2" stroke-width="0" stroke="#000000" fill="#000000">Parameter Scope</text>
+  <ellipse ry="25" rx="25" id="svg_38" cy="614" cx="129" opacity="0.65" stroke-dasharray="5,5" stroke-width="4" stroke="#000000" fill="#ffffaa"/>
+  <text font-style="italic" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_39" y="625" x="244" opacity="0.65" stroke-dasharray="5,5" stroke-width="0" stroke="#000000" fill="#000000">TDF Label</text>
+  <g opacity="0.6" transform="rotate(13.8954, 242.166, 234.166)" id="svg_42">
+   <ellipse ry="12.603207" rx="8.731182" id="svg_40" cy="234.425308" cx="241.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_41" y2="214.292436" x2="258.286225" y1="254.041012" x1="226.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_43" opacity="0.6" transform="rotate(13.8954, 369.916, 234.166)">
+   <ellipse id="svg_44" ry="12.603207" rx="8.731182" cy="234.425308" cx="369.245732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_45" y2="214.292436" x2="386.036225" y1="254.041012" x1="353.798013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_46" opacity="0.6" transform="rotate(13.8954, 558.166, 234.166)">
+   <ellipse id="svg_47" ry="12.603207" rx="8.731182" cy="234.425308" cx="557.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_48" y2="214.292436" x2="574.286225" y1="254.041012" x1="542.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_49" opacity="0.6" transform="rotate(13.8954, 247.166, 377.166)">
+   <ellipse id="svg_50" ry="12.603207" rx="8.731182" cy="377.425308" cx="246.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_51" y2="357.292436" x2="263.286225" y1="397.041012" x1="231.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_52" opacity="0.6" transform="rotate(13.8954, 374.916, 377.166)">
+   <ellipse id="svg_53" ry="12.603207" rx="8.731182" cy="377.425308" cx="374.245732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_54" y2="357.292436" x2="391.036225" y1="397.041012" x1="358.798013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_55" opacity="0.6" transform="rotate(13.8954, 559.166, 376.666)">
+   <ellipse id="svg_56" ry="12.603207" rx="8.731182" cy="376.925308" cx="558.495732" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_57" y2="356.792436" x2="575.286225" y1="396.541012" x1="543.048013" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <g id="svg_58" opacity="0.6" transform="rotate(13.8954, 129.86, 613.904)">
+   <ellipse id="svg_59" ry="9.481258" rx="6.568376" cy="614.098686" cx="129.355613" stroke-width="4" stroke="#000000" fill="#ffffff"/>
+   <line id="svg_60" y2="598.95294" x2="141.986923" y1="628.855371" x1="117.734459" stroke-width="4" stroke="#000000" fill="none"/>
+  </g>
+  <text opacity="0.75" font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="35" id="svg_61" y="62.849976" x="145.033325" stroke-width="0" stroke="#000000" fill="#ff7f00">DETACHED</text>
+ </g>
+</svg>

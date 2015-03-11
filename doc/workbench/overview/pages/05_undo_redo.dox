@@ -1,0 +1,202 @@
+/*!
+
+\page page_undo_redo Undo & Redo
+
+\section page_undo_redo_overview Overview
+
+Undo/Redo (shortly UR) functionality shipped with Active Data framework is
+fully implemented at the level of Data Model class. Basically, the Undo/Redo
+mechanism fully benefits from the standard OCAF UR functionality which is an
+important part of the "rapid application development" tool set. While this
+default OCAF UR engine makes a significant deal of stacking the
+so called _Modification Deltas_, it is not high-level enough to be used without
+some additional amelioration for Active Data models. The detailed requirements
+to Undo/Redo functionality in Active Data are described in the following section.
+
+\section page_undo_redo_requirements Requirements
+
+Active Data framework must provide data-level Undo/Redo functionality basing
+on the following requirements:
+
+- As AD framework comes with Tree Function propagation mechanism expressing
+  the concept of active data model, the Undo/Redo functionality must organically
+  fit this concept. That is, given a valid state of a data model, UR
+  functionality must result in another (expected) valid state. We can imagine
+  three typical scenarios of Active Data framework usage from Tree Function
+  connectivity perspective:
+
+  - Tree Function mechanism is not utilized. If AD framework is used as a
+    foundation for passive data storage without any algorithmic connections,
+    Undo/Redo might not care about functional dependencies at all;
+
+  - Tree Function dependency graph is executed in the same transaction that
+    affects its initiating data. In that case the Tree Functions being executed
+    are just the mean of data model modification which works in a "sand box" of
+    transactional scope. Undo/Redo functionality is not aware of whether some
+    Tree Functions were actually executed or not, so there are no differences
+    comparing to the previous case;
+
+  - Tree Function dependency graph is executed in a transaction different from
+    the one affecting the initiating data. The peculiarity here is that UR
+    functionality must be able to recover the LogBook records when switching
+    between the data model states. This point makes the usage of OCCT standard
+    transient (here it means "not bound to OCAF document") LogBook
+    implementation ineligible as doing so we will get no easy way to provide
+    such recovering. That is why OCAF default transient <tt>TFunction_Logbook</tt>
+    class cannot be used by Active Data Framework. Instead, it has to come with
+    its own LogBook object attached to the OCAF document in a usual persistent
+    way. Thereby, the records in this dedicated OCAF section will also be
+    covered by UR functionality.
+
+- It should be possible to shoot several Undo/Redo operations at once. For
+  simplicity, this functionality can be implemented by sequential applying of
+  all intermediate Modification Deltas preceding the ultimate one inclusively;
+
+- There should be possibility to bind application-specific data to each
+  transactional scope (i.e. Undo/Redo Modification Delta). E.g. for the sake of
+  better GUI ergonomics, each Undo/Redo grain can have an associated Unicode
+  name describing what is going on. However the possibility to have
+  anonymous transactions should be kept as well. This diversity of design
+  choices can be easily expressed by introducing different kinds of
+  _Transaction Engines_ &mdash; service providers for deployment and management
+  of transactional scopes. That is, one type of Transaction Engine will be
+  responsible for the anonymous transactions, and another &mdash; for those
+  having some application-specific data, such as name (but not limited to it).
+  The desirable Engine type must be chosen by application developer at design
+  time. Data Model instance handles only one immutable Transaction
+  Engine (possibility to change Transaction Engine instance dynamically
+  seems to be not only useless, but also error-prone);
+
+\image html ur_01.png
+\image latex ur_01.png "" width=150px
+
+- The following specific operations must not be the subjects of UR:
+
+  - Pre-population of Data Model on <tt>NewEmpty()</tt> invocation;
+  - Compatibility conversion.
+
+\section page_undo_redo_transaction_engine Transaction Engine
+
+Architecturally, Transaction Engine is a Data Model co-worker tool providing
+a set of services for deployment and management of OCAF transactional scopes.
+Technically, Transaction Engine is a wrapper under the standard OCAF transaction
+mechanism plus additional custom services, e.g. binding of application-specific
+data to transactional scopes.
+
+\subsection page_undo_redo_transaction_engine_simple Simple Transaction Engine
+
+Simple Transaction Engine declares a comprehensive interface for managing the
+transactional scopes. It works as a pure wrapper for OCAF native
+<tt>TDocStd_Document</tt> transactional functionality delegating the most of
+operational requests to the standard OCCT services. It is also a base class
+for other customized Transaction Managers. If you do not need any customization
+(such as transactional naming), use Simple Transaction Engine.
+
+\image html ur_02.png
+\image latex ur_02.png "" width=100px
+
+\subsection page_undo_redo_transaction_engine_ext Extended Transaction Engine
+
+Besides the usage of standard OCCT transaction services, Extended Transaction
+Engine introduces a data binding extension to the managed Modification Deltas.
+It requires that any transaction being committed is bound to some user-specific
+data structure even if such structure is empty. As OCCT OCAF component does
+not support such binding functionality, Extended Transaction Engine comes with
+its own collection of Undo/Redo records storing the mentioned data structures
+for the correspondent Modification Deltas. It is only an extension, not
+re-inventing the wheel, as the standard UR stack is still utilized by
+OCAF internally.
+
+\image html ur_03.png
+\image latex ur_03.png "" width=150px
+
+\note Actually, the Extended Transaction Engine is a variation of a concept
+      introduced by OCCT Multi Transaction Manager shipped in <tt>TDocStd</tt>
+      package. The latter tool is used for supporting named transactions in
+      multi-document environment. We do not re-use this component due to its
+      excessive complexity for Active Data framework needs and because it is
+      limited to working with names (while we want to bind any kind of data).
+
+Internally Data Stack is implemented as two plain ordered collections storing
+the instances of <tt>TxData</tt> structures. <tt>TxData</tt> structure in-turn
+allows storing a dynamically growing ordered collection of primitive types, such
+as integer, real, Boolean and string. <tt>TxData</tt> structures controlled by
+Extended Transaction Manager are re-distributed between Undo and Redo
+collections depending on the current state of data modification session
+represented by several latest transactions. Such re-distribution is a full
+reflection of the processes ongoing in OCAF UR mechanism with Modification
+Deltas internally.
+
+\image html ur_04.png
+\image latex ur_04.png "" width=200px
+
+New item appears in Undo collection once user commits a transaction.
+<tt>TxData</tt> items are accumulated there and do not pass to Redo collection
+until user calls Undo method. If user commits another transaction while the
+Redo collection is non-empty, the Redo collection is cleaned up. This practice
+is commonly accepted and established in OCCT OCAF UR mechanism.
+
+\image html ur_05.png
+\image latex ur_05.png "" width=200px
+
+In order to prevent Undo/Redo stack from consumption of too much memory,
+OCAF introduces Undo Limit integer value which can be optionally specified for
+each working OCAF document. If the size of Undo collection exceeds the specified
+Undo Limit, the last stored Modification Delta (representing the oldest change)
+is thrown away from Undo collection. This is automatically done by OCAF in its
+default <tt>CommitTransaction()</tt> method of <tt>TDocStd_Document</tt> class.
+Extended Transaction Engine comes with a reflection of this Undo Limit logic for
+the managed <tt>TxData</tt> items. Undo Limit value utilized by Active Data
+Transaction Engines is the same as for OCAF Document.
+
+\image html ur_06.png
+\image latex ur_06.png "" width=200px
+
+\section page_undo_redo_working_out_of_tx Working out of transaction
+
+Normally you are highly advised never to change your data out of transactional
+scope. However, sometimes you do not want your modifications to appear in
+Undo/Redo stack or you may have different reasons to avoid transaction opening
+(e.g. not to back-up your attributes). In such cases it is possible to disable
+transactions. However, this operational mode should be used with a great care.
+To demonstrate that mixing transactional and non-transactional approaches is not
+a safe way to manipulate your data, we take a simple example.
+
+Let label A get attribute X in transaction 1. A standard Delta On Removal is
+produced by OCAF and pushed to Undo stack:
+
+\image html ur_07.png
+\image latex ur_07.png "" width=220px
+
+Delta On Removal is a specific object which drops the newly created attribute X
+once Undo command is invoked. If user calls Undo, Delta On Removal is relocated
+to Redo stack and label A looses its attribute X. Let us assume that we inject
+some non-transactional logic at this stage and associate some attribute Y to
+label A once Undo is completed.
+
+\image html ur_08.png
+\image latex ur_08.png "" width=220px
+
+Everything works well until we call Redo command. It takes Delta On Removal
+from Redo stack and attempts to apply it on our "dirty-changed" label A. The
+Delta On Removal is used by OCAF with a "negative sign" on Redoing, so OCAF
+engine attempts to create attribute X again on the label A. However, our
+non-transactional intervention has already bound the attribute Y to label A,
+and new attribute cannot be created so. Indeed, it is forbidden to set an
+attribute to OCAF label if the attribute of the given type already exists
+(we assume that attribute Y is of the same type as attribute X, e.g. integer).
+OCAF fails.
+
+\image html ur_09.png
+\image latex ur_09.png "" width=220px
+
+This is an example of inaccurate mixing of transactional and non-transactional
+approaches. If you still think that you want to use this trick, here is the
+bunch of methods for disabling/enabling transactional scope:
+
+\verbatim
+ActData_TransactionEngine::DisableTransactions();
+ActData_TransactionEngine::EnableTransactions();
+\endverbatim
+
+*/

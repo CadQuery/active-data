@@ -1,0 +1,23 @@
+[TITLE]
+
+  Data Model persistence
+
+[1:OVERVIEW]
+
+  Checks whether HasOpenCommand method works properly.
+
+[2:OVERVIEW]
+
+  Checks whether new empty Data Model is constructed properly.
+
+[3:OVERVIEW]
+
+  Checks whether Data Model is correctly loaded from file.
+
+[4:OVERVIEW]
+
+  Checks whether Data Model is correctly saved to file.
+
+[5:OVERVIEW]
+
+  Checks whether Data Model is correctly released.

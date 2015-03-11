@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest_CaseIDs.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\ActTest_DataFramework.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_AsciiStringParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BaseModel.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_CAFConversionCtx.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ComplexArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_CopyPasteEngine.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ExtTransactionEngine.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_GroupParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshAttr.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_NameParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceListParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_SelectionParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_ShapeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_StringArrayParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStamp.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubAPartition.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNode.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNodeConv.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBPartition.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNode.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNodeConv.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCPartition.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshNode.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshPartition.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataTest\ActTest_DataFramework.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\ActTest_Main.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_AsciiStringParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BaseModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_BoolParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_CAFConversionCtx.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ComplexArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_CopyPasteEngine.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ExtTransactionEngine.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_GroupParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_IntParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshAttr.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_MeshParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_NameParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_RealParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceListParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ReferenceParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_SelectionParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_ShapeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_StringArrayParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStamp.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubAPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBNodeConv.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubBPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCNodeConv.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubCPartition.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshNode.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubMeshPartition.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ActiveData.vcxproj">
+      <Project>{ea4692fc-bb82-4266-a49a-1c88c7aa8618}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAPI.vcxproj">
+      <Project>{631df675-da6e-46ec-b96c-40a58b552b7e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAux.vcxproj">
+      <Project>{fa786318-72a1-43bb-a894-20b01f2228ad}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataDraw.vcxproj">
+      <Project>{586fad48-162f-4972-8494-5e39166c30ea}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataTestLib.vcxproj">
+      <Project>{6818e38f-742a-492a-9d5a-addbc88c0a0e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C3D27ED9-40C2-4E4A-B559-6E2C26094CA7}</ProjectGuid>
+    <RootNamespace>ActiveDataTest</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\win64\vc12\bind\</OutDir>
+    <IntDir>..\..\win64\vc12\objd\ActiveDataTest\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\win64\vc12\bin\</OutDir>
+    <IntDir>..\..\win64\vc12\obj\ActiveDataTest\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\DS;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\STD;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveDataTestLib;$(AD_ROOT)\src\ActiveDataTestLib\Reports;$(AD_ROOT)\src\ActiveDataTest;$(AD_ROOT)\src\ActiveDataTest\DataModel;$(AD_ROOT)\src\ActiveDataTest\DataModel\TestModel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ActTest_EXPORTS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKTopAlgo.lib;TKPrim.lib</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>ActiveDataTest.exe</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Launch unit tests</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveData;$(AD_ROOT)\src\ActiveData\BinDrivers;$(AD_ROOT)\src\ActiveData\Kernel;$(AD_ROOT)\src\ActiveData\Mesh;$(AD_ROOT)\src\ActiveData\Mesh\DS;$(AD_ROOT)\src\ActiveData\Patterns;$(AD_ROOT)\src\ActiveData\STD;$(AD_ROOT)\src\ActiveData\Tools;$(AD_ROOT)\src\ActiveDataTestLib;$(AD_ROOT)\src\ActiveDataTestLib\Reports;$(AD_ROOT)\src\ActiveDataTest;$(AD_ROOT)\src\ActiveDataTest\DataModel;$(AD_ROOT)\src\ActiveDataTest\DataModel\TestModel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ActTest_EXPORTS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKLCAF.lib;TKCAF.lib;TKCDF.lib;TKTopAlgo.lib;TKPrim.lib</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>ActiveDataTest.exe</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Launch unit tests</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

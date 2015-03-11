@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib_Common.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib_FileComparator.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib_Launcher.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib_Macro.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\ActTestLib_TestCase.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_DescriptionProc.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportRenderer.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportStyle.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportStyleFactory.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportTag.h" />
+    <ClInclude Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportTagFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataTestLib\ActTestLib_Common.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\ActTestLib_FileComparator.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\ActTestLib_Launcher.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\ActTestLib_TestCase.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_DescriptionProc.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportRenderer.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportStyle.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportStyleFactory.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportTag.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTestLib\Reports\ActTestLib_ReportTagFactory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ActiveDataAPI.vcxproj">
+      <Project>{a9e94fc0-f808-4186-b4f9-9ce039faf3f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ActiveDataAux.vcxproj">
+      <Project>{df35c4a5-fb18-423d-9cfd-679998a20999}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{90315739-2AF4-4E98-BEC3-5DE991AA2B38}</ProjectGuid>
+    <RootNamespace>ActTestLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\bind\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\win64\vc10\objd\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\win64\vc10\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveDataTestLib;$(AD_ROOT)\src\ActiveDataTestLib\Reports;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;ActTestLib_EXPORTS;_WINDOWS;WNT;CSFDB;C40;ACT_DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>
+      </BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKTopAlgo.lib;TKBRep.lib;TKPrim.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <ImportLibrary>..\..\win64\vc10\libd\$(TargetName).lib</ImportLibrary>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <Bscmake>
+      <OutputFile>
+      </OutputFile>
+    </Bscmake>
+    <CustomBuild>
+      <Command>
+      </Command>
+    </CustomBuild>
+    <PostBuildEvent>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataTestLib\*.h $(AD_ROOT)\include</Command>
+      <Message>Copy headers to installation directory</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>/DWNT %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;$(AD_ROOT)\src\ActiveDataTestLib;$(AD_ROOT)\src\ActiveDataTestLib\Reports;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;ActTestLib_EXPORTS;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKTopAlgo.lib;TKBRep.lib;TKPrim.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetFileName)</OutputFile>
+      <AdditionalLibraryDirectories>$(CAS_LIB);</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>..\..\win64\vc10\lib\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataTestLib\*.h $(AD_ROOT)\include</Command>
+      <Message>Copy headers to installation directory</Message>
+    </PostBuildEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

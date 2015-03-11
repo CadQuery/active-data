@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_ArrayUtils.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_Common.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_Env.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_ExprCalculator.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_FileDumper.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_ShapeFactory.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_SpyLog.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_TimeStamp.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_Timing.h" />
+    <ClInclude Include="..\..\src\ActiveDataAux\ActAux_Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_ArrayUtils.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_ExprCalculator.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_FileDumper.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_ShapeFactory.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_SpyLog.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_TimeStamp.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataAux\ActAux_Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ActiveDataAPI.vcxproj">
+      <Project>{631df675-da6e-46ec-b96c-40a58b552b7e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FA786318-72A1-43BB-A894-20B01F2228AD}</ProjectGuid>
+    <RootNamespace>ActiveDataAux</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\win64\vc12\bind\</OutDir>
+    <IntDir>..\..\win64\vc12\objd\ActiveDataAux\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\win64\vc12\bin\</OutDir>
+    <IntDir>..\..\win64\vc12\obj\ActiveDataAux\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/DWNT %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>ActAux_EXPORTS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKBRep.lib;TKTopAlgo.lib;TKPrim.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(AD_ROOT)\win$(ARCH)\$(VCVER)\libd\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataAux\*.h $(AD_ROOT)\include</Command>
+      <Message>Copy headers to the installation directory</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(TBB_INC);$(CAS_INC);$(AD_ROOT)\src\ActiveDataAPI;$(AD_ROOT)\src\ActiveDataAux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/DWNT %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>ActAux_EXPORTS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(TBB_LIB);$(CAS_LIB);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>TKernel.lib;TKMath.lib;TKBRep.lib;TKTopAlgo.lib;TKPrim.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(AD_ROOT)\win$(ARCH)\$(VCVER)\lib\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist $(AD_ROOT)\include mkdir $(AD_ROOT)\include
+copy $(AD_ROOT)\src\ActiveDataAux\*.h $(AD_ROOT)\include</Command>
+      <Message>Copy headers to the installation directory</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

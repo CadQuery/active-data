@@ -1,0 +1,116 @@
+/*!
+
+\mainpage Preface
+
+\note From time to time in this paper we use AD abbreviation.
+      Keep in mind that AD is Active Data, not Algorithmic Differentiation
+      (the another commonly used term in CAD world).
+
+Active Data framework is a tool set which allows you to organize the
+data of your application in a hierarchical way with automatic support of the
+following commonly used functionality:
+
+- *Document architecture:* the data hierarchy is called a *document* in order
+  to emphasize that it can be saved to disk and opened from file. The main
+  storage format is the compact binary, however, this can easily reconfigured
+  to text formats like XML.
+
+- *Undo/Redo:* all changes introduced to the working document can be rolled
+  back (and forward) thanks to the conventional transactional approach. This
+  conception is very close to what we know from relational databases.
+
+- *Copy/Paste:* sometimes the interrelations between your data objects are
+  more complicated than simple parent-child hierarchy. For example, one object can have
+  a reference to another one and hold a back-reference from some third object.
+  These relations are not easy to track once your object is copied or moved
+  in the project hierarchy. Active Data comes with a flexible mechanism which
+  gives you transparent rules of such relocations.
+
+- *Dependency graphs:* this is the core principle giving our framework its
+  name. We use to divide all possible data models by two classes:
+  active and passive. A passive model is nothing but a speechless container
+  of data, which does not provide any reaction to changes in the stored objects.
+  This is the simplest philosophy of data organization which is sometimes not
+  very convenient. Another approach consists in letting your data model react
+  to the changes introduced by user. This can be achieved by a concept of
+  asynchronous events, callback functions or whatever else. The main idea is that
+  your data model stops being a silent bank of data: it can initiate some
+  algorithmic workflows within your software. We call such models active.
+  The activeness principle is realized in AD framework by introducing a
+  notion of execution graph which binds your objects into a dependency network.
+  Each node in this graph can be seen as an abstract calculation
+  launched after its predecessors and initiating launch of its successors.
+
+Choosing the way of data model organization determines to a very high extent
+the overall architecture of your product. In engineering software (especially
+if it deals with geometric modelling) all the
+functionalities listed above are kind of standard. Different software components
+available on the market address these common needs in different ways. E.g.
+in some libraries the central object is a CAD shape which may contain
+user-specific attributes (colors, materials etc), can save and restore itself
+from file and provides an embedded undo/redo mechanism. Active Data model
+is an Open CASCADE Technology based product which does not concentrate on CAD
+geometry and gives a common solution to the problem of data organization.
+
+Active Data framework is based on OCAF (Open CASCADE Application Framework).
+OCAF is not specific to geometry and allows to describe any kind of data in
+terms of the so called _Labels_ and _Attributes_. Before you continue reading this
+document, we recommend you to shortly familiarize yourself with the fundamental OCAF
+principles. Doing so, you will understand better the pros and cons of using
+a super-layer under OCAF. The main ideas behind AD are as follows:
+
+- OCAF is a powerful tool which can express almost any kind of engineering data.
+  This generality comes at a price: you have to assemble your
+  data model from series of low-level "bricks". And without a good experience
+  this job stops being trivial even in cases of moderate complexity. We wanted
+  to bring more object oriented approach to OCAF-driven design process:
+  Active Data allows you to forget about the atomic operations of OCAF.
+
+- It is always a problem how to maintain all interrelations between your
+  objects as long as your data model evolves. E.g. we want to be sure that no
+  memory leaks occur on deletion of a data object. Similarly, if one object is moved
+  from one branch of the project hierarchy to another, we need to ensure
+  that all possible references are consistently actualized.
+
+- We want to have a unified storage format of our data. OCAF allows you
+  to organize your objects in any order, so it is easy to end up with a complete
+  mess in the internal data organization. Active Data uses a unified convention
+  which presumes that all objects of the same type are stored internally near
+  each other. It also puts some restrictions on the format of each data object
+  which gives us additional bonuses:
+
+  - We can carry out semi-automatic compatibility conversion between different
+    versions of the data model.
+  - We can benefit from automated correctness checks for our object.
+
+It is important to note that you can easily start using Active Data with
+absolutely no knowledge on the OCAF itself. However, those people who start
+using pure OCAF often eventually end up (after spending many days of work) with
+something very similar to Active Data framework. Therefore, we suggest AD
+library as a natural crystallization of chaotic OCAF experience. Active
+Data brings into creative OCAF mystery some boring order and noticeably reduces
+the resulting entropy especially because of comprehensive unit tests. More than
+100 test cases are available for typical operations (like deletion, copy/paste)
+and this number continuously grows. It is worth saying that most tests are not
+of simple getter/setter style: sometimes they are very complicated.
+
+Of course, Active Data is not a panacea for any data design problem. However,
+its generality and usability was proved by usage in real industrial software.
+Moreover, AD is an open source project which makes you feel confident about the
+future of your own product: source code, unit tests and documentation are
+at your full disposal.
+
+This documentation describes the principles of AD library in the following
+sections:
+
+- \ref page_getting_started
+- \ref page_copy_paste
+- \ref page_undo_redo
+- \ref page_mesh
+- \ref page_backward_compatibility
+
+Check out appendices:
+
+- \ref page_appendix_tobj
+
+*/

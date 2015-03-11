@@ -1,0 +1,51 @@
+[TITLE]
+
+  Data Model structure
+
+[1:OVERVIEW]
+
+  Checks whether FindNode method works properly.
+
+[2:OVERVIEW]
+
+  Checks whether DeleteNode method works properly on a root Node of
+  the test Data Model.
+
+[2:DETAILS]
+
+  The expected result is to have a completely clean project hierarchy.
+
+[3:OVERVIEW]
+
+  Checks whether DeleteNode method works properly on an intermediate
+  Node in the test hierarchy.
+
+[4:OVERVIEW]
+
+  Checks whether DeleteNode method works properly on an intermediate
+  Node in the test hierarchy. In addition to the previous test, this one
+  attempts to delete a Node having some referrers in the project tree.
+
+[4:DETAILS]
+  <pre>
+     A --+
+         |
+         +--> D --> C
+         |
+     B --+
+  </pre>
+  In this scheme A and B refer to D, while D refers to C. Then Node D is
+  removed. As a result, the Nodes A, B and C should still be there as they are
+  not children of D. However, the Nodes A and B should loose their references
+  to D. Moreover, Node C should loose its back-reference to D.
+
+[5:OVERVIEW]
+
+  Checks whether DeleteNode method works properly on an another intermediate
+  Node in the test hierarchy. This time the Node being removed is a leaf in the
+  tree, so project modification is minimal.
+
+[6:OVERVIEW]
+
+  Checks that back-references are established correctly for an intermediate Node
+  in project hierarchy.

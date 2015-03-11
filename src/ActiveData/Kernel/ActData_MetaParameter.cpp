@@ -1,0 +1,531 @@
+//-----------------------------------------------------------------------------
+// Created on: March 2016
+//-----------------------------------------------------------------------------
+// Copyright (c) 2017 Sergey Slyadnev
+// Code covered by the MIT License
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+//
+// Web: http://dev.opencascade.org
+//-----------------------------------------------------------------------------
+
+// Own include
+#include <ActData_MetaParameter.h>
+
+// Active Data includes
+#include <ActData_NodeFactory.h>
+#include <ActData_Utils.h>
+
+// OCCT includes
+#include <TDataStd_AsciiString.hxx>
+#include <TDataStd_Integer.hxx>
+#include <TDataStd_ReferenceList.hxx>
+#include <TDataStd_TreeNode.hxx>
+#include <TDF_Tool.hxx>
+
+//! Default constructor. Creates a DETACHED instance of Meta Parameter.
+ActData_MetaParameter::ActData_MetaParameter() : ActAPI_IDataCursor()
+{
+  m_status = SS_Detached;
+
+  // Initialize a collection for evaluation Tree Functions
+  m_evaluators = new ActAPI_HSparseParameterList(10);
+}
+
+//! Ensures correct construction of the Parameter object, e.g. prevents
+//! allocating it in stack memory.
+//! \return Parameter instance.
+Handle(ActData_MetaParameter) ActData_MetaParameter::Instance()
+{
+  return new ActData_MetaParameter();
+}
+
+//-----------------------------------------------------------------------------
+// Data Cursor behavior
+//-----------------------------------------------------------------------------
+
+//! Returns true if this Parameter is ATTACHED to the CAF structure,
+//! false -- otherwise.
+//! \return true/false.
+Standard_Boolean ActData_MetaParameter::IsAttached()
+{
+  return m_status == SS_Attached;
+}
+
+//! Returns true if this Parameter is DETACHED from the CAF structure,
+//! false -- otherwise.
+//! \return true/false.
+Standard_Boolean ActData_MetaParameter::IsDetached()
+{
+  return m_status == SS_Detached;
+}
+
+//! Checks the underlying CAF Structure.
+//! \return true if everything is OK, false -- otherwise.
+Standard_Boolean ActData_MetaParameter::IsWellFormed()
+{
+  // Check if the object is attached to CAF
+  if ( this->IsDetached() )
+    return Standard_False;
+
+  // Check if type of the owning Node is present
+  if ( !ActData_Utils::CheckLabelAttr( m_label, -1,
+                                       TDataStd_AsciiString::GetID() ) )
+    return Standard_False;
+
+  // Check if user flags are present
+  if ( !ActData_Utils::CheckLabelAttr( m_label, -1,
+                                       TDataStd_Integer::GetID() ) )
+    return Standard_False;
+
+  return Standard_True; // It seems we have passed the check
+}
+
+//! \return true always (since meta data is not involved into Tree Function
+//!         execution mechanism).
+Standard_Boolean ActData_MetaParameter::IsValidData()
+{
+  return Standard_True;
+}
+
+//! \return false always (since meta data is not involved into Tree Function
+//!         execution mechanism).
+Standard_Boolean ActData_MetaParameter::IsPendingData()
+{
+  return Standard_False;
+}
+
+//! \return ID of the Meta Parameter as entry of its root Label.
+ActAPI_DataObjectId ActData_MetaParameter::GetId() const
+{
+  return ActData_Utils::GetEntry(m_label);
+}
+
+//! \return root Label of the Meta Parameter.
+TDF_Label ActData_MetaParameter::RootLabel() const
+{
+  return m_label;
+}
+
+//-----------------------------------------------------------------------------
+// Getters & Setters [TYPE]
+//-----------------------------------------------------------------------------
+
+//! Sets type name.
+//! \param theTypeName [in] type name to set.
+void ActData_MetaParameter::SetTypeName(const TCollection_AsciiString& theTypeName)
+{
+  ActData_Utils::SetAsciiStringValue(m_label, -1, theTypeName);
+}
+
+//! \return Node's type name.
+TCollection_AsciiString ActData_MetaParameter::GetTypeName() const
+{
+  return ActData_Utils::GetAsciiStringValue(m_label, -1);
+}
+
+//-----------------------------------------------------------------------------
+// Getters & Setters [TREE NODE]
+//-----------------------------------------------------------------------------
+
+//! Appends one Node as a child to another. META Parameter of the child Node
+//! is passed to access its internal Tree Node attribute.
+//! \param theTreeNode [in] META playing as a Tree Node.
+void ActData_MetaParameter::AppendChild(const Handle(ActData_MetaParameter)& theTreeNode)
+{
+  // Let this method recover possibly missing parent Tree Node attribute
+  Handle(TDataStd_TreeNode) aParentTN = this->GetCAFTreeNode();
+  if ( aParentTN.IsNull() )
+  {
+    aParentTN = TDataStd_TreeNode::Set( m_label,
+                                        TDataStd_TreeNode::GetDefaultTreeID() );
+  }
+
+  // Let this method recover possibly missing child Tree Node attribute
+  Handle(TDataStd_TreeNode) aChildTN = theTreeNode->GetCAFTreeNode();
+  if ( aChildTN.IsNull() )
+  {
+    aChildTN = TDataStd_TreeNode::Set( theTreeNode->RootLabel(),
+                                       TDataStd_TreeNode::GetDefaultTreeID() );
+  }
+
+  // Add child to parent
+  ActData_Utils::AppendChild(aParentTN, aChildTN);
+}
+
+//! Attempts to remove child Node by its META Parameter.
+//! \param theTreeNode [in] META playing as a Tree Node.
+//! \return true in case of success, false -- otherwise.
+Standard_Boolean ActData_MetaParameter::RemoveChild(const Handle(ActData_MetaParameter)& theTreeNode)
+{
+  return ActData_Utils::RemoveChild( this->GetCAFTreeNode(),
+                                     theTreeNode->GetCAFTreeNode() );
+}
+
+//! \return Tree Node attribute.
+Handle(TDataStd_TreeNode) ActData_MetaParameter::GetCAFTreeNode()
+{
+  return ActData_Utils::AccessTreeNode(m_label, Standard_False);
+}
+
+//-----------------------------------------------------------------------------
+// Getters & Setters [USER FLAGS]
+//-----------------------------------------------------------------------------
+
+//! Sets user flags.
+//! \param theUserFlags [in] user flags to set.
+void ActData_MetaParameter::SetUserFlags(const Standard_Integer theUserFlags)
+{
+  ActData_Utils::SetIntegerValue(m_label, -1, theUserFlags);
+}
+
+//! \return user flags.
+Standard_Integer ActData_MetaParameter::GetUserFlags() const
+{
+  Standard_Integer result;
+  if ( !ActData_Utils::GetIntegerValue(m_label, -1, result) )
+    Standard_ProgramError::Raise("No attribute available for user flags");
+
+  return result;
+}
+
+//-----------------------------------------------------------------------------
+// Getters & Setters [REFERENCES]
+//-----------------------------------------------------------------------------
+
+//! \return input reader cursors.
+Handle(ActAPI_HDataCursorList) ActData_MetaParameter::GetInputReaderCursors()
+{
+  return ActData_Utils::ConvertToCursors( this->GetInputReaders() );
+}
+
+//! \return output writer cursors.
+Handle(ActAPI_HDataCursorList) ActData_MetaParameter::GetOutputWriterCursors()
+{
+  return ActData_Utils::ConvertToCursors( this->GetOutputWriters() );
+}
+
+//! \return referrer cursors.
+Handle(ActAPI_HDataCursorList) ActData_MetaParameter::GetReferrerCursors()
+{
+  return ActData_Utils::ConvertToCursors( this->GetReferrers() );
+}
+
+//! \return input reader Labels.
+TDF_LabelList ActData_MetaParameter::GetInputReaders() const
+{
+  Handle(TDataStd_ReferenceList) ref = this->GetInputReadersAttr();
+  if ( ref.IsNull() )
+    return TDF_LabelList();
+
+  return ref->List();
+}
+
+//! \return output writer Labels.
+TDF_LabelList ActData_MetaParameter::GetOutputWriters() const
+{
+  Handle(TDataStd_ReferenceList) ref = this->GetOutputWritersAttr();
+  if ( ref.IsNull() )
+    return TDF_LabelList();
+
+  return ref->List();
+}
+
+//! \return referrer Labels.
+TDF_LabelList ActData_MetaParameter::GetReferrers() const
+{
+  Handle(TDataStd_ReferenceList) ref = this->GetReferrersAttr();
+  if ( ref.IsNull() )
+    return TDF_LabelList();
+
+  return ref->List();
+}
+
+//! \return input readers attribute.
+Handle(TDataStd_ReferenceList) ActData_MetaParameter::GetInputReadersAttr() const
+{
+  return ActData_Utils::GetReferenceList(m_label, DS_InputReaders);
+}
+
+//! \return output writers attribute.
+Handle(TDataStd_ReferenceList) ActData_MetaParameter::GetOutputWritersAttr() const
+{
+  return ActData_Utils::GetReferenceList(m_label, DS_OutputWriters);
+}
+
+//! \return referrers attribute.
+Handle(TDataStd_ReferenceList) ActData_MetaParameter::GetReferrersAttr() const
+{
+  return ActData_Utils::GetReferenceList(m_label, DS_Referrers);
+}
+
+//! Checks whether the given Label is contained in the list of input readers.
+//! \param theLab [in] OCAF Label to check.
+//! \return true/false.
+Standard_Boolean ActData_MetaParameter::HasInputReader(const TDF_Label& theLab) const
+{
+  return ActData_Utils::HasTarget(this->GetInputReaders(), theLab) > 0;
+}
+
+//! Checks whether the given Label is contained in the list of output writers.
+//! \param theLab [in] OCAF Label to check.
+//! \return true/false.
+Standard_Boolean ActData_MetaParameter::HasOutputWriter(const TDF_Label& theLab) const
+{
+  return ActData_Utils::HasTarget(this->GetOutputWriters(), theLab) > 0;
+}
+
+//! Checks whether the given Label is contained in the list of referrers.
+//! \param theLab [in] OCAF Label to check.
+//! \return true/false.
+Standard_Boolean ActData_MetaParameter::HasReferrer(const TDF_Label& theLab) const
+{
+  return ActData_Utils::HasTarget(this->GetReferrers(), theLab) > 0;
+}
+
+//! Adds the given OCAF Label to the beginning of the list of input readers.
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::PrependInputReader(const TDF_Label& theLab)
+{
+  ActData_Utils::PrependReference(m_label, DS_InputReaders, theLab);
+}
+
+//! Adds the given OCAF Label to the beginning of the list of output writers.
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::PrependOutputWriter(const TDF_Label& theLab)
+{
+  ActData_Utils::PrependReference(m_label, DS_OutputWriters, theLab);
+}
+
+//! Adds the given OCAF Label to the beginning of the list of referrers.
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::PrependReferrer(const TDF_Label& theLab)
+{
+  ActData_Utils::PrependReference(m_label, DS_Referrers, theLab);
+}
+
+//! Appends the given OCAF Label to the tail of the list of input readers.
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::AppendInputReader(const TDF_Label& theLab)
+{
+  ActData_Utils::AppendReference(m_label, DS_InputReaders, theLab);
+}
+
+//! Appends the given OCAF Label to the tail of the list of output writers.
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::AppendOutputWriter(const TDF_Label& theLab)
+{
+  ActData_Utils::AppendReference(m_label, DS_OutputWriters, theLab);
+}
+
+//! Appends the given OCAF Label to the tail of the list of referrers
+//! \param theLab [in] OCAF Label to add.
+void ActData_MetaParameter::AppendReferrer(const TDF_Label& theLab)
+{
+  ActData_Utils::AppendReference(m_label, DS_Referrers, theLab);
+}
+
+//! Removes the given OCAF Label from the list of input readers.
+//! \param theLab [in] OCAF Label to remove.
+//! \return true in case of success, false -- otherwise.
+Standard_Boolean ActData_MetaParameter::RemoveInputReader(const TDF_Label& theLab)
+{
+  Handle(TDataStd_ReferenceList) aRefList = this->GetInputReadersAttr();
+  if ( aRefList.IsNull() )
+    return Standard_False;
+  //
+  return aRefList->Remove(theLab);
+}
+
+//! Removes the given OCAF Label from the list of output writers.
+//! \param theLab [in] OCAF Label to remove.
+//! \return true in case of success, false -- otherwise.
+Standard_Boolean ActData_MetaParameter::RemoveOutputWriter(const TDF_Label& theLab)
+{
+  Handle(TDataStd_ReferenceList) aRefList = this->GetOutputWritersAttr();
+  if ( aRefList.IsNull() )
+    return Standard_False;
+  //
+  return aRefList->Remove(theLab);
+}
+
+//! Removes the given OCAF Label from the list of referrers.
+//! \param theLab [in] OCAF Label to remove.
+//! \return true in case of success, false -- otherwise.
+Standard_Boolean ActData_MetaParameter::RemoveReferrer(const TDF_Label& theLab)
+{
+  Handle(TDataStd_ReferenceList) aRefList = this->GetReferrersAttr();
+  if ( aRefList.IsNull() )
+    return Standard_False;
+  //
+  return aRefList->Remove(theLab);
+}
+
+//-----------------------------------------------------------------------------
+// Manipulating with DTO
+//-----------------------------------------------------------------------------
+
+//! Initializes Parameter with the passed DTO.
+//! \param theDTO [in] data for initialization.
+void ActData_MetaParameter::SetFromDTO(const Handle(ActData_MetaDTO)& theDTO)
+{
+  // Set type name
+  this->SetTypeName(theDTO->TypeName);
+
+  // Set parent
+  TDF_Label aParentLab;
+  TDF_Tool::Label(m_label.Data(), theDTO->TreeNodeParent, aParentLab);
+  //
+  if ( !aParentLab.IsNull() && ActData_NodeFactory::IsNode(aParentLab) )
+  {
+    // Access parent Data Node
+    Handle(ActData_BaseNode)
+      aParentNode = Handle(ActData_BaseNode)::DownCast( ActData_NodeFactory::NodeSettle(aParentLab) );
+
+    // Add this as child
+    aParentNode->m_paramScope.Meta->AppendChild(this);
+  }
+
+  // Set user flags
+  this->SetUserFlags(theDTO->UserFlags);
+
+  // Set input readers
+  for ( Standard_Integer i = 1; i <= theDTO->InputReaders->Length(); ++i )
+    this->AppendInputReader( theDTO->InputReaders->Value(i)->RootLabel() );
+
+  // Set output writers
+  for ( Standard_Integer i = 1; i <= theDTO->OutputWriters->Length(); ++i )
+    this->AppendOutputWriter( theDTO->OutputWriters->Value(i)->RootLabel() );
+
+  // Set referrers
+  for ( Standard_Integer i = 1; i <= theDTO->Referrers->Length(); ++i )
+    this->AppendReferrer( theDTO->Referrers->Value(i)->RootLabel() );
+}
+
+//! Returns Parameter value in generic form of DTO. This method queries
+//! data from OCAF and packs it into pure transient structure which is detached
+//! from OCAF. In order to query data you have to ensure that Parameter is
+//! in ATTACHED and WELL-FORMED state.
+//! \return DTO containing the stored data.
+Handle(ActData_MetaDTO) ActData_MetaParameter::GetAsDTO()
+{
+  if ( !this->IsWellFormed() )
+    Standard_ProgramError::Raise("Data inconsistent");
+
+  // Create DTO instance
+  Handle(ActData_MetaDTO) aResDTO = new ActData_MetaDTO;
+
+  // Set type name
+  aResDTO->TypeName = this->GetTypeName();
+
+  // Set parent
+  Handle(TDataStd_TreeNode) aChildTN  = this->GetCAFTreeNode();
+  Handle(TDataStd_TreeNode) aParentTN = aChildTN->Father();
+  //
+  Handle(ActAPI_INode) aParentNode;
+  if ( !aParentTN.IsNull() )
+    aParentNode = ActData_NodeFactory::NodeSettle( aParentTN->Label().Father() );
+  //
+  aResDTO->TreeNodeParent = aParentNode->GetId();
+
+  // Set user flags
+  aResDTO->UserFlags = this->GetUserFlags();
+
+  // Set references
+  aResDTO->InputReaders  = this->GetInputReaderCursors();
+  aResDTO->OutputWriters = this->GetOutputWriterCursors();
+  aResDTO->Referrers     = this->GetReferrerCursors();
+
+  return aResDTO;
+}
+
+//-----------------------------------------------------------------------------
+// Data Cursor behavior internals
+//-----------------------------------------------------------------------------
+
+//! Attaches the transient Data Cursor to the CAF Label.
+//! \param theLabel [in] Label to attach the cursor to.
+void ActData_MetaParameter::attach(const TDF_Label& theLabel)
+{
+#if defined COUT_DEBUG
+  if ( theLabel.IsNull() )
+    cout << "WARN: settling down META Parameter on NULL Label" << endl;
+#endif
+
+  m_status = SS_Attached;
+  m_label  = theLabel;
+}
+
+//! Expands the Parameter Cursor on the passed TDF Label.
+//! \param theLabel [in] root TDF Label for the Parameter to expand on.
+void ActData_MetaParameter::expandOn(const TDF_Label& theLabel)
+{
+  // Attach transient Cursor properties to the CAF Label
+  this->attach(theLabel);
+
+  // Create attributes
+  TDataStd_AsciiString ::Set ( theLabel, "" );
+  TDataStd_TreeNode    ::Set ( theLabel, TDataStd_TreeNode::GetDefaultTreeID() );
+  TDataStd_Integer     ::Set ( theLabel, 0 );
+
+  // Create sub-Labels for back-references
+  TDataStd_ReferenceList::Set( m_label.FindChild(DS_InputReaders) );
+  TDataStd_ReferenceList::Set( m_label.FindChild(DS_OutputWriters) );
+  TDataStd_ReferenceList::Set( m_label.FindChild(DS_Referrers) );
+
+  // Expand Tree Function Parameters for evaluators
+  ActAPI_SparseParameterList::Iterator aEvalIt( *m_evaluators.operator->() );
+  for ( ; aEvalIt.More(); aEvalIt.Next() )
+  {
+    Handle(ActData_UserParameter) aBaseParam =
+      Handle(ActData_UserParameter)::DownCast( aEvalIt.Value() );
+    Standard_Integer aNewTag = (Standard_Integer) aEvalIt.Key();
+
+    // Allow construction of sub-Labels in EXPANDING mode ONLY
+    TDF_Label aParamLabRoot = m_label.FindChild(DS_Evaluators, Standard_True);
+    TDF_Label aParamLab     = aParamLabRoot.FindChild(aNewTag, Standard_True);
+
+    // Expand Tree Function Parameter
+    aBaseParam->expandOn(aParamLab);
+  }
+}
+
+//! Settles the Parameter Cursor on the passed TDF Label.
+//! \param theLabel [in] root TDF Label for the Parameter to settle on.
+void ActData_MetaParameter::settleOn(const TDF_Label& theLabel)
+{
+  // Attach transient Cursor properties to the CAF Label
+  this->attach(theLabel);
+
+  // Settle Tree Function Parameters for evaluators
+  ActAPI_SparseParameterList::Iterator aEvalIt( *m_evaluators.operator->() );
+  for ( ; aEvalIt.More(); aEvalIt.Next() )
+  {
+    Handle(ActData_UserParameter) aBaseParam =
+      Handle(ActData_UserParameter)::DownCast( aEvalIt.Value() );
+    Standard_Integer aNewTag = (Standard_Integer) aEvalIt.Key();
+
+    // Allow construction of sub-Labels in EXPANDING mode ONLY
+    TDF_Label aParamLabRoot = m_label.FindChild(DS_Evaluators, Standard_False);
+    TDF_Label aParamLab     = aParamLabRoot.FindChild(aNewTag, Standard_False);
+
+    // Settle down Tree Function Parameter
+    aBaseParam->settleOn(aParamLab);
+  }
+}

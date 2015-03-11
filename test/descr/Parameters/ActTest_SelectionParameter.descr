@@ -1,0 +1,11 @@
+[TITLE]
+
+  Selection Parameter
+
+[1:OVERVIEW]
+
+  Performs test on accessing map of integer values stored in Selection Parameter.
+
+[2:OVERVIEW]
+
+  Performs test on accessing individual masked IDs of Selection Parameter.

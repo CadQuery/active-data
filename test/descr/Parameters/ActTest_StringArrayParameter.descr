@@ -1,0 +1,12 @@
+[TITLE]
+
+  String Array Parameter
+
+[1:OVERVIEW]
+
+  Test on accessing values for String Array Parameter.
+
+[2:OVERVIEW]
+
+  Test on accessing individual elements stored by means of
+  String Array Parameter.

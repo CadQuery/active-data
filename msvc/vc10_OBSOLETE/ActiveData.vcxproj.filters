@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Kernel">
+      <UniqueIdentifier>{c5f5a467-eadc-4903-b82e-87613d460c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\STD">
+      <UniqueIdentifier>{3f9f4023-b352-4aa6-b5fd-fdc5f0ddcab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Kernel">
+      <UniqueIdentifier>{8fde0c94-c98d-4df2-89d9-a5af7633e6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\STD">
+      <UniqueIdentifier>{d76e968f-3d81-4a19-bdb7-61ea54a59f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8d7c0291-27f4-439f-ba48-ee5b09d2b42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mesh">
+      <UniqueIdentifier>{cae636d8-d1e2-496d-a94a-31e32228ae02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mesh">
+      <UniqueIdentifier>{8640f971-ae59-44fc-88b9-66b11ed10bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BinDrivers">
+      <UniqueIdentifier>{51cc8227-8403-40db-ac18-6c024dcc7421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BinDrivers">
+      <UniqueIdentifier>{0fb90c89-ac99-4f42-880e-f194030783e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{3929ad09-1386-4960-8dea-f3719d4a5969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{48cd3e7f-7a16-470a-9b2f-5b4e50dc6349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Patterns">
+      <UniqueIdentifier>{58dab4e5-e4c3-463a-a664-19fd8b25337d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Patterns">
+      <UniqueIdentifier>{cff1a57a-8c84-43d2-a18f-be760b8a7d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mesh\DS">
+      <UniqueIdentifier>{10ba7a93-3a1b-4e5a-a7d1-3f0e71286443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mesh\DS">
+      <UniqueIdentifier>{500a6616-94cf-4ba6-8520-f6447c0e4f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{2d150809-96f1-4430-98a2-9a81bde2243d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinDrivers.h">
+      <Filter>Header Files\BinDrivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinRetrievalDriver.h">
+      <Filter>Header Files\BinDrivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_BinStorageDriver.h">
+      <Filter>Header Files\BinDrivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\BinDrivers\ActData_MeshDriver.h">
+      <Filter>Header Files\BinDrivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_Utils.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_Application.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_AsciiStringParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseModel.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseNode.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BasePartition.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BaseTreeFunction.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BoolArrayParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_BoolParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ComplexArrayParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_CopyPasteEngine.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyAnalyzer.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraph.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraphIterator.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ExtTransactionEngine.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionCtx.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionTask.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_GraphFrozenException.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_GroupParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_IntArrayParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_IntParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_LogBook.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_MeshParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_NameParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_NodeFactory.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ParameterDTO.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ParameterFactory.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RealArrayParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RealParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_RefClassifier.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ReferenceListParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ReferenceParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SamplerTreeNode.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SelectionParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_SequentialFuncIterator.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_ShapeParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_StringArrayParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TimeStampParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TransactionEngine.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionPriority.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshDeltaEntities.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshMDelta.h">
+      <Filter>Header Files\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Patterns\ActData_RealArrayOwnerAPI.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Patterns\ActData_RecordCollectionOwnerAPI.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BaseVarNode.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BoolVarNode.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_BoolVarPartition.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_IntVarNode.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_IntVarPartition.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_RealVarNode.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionAsset.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionCtx.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionModel.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionNode.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConversionParameter.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverter.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverterBase.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFConverterFw.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFDumper.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_CAFLoader.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\ActData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\ActData_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\ActData_Plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\STD\ActData_RealEvaluatorFunc.h">
+      <Filter>Header Files\STD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_UniqueNodeName.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Tools\ActData_GraphToDot.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFAbs_ElementType.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFAbs_State.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_DataMapIteratorOfDataMapOfPntInteger.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_DataMapOfPntInteger.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_Direction.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ExtendedMap.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ExtendedOrientedMap.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_HSequenceOfMesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_IteratorOfVectorOfMeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListIteratorOfListOfMesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListIteratorOfListOfMeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListIteratorOfListOfMeshGroup.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListOfMesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListOfMeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_ListOfMeshGroup.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapIteratorOfExtendedMap.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapIteratorOfExtendedOrientedMap.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapOfInteger.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapOfMeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapOfMeshOrientedElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_Mesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshEdge.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshEdgesIterator.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElementMapHasher.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElementsIterator.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshFace.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshFacesIterator.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshGroup.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshIDFactory.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshNode.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshNodesIterator.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshObject.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshOrientedElementMapHasher.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshQuadrangle.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshTriangle.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_PntHasher.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_PtrMesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_SequenceOfMesh.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_TypeOfPosition.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_VectorOfMeshElement.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_Position.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_SpacePosition.hxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_MetaParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_UserParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinDrivers.cpp">
+      <Filter>Source Files\BinDrivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinRetrievalDriver.cpp">
+      <Filter>Source Files\BinDrivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinStorageDriver.cpp">
+      <Filter>Source Files\BinDrivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_MeshDriver.cpp">
+      <Filter>Source Files\BinDrivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_Application.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_AsciiStringParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseModel.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseNode.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BasePartition.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BaseTreeFunction.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BoolArrayParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_BoolParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ComplexArrayParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_CopyPasteEngine.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyAnalyzer.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraph.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_DependencyGraphIterator.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ExtTransactionEngine.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionCtx.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_FuncExecutionTask.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_GroupParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_IntArrayParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_IntParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_LogBook.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_MeshParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_NameParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_NodeFactory.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ParameterDTO.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ParameterFactory.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RealArrayParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RealParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_RefClassifier.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ReferenceListParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ReferenceParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SamplerTreeNode.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SelectionParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_SequentialFuncIterator.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_ShapeParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_StringArrayParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TimeStampParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TransactionEngine.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_Utils.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshDeltaEntities.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshMDelta.cpp">
+      <Filter>Source Files\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Patterns\ActData_RealArrayOwnerAPI.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Patterns\ActData_RecordCollectionOwnerAPI.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BaseVarNode.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BoolVarNode.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_BoolVarPartition.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_IntVarNode.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_IntVarPartition.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealVarNode.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealVarPartition.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionAsset.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionCtx.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionModel.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionNode.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConversionParameter.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConverter.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFConverterFw.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFDumper.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_CAFLoader.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\ActData_Plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\STD\ActData_RealEvaluatorFunc.cpp">
+      <Filter>Source Files\STD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_UniqueNodeName.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Tools\ActData_GraphToDot.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_Direction.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MapOfMeshElement.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MapOfMeshOrientedElement.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_Mesh.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshEdge.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshElement.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshElementMapHasher.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshElementsIterator.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshFace.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshGroup.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshIDFactory.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshNode.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshObject.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshOrientedElementMapHasher.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshQuadrangle.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_MeshTriangle.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_PntHasher.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Mesh\DS\cxx\OMFDS_Position.cxx">
+      <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_MetaParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_UserParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\ActiveData\resources\Plugin">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\ActiveData\resources\Resources">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapOfMeshElement.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MapOfMeshOrientedElement.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_Mesh.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshEdge.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElement.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElementMapHasher.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshElementsIterator.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshFace.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshGroup.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshNode.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshOrientedElementMapHasher.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshQuadrangle.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_MeshTriangle.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_PntHasher.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_Position.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\src\ActiveData\Mesh\DS\hxx\OMFDS_SpacePosition.lxx">
+      <Filter>Header Files\Mesh\DS</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\01_getting_started.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\02_tfunc.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\03_copy_paste.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\04_mesh.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\05_undo_redo.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\06_backward_compatibility.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\07_room_for_improvement.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\900_appendix_TObj.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\999_references.dox">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\..\doc\workbench\overview\pages\index.dox">
+      <Filter>Documentation</Filter>
+    </None>
+  </ItemGroup>
+</Project>

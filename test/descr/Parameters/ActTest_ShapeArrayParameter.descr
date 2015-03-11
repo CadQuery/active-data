@@ -1,0 +1,12 @@
+[TITLE]
+
+  Shape Array Parameter
+
+[1:OVERVIEW]
+
+  Performs test on accessing data stored in Shape Array Parameter.
+
+[2:OVERVIEW]
+
+  Test on accessing individual elements stored by means of
+  Shape Array Parameter.

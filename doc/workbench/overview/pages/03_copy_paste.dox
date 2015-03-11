@@ -1,0 +1,437 @@
+/*!
+
+\page page_copy_paste Copy & Paste
+
+\section page_copy_paste_requirements Requirements
+
+\note Copy/Paste functionality provided by Active Data Framework essentially works
+      with Data Nodes and their user-defined sub-trees, i.e. those trees which are
+      built with help of Tree Node Parameters. There is no possibility to copy/paste
+      any individual Parameter without copying the parent Node.
+
+The requirements to Copy/Paste functionality were elaborated basing on the series
+of formal requirements. We keep this rather historical block here in order to
+show the original motivation for development of Copy/Paste functionality.
+The elaborated requirements were formulated as follows:
+
+- Copy/Paste functionality must benefit from the standard copy/paste mechanism
+  shipped with original OCAF: we do not want to re-invent the wheel;
+  
+- Following the previous requirement, all custom AD-specific OCAF attributes
+  must provide the standardized methods to support copy/paste functionality
+  (i.e. have non-trivial implementation of abstract <tt>TDF_Attribute::Paste()</tt> method).
+  E.g. Mesh Attribute must come with a particular method performing deep
+  copying of the underlying mesh structures;
+
+- Copy/Paste functionality must produce a well-formed resulting sub-tree of
+  data objects. I.e. not only the plain data must be copied, but also all existing
+  references must be normalized in a consistent way. The default behaviour is
+  to ignore those references which point outside the copied structure anyhow.
+  All other references must be adjusted so that to refer to the copy of data
+  instead of the source. Such an approach ensures that the local dependencies
+  are transferred together with their owning sub-trees, while more complex
+  connectivity is just cleaned up in the target copy. This easy-to-remember
+  rule seems to provide a good level of safety in terms of data consistency. On
+  the other hand, such relocation rule might be non-suitable in some specific
+  cases. E.g. we normally want to preserve Parameter-Variable connection when
+  expressible Node is copied. As AD variables mechanism is based on standard
+  Tree Function references, the corresponding Tree Function Parameters will be
+  disconnected regarding to the mentioned rule (Variable Nodes are external to
+  the expressible user-defined Data Nodes). That is why such rule cannot be
+  suggested as general one and must provide customization points for particular
+  use cases. Some examples of such customization points are listed below:
+
+  - User must be free to pass the Tree Function types (i.e. their GUIDs) to
+    the copying routine, enumerating those Tree Functions which have to preserve
+    their global dependencies;
+
+  - User must be free to pass IDs of those Reference Parameters which have to
+    preserve their global pointers after the copy/paste operation completes.
+
+- Sub-tree hierarchy built by means of a Tree Node Parameter must not be broken
+  by the discussed Copy/Paste functionality;
+
+- Copy/Paste functionality must be available as a service sub-set of the
+  <tt>ActiveData</tt> library. For the sake of component separation, the actual implementation
+  of copy/paste mechanism must be packaged into a dedicated auxiliary service
+  class (Copy/Paste Engine) controlled by the Data Model instance;
+
+- User must be able to perform copy/paste operations separately, i.e. in
+  two stages: one is for copying and another &mdash; for pasting. If user
+  modifies the source data after he issued the copying request, the result of
+  paste operation should not be affected by such intermediate modifications.
+  I.e. full temporary copy of the source data must be preserved somewhere and
+  be completely independent from the current state of the project tree;
+
+- If the copied data contains a reference to some Node or Parameter which does
+  not exist at the moment of paste operation, the Data Framework should
+  nevertheless allow such pasting and ensure data consistency. The broken
+  (dead) reference should be disconnected from the copied Node. Notice that
+  such "ghost" references can only relate to the data which is external for the
+  copied sub-tree (what we call the out-scoped data). Among all the existing
+  types of references (see below), only direct Reference Parameters and
+  Tree Function Parameters have a chance to pass to the target Node
+  (out-scoped back-references are always lost);
+
+- Pasting into the children of the source Data Node must be prohibited. Pasting
+  into the source Node must be prohibited;
+
+- LogBook must remain unaffected after the copy and paste operations. Otherwise
+  user can experience side effects related to unwanted triggering of Tree
+  Functions on the pasted Parameters. It is important to note that simple
+  cleaning of LogBook cannot be suggested as a common solution as doing so we
+  can loose modification records accumulated out of copy/paste operation. Therefore
+  the copy/paste routine must perform silent modifications (without logging
+  modifications in "push-for-execution" journal) whenever it is possible.
+
+\section page_copy_paste_copy_paste_engine Copy/Paste Engine
+
+The internal logic of Copy/Paste functionality is implemented in Copy/Paste
+Engine tool represented by <tt>ActData_CopyPasteEngine</tt> class located
+in Kernel sub-package of <tt>ActiveData</tt> library. This class is a co-worker
+one for <tt>ActData_BaseModel</tt> class as it provides the functionality
+conceptually belonging to the Data Model's responsibility scope. The typical
+use case for Copy/Paste functionality is as follows:
+
+- User selects a Node to copy (it is called a _source_ Node);
+
+- User invokes <tt>ActAPI_IModel::CopyNode()</tt> method which performs full
+  copying of the source data into a temporary place: a dedicated "clipboard"
+  section. This section is very specific as it serves only as a buffer for
+  copy/paste operation. It has its own corresponding OCAF label in the Data
+  Model similarly to what we have for Partitions and version information.
+  The relative ID to access this buffering section is <tt>CopyPasteBuffer</tt>
+  tag available under the root label of the Model;
+
+\image html copy_paste_02.png
+\image latex copy_paste_02.png "" width=150px
+
+The following scheme illustrates the actual representation of the copy/paste
+buffer in the working OCAF document. Notice that the source sub-tree is
+fully reproduced in the buffering section with the updated references. This
+is an alternative local hierarchy of Nodes where the root one is detached
+from any domain-specific parent Data Node. We use an additional intermediate
+<tt>Buffer HEAD Label</tt> here for future extensions, e.g. for multiple
+buffering support.
+
+\image html copy_paste_03.png
+\image latex copy_paste_03.png "" width=200px
+
+\note Notice that such document-level buffering is not conceptually necessary for
+      operations like copy & paste. Indeed, we do need only some transient
+      buffer which remains immutable between the copy and paste requests.
+      Introducing such buffer in the OCAF document can make one think that we
+      are going to persist it which will be obviously redundant. In fact, such
+      a "strange" buffering scheme is justified mainly by our intention to
+      re-use OCAF copy & paste embedded functionality which requires that all
+      the involved labels are attached to the working document. The copy/paste
+      buffer is cleaned up once the model is loaded from a file (if it exists).
+      There is also one little benefit from this approach to buffering: as the
+      temporary copy of data is attached to the same OCAF document as the entire
+      model, we can easily obtain a dump of this buffer via CAF Dumper tool.
+      The latter feature can ease one's life in debugging challenges.
+
+- After such copying is done, user is free to modify the source Node anyhow,
+  e.g. update its Parameters or even delete the Node. All these changes do
+  not affect the temporary copy of data stored in the Copy/Paste Tool,
+  ensuring that the results of paste invocation do not depend on the modifications
+  performed between copy & paste calls;
+
+- User invokes <tt>ActAPI_IModel::PasteAsChild()</tt> method. If no temporary
+  copy exists at the moment, the Data Model class performs no action and
+  returns NULL indicating that invocation logic is wrong. If such copy exists,
+  the Data Model class (actually, its co-working Copy/Paste Engine) transfers
+  the data from the temporary section to the domain area. During this
+  operation the pasting algorithm distributes the resulting Nodes by their
+  corresponding Partitions. The consistency of the underlying references
+  is guaranteed at this stage.
+
+\section page_copy_paste_copy_paste_workflow Copy/Paste Workflow
+
+The Copy/Paste Tool relies on Copy/Paste Engine: the auxiliary tool which
+holds the actual data transferring algorithm. It provides methods to copy &
+restore the user tree structure to & from the internal buffer. Such copying
+must be smart enough in order to preserve the Tree Node organization of the
+source objects (this is not carried out by standard OCAF services) and adjust
+the transferred references according to the requirements described above (this
+is quite specific and obviously not covered by native OCAF services).
+
+The internal workflow of the Copy/Paste Engine can be broken down onto
+several consequent steps described below.
+
+\subsection page_copy_paste_copy_paste_workflow_flattening Flattening
+
+Given the source user-tree of Data Nodes being copied, the Engine iterates
+over this tree performing deep copying of each item. This process is referred
+to as flattening as Copy/Paste Engine places the prepared copies one-by-one
+into the buffering section (Copy) or corresponding Partitions (Paste). Node
+types are mixed up in the buffering section: no sub-Partitions are created
+here for simplicity.
+
+\image html copy_paste_01.png
+\image latex copy_paste_01.png "" width=150px
+
+Once this stage is completed, we have copy/paste buffering section filled
+with the well-formed copies of the initial Data Nodes. However, these Nodes
+do not have any Tree Node connectivity yet (as <tt>TDataStd_TreeNode</tt>
+attributes are intentionally filtered out during the copying process) and do
+have _inconsistent_ reference pointers. These issues are resolved by the
+following steps of transferring routine.
+
+\subsection page_copy_paste_copy_paste_workflow_sampler_tree Sampler Tree
+
+The Tree Node connectivity is rebuilt in a consistent form by means of a
+dedicated _Sampler Tree_ object representing a tree of source Node IDs. This
+tree plays a role of recovering sampler as it completely repeats the topological
+structure of the initial source Node tree. This tree is prepared at the
+previous step along with <tt>Relocation Table</tt>: a specific data map
+storing the correspondence between source labels and the new copied ones.
+Sampler Tree is iterated against the Relocation Table in order to build the
+resulting Tree Node connectivity.
+
+\note Actually, there is no big necessity to introduce such Sampler Tree as we
+      can use the initial Node connectivity for the purpose of topological
+      rebinding. However, Sampler Tree seems to be a good lightweight
+      abstraction which can also be used as an input to other Data Model
+      algorithms dealing with custom trees of Data Nodes. The benefits from
+      using such a notion instead of the source data directly are as follows:
+      it remains immutable during the copy/paste procedure, while we cannot
+      guarantee that for the initial topology; it represents pure topological
+      connectivity without any binding to domain-specific data unlike
+      <tt>TDataStd_TreeNode</tt> objects which are essentially OCAF
+      attributes bound to raw OCAF labels.
+
+After the second step completes, we have a well-formed topological structure
+of the cloned Data Nodes. The only remaining inconsistency here is the presence
+of invalid references (if any such references exist).
+
+\subsection page_copy_paste_copy_paste_workflow_normalization Normalization
+
+Each Data Node can contain several types of references, excluding Tree Node
+Parameters which were discussed above. These reference types are listed below:
+
+- DIRECT references:
+  - Tree Function Parameters: they have references to their INPUT and OUTPUT arguments;
+  - Plain Reference Parameters: they have explicit reference to an arbitrary Node or Parameter;
+
+- BACK References:
+  - INPUT Reader observers: references to those Tree Function Parameters which read
+    some data from the current Node;
+  - OUTPUT Writer observers: references to those Tree Function Parameters which
+    write some data to the current Node;
+  - REFERER observers: references to those Reference Parameters which point to
+    the current Node.
+
+\image html copy_paste_04.png
+\image latex copy_paste_04.png "" width=150px
+
+The common rule is to classify all references against the Sampler Tree onto
+two categories: _in-scoped_ references and _out-scoped_ references. The
+reference is said to be in-scoped if it does not point outside the Sampler Tree
+anyhow. The reference is said to by out-scoped if it has at least one pointer
+out of the Sampler Tree. The in-scoped references are adjusted regarding to
+the Relocation Table and pushed to the resulting copy. The out-scoped references
+are thrown away or kept as-is, depending on the user's choice. The default
+behaviour consists in ignoring all out-scoped references except the references
+to Variables. However, the client code is free to charge _Reference Filter_,
+enumerating those references which have to be transferred to the destination
+sub-tree even being in out-scoped state.
+
+In fact, custom Data Model class must set its custom reference filtering
+rules by implementing a dedicated pure virtual method:
+
+\verbatim
+//! Populates the passed collections of references to pass out-scope filtering
+//! in Copy/Paste operation.
+//! \param FuncGUIDs [in/out] Function GUIDs to pass.
+//! \param Refs [in/out] Reference Parameters to pass.
+void MyDemo_Model::invariantCopyRefs(ActAPI_FuncGUIDStream& FuncGUIDs,
+                                     ActAPI_ParameterLocatorStream& Refs) const
+{
+  FuncGUIDs << MyDemo_MeshFunc::GUID();
+
+  Refs << ActAPI_ParameterLocator( STANDARD_TYPE(MyDemo_AnimationNode)->Name(),
+                                   MyDemo_AnimationNode::PID_TopoReference )
+       << ActAPI_ParameterLocator( STANDARD_TYPE(MyDemo_MeshNode)->Name(),
+                                   MyDemo_MeshNode::PID_TopoReference );
+}
+\endverbatim
+
+The mentioned <tt>invariantCopyRefs()</tt> is called automatically by the
+framework each time the copy/paste operation is launched. This method
+enumerates those references which must pass the out-scope filtering. The example
+above illustrates the case when such references are defined once and for all.
+However, you are free to implement this method in a way providing dynamic
+changing of filter invariants. Notice that normally the passed collections are
+already charged with some framework-specific references (e.g. Variable
+references), so make sure not to clean up their contents (unless you clearly
+understand what you are doing).
+
+\note In case of paste workflow, we can obtain so called out-scoped "ghost"
+      references. These are the references corresponding to non-existent data.
+      E.g. if a Data Node was connected to a Variable which was deleted between
+      copy & paste invocations, the buffered representation of such Data Node
+      will contain a reference to the "dead" Variable. Out-scoped "ghost"
+      references are always removed, regardless of any user-defined filtering
+      as it is essentially a question of data consistency.
+
+The separation between in-scoped and out-scoped references is performed by means
+of _Reference Classifier_ tool provided along with Copy/Paste Engine tool.
+Given a reference, it checks whether this reference is enumerated in the
+Sampler Tree or not. If so, the reference is classified as in-scoped, otherwise
+&mdash; as out-scoped. The unified abstract for any kind of reference is a
+simple OCAF label which plays as an atomic pointer to data in such standard
+OCAF attributes as <tt>TDF_Reference</tt> and <tt>TDataStd_ReferenceList</tt> &mdash;
+the only kinds of reference holders used in the Active Data framework.
+
+\note A special care is required for those Parameters which belong to the
+      copied Node and are referenced by this Node as well. This case mostly
+      concerns Tree Functions which are binding several input Parameters of the
+      owning Node to some output Parameters of the same Node. This case is
+      specific only due to OCAF internals as OCAF has its own vision on
+      treating such in-house references. In terms of OCAF, the label is said
+      to be "self-contained" if all its references are local to this label
+      with its storage-tree children (there is no word about Tree Node
+      connectivity here). Such local references are exchanged automatically
+      by OCAF, introducing some elementary relocation logic on a portion of
+      existing references. This automation seems to be a good thing on the plain
+      data hierarchies, but it brings additional complexity into our
+      in-scoped/out-scoped filtering as the corresponding classifier must be
+      aware of such "helpful" intentions from OCAF side. See unit-test
+      case 3.5 for illustration.
+
+\section page_copy_paste_ut Unit tests
+
+Copy/Paste Engine tool is tested by means of <tt>ActTest_CopyPasteEngine</tt>
+class. Here we describe the available tests.
+
+\subsection page_copy_paste_ut_1 Case 1
+
+Test if plain Data Node is copied without any existing user-tree hierarchies
+and references into the target Node containing no other children. The prepared
+copy should be completely independent from the source data. The latter is
+checked by affecting the source data between copy and paste invocations.
+
+\subsection page_copy_paste_ut_2 Case 2
+
+Test if the source user-defined sub-tree is completely copied to the target
+Data Node containing no other children. The source connectivity of Data Nodes
+should not be affected. The copied hierarchy must be identical to the source
+one. Consistency of references is not checked at this stage.
+
+\subsection page_copy_paste_ut_3 Case 3
+
+Test if plain Data Node with Tree Function references established as shown
+on the following schemes is copied properly to the target Data Node.
+
+\subsubsection page_copy_paste_ut_3_1 Case 3.1
+
+Only in-scoped references exist. Nothing should be lost. Tree Function should
+pass to the copy with adjusted Parameter references. INPUT Readers & OUTPUT
+Writers for the involved Data Nodes must also be adjusted correspondingly.
+
+\image html copy_paste_05.png
+\image latex copy_paste_05.png "" width=200px
+
+\subsubsection page_copy_paste_ut_3_2 Case 3.2
+
+Out-scoped references exist in INPUT set of Tree Function Parameters. Tree
+Function must be disconnected. The corresponding back-references (pointing to
+the Tree Function Parameter being disconnected) in Nodes B_1 and B_2 must be
+removed. Data Node B_3 must not be affected anyhow.
+
+\image html copy_paste_06.png
+\image latex copy_paste_06.png "" width=200px
+
+\subsubsection page_copy_paste_ut_3_3 Case 3.3
+
+Out-scoped references exist in OUTPUT set of Tree Function Parameters. Tree
+Function must be disconnected. The corresponding back references must be cleaned
+up from Data Node B_2 and A_3. Data Node B_3 must not be affected anyhow.
+
+\image html copy_paste_07.png
+\image latex copy_paste_07.png "" width=200px
+
+\subsubsection page_copy_paste_ut_3_4 Case 3.4
+
+Tree Function is fully external to the sub-tree being copied. All the
+corresponding back-references (INPUT Readers and OUTPUT Writers) must be
+cleaned up from the copies of Data Nodes A_2 and A_3.
+
+\image html copy_paste_08.png
+\image latex copy_paste_08.png "" width=200px
+
+\subsubsection page_copy_paste_ut_3_5 Case 3.5
+
+Tree Function is fully local and corresponds to those called self-contained
+label in OCAF terms. In this case OCAF partially participates in the
+relocation logic, so our Scope Classifier must understand such peculiarities
+and mark the Tree Function as in-scoped.
+
+\image html copy_paste_09.png
+\image latex copy_paste_09.png "" width=200px
+
+\subsection page_copy_paste_ut_4 Case 4
+
+Test on evaluation Tree Functions: they must not be lost.
+
+\image html copy_paste_10.png
+\image latex copy_paste_10.png "" width=200px
+
+\subsection page_copy_paste_ut_5 Case 5
+
+Tests on Reference Parameter.
+
+\subsubsection page_copy_paste_ut_5_1 Case 5.1
+
+In-scoped test. Reference must be converted correspondingly.
+
+\image html copy_paste_11.png
+\image latex copy_paste_11.png "" width=200px
+
+\subsubsection page_copy_paste_ut_5_2 Case 5.2
+
+Out-scoped test. Reference must be disconnected.
+
+\image html copy_paste_12.png
+\image latex copy_paste_12.png "" width=200px
+
+\subsubsection page_copy_paste_ut_5_3 Case 5.3
+
+Out-scoped test with exceptional reference filtering. Reference
+must be preserved as-is.
+
+\subsubsection page_copy_paste_ut_5_4 Case 5.4
+
+Out-scoped test with exceptional reference filtering. The copy/paste operation
+is performed twice: first time for the source Node and second time for its copy.
+Reference must be preserved as-is in both cases, demonstrating that Reference
+Filter propagates its rules on the newly appeared Nodes as well.
+
+\subsubsection page_copy_paste_ut_5_5 Case 5.5
+
+Out-scoped test with exceptional reference filtering. Check if the reference
+filtering works on the opened document as well (it is a transient information,
+not stored in OCAF, so it should be re-populated when Data Model is opened.
+At least we can re-populate it on each Copy request).
+
+\subsection page_copy_paste_ut_6 Case 6
+
+Test if our custom Mesh Attribute is properly copied.
+
+\subsection page_copy_paste_ut_7 Case 7
+
+Test on pasting Data Node with out-scoped "ghost" reference in the Tree Function
+arguments list. The corresponding Tree Function must be disconnected.
+
+\subsection page_copy_paste_ut_8 Case 8
+
+Test on pasting Data Node with out-scoped "ghost" reference in Tree Function
+results list. The corresponding Tree Function must be disconnected.
+
+\subsection page_copy_paste_ut_9 Case 9
+
+Test on pasting Data Node with out-scoped "ghost" reference in Reference
+Parameter. The corresponding Reference must be cleaned up.
+
+*/
