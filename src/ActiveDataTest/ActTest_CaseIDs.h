@@ -68,7 +68,8 @@ enum ActTest_CaseIDs
   CaseID_TreeNodeParameter,
   CaseID_TrsfParameter,
   CaseID_TypeNameParameter,
-  CaseID_CAFConversionCtx
+  CaseID_CAFConversionCtx,
+  CaseID_TriangulationParameter,
 };
 
 #endif

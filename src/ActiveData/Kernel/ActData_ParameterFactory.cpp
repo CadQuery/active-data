@@ -125,6 +125,10 @@ Handle(ActAPI_IUserParameter)
       aResult = ActData_TimeStampParameter::Instance();
       break;
 
+    case Parameter_Triangulation:
+      aResult = ActData_TriangulationParameter::Instance();
+      break;
+
     default: break;
   }
 

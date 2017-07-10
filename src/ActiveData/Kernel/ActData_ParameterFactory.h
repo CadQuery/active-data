@@ -49,6 +49,7 @@
 #include <ActData_TimeStampParameter.h>
 #include <ActData_TreeFunctionParameter.h>
 #include <ActData_TreeNodeParameter.h>
+#include <ActData_TriangulationParameter.h>
 
 // Active Data (API) includes
 #include <ActAPI_IParameter.h>
@@ -129,6 +130,7 @@ public:
   Parameter_SafeDownCast_Macro(TimeStamp)
   Parameter_SafeDownCast_Macro(TreeFunction)
   Parameter_SafeDownCast_Macro(TreeNode)
+  Parameter_SafeDownCast_Macro(Triangulation)
 
 private:
 

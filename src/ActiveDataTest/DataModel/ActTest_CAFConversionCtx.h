@@ -28,7 +28,7 @@
 #ifndef ActTest_CAFConversionCtx_HeaderFile
 #define ActTest_CAFConversionCtx_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_DummyModel.h>
 #include <ActTest_StubCNode.h>
 
@@ -70,7 +70,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &insert_001
               << &insert_002a

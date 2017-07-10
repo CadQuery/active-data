@@ -421,8 +421,8 @@ Handle(ActData_MeshAttr)
   return ActData_MeshAttr::Set(aDataLab);
 }
 
-void ActData_Utils::SetMesh(const TDF_Label&          theLab,
-                            const Standard_Integer    theSubTag,
+void ActData_Utils::SetMesh(const TDF_Label&            theLab,
+                            const Standard_Integer      theSubTag,
                             const Handle(ActData_Mesh)& theMesh)
 {
   TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag, Standard_True);
@@ -444,6 +444,40 @@ Handle(ActData_Mesh)
     return NULL;
 
   return aMeshAttr->GetMesh();
+}
+
+Handle(TDataXtd_Triangulation)
+  ActData_Utils::AccessTriangulationAttr(const TDF_Label&       theLab,
+                                         const Standard_Integer theSubTag)
+{
+  TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag, Standard_True);
+  return TDataXtd_Triangulation::Set(aDataLab);
+}
+
+void
+  ActData_Utils::SetTriangulation(const TDF_Label&                  theLab,
+                                  const Standard_Integer            theSubTag,
+                                  const Handle(Poly_Triangulation)& theTriangulation)
+{
+  TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag, Standard_True);
+  Handle(TDataXtd_Triangulation) anAttr = TDataXtd_Triangulation::Set(aDataLab);
+  anAttr->Set(theTriangulation);
+}
+
+Handle(Poly_Triangulation)
+  ActData_Utils::GetTriangulation(const TDF_Label&       theLab,
+                                  const Standard_Integer theSubTag)
+{
+  TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag);
+
+  if ( aDataLab.IsNull() )
+    return NULL;
+
+  Handle(TDataXtd_Triangulation) anAttr;
+  if ( !aDataLab.FindAttribute(TDataXtd_Triangulation::GetID(), anAttr) )
+    return NULL;
+
+  return anAttr->Get();
 }
 
 //-----------------------------------------------------------------------------

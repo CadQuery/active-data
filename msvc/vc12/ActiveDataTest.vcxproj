@@ -39,6 +39,7 @@
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.h" />
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.h" />
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TriangulationParameter.h" />
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.h" />
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.h" />
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.h" />
@@ -80,6 +81,7 @@
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TimeStampParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeFunctionParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TriangulationParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyModel.cpp" />
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_DummyTreeFunction.cpp" />
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\TestModel\ActTest_StubANode.cpp" />

@@ -143,6 +143,9 @@
     <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.h">
       <Filter>Header Files\Data Model</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\ActiveDataTest\DataModel\ActTest_TriangulationParameter.h">
+      <Filter>Header Files\Data Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\ActiveDataTest\ActTest_DataFramework.cpp">
@@ -260,6 +263,9 @@
       <Filter>Source Files\Data Model</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TreeNodeParameter.cpp">
+      <Filter>Source Files\Data Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveDataTest\DataModel\ActTest_TriangulationParameter.cpp">
       <Filter>Source Files\Data Model</Filter>
     </ClCompile>
   </ItemGroup>

@@ -25,7 +25,7 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_AsciiStringParameter.h>
 #include <ActTest_BaseModel.h>
 #include <ActTest_BoolArrayParameter.h>
@@ -51,6 +51,7 @@
 #include <ActTest_TimeStampParameter.h>
 #include <ActTest_TreeFunctionParameter.h>
 #include <ActTest_TreeNodeParameter.h>
+#include <ActTest_TriangulationParameter.h>
 
 // ActTestLib includes
 #include <ActTestLib_Launcher.h>
@@ -95,6 +96,7 @@ int main(int ActTestLib_NotUsed(argc), char* ActTestLib_NotUsed(argv)[])
   CaseLaunchers.push_back( new ActTestLib_CaseLauncher<ActTest_MeshAttrPersistent>     );
   CaseLaunchers.push_back( new ActTestLib_CaseLauncher<ActTest_ExtTransactionEngine>   );
   CaseLaunchers.push_back( new ActTestLib_CaseLauncher<ActTest_CopyPasteEngine>        );
+  CaseLaunchers.push_back( new ActTestLib_CaseLauncher<ActTest_TriangulationParameter> );
 
   // Launcher of entire test suite
   ActTestLib_Launcher Launcher;

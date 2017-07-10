@@ -354,6 +354,9 @@
     <ClInclude Include="..\..\src\ActiveData\Mesh\DS\Mesh_MapOfMeshOrientedElement.h">
       <Filter>Header Files\Mesh\DS</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TriangulationParameter.h">
+      <Filter>Header Files\Kernel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\ActiveData\BinDrivers\ActData_BinDrivers.cpp">
@@ -610,6 +613,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\ActiveData\Mesh\DS\Mesh_MapOfMeshOrientedElement.cpp">
       <Filter>Source Files\Mesh\DS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TriangulationParameter.cpp">
+      <Filter>Source Files\Kernel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

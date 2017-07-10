@@ -28,7 +28,7 @@
 #ifndef ActTest_CopyPasteEngine_HeaderFile
 #define ActTest_CopyPasteEngine_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_DummyModel.h>
 
 // ACT Test Library includes
@@ -76,7 +76,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &testCopyPaste_PlainToPlain
               << &testCopyPaste_TreeToPlain

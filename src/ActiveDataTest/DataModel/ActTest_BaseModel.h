@@ -28,7 +28,7 @@
 #ifndef ActTest_BaseModel_HeaderFile
 #define ActTest_BaseModel_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest.h>
 
 // ACT Test Library includes
@@ -70,7 +70,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &testHasOpenCommand
               << &newEmptyModel
@@ -120,7 +120,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &findNode
               << &deleteRootNode
@@ -176,7 +176,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &removeVariable
               << &checkLoops1

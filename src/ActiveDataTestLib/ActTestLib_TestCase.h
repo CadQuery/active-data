@@ -51,12 +51,12 @@
 typedef bool (*QrTestFunction)(const int funcID);
 
 //! Collection of pointers to Test Functions
-class QrTestFunctions
+class ActiveDataTestFunctions
 {
 public:
 
   //! Default constructor.
-  QrTestFunctions() {}
+  ActiveDataTestFunctions() {}
 
 public:
 
@@ -64,7 +64,7 @@ public:
   //! Test Functions.
   //! \param funcPtr [in] function pointer to add.
   //! \return this reference for subsequent streaming.
-  QrTestFunctions& operator<<(const QrTestFunction& funcPtr)
+  ActiveDataTestFunctions& operator<<(const QrTestFunction& funcPtr)
   {
     m_testFunctions.push_back(funcPtr);
     return*this;

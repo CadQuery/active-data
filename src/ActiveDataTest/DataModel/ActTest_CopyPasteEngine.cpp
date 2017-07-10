@@ -28,7 +28,7 @@
 // Own include
 #include <ActTest_CopyPasteEngine.h>
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_DummyTreeFunction.h>
 #include <ActTest_StubANode.h>
 #include <ActTest_StubBNode.h>

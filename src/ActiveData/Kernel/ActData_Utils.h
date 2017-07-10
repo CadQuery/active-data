@@ -45,6 +45,7 @@
 #include <TDataStd_RealArray.hxx>
 #include <TDataStd_ReferenceList.hxx>
 #include <TDataStd_TreeNode.hxx>
+#include <TDataXtd_Triangulation.hxx>
 #include <TDF_Label.hxx>
 #include <TDF_LabelList.hxx>
 #include <TopoDS_Shape.hxx>
@@ -176,13 +177,26 @@ public:
                    const Standard_Integer theSubTag);
 
   ActData_EXPORT static void
-    SetMesh(const TDF_Label&          theLab,
-            const Standard_Integer    theSubTag,
+    SetMesh(const TDF_Label&            theLab,
+            const Standard_Integer      theSubTag,
             const Handle(ActData_Mesh)& theMesh);
 
   ActData_EXPORT static Handle(ActData_Mesh)
     GetMesh(const TDF_Label&       theLab,
             const Standard_Integer theSubTag);
+
+  ActData_EXPORT static Handle(TDataXtd_Triangulation)
+    AccessTriangulationAttr(const TDF_Label&       theLab,
+                            const Standard_Integer theSubTag);
+
+  ActData_EXPORT static void
+    SetTriangulation(const TDF_Label&                  theLab,
+                     const Standard_Integer            theSubTag,
+                     const Handle(Poly_Triangulation)& theTriangulation);
+
+  ActData_EXPORT static Handle(Poly_Triangulation)
+    GetTriangulation(const TDF_Label&       theLab,
+                     const Standard_Integer theSubTag);
 
 // Bit mask:
 public:

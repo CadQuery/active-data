@@ -28,7 +28,7 @@
 #ifndef ActTest_DummyTreeFunction_HeaderFile
 #define ActTest_DummyTreeFunction_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest.h>
 
 // Active Data includes

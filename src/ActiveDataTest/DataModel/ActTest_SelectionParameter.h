@@ -28,7 +28,7 @@
 #ifndef ActTest_SelectionParameter_HeaderFile
 #define ActTest_SelectionParameter_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_DataFramework.h>
 
 // Active Data includes
@@ -65,7 +65,7 @@ public:
 
   //! Returns pointers to the Test Functions to launch.
   //! \param functions [out] output collection of pointers.
-  static void Functions(QrTestFunctions& functions)
+  static void Functions(ActiveDataTestFunctions& functions)
   {
     functions << &accessSelectionMask
               << &accessSelectionMaskIDs;

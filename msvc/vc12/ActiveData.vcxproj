@@ -60,6 +60,7 @@
     <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.h" />
     <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionPriority.h" />
     <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.h" />
+    <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_TriangulationParameter.h" />
     <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_UserParameter.h" />
     <ClInclude Include="..\..\src\ActiveData\Kernel\ActData_Utils.h" />
     <ClInclude Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TransactionEngine.cpp" />
     <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeFunctionParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TreeNodeParameter.cpp" />
+    <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_TriangulationParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_UserParameter.cpp" />
     <ClCompile Include="..\..\src\ActiveData\Kernel\ActData_Utils.cpp" />
     <ClCompile Include="..\..\src\ActiveData\Mesh\ActData_MeshAttr.cpp" />

@@ -31,7 +31,7 @@
 // ActTestLib includes
 #include <ActTestLib_Launcher.h>
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest_DummyModel.h>
 #include <ActTest_StubANode.h>
 #include <ActTest_DummyTreeFunction.h>

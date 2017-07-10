@@ -84,9 +84,10 @@ enum ActAPI_ParameterType
   Parameter_TreeNode      = 18, //!< Tree Node.
   Parameter_Reference     = 20, //!< Reference to another Parameter.
   Parameter_ReferenceList = 21, //!< Multiple reference to other Parameters.
+  Parameter_Triangulation = 22, //!< Surface triangulation (no link to CAD).
   //
-  Parameter_LASTFREE      = 22  //! Last not occupied ID of Parameter type.
-                                //! Other IDs will be Parameter_LASTFREE*2(*2(*2)*(...)).
+  Parameter_LASTFREE            //! Last not occupied ID of Parameter type.
+                                //! Other IDs will be Parameter_LASTFREE + ...
 };
 
 //! \ingroup AD_API

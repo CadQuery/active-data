@@ -96,7 +96,7 @@ public:
   virtual bool Launch()
   {
     // Collect Test Functions to run
-    QrTestFunctions functions;
+    ActiveDataTestFunctions functions;
     CaseType::Functions(functions);
 
     // Run functions one by one
@@ -162,7 +162,7 @@ public:
   virtual QrTestFunction TestFunction(const int idx) const
   {
     // Collect Test Functions to run
-    QrTestFunctions functions;
+    ActiveDataTestFunctions functions;
     CaseType::Functions(functions);
 
     // Access Test Function by index

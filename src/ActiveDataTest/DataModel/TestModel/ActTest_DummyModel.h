@@ -28,7 +28,7 @@
 #ifndef ActTest_DummyModel_HeaderFile
 #define ActTest_DummyModel_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest.h>
 #include <ActTest_StubAPartition.h>
 #include <ActTest_StubBPartition.h>

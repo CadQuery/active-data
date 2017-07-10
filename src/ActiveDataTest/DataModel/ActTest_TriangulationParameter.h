@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: March 2013
+// Created on: July 2017
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017 Sergey Slyadnev
 // Code covered by the MIT License
@@ -25,42 +25,55 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubCPartition_HeaderFile
-#define ActTest_StubCPartition_HeaderFile
+#ifndef ActTest_TriangulationParameter_HeaderFile
+#define ActTest_TriangulationParameter_HeaderFile
 
 // Active Data unit tests
-#include <ActTest.h>
+#include <ActTest_DataFramework.h>
 
 // Active Data includes
-#include <ActData_BasePartition.h>
-
-DEFINE_STANDARD_HANDLE(ActTest_StubCPartition, ActData_BasePartition)
+#include <ActData_MeshParameter.h>
 
 //! \ingroup AD_TEST
 //!
-//! Partition implementation to be used in unit tests.
-class ActTest_StubCPartition : public ActData_BasePartition
+//! Test suite for Active Data.
+//! This class performs unit testing of TriangulationParameter class.
+class ActTest_TriangulationParameter : public ActTest_DataFramework
 {
 public:
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubCPartition, ActData_BasePartition)
+  //! Returns Test Case ID.
+  //! \return ID of the Test Case.
+  static int ID()
+  {
+    return CaseID_TriangulationParameter;
+  }
 
-public:
+  //! Returns filename for the description.
+  //! \return filename for the description of the Test Case.
+  static std::string DescriptionFn()
+  {
+    return "ActTest_TriangulationParameter";
+  }
 
-  //! Creates new Partition instance in a heap.
-  //! \return just created instance of Dummy Partition.
-  static Handle(ActTest_StubCPartition) Instance();
+  //! Returns Test Case description directory.
+  //! \return description directory for the Test Case.
+  static std::string DescriptionDir()
+  {
+    return "Parameters";
+  }
 
-public:
+  //! Returns pointers to the Test Functions to launch.
+  //! \param functions [out] output collection of pointers.
+  static void Functions(ActiveDataTestFunctions& functions)
+  {
+    functions << &accessValue;
+  }
 
-  virtual Handle(Standard_Type)
-    GetNodeType() const;
+// Test functions:
+private:
 
-protected:
-
-  //! Allow allocation only via Instance method.
-  ActTest_StubCPartition();
+  static bool accessValue(const int funcID);
 
 };
 

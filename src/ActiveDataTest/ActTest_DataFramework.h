@@ -28,7 +28,7 @@
 #ifndef ActTest_DataFramework_HeaderFile
 #define ActTest_DataFramework_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest.h>
 
 // ACT Test Library includes

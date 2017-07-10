@@ -28,7 +28,7 @@
 #ifndef ActTest_StubBPartition_HeaderFile
 #define ActTest_StubBPartition_HeaderFile
 
-// ACT Unit Test Suite includes
+// Active Data unit tests
 #include <ActTest.h>
 
 // Active Data includes
