@@ -81,10 +81,15 @@ public:
 public:
 
   virtual void
-    CLEAN() = 0;
+    ERASE_ALL() = 0;
+
+  virtual void
+    ERASE(const TCollection_AsciiString&) = 0;
 
 // GEOMETRY:
 public:
+
+  //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_POINT(const gp_XY&,
@@ -107,15 +112,38 @@ public:
                const TCollection_AsciiString&) = 0;
 
   virtual void
+    REDRAW_POINT(const TCollection_AsciiString&,
+                 const gp_XY&,
+                 const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_POINT(const TCollection_AsciiString&,
+                 const gp_Pnt2d&,
+                 const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_POINT(const TCollection_AsciiString&,
+                 const gp_XYZ&,
+                 const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_POINT(const TCollection_AsciiString&,
+                 const gp_Pnt&,
+                 const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
     DRAW_POINTS(const Handle(HRealArray)&,
                 const Quantity_Color&,
                 const TCollection_AsciiString&) = 0;
 
   virtual void
-    DRAW_LINK(const gp_Pnt&,
-              const gp_Pnt&,
-              const Quantity_Color&,
-              const TCollection_AsciiString&) = 0;
+    REDRAW_POINTS(const TCollection_AsciiString&,
+                  const Handle(HRealArray)&,
+                  const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_VECTOR_AT(const gp_Pnt&,
@@ -124,11 +152,26 @@ public:
                    const TCollection_AsciiString&) = 0;
 
   virtual void
+    REDRAW_VECTOR_AT(const TCollection_AsciiString&,
+                     const gp_Pnt&,
+                     const gp_Vec&,
+                     const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
     DRAW_CURVE(const Handle(Geom_Curve)&,
                const Quantity_Color&,
                const TCollection_AsciiString&) = 0;
 
   virtual void
+    REDRAW_CURVE(const TCollection_AsciiString&,
+                 const Handle(Geom_Curve)&,
+                 const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const Quantity_Color&,
                  const TCollection_AsciiString&) = 0;
@@ -153,6 +196,32 @@ public:
                  const Quantity_Color&,
                  const double, // opacity
                  const TCollection_AsciiString&) = 0;
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString&,
+                   const Handle(Geom_Surface)&,
+                   const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString&,
+                   const Handle(Geom_Surface)&,
+                   const Quantity_Color&,
+                   const double) = 0; // opacity
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString&,
+                   const Handle(Geom_Surface)&,
+                   const double, // U limit
+                   const double, // V limit
+                   const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString&,
+                   const Handle(Geom_Surface)&,
+                   const double, // U limit
+                   const double, // V limit
+                   const Quantity_Color&,
+                   const double) = 0; // opacity
 
 // TOPOLOGY:
 public:
@@ -184,8 +253,143 @@ public:
                const bool, // is wireframe
                const TCollection_AsciiString&) = 0;
 
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&) = 0;
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&,
+                 const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&,
+                 const double) = 0; // opacity
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&,
+                 const Quantity_Color&,
+                 const double) = 0; // opacity
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&,
+                 const Quantity_Color&,
+                 const double, // opacity
+                 const bool) = 0; // is wireframe
+
 // TRIANGULATION:
 public:
+
+  virtual void
+    DRAW_LINK(const gp_Pnt&,
+              const gp_Pnt&,
+              const Quantity_Color&,
+              const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_LINK(const gp_XYZ&,
+              const gp_XYZ&,
+              const Quantity_Color&,
+              const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_LINK(const gp_Pnt2d&,
+              const gp_Pnt2d&,
+              const Quantity_Color&,
+              const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_LINK(const gp_XY&,
+              const gp_XY&,
+              const Quantity_Color&,
+              const TCollection_AsciiString&) = 0;
+
+  virtual void
+    REDRAW_LINK(const TCollection_AsciiString&,
+                const gp_Pnt&,
+                const gp_Pnt&,
+                const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_LINK(const TCollection_AsciiString&,
+                const gp_XYZ&,
+                const gp_XYZ&,
+                const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_LINK(const TCollection_AsciiString&,
+                const gp_Pnt2d&,
+                const gp_Pnt2d&,
+                const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_LINK(const TCollection_AsciiString&,
+                const gp_XY&,
+                const gp_XY&,
+                const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
+    DRAW_TRIANGLE(const gp_Pnt&,
+                  const gp_Pnt&,
+                  const gp_Pnt&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_TRIANGLE(const gp_XYZ&,
+                  const gp_XYZ&,
+                  const gp_XYZ&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_TRIANGLE(const gp_Pnt2d&,
+                  const gp_Pnt2d&,
+                  const gp_Pnt2d&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) = 0;
+
+  virtual void
+    DRAW_TRIANGLE(const gp_XY&,
+                  const gp_XY&,
+                  const gp_XY&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) = 0;
+
+  virtual void
+    REDRAW_TRIANGLE(const TCollection_AsciiString&,
+                    const gp_Pnt&,
+                    const gp_Pnt&,
+                    const gp_Pnt&,
+                    const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_TRIANGLE(const TCollection_AsciiString&,
+                    const gp_XYZ&,
+                    const gp_XYZ&,
+                    const gp_XYZ&,
+                    const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_TRIANGLE(const TCollection_AsciiString&,
+                    const gp_Pnt2d&,
+                    const gp_Pnt2d&,
+                    const gp_Pnt2d&,
+                    const Quantity_Color&) = 0;
+
+  virtual void
+    REDRAW_TRIANGLE(const TCollection_AsciiString&,
+                    const gp_XY&,
+                    const gp_XY&,
+                    const gp_XY&,
+                    const Quantity_Color&) = 0;
+
+  //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_TRIANGULATION(const Handle(Poly_Triangulation)&,
@@ -193,11 +397,22 @@ public:
                        const double, // opacity
                        const TCollection_AsciiString&) = 0;
 
+  virtual void
+    REDRAW_TRIANGULATION(const TCollection_AsciiString&,
+                         const Handle(Poly_Triangulation)&,
+                         const Quantity_Color&,
+                         const double) = 0; // opacity
+
 // TEXT
 public:
 
   virtual void
-    DRAW_TEXT(const TCollection_AsciiString&) = 0;
+    DRAW_TEXT(const TCollection_AsciiString&, // text
+              const TCollection_AsciiString&) = 0; // name
+
+  virtual void
+    REDRAW_TEXT(const TCollection_AsciiString&, // name
+                const TCollection_AsciiString&) = 0; // text
 
 };
 
@@ -230,12 +445,24 @@ public:
 //---------------------------------------------------------------------------//
 
   void
-    CLEAN()
+    ERASE_ALL()
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->CLEAN();
+    m_iv->ERASE_ALL();
   }
+
+//---------------------------------------------------------------------------//
+
+  void
+    ERASE(const TCollection_AsciiString& name)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->ERASE(name);
+  }
+
+public:
 
 //---------------------------------------------------------------------------//
 
@@ -288,6 +515,54 @@ public:
 //---------------------------------------------------------------------------//
 
   void
+    REDRAW_POINT(const TCollection_AsciiString& name,
+                 const gp_XY&                   point,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POINT(name, point, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_POINT(const TCollection_AsciiString& name,
+                 const gp_Pnt2d&                point,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POINT(name, point, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_POINT(const TCollection_AsciiString& name,
+                 const gp_XYZ&                  point,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POINT(name, point, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_POINT(const TCollection_AsciiString& name,
+                 const gp_Pnt&                  point,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POINT(name, point, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
     DRAW_POINTS(const Handle(HRealArray)&      coords,
                 const Quantity_Color&          color,
                 const TCollection_AsciiString& name = "")
@@ -300,14 +575,13 @@ public:
 //---------------------------------------------------------------------------//
 
   void
-    DRAW_LINK(const gp_Pnt&                  p1,
-              const gp_Pnt&                  p2,
-              const Quantity_Color&          color,
-              const TCollection_AsciiString& name = "")
+    REDRAW_POINTS(const TCollection_AsciiString& name,
+                  const Handle(HRealArray)&      coords,
+                  const Quantity_Color&          color)
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->DRAW_LINK(p1, p2, color, name);
+    m_iv->REDRAW_POINTS(name, coords, color);
   }
 
 //---------------------------------------------------------------------------//
@@ -326,6 +600,19 @@ public:
 //---------------------------------------------------------------------------//
 
   void
+    REDRAW_VECTOR_AT(const TCollection_AsciiString& name,
+                     const gp_Pnt&                  P,
+                     const gp_Vec&                  V,
+                     const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_VECTOR_AT(name, P, V, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
     DRAW_CURVE(const Handle(Geom_Curve)&      curve,
                const Quantity_Color&          color,
                const TCollection_AsciiString& name = "")
@@ -333,6 +620,18 @@ public:
     if ( m_iv.IsNull() ) return;
     //
     m_iv->DRAW_CURVE(curve, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRERAW_CURVE(const TCollection_AsciiString& name,
+                 const Handle(Geom_Curve)&      curve,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_CURVE(name, curve, color);
   }
 
 //---------------------------------------------------------------------------//
@@ -387,6 +686,60 @@ public:
     if ( m_iv.IsNull() ) return;
     //
     m_iv->DRAW_SURFACE(surface, uLimit, vLimit, color, opacity, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_SURFACE(const TCollection_AsciiString& name,
+                   const Handle(Geom_Surface)&    surface,
+                   const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SURFACE(name, surface, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString& name,
+                   const Handle(Geom_Surface)&    surface,
+                   const Quantity_Color&          color,
+                   const double                   opacity)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SURFACE(name, surface, color, opacity);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString& name,
+                   const Handle(Geom_Surface)&    surface,
+                   const double                   uLimit,
+                   const double                   vLimit,
+                   const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SURFACE(name, surface, uLimit, vLimit, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SURFACE(const TCollection_AsciiString& name,
+                   const Handle(Geom_Surface)&    surface,
+                   const double                   uLimit,
+                   const double                   vLimit,
+                   const Quantity_Color&          color,
+                   const double                   opacity)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SURFACE(name, surface, uLimit, vLimit, color, opacity);
   }
 
 //---------------------------------------------------------------------------//
@@ -454,6 +807,284 @@ public:
 //---------------------------------------------------------------------------//
 
   void
+    REDRAW_SHAPE(const TCollection_AsciiString& name,
+                 const TopoDS_Shape&            shape)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SHAPE(name, shape);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString& name,
+                 const TopoDS_Shape&            shape,
+                 const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SHAPE(name, shape, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString& name,
+                 const TopoDS_Shape&            shape,
+                 const double                   opacity)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SHAPE(name, shape, opacity);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString& name,
+                 const TopoDS_Shape&            shape,
+                 const Quantity_Color&          color,
+                 const double                   opacity)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SHAPE(name, shape, color, opacity);
+  }
+
+//---------------------------------------------------------------------------//
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString& name,
+                 const TopoDS_Shape&            shape,
+                 const Quantity_Color&          color,
+                 const double                   opacity,
+                 const bool                     isWireframe)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_SHAPE(name, shape, color, opacity, isWireframe);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_LINK(const gp_Pnt&                  p1,
+              const gp_Pnt&                  p2,
+              const Quantity_Color&          color,
+              const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_LINK(p1, p2, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_LINK(const gp_XYZ&                  p1,
+              const gp_XYZ&                  p2,
+              const Quantity_Color&          color,
+              const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_LINK(p1, p2, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_LINK(const gp_Pnt2d&                p1,
+              const gp_Pnt2d&                p2,
+              const Quantity_Color&          color,
+              const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_LINK(p1, p2, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_LINK(const gp_XY&                   p1,
+              const gp_XY&                   p2,
+              const Quantity_Color&          color,
+              const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_LINK(p1, p2, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_LINK(const TCollection_AsciiString& name,
+                const gp_Pnt&                  p1,
+                const gp_Pnt&                  p2,
+                const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_LINK(name, p1, p2, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_LINK(const TCollection_AsciiString& name,
+                const gp_XYZ&                  p1,
+                const gp_XYZ&                  p2,
+                const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_LINK(name, p1, p2, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_LINK(const TCollection_AsciiString& name,
+                const gp_Pnt2d&                p1,
+                const gp_Pnt2d&                p2,
+                const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_LINK(name, p1, p2, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_LINK(const TCollection_AsciiString& name,
+                const gp_XY&                   p1,
+                const gp_XY&                   p2,
+                const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_LINK(name, p1, p2, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_TRIANGLE(const gp_Pnt&                  p1,
+                  const gp_Pnt&                  p2,
+                  const gp_Pnt&                  p3,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_TRIANGLE(p1, p2, p3, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_TRIANGLE(const gp_XYZ&                  p1,
+                  const gp_XYZ&                  p2,
+                  const gp_XYZ&                  p3,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_TRIANGLE(p1, p2, p3, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_TRIANGLE(const gp_Pnt2d&                p1,
+                  const gp_Pnt2d&                p2,
+                  const gp_Pnt2d&                p3,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_TRIANGLE(p1, p2, p3, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_TRIANGLE(const gp_XY&                   p1,
+                  const gp_XY&                   p2,
+                  const gp_XY&                   p3,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_TRIANGLE(p1, p2, p3, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_TRIANGLE(const TCollection_AsciiString& name,
+                    const gp_Pnt&                  p1,
+                    const gp_Pnt&                  p2,
+                    const gp_Pnt&                  p3,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_TRIANGLE(name, p1, p2, p3, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_TRIANGLE(const TCollection_AsciiString& name,
+                    const gp_XYZ&                  p1,
+                    const gp_XYZ&                  p2,
+                    const gp_XYZ&                  p3,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_TRIANGLE(name, p1, p2, p3, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_TRIANGLE(const TCollection_AsciiString& name,
+                    const gp_Pnt2d&                p1,
+                    const gp_Pnt2d&                p2,
+                    const gp_Pnt2d&                p3,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_TRIANGLE(name, p1, p2, p3, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_TRIANGLE(const TCollection_AsciiString& name,
+                    const gp_XY&                   p1,
+                    const gp_XY&                   p2,
+                    const gp_XY&                   p3,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_TRIANGLE(name, p1, p2, p3, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
     DRAW_TRIANGULATION(const Handle(Poly_Triangulation)& tess,
                        const Quantity_Color&             color,
                        const double                      opacity,
@@ -467,11 +1098,36 @@ public:
 //---------------------------------------------------------------------------//
 
   void
-    DRAW_TEXT(const TCollection_AsciiString& text)
+    REDRAW_TRIANGULATION(const TCollection_AsciiString&    name,
+                         const Handle(Poly_Triangulation)& tess,
+                         const Quantity_Color&             color,
+                         const double                      opacity)
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->DRAW_TEXT(text);
+    m_iv->REDRAW_TRIANGULATION(name, tess, color, opacity);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_TEXT(const TCollection_AsciiString& text,
+              const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_TEXT(text, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_TEXT(const TCollection_AsciiString& name,
+                const TCollection_AsciiString& text)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_TEXT(name, text);
   }
 
 //---------------------------------------------------------------------------//
