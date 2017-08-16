@@ -473,7 +473,7 @@ void
     // Iterate over the Attributes
     for ( TDF_AttributeIterator attIt(theLabel); attIt.More(); attIt.Next() )
     {
-      TDF_Attribute* A = attIt.Value();
+      Handle(TDF_Attribute) A = attIt.Value();
       dumpAttribute(theOut, A, theNbSpacesOnTheLeft, theContentType, theVerbosity, thePrefix);
     }
   }

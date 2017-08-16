@@ -34,6 +34,9 @@
 // OCCT includes
 #include <Quantity_Color.hxx>
 
+// STL includes
+#include <vector>
+
 // Forward declarations
 class Geom_Curve;
 class Geom_Plane;
@@ -81,10 +84,10 @@ public:
 public:
 
   virtual void
-    ERASE_ALL() = 0;
+    ERASE_ALL() {}
 
   virtual void
-    ERASE(const TCollection_AsciiString&) = 0;
+    ERASE(const TCollection_AsciiString&) {}
 
 // GEOMETRY:
 public:
@@ -94,54 +97,54 @@ public:
   virtual void
     DRAW_POINT(const gp_XY&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_Pnt2d&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_XYZ&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_Pnt&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_XY&,
-                 const Quantity_Color&) = 0;
+                 const Quantity_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_Pnt2d&,
-                 const Quantity_Color&) = 0;
+                 const Quantity_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_XYZ&,
-                 const Quantity_Color&) = 0;
+                 const Quantity_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_Pnt&,
-                 const Quantity_Color&) = 0;
+                 const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_POINTS(const Handle(HRealArray)&,
                 const Quantity_Color&,
-                const TCollection_AsciiString&) = 0;
+                const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_POINTS(const TCollection_AsciiString&,
                   const Handle(HRealArray)&,
-                  const Quantity_Color&) = 0;
+                  const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
@@ -149,45 +152,45 @@ public:
     DRAW_VECTOR_AT(const gp_Pnt&,
                    const gp_Vec&,
                    const Quantity_Color&,
-                   const TCollection_AsciiString&) = 0;
+                   const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_VECTOR_AT(const TCollection_AsciiString&,
                      const gp_Pnt&,
                      const gp_Vec&,
-                     const Quantity_Color&) = 0;
+                     const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_CURVE(const Handle(Geom_Curve)&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_CURVE(const TCollection_AsciiString&,
                  const Handle(Geom_Curve)&,
-                 const Quantity_Color&) = 0;
+                 const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const Quantity_Color&,
-                 const TCollection_AsciiString&) = 0;
+                 const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const Quantity_Color&,
                  const double, // opacity
-                 const TCollection_AsciiString&) = 0;
+                 const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const double, // U limit
                  const double, // V limit
                  const Quantity_Color&,
-                 const TCollection_AsciiString&) = 0;
+                 const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
@@ -195,25 +198,25 @@ public:
                  const double, // V limit
                  const Quantity_Color&,
                  const double, // opacity
-                 const TCollection_AsciiString&) = 0;
+                 const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
-                   const Quantity_Color&) = 0;
+                   const Quantity_Color&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
                    const Quantity_Color&,
-                   const double) = 0; // opacity
+                   const double) {} // opacity
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
                    const double, // U limit
                    const double, // V limit
-                   const Quantity_Color&) = 0;
+                   const Quantity_Color&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
@@ -221,115 +224,137 @@ public:
                    const double, // U limit
                    const double, // V limit
                    const Quantity_Color&,
-                   const double) = 0; // opacity
+                   const double) {} // opacity
 
 // TOPOLOGY:
 public:
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
                const Quantity_Color&,
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
                const double, // opacity
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
                const Quantity_Color&,
                const double, // opacity
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
                const Quantity_Color&,
                const double, // opacity
                const bool, // is wireframe
-               const TCollection_AsciiString&) = 0;
+               const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
-                 const TopoDS_Shape&) = 0;
-
-  virtual void
-    REDRAW_SHAPE(const TCollection_AsciiString&,
-                 const TopoDS_Shape&,
-                 const Quantity_Color&) = 0;
+                 const TopoDS_Shape&) {}
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
-                 const double) = 0; // opacity
+                 const Quantity_Color&) {}
+
+  virtual void
+    REDRAW_SHAPE(const TCollection_AsciiString&,
+                 const TopoDS_Shape&,
+                 const double) {} // opacity
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
                  const Quantity_Color&,
-                 const double) = 0; // opacity
+                 const double) {} // opacity
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
                  const Quantity_Color&,
                  const double, // opacity
-                 const bool) = 0; // is wireframe
+                 const bool) {} // is wireframe
 
-// TRIANGULATION:
+// FACETED GEOMETRY:
 public:
 
   virtual void
     DRAW_LINK(const gp_Pnt&,
               const gp_Pnt&,
               const Quantity_Color&,
-              const TCollection_AsciiString&) = 0;
+              const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_XYZ&,
               const gp_XYZ&,
               const Quantity_Color&,
-              const TCollection_AsciiString&) = 0;
+              const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_Pnt2d&,
               const gp_Pnt2d&,
               const Quantity_Color&,
-              const TCollection_AsciiString&) = 0;
+              const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_XY&,
               const gp_XY&,
               const Quantity_Color&,
-              const TCollection_AsciiString&) = 0;
+              const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_Pnt&,
                 const gp_Pnt&,
-                const Quantity_Color&) = 0;
+                const Quantity_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_XYZ&,
                 const gp_XYZ&,
-                const Quantity_Color&) = 0;
+                const Quantity_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_Pnt2d&,
                 const gp_Pnt2d&,
-                const Quantity_Color&) = 0;
+                const Quantity_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_XY&,
                 const gp_XY&,
-                const Quantity_Color&) = 0;
+                const Quantity_Color&) {}
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
+    DRAW_POLYLINE(const std::vector<gp_XY>&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) {}
+
+  virtual void
+    DRAW_POLYLINE(const std::vector<gp_XYZ>&,
+                  const Quantity_Color&,
+                  const TCollection_AsciiString&) {}
+
+  virtual void
+    REDRAW_POLYLINE(const TCollection_AsciiString&,
+                    const std::vector<gp_XY>&,
+                    const Quantity_Color&) {}
+
+  virtual void
+    REDRAW_POLYLINE(const TCollection_AsciiString&,
+                    const std::vector<gp_XYZ>&,
+                    const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
@@ -338,56 +363,56 @@ public:
                   const gp_Pnt&,
                   const gp_Pnt&,
                   const Quantity_Color&,
-                  const TCollection_AsciiString&) = 0;
+                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_XYZ&,
                   const gp_XYZ&,
                   const gp_XYZ&,
                   const Quantity_Color&,
-                  const TCollection_AsciiString&) = 0;
+                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_Pnt2d&,
                   const gp_Pnt2d&,
                   const gp_Pnt2d&,
                   const Quantity_Color&,
-                  const TCollection_AsciiString&) = 0;
+                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_XY&,
                   const gp_XY&,
                   const gp_XY&,
                   const Quantity_Color&,
-                  const TCollection_AsciiString&) = 0;
+                  const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_Pnt&,
                     const gp_Pnt&,
                     const gp_Pnt&,
-                    const Quantity_Color&) = 0;
+                    const Quantity_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_XYZ&,
                     const gp_XYZ&,
                     const gp_XYZ&,
-                    const Quantity_Color&) = 0;
+                    const Quantity_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_Pnt2d&,
                     const gp_Pnt2d&,
                     const gp_Pnt2d&,
-                    const Quantity_Color&) = 0;
+                    const Quantity_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_XY&,
                     const gp_XY&,
                     const gp_XY&,
-                    const Quantity_Color&) = 0;
+                    const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
@@ -395,24 +420,24 @@ public:
     DRAW_TRIANGULATION(const Handle(Poly_Triangulation)&,
                        const Quantity_Color&,
                        const double, // opacity
-                       const TCollection_AsciiString&) = 0;
+                       const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_TRIANGULATION(const TCollection_AsciiString&,
                          const Handle(Poly_Triangulation)&,
                          const Quantity_Color&,
-                         const double) = 0; // opacity
+                         const double) {} // opacity
 
 // TEXT
 public:
 
   virtual void
     DRAW_TEXT(const TCollection_AsciiString&, // text
-              const TCollection_AsciiString&) = 0; // name
+              const TCollection_AsciiString&) {} // name
 
   virtual void
     REDRAW_TEXT(const TCollection_AsciiString&, // name
-                const TCollection_AsciiString&) = 0; // text
+                const TCollection_AsciiString&) {} // text
 
 };
 
@@ -968,6 +993,54 @@ public:
     if ( m_iv.IsNull() ) return;
     //
     m_iv->REDRAW_LINK(name, p1, p2, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_POLYLINE(const std::vector<gp_XY>&      poles,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_POLYLINE(poles, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_POLYLINE(const std::vector<gp_XYZ>&     poles,
+                  const Quantity_Color&          color,
+                  const TCollection_AsciiString& name)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_POLYLINE(poles, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_POLYLINE(const TCollection_AsciiString& name,
+                    const std::vector<gp_XY>&      poles,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POLYLINE(name, poles, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_POLYLINE(const TCollection_AsciiString& name,
+                    const std::vector<gp_XYZ>&     poles,
+                    const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_POLYLINE(name, poles, color);
   }
 
 //---------------------------------------------------------------------------//
