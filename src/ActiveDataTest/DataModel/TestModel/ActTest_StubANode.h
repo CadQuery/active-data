@@ -65,35 +65,35 @@ public:
 
 public:
 
-  ActTest_EXPORT static Handle(ActAPI_INode) Instance();
+   static Handle(ActAPI_INode) Instance();
 
 // Generic accessors:
 public:
 
-  ActTest_EXPORT virtual TCollection_ExtendedString
+   virtual TCollection_ExtendedString
     GetName();
 
-  ActTest_EXPORT virtual void
+   virtual void
     SetName(const TCollection_ExtendedString& theName);
 
 // Initialization and accessors:
 public:
 
-  ActTest_EXPORT void
+   void
     Init(const TopoDS_Shape& theShapeA,
          const TopoDS_Shape& theShapeB,
          const Standard_Real theVal);
 
-  ActTest_EXPORT TopoDS_Shape
+   TopoDS_Shape
     GetShapeA() const;
 
-  ActTest_EXPORT TopoDS_Shape
+   TopoDS_Shape
     GetShapeB() const;
 
-  ActTest_EXPORT Standard_Real
+   Standard_Real
     GetValue() const;
 
-  ActTest_EXPORT Standard_Boolean
+   Standard_Boolean
     HasConnectedFunction() const;
 
 protected:

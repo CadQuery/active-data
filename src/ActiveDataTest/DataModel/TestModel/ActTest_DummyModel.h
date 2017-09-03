@@ -52,7 +52,7 @@ public:
 
 public:
 
-  ActTest_EXPORT ActTest_DummyModel();
+  ActTest_DummyModel();
 
 public:
 

@@ -28,7 +28,7 @@
 #ifndef ActTestLib_HeaderFile
 #define ActTestLib_HeaderFile
 
-#if defined ActTestLib_EXPORTS
+#if defined ActiveDataTestLib_EXPORTS
   #define ActTestLib_EXPORT __declspec(dllexport)
 #else
   #define ActTestLib_EXPORT __declspec(dllimport)

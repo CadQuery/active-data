@@ -38,12 +38,6 @@
 // Macro for exporting symbols
 //-----------------------------------------------------------------------------
 
-#ifdef ActTest_EXPORTS
-#define ActTest_EXPORT __declspec(dllexport)
-#else
-#define ActTest_EXPORT __declspec(dllimport)
-#endif
-
 #pragma warning(default : 4127)
 
 #endif

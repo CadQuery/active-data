@@ -1,5 +1,0 @@
-! Description of ActiveData plug-in for DRAW Test Harness
-! See package DrawResources in OCCT for details on file format
-
-DEFAULT     : ACTIVE_DATA
-ACTIVE_DATA : ActiveDataDraw

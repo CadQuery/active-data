@@ -28,7 +28,7 @@
 #ifndef ActAPI_HeaderFile
 #define ActAPI_HeaderFile
 
-#ifdef ActAPI_EXPORTS
+#ifdef ActiveDataAPI_EXPORTS
 #define ActAPI_EXPORT __declspec(dllexport)
 #else
 #define ActAPI_EXPORT __declspec(dllimport)

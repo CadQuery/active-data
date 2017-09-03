@@ -28,7 +28,7 @@
 #ifndef ActAux_HeaderFile
 #define ActAux_HeaderFile
 
-#ifdef ActAux_EXPORTS
+#ifdef ActiveDataAux_EXPORTS
 #define ActAux_EXPORT __declspec(dllexport)
 #else
 #define ActAux_EXPORT __declspec(dllimport)
