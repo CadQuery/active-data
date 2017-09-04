@@ -28,10 +28,10 @@
 // Own include
 #include <ActData_FuncExecutionTask.h>
 
+#if defined USE_TBB
+
 // OCCT includes
 #include <Standard_ProgramError.hxx>
-
-#undef COUT_DEBUG
 
 //! Initializing constructor.
 //! \param thePNotifier [in] Progress Notifier instance.
@@ -112,3 +112,5 @@ tbb::task* ActData_FuncExecutionTask::execute()
 
   return NULL; // No next task to execute
 }
+
+#endif // USE_TBB

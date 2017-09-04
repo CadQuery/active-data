@@ -25,6 +25,12 @@ message (STATUS "Active Data VERSION_PATCH: ${VERSION_PATCH}")
 # Set a directory containing all 3-rd parties
 set (3RDPARTY_DIR "" CACHE PATH "The root directory for all 3-rd parties")
 
+# Set use tbb optional flag
+set (USE_TBB OFF CACHE BOOL "TBB is optional 3-rd party. Building with TBB enables multi-threaded Active Data tools (i.e. detached execution of Tree Functions).")
+if (USE_TBB)
+  add_definitions (-DUSE_TBB)
+endif()
+
 if (NOT DEFINED ${3RDPARTY_DIR} AND ${3RDPARTY_DIR} STREQUAL "")
     message (FATAL_ERROR "... root 3rdparty directory was not found")
 endif()
@@ -35,7 +41,10 @@ include (${CMAKE_SOURCE_DIR}/cmake/actdata_OCCT.cmake)
 # OCCT 3rdparty
 include (${CMAKE_SOURCE_DIR}/cmake/actdata_OCCT_3rdparty.cmake)
 
-set (3RDPARTY_DLL_PATH "${3RDPARTY_tbb_DLL_DIR};")
+if (USE_TBB)
+  set (3RDPARTY_DLL_PATH "${3RDPARTY_DLL_PATH};${3RDPARTY_tbb_DLL_DIR}")
+endif()
+
 set (3RDPARTY_DLL_DEB_PATH "${3RDPARTY_DLL_PATH}")
 
 if (3RDPARTY_OCCT_DLL_DIR_DEBUG AND EXISTS "${3RDPARTY_OCCT_DLL_DIR_DEBUG}")
@@ -62,7 +71,7 @@ if (MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP /EHa")
 elseif (CMAKE_COMPILER_IS_GNUCXX)
   add_definitions (-Wall -pedantic)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")  
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
 else()
   message ("Unknown compiler")
 endif()

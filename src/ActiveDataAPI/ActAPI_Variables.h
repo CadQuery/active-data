@@ -35,7 +35,11 @@
 #include <TCollection_AsciiString.hxx>
 
 // TBB includes
+#if defined USE_TBB
 #include <concurrent_vector.h>
+#else
+#include <vector>
+#endif
 
 //-----------------------------------------------------------------------------
 // Base class
@@ -433,7 +437,11 @@ public:
 //! \ingroup AD_API
 //!
 //! Collection of variables.
+#if defined USE_TBB
 typedef tbb::concurrent_vector<Handle(ActAPI_VariableBase)> ActAPI_VariableList;
+#else
+typedef std::vector<Handle(ActAPI_VariableBase)> ActAPI_VariableList;
+#endif
 
 //! \ingroup AD_API
 //!

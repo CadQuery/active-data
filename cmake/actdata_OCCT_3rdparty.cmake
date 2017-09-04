@@ -1,1 +1,5 @@
-ACTDATA_THIRDPARTY_PRODUCT("tbb" "tbb" "tbb.h" "tbb")
+if (USE_TBB)
+  ACTDATA_THIRDPARTY_PRODUCT("tbb" "tbb" "tbb.h" "tbb")
+else()
+  ACTDATA_UNSET_3RDPARTY("tbb")
+endif()

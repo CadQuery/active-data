@@ -55,9 +55,11 @@ set (OCCT_LIB_FILES
 # TBB libraries
 #------------------------------------------------------------------------------
 
-set (TBB_LIB_FILES
-  tbb
-)
+if (USE_TBB)
+  set (TBB_LIB_FILES
+    tbb
+  )
+endif()
 
 #------------------------------------------------------------------------------
 # Add sources
@@ -96,8 +98,11 @@ set (ActiveDataTestLib_include_dir ${ActiveDataTestLib_include_dir_loc} PARENT_S
 include_directories ( ${ActiveDataTestLib_include_dir_loc}
                       ${ActiveDataAPI_include_dir}
                       ${ActiveDataAux_include_dir}
-                      ${3RDPARTY_OCCT_INCLUDE_DIR}
-                      ${3RDPARTY_tbb_INCLUDE_DIR} )
+                      ${3RDPARTY_OCCT_INCLUDE_DIR} )
+
+if (USE_TBB)
+  include_directories ( ${3RDPARTY_tbb_INCLUDE_DIR} )
+endif()
 
 #------------------------------------------------------------------------------
 # Create library
@@ -114,10 +119,12 @@ add_library (ActiveDataTestLib SHARED
 
 target_link_libraries(ActiveDataTestLib ActiveDataAux ActiveDataAPI)
 
-if (3RDPARTY_tbb_LIBRARY_DIR_DEBUG)
-  link_directories(${3RDPARTY_tbb_LIBRARY_DIR_DEBUG})
-else()
-  link_directories(${3RDPARTY_tbb_LIBRARY_DIR})
+if (USE_TBB)
+  if (3RDPARTY_tbb_LIBRARY_DIR_DEBUG)
+    link_directories(${3RDPARTY_tbb_LIBRARY_DIR_DEBUG})
+  else()
+    link_directories(${3RDPARTY_tbb_LIBRARY_DIR})
+  endif()
 endif()
 
 foreach (LIB_FILE ${OCCT_LIB_FILES})
@@ -135,15 +142,17 @@ foreach (LIB_FILE ${OCCT_LIB_FILES})
   endif()
 endforeach()
 
-foreach (LIB_FILE ${TBB_LIB_FILES})
-  if (WIN32)
-    set (LIB_FILENAME "${LIB_FILE}${CMAKE_STATIC_LIBRARY_SUFFIX}")
-    set (LIB_FILENAME_DEBUG "${LIB_FILE}_debug${CMAKE_STATIC_LIBRARY_SUFFIX}")
-  else()
-    set (LIB_FILENAME "lib${LIB_FILE}${CMAKE_SHARED_LIBRARY_SUFFIX}")
-    set (LIB_FILENAME_DEBUG "lib${LIB_FILE}_debug${CMAKE_SHARED_LIBRARY_SUFFIX}")
-  endif()
+if (USE_TBB)
+  foreach (LIB_FILE ${TBB_LIB_FILES})
+    if (WIN32)
+      set (LIB_FILENAME "${LIB_FILE}${CMAKE_STATIC_LIBRARY_SUFFIX}")
+      set (LIB_FILENAME_DEBUG "${LIB_FILE}_debug${CMAKE_STATIC_LIBRARY_SUFFIX}")
+    else()
+      set (LIB_FILENAME "lib${LIB_FILE}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+      set (LIB_FILENAME_DEBUG "lib${LIB_FILE}_debug${CMAKE_SHARED_LIBRARY_SUFFIX}")
+    endif()
 
-  target_link_libraries (ActiveDataTestLib debug ${3RDPARTY_tbb_LIBRARY_DIR}/${LIB_FILENAME_DEBUG})
-  target_link_libraries (ActiveDataTestLib optimized ${3RDPARTY_tbb_LIBRARY_DIR}/${LIB_FILENAME})
-endforeach()
+    target_link_libraries (ActiveDataTestLib debug ${3RDPARTY_tbb_LIBRARY_DIR}/${LIB_FILENAME_DEBUG})
+    target_link_libraries (ActiveDataTestLib optimized ${3RDPARTY_tbb_LIBRARY_DIR}/${LIB_FILENAME})
+  endforeach()
+endif()

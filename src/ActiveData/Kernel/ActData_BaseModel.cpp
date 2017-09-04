@@ -41,7 +41,6 @@
 #include <ActData_CAFConverterFw.h>
 #include <ActData_DependencyAnalyzer.h>
 #include <ActData_ExtTransactionEngine.h>
-#include <ActData_FuncExecutionTask.h>
 #include <ActData_IntVarNode.h>
 #include <ActData_RealEvaluatorFunc.h>
 #include <ActData_RealVarNode.h>
@@ -49,6 +48,11 @@
 #include <ActData_TransactionEngine.h>
 #include <ActData_TreeFunctionParameter.h>
 #include <ActData_Utils.h>
+
+// Detached tasks
+#if defined USE_TBB
+#include <ActData_FuncExecutionTask.h>
+#endif
 
 // OCCT includes
 #include <Standard_ProgramError.hxx>
@@ -761,8 +765,12 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   // Proceed with request on detached execution
   if ( doDetach )
   {
+#if defined USE_TBB
     ActData_FuncExecutionTask::Launch(this->FuncProgressNotifier(), this, theData);
     return MS_Undefined;
+#else
+    Standard_ProgramError::Raise("Cannot detach without TBB 3-rd party enabled.");
+#endif
   }
 
   Standard_Integer aResult = Execution_Undefined;
