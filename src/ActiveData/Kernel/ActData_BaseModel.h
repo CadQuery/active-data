@@ -57,7 +57,7 @@ class ActData_BaseVarNode;
 class ActData_CAFConverter;
 class ActData_TreeFunctionParameter;
 
-DEFINE_STANDARD_HANDLE(ActData_BaseModel, ActAPI_IModel)
+//-----------------------------------------------------------------------------
 
 //! \ingroup AD_DF
 //!
@@ -194,6 +194,9 @@ public:
     FindNode(const ActAPI_DataObjectId& theNodeId) const;
 
   ActData_EXPORT virtual Handle(ActAPI_INode)
+    FindNodeByName(const TCollection_ExtendedString& theNodeName) const;
+
+  ActData_EXPORT virtual Handle(ActAPI_INode)
     GetRootNode() const;
 
   ActData_EXPORT virtual Standard_Boolean
@@ -235,7 +238,7 @@ public:
 
   //! Accessor for the underlying OCAF Document.
   //! \return OCAF Document.
-  inline Handle(TDocStd_Document) Document() const
+  const Handle(TDocStd_Document)& Document() const
   {
     return m_doc;
   }

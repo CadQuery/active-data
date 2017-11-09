@@ -460,6 +460,42 @@ Handle(ActAPI_INode) ActData_BaseModel::FindNode(const ActAPI_DataObjectId& theN
   return ActData_NodeFactory::NodeSettle(aResLabel);
 }
 
+//! Finds Data Node by its name. This function simply iterates the registered
+//! Partitions, so it can be quite slow for large models. It should be noted
+//! that Node names are not unique, so this function will return the first
+//! found Node. Another peculiarity is that this function iterates the
+//! persistent structure of OCAF, so the result does not depend on parent-child
+//! or any other relations between your Nodes.
+//!
+//! \param theNodeName [in] name of the Node to find.
+//! \return found Node or NULL if nothing was found.
+Handle(ActAPI_INode)
+  ActData_BaseModel::FindNodeByName(const TCollection_ExtendedString& theNodeName) const
+{
+  // Iterate over all registered Partitions
+  PartitionMap::Iterator aPartIt( *m_partitionMap.operator->() );
+  for ( ; aPartIt.More(); aPartIt.Next() )
+  {
+    const Handle(ActAPI_IPartition)& aPart = aPartIt.Value();
+    Handle(ActData_BasePartition) aBasePart = Handle(ActData_BasePartition)::DownCast(aPart);
+    
+    // Iterate over all Nodes contained in the Partition
+    ActData_BasePartition::Iterator aNodeIt(aBasePart);
+    for ( ; aNodeIt.More(); aNodeIt.Next() )
+    {
+      Handle(ActAPI_INode) aNode = aNodeIt.Value();
+
+      if ( aNode.IsNull() || !aNode->IsWellFormed() )
+        continue;
+
+      if ( aNode->GetName() == theNodeName )
+        return aNode;
+    }
+  }
+
+  return NULL;
+}
+
 //! Returns the root Data Node defined by custom implementation.
 //! \return root Data Node.
 Handle(ActAPI_INode) ActData_BaseModel::GetRootNode() const
