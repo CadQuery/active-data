@@ -340,7 +340,7 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
       Standard_Integer aNbNodes;
       aQuadElem->GetFaceDefinedByNodes(4, aQuadNodeIds, aNbNodes);
 
-      // Here we take an advantage of OMFDS particularity: OMFDS generates
+      // Here we take an advantage of mesh DS particularity: it generates
       // IDs of the mesh elements sequentially. So we know that quadrangles
       // are located internally after triangles just in the same order as
       // we pushed them before. That is why their IDs are shifted by

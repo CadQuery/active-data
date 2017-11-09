@@ -169,7 +169,6 @@ set (meshds_H_FILES
   Mesh/DS/Mesh_Position.h
   Mesh/DS/Mesh_Quadrangle.h
   Mesh/DS/Mesh_SpacePosition.h
-  Mesh/DS/Mesh_State.h
   Mesh/DS/Mesh_Triangle.h
   Mesh/DS/Mesh_TypeOfPosition.h
 )

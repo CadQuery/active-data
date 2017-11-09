@@ -108,7 +108,7 @@ void Mesh_ElementsIterator::findNext()
     0x01,                               // Mesh_ET_Node
     0x02,                               // Mesh_ET_Edge
     0x04,                               // Mesh_ET_Face
-    0x08,                               // OMFAbs_Volume
+    0x08,                               // Volume
     0,0,0,0,0,0,0,0,0,0,0
   };
   if (myType & 0x01) {          // Iteration exclusively on nodes

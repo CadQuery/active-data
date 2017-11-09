@@ -75,7 +75,7 @@ void ActTest_StubBNode::Init(const Standard_Integer theIntVal,
                              const Standard_Real    theRealVal)
 {
   ActData_ParameterFactory::AsInt ( this->Parameter(PID_Int) )->SetValue(theIntVal);
-  ActData_ParameterFactory::AsReal( this->Parameter(PID_Real)    )->SetValue(theRealVal);
+  ActData_ParameterFactory::AsReal( this->Parameter(PID_Real) )->SetValue(theRealVal);
 }
 
 //! Accessor for the integer value.
