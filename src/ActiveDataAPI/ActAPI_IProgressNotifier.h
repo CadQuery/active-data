@@ -59,31 +59,13 @@ enum ActAPI_ProgressStatus
 //! context (actually, it depends on the used implementation). Progress
 //! Notifier provides the following services:
 //!
-//! - It allows the concurrently running algorithmic tasks to cumulate their
-//!   progress states independently. For that, each parallel task is suggested
-//!   as fully qualified portion of the overall calculation routine which have
-//!   uniquely defined ID. The developer should bring the parallelism in his
-//!   algorithm in such a way that each TBB task can access its unique ID
-//!   and report its progress to the Progress Notifier using that ID. Such an
-//!   ID should have essentially logical semantic. E.g. it could be the index
-//!   of the first OCCT topological face in the working collection of faces
-//!   allocated for processing in the current TBB task (see blocked_range
-//!   notion).
+//! - Accumulate PROGRESS as a single integer value less or equal to CAPACITY.
 //!
-//! - It allows to gather the currently cumulated progress value by all
-//!   registered tasks.
-//!
-//! - It allows to set up a progress message describing the currently performed
+//! - Set progress message describing the currently performed
 //!   job. This is normally an ASCII string localization key.
 //!
-//! - It allows to set up a completeness state for the entire process. The
-//!   following states are supported: Not Defined, Running, Succeeded, Failed,
-//!   Canceled.
-//!
-//! - It allows to send specific termination messages such as Completed (the
-//!   working thread has finished his job) and Cancel (the working thread gets
-//!   a request for cancellation, however, it can still run). Completed message
-//!   is an obligatory one and must be sent in any cases.
+//! - Set completeness state for the entire process. The following states
+//!   are supported: Not Defined, Running, Succeeded, Failed, Cancelled.
 class ActAPI_IProgressNotifier : public Standard_Transient
 {
 public:
@@ -93,7 +75,8 @@ public:
 
 public:
 
-  ActAPI_EXPORT virtual ~ActAPI_IProgressNotifier();
+  ActAPI_EXPORT virtual
+    ~ActAPI_IProgressNotifier();
 
 // Thread-unsafe methods:
 public:
@@ -169,18 +152,20 @@ public:
   //! Returns the currently cumulated progress value.
   //! \return current cumulative progress.
   virtual Standard_Integer
-    SummaryProgress() const = 0;
+    CurrentProgress() const = 0;
 
 // Tread-safe methods to be used by algorithms:
 public:
 
-  //! Thread-safe method used to increment the progress value associated with
-  //! the given task ID by the passed step.
-  //! \param theTaskID [in] ID of the task to increment the progress for.
+  //! Thread-safe method used to increment the progress value by the passed step.
   //! \param theProgressStep [in] progress value to increment by.
   virtual void
-    StepProgress(const Standard_Integer theTaskID,
-                 const Standard_Integer theProgressStep) = 0;
+    StepProgress(const Standard_Integer theProgressStep) = 0;
+
+  //! Thread-safe method used to set the progress value.
+  //! \param theProgress [in] progress value to set.
+  virtual void
+    SetProgress(const Standard_Integer theProgress) = 0;
 
   //! Thread-safe method used to send a logging message. Normally, this is
   //! not GUI directly as Progress Notifier is designed for usage in
@@ -349,12 +334,12 @@ public:
     return Standard_False;
   }
 
-  //! Null-safe accessor for the summary progress.
-  //! \return current cumulative progress.
-  Standard_Integer SummaryProgress() const
+  //! Null-safe accessor for the current progress.
+  //! \return current progress.
+  Standard_Integer CurrentProgress() const
   {
     if ( !m_PNotifier.IsNull() )
-      return m_PNotifier->SummaryProgress();
+      return m_PNotifier->CurrentProgress();
 
     return 0;
   }
@@ -370,11 +355,17 @@ public:
 public:
 
   //! Null-safe StepProgress method for Progress Notifier.
-  void StepProgress(const Standard_Integer theTaskID,
-                    const Standard_Integer theValue) const
+  void StepProgress(const Standard_Integer theValue) const
   {
     if ( !m_PNotifier.IsNull() )
-      m_PNotifier->StepProgress(theTaskID, theValue);
+      m_PNotifier->StepProgress(theValue);
+  }
+
+  //! Null-safe SetProgress method for Progress Notifier.
+  void SetProgress(const Standard_Integer theValue) const
+  {
+    if ( !m_PNotifier.IsNull() )
+      m_PNotifier->SetProgress(theValue);
   }
 
   //! Null-safe SendLogMessage method for Progress Notifier.

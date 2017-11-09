@@ -28,7 +28,8 @@
 // Own include
 #include <ActAPI_IProgressNotifier.h>
 
+//-----------------------------------------------------------------------------
+
 //! Destructor.
 ActAPI_IProgressNotifier::~ActAPI_IProgressNotifier()
-{
-}
+{}
