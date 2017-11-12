@@ -1,0 +1,3 @@
+# README #
+
+Active Data framework is a tool set which allows you organizing the data of your software in a hierarchical way with automatic support of Undo/Redo, Open/Save and other commonly used functionality. For engineering applications (CAD/CAM/CAE) it offers mechanism of parametric dependencies (useful in parametric CADs) and data containers for CAD models (B-Rep and facets). The framework is based on Open CASCADE Technology.
