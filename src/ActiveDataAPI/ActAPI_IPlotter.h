@@ -43,6 +43,7 @@
 #include <vector>
 
 // Forward declarations
+class Geom2d_Curve;
 class Geom_Curve;
 class Geom_Plane;
 class Geom_Surface;
@@ -176,6 +177,18 @@ public:
     REDRAW_CURVE(const TCollection_AsciiString&,
                  const Handle(Geom_Curve)&,
                  const Quantity_Color&) {}
+
+  //-------------------------------------------------------------------------//
+
+  virtual void
+    DRAW_CURVE2D(const Handle(Geom2d_Curve)&,
+                 const Quantity_Color&,
+                 const TCollection_AsciiString&) {}
+
+  virtual void
+    REDRAW_CURVE2D(const TCollection_AsciiString&,
+                   const Handle(Geom2d_Curve)&,
+                   const Quantity_Color&) {}
 
   //-------------------------------------------------------------------------//
 
@@ -655,13 +668,37 @@ public:
 //---------------------------------------------------------------------------//
 
   void
-    DRERAW_CURVE(const TCollection_AsciiString& name,
+    REDRAW_CURVE(const TCollection_AsciiString& name,
                  const Handle(Geom_Curve)&      curve,
                  const Quantity_Color&          color)
   {
     if ( m_iv.IsNull() ) return;
     //
     m_iv->REDRAW_CURVE(name, curve, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    DRAW_CURVE2D(const Handle(Geom2d_Curve)&    curve,
+                 const Quantity_Color&          color,
+                 const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_CURVE2D(curve, color, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_CURVE2D(const TCollection_AsciiString& name,
+                   const Handle(Geom2d_Curve)&    curve,
+                   const Quantity_Color&          color)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_CURVE2D(name, curve, color);
   }
 
 //---------------------------------------------------------------------------//
