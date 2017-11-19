@@ -312,4 +312,10 @@ public:
 typedef NCollection_Sequence<Handle(ActAPI_INode)> ActAPI_NodeList;
 typedef NCollection_Shared<ActAPI_NodeList>        ActAPI_HNodeList;
 
+//! \ingroup AD_API
+//!
+//! Shortcuts for map of Nodes.
+typedef NCollection_Map<Handle(ActAPI_INode), ActAPI_IDataCursor::Hasher> ActAPI_NodeMap;
+typedef NCollection_Shared<ActAPI_NodeMap>                                ActAPI_HNodeMap;
+
 #endif
