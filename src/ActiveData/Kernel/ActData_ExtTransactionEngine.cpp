@@ -44,13 +44,16 @@ ActData_ExtTransactionEngine::ActData_ExtTransactionEngine(const Handle(TDocStd_
 
 //! Customized Undo method for extended transactions.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-void ActData_ExtTransactionEngine::Undo(const Standard_Integer theNbUndoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_ExtTransactionEngine::Undo(const Standard_Integer theNbUndoes)
 {
   if ( m_undoData.IsEmpty() )
-    return; // There is nothing to Undo
+    return NULL; // There is nothing to Undo
 
   // Perform actual Undo
-  ActData_TransactionEngine::Undo(theNbUndoes);
+  Handle(ActAPI_HParameterMap)
+    result = ActData_TransactionEngine::Undo(theNbUndoes);
 
   // Juggle naming stack
   for ( Standard_Integer NbDone = 0; NbDone < theNbUndoes; NbDone++ )
@@ -58,17 +61,22 @@ void ActData_ExtTransactionEngine::Undo(const Standard_Integer theNbUndoes)
     m_redoData.Prepend( m_undoData.First() );
     m_undoData.Remove(1);
   }
+
+  return result;
 }
 
 //! Customized Redo method for extended transactions.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-void ActData_ExtTransactionEngine::Redo(const Standard_Integer theNbRedoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_ExtTransactionEngine::Redo(const Standard_Integer theNbRedoes)
 {
   if ( m_redoData.IsEmpty() )
-    return; // There is nothing to Redo
+    return NULL; // There is nothing to Redo
 
   // Perform actual Redo
-  ActData_TransactionEngine::Redo(theNbRedoes);
+  Handle(ActAPI_HParameterMap)
+    result = ActData_TransactionEngine::Redo(theNbRedoes);
 
   // Juggle naming stack
   for ( Standard_Integer NbDone = 0; NbDone < theNbRedoes; NbDone++ )
@@ -76,6 +84,8 @@ void ActData_ExtTransactionEngine::Redo(const Standard_Integer theNbRedoes)
     m_undoData.Prepend( m_redoData.First() );
     m_redoData.Remove(1);
   }
+
+  return result;
 }
 
 //! Commits current transaction.

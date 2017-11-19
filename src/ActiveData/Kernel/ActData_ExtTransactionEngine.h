@@ -64,10 +64,10 @@ public:
 // Kernel methods:
 public:
 
-  ActData_EXPORT virtual void
+  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
     Undo(const Standard_Integer theNbUndoes);
 
-  ActData_EXPORT virtual void
+  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
     Redo(const Standard_Integer theNbRedoes);
 
   ActData_EXPORT virtual void
@@ -80,7 +80,7 @@ public:
   //! Deltas. This collection is ordered from the most fresh transaction to
   //! the most long-standing one from the left to the right.
   //! \return collection of user data for Undo Modification Deltas.
-  inline const ActAPI_TxDataSeq& GetUndoData() const
+  const ActAPI_TxDataSeq& GetUndoData() const
   {
     return m_undoData;
   }
@@ -89,10 +89,12 @@ public:
   //! Deltas. This collection is ordered from the most fresh transaction to
   //! the most long-standing one from the left to the right.
   //! \return collection of user data for Redo Modification Deltas.
-  inline const ActAPI_TxDataSeq& GetRedoData() const
+  const ActAPI_TxDataSeq& GetRedoData() const
   {
     return m_redoData;
   }
+
+public:
 
   ActData_EXPORT Handle(ActAPI_HTxDataSeq)
     GetUndoData(const Standard_Integer theDepth) const;

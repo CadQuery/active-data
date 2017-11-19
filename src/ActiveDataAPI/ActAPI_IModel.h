@@ -149,12 +149,12 @@ public:
 // Auxiliary functions:
 public:
 
-  inline static Standard_Boolean IsExecutionDone(const Standard_Integer Status)
+  static Standard_Boolean IsExecutionDone(const Standard_Integer Status)
   {
     return (Status & Execution_Done) > 0;
   }
 
-  inline static Standard_Boolean IsExecutionDoneWithoutErrors(const Standard_Integer Status)
+  static Standard_Boolean IsExecutionDoneWithoutErrors(const Standard_Integer Status)
   {
     const int status = ( (Status & Execution_Done) &&
                         !(Status & Execution_NoFunctions) &&
@@ -162,12 +162,12 @@ public:
     return status > 0;
   }
 
-  inline static Standard_Boolean IsExecutionFailed(const Standard_Integer Status)
+  static Standard_Boolean IsExecutionFailed(const Standard_Integer Status)
   {
     return (Status & Execution_Failed) > 0;
   }
 
-  inline static Standard_Boolean IsExecutionInvalidGraph(const Standard_Integer Status)
+  static Standard_Boolean IsExecutionInvalidGraph(const Standard_Integer Status)
   {
     return (Status & Execution_LoopsDetected) > 0;
   }
@@ -250,7 +250,8 @@ public:
 
   //! Performs Undo action on the underlying CAF document.
   //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-  virtual void
+  //! \return affected Parameters.
+  virtual Handle(ActAPI_HParameterMap)
     Undo(const Standard_Integer theNbUndoes = 1) = 0;
 
   //! Returns the number of currently available Undo deltas.
@@ -260,7 +261,8 @@ public:
 
   //! Performs Redo action on the underlying CAF document.
   //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-  virtual void
+  //! \return affected Parameters.
+  virtual Handle(ActAPI_HParameterMap)
     Redo(const Standard_Integer theNbRedoes = 1) = 0;
 
   //! Returns the number of currently available Redo deltas.

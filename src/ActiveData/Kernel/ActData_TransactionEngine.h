@@ -94,13 +94,13 @@ public:
   ActData_EXPORT virtual void
     AbortCommand();
 
-  ActData_EXPORT virtual void
+  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
     Undo(const Standard_Integer theNbUndoes = 1);
 
   ActData_EXPORT virtual Standard_Integer
     NbUndos() const;
 
-  ActData_EXPORT virtual void
+  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
     Redo(const Standard_Integer theNbRedoes = 1);
 
   ActData_EXPORT virtual Standard_Integer

@@ -340,17 +340,21 @@ void ActData_BaseModel::CommitCommand(ActAPI_TxData theData)
 
 //! Performs Undo operation.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-void ActData_BaseModel::Undo(const Standard_Integer theNbUndoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_BaseModel::Undo(const Standard_Integer theNbUndoes)
 {
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_UNDO_before.log"), this);
 #endif
 
-  m_trEngine->Undo(theNbUndoes);
+  Handle(ActAPI_HParameterMap) result = m_trEngine->Undo(theNbUndoes);
 
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_UNDO_after.log"), this);
 #endif
+
+  return result;
 }
 
 //! Returns the number of available Undo deltas.
@@ -362,17 +366,21 @@ Standard_Integer ActData_BaseModel::NbUndos() const
 
 //! Performs Redo operation.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-void ActData_BaseModel::Redo(const Standard_Integer theNbRedoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_BaseModel::Redo(const Standard_Integer theNbRedoes)
 {
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_REDO_before.log"), this);
 #endif
 
-  m_trEngine->Redo(theNbRedoes);
+  Handle(ActAPI_HParameterMap) result = m_trEngine->Redo(theNbRedoes);
 
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_REDO_after.log"), this);
 #endif
+
+  return result;
 }
 
 //! Returns the number of available Redo deltas.

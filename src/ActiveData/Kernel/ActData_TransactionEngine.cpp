@@ -162,7 +162,9 @@ void ActData_TransactionEngine::AbortCommand()
 
 //! Performs Undo operation.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-void ActData_TransactionEngine::Undo(const Standard_Integer theNbUndoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_TransactionEngine::Undo(const Standard_Integer theNbUndoes)
 {
   if ( this->isTransactionModeOff() )
     Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
@@ -184,6 +186,8 @@ void ActData_TransactionEngine::Undo(const Standard_Integer theNbUndoes)
   this->touchParameters(anAffectedParams);
 
   m_bIsActiveTransaction = Standard_False;
+
+  return anAffectedParams;
 }
 
 //! Returns the number of available Undo deltas.
@@ -201,7 +205,9 @@ Standard_Integer ActData_TransactionEngine::NbUndos() const
 
 //! Performs Redo operation.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-void ActData_TransactionEngine::Redo(const Standard_Integer theNbRedoes)
+//! \return affected Parameters.
+Handle(ActAPI_HParameterMap)
+  ActData_TransactionEngine::Redo(const Standard_Integer theNbRedoes)
 {
   if ( this->isTransactionModeOff() )
     Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
@@ -223,6 +229,8 @@ void ActData_TransactionEngine::Redo(const Standard_Integer theNbRedoes)
   this->touchParameters(anAffectedParams);
 
   m_bIsActiveTransaction = Standard_False;
+
+  return anAffectedParams;
 }
 
 //! Returns the number of available Redo deltas.
