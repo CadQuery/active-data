@@ -159,6 +159,7 @@ TCollection_ExtendedString
     TCollection_ExtendedString RecName = Sibling->GetName();
     TCollection_ExtendedString Token;
     Standard_Integer t = 1, t_4num = 0, num = -1;
+    Standard_Boolean isFound = Standard_True;
     do
     {
       Token = RecName.Token(Separator.ToExtString(), t++);
@@ -169,13 +170,23 @@ TCollection_ExtendedString
 
         TCollection_AsciiString AsciiToken(Token);
         if ( !AsciiToken.IsIntegerValue() )
+        {
+          if ( !AsciiToken.IsEqual(theBaseName) )
+          {
+            isFound = Standard_False;
+            break;
+          }
           continue;
+        }
 
         num = AsciiToken.IntegerValue();
         t_4num = t + 1;
       }
     }
     while ( Token.Length() );
+
+    if ( !isFound )
+      continue;
 
     if ( !t_4num || t_4num != t )
       continue;
