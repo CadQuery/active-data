@@ -34,7 +34,7 @@
 #include <ActTest_MeshParameter.h>
 
 // Mesh includes
-#include <Mesh_Node.h>
+#include <ActData_Mesh_Node.h>
 
 #pragma warning(disable: 4127) // "Conditional expression is constant" by ACT_VERIFY
 #pragma warning(disable: 4800) // "Standard_Boolean: forcing value to bool" by ACT_VERIFY
@@ -88,9 +88,9 @@ bool ActTest_MeshParameter::accessValue(const int ActTestLib_NotUsed(funcID))
   ACT_VERIFY( aMeshFrom->NbFaces() == 0 )
   ACT_VERIFY( aMeshFrom->NbNodes() == 3 )
 
-  Handle(Mesh_Node) aNode1 = aMeshFrom->FindNode(1);
-  Handle(Mesh_Node) aNode2 = aMeshFrom->FindNode(2);
-  Handle(Mesh_Node) aNode3 = aMeshFrom->FindNode(3);
+  Handle(ActData_Mesh_Node) aNode1 = aMeshFrom->FindNode(1);
+  Handle(ActData_Mesh_Node) aNode2 = aMeshFrom->FindNode(2);
+  Handle(ActData_Mesh_Node) aNode3 = aMeshFrom->FindNode(3);
 
   ACT_VERIFY( !aNode1.IsNull() )
   ACT_VERIFY( !aNode2.IsNull() )

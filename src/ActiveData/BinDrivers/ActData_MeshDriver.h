@@ -38,10 +38,10 @@
 #include <ActData_MeshAttr.h>
 
 // Mesh includes
-#include <Mesh_ElementsIterator.h>
-#include <Mesh_Node.h>
-#include <Mesh_Quadrangle.h>
-#include <Mesh_Triangle.h>
+#include <ActData_Mesh_ElementsIterator.h>
+#include <ActData_Mesh_Node.h>
+#include <ActData_Mesh_Quadrangle.h>
+#include <ActData_Mesh_Triangle.h>
 
 // OCCT includes
 #include <BinMDF_ADriver.hxx>
@@ -85,12 +85,12 @@ public:
     // Push data
     out << aNbNodes << aNbFaces;
 
-    Mesh_ElementsIterator aMeshNodesIt(aMeshDS, Mesh_ET_Node);
+    ActData_Mesh_ElementsIterator aMeshNodesIt(aMeshDS, ActData_Mesh_ET_Node);
     for ( ; aMeshNodesIt.More(); aMeshNodesIt.Next() )
     {
       // Access next node
-      Handle(Mesh_Node)
-        aNode = Handle(Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
+      Handle(ActData_Mesh_Node)
+        aNode = Handle(ActData_Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
 
       // Push data
       out << aNode->GetID();
@@ -103,16 +103,16 @@ public:
      *  Push mesh elements to binary buffer
      * ===================================== */
 
-    Mesh_ElementsIterator aMeshElemsIt(aMeshDS, Mesh_ET_Face);
+    ActData_Mesh_ElementsIterator aMeshElemsIt(aMeshDS, ActData_Mesh_ET_Face);
     for ( ; aMeshElemsIt.More(); aMeshElemsIt.Next() )
     {
-      const Handle(Mesh_Element)& anElem = aMeshElemsIt.GetValue();
+      const Handle(ActData_Mesh_Element)& anElem = aMeshElemsIt.GetValue();
 
       // Proceed with TRIANGLE elements
-      if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Triangle) ) )
+      if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Triangle) ) )
       {
         // Access element data
-        Handle(Mesh_Triangle) aTriElem = Handle(Mesh_Triangle)::DownCast(anElem);
+        Handle(ActData_Mesh_Triangle) aTriElem = Handle(ActData_Mesh_Triangle)::DownCast(anElem);
         Standard_Integer aTriNodeIds[3];
         Standard_Integer aNbNodes;
         aTriElem->GetFaceDefinedByNodes(3, aTriNodeIds, aNbNodes);
@@ -124,10 +124,10 @@ public:
           out << aTriNodeIds[i];
       }
       // Proceed with QUADRANGLE elements
-      else if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Quadrangle) ) )
+      else if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Quadrangle) ) )
       {
         // Access element data
-        Handle(Mesh_Quadrangle) aQuadElem = Handle(Mesh_Quadrangle)::DownCast(anElem);
+        Handle(ActData_Mesh_Quadrangle) aQuadElem = Handle(ActData_Mesh_Quadrangle)::DownCast(anElem);
         Standard_Integer aQuadNodeIds[4];
         Standard_Integer aNbNodes;
         aQuadElem->GetFaceDefinedByNodes(4, aQuadNodeIds, aNbNodes);

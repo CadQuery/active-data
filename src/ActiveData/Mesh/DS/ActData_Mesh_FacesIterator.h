@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,31 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
-
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
+#ifndef ActData_MeshFacesIterator_HeaderFile
+#define ActData_MeshFacesIterator_HeaderFile
 
 // Mesh includes
-#include <ActData_Mesh.h>
+#include <ActData_Mesh_ElementsIterator.h>
+#include <ActData_Mesh_Face.h>
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
+///  Iterator on mesh faces, as specialisation of the general purpose iterator
 
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+class ActData_MeshFacesIterator : public ActData_Mesh_ElementsIterator
 {
-public:
+ public:
+  // ---------- PUBLIC METHODS ----------
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+  /// Empty constructor
+  ActData_MeshFacesIterator () {}
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
+  /// Constructor
+  ActData_MeshFacesIterator (const Handle(ActData_Mesh)& theMesh)
+    : ActData_Mesh_ElementsIterator (theMesh, ActData_Mesh_ET_Face)
+  {}
 
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
+  /// Query the Value
+  Handle(ActData_Mesh_Face) Value () const
+  { return Handle(ActData_Mesh_Face)::DownCast(GetValue()); }
 };
 
 #endif

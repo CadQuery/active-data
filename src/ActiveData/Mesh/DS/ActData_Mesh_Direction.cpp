@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,61 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
+// Own include
+#include <ActData_Mesh_Direction.h>
 
-// Active Data unit tests
-#include <ActTest.h>
+// OCCT includes
+#include <gp_Dir.hxx>
+#include <Precision.hxx>
 
-// Active Data includes
-#include <ActData_BaseNode.h>
+inline Standard_Integer _REPACK (const Standard_Real aValue) {
+  return Standard_Integer(aValue * Standard_Real(IntegerLast()-1) + 0.5);
+}
 
-// Mesh includes
-#include <ActData_Mesh.h>
+inline Standard_Real _UNPACK (const Standard_Integer iValue) {
+  return Standard_Real(iValue) / Standard_Real(IntegerLast() - 1);
+}
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
+//=======================================================================
+//function : Set
+//purpose  : 
+//=======================================================================
 
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+void ActData_Mesh_Direction::Set (const Standard_Real theX,
+                           const Standard_Real theY,
+                           const Standard_Real theZ)
 {
-public:
+  const gp_Dir aDir (theX, theY, theZ);   // normalize
+  myCoord[0] = _REPACK(aDir.X());
+  myCoord[1] = _REPACK(aDir.Y());
+  myCoord[2] = _REPACK(aDir.Z());
+}
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+//=======================================================================
+//function : Set
+//purpose  : 
+//=======================================================================
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
+void ActData_Mesh_Direction::Set (const gp_XYZ& theXYZ)
+{
+  const gp_Dir aDir (theXYZ);   // normalize
+  myCoord[0] = _REPACK(aDir.X());
+  myCoord[1] = _REPACK(aDir.Y());
+  myCoord[2] = _REPACK(aDir.Z());
+}
 
-public:
+//=======================================================================
+//function : Get
+//purpose  : 
+//=======================================================================
 
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
-};
-
-#endif
+Standard_Boolean ActData_Mesh_Direction::Get (gp_Dir& outDir) const
+{
+  if ((myCoord[0] | myCoord[1] | myCoord[2]) != 0) {
+    outDir.SetCoord (_UNPACK(myCoord[0]),
+                     _UNPACK(myCoord[1]),
+                     _UNPACK(myCoord[2]));
+    return Standard_True;
+  }
+  return Standard_False;
+}

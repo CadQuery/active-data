@@ -44,10 +44,10 @@
 
 // Mesh includes
 #pragma warning(push, 0)
-#include <Mesh_ElementsIterator.h>
-#include <Mesh_Node.h>
-#include <Mesh_Quadrangle.h>
-#include <Mesh_Triangle.h>
+#include <ActData_Mesh_ElementsIterator.h>
+#include <ActData_Mesh_Node.h>
+#include <ActData_Mesh_Quadrangle.h>
+#include <ActData_Mesh_Triangle.h>
 #pragma warning(pop)
 
 #pragma warning(disable: 4127) // "Conditional expression is constant" by ACT_VERIFY
@@ -273,10 +273,10 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
   ACT_VERIFY( meshLab.FindAttribute(ActData_MeshAttr::GUID(), aMeshAttr) )
 
   // Access Mesh DS
-  Handle(ActData_Mesh) aMesh_TRANSIENT = aMeshAttr->GetMesh();
+  Handle(ActData_Mesh) aActData_Mesh_TRANSIENT = aMeshAttr->GetMesh();
 
   // Check if Mesh DS is created
-  ACT_VERIFY( !aMesh_TRANSIENT.IsNull() )
+  ACT_VERIFY( !aActData_Mesh_TRANSIENT.IsNull() )
 
   // Verify that modification is prohibited in non-transactional scope
   Standard_Boolean isExceptionOccured = Standard_False;
@@ -304,14 +304,14 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
    *  Read and verify data from Mesh Attribute
    * ========================================== */
 
-  ACT_VERIFY(aMesh_TRANSIENT->NbNodes() == NB_NODES)
-  ACT_VERIFY(aMesh_TRANSIENT->NbFaces() == NB_TRIANGLES + NB_QUADRANGLES)
+  ACT_VERIFY(aActData_Mesh_TRANSIENT->NbNodes() == NB_NODES)
+  ACT_VERIFY(aActData_Mesh_TRANSIENT->NbFaces() == NB_TRIANGLES + NB_QUADRANGLES)
 
   // Verify nodes
   for ( Standard_Integer i = 0; i < NB_NODES; i++ )
   {
     Standard_Integer aNodeId = i + 1;
-    Handle(Mesh_Node) aNode = aMesh_TRANSIENT->FindNode(aNodeId);
+    Handle(ActData_Mesh_Node) aNode = aActData_Mesh_TRANSIENT->FindNode(aNodeId);
 
     ACT_VERIFY( !aNode.IsNull() )
     ACT_VERIFY(aNode->X() == NODES[i][0])
@@ -321,14 +321,14 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
 
   // Verify elements: can be TRIANGLES or QUADRANGLES
   Standard_Integer anElemId = 0;
-  Mesh_ElementsIterator aMeshIt(aMesh_TRANSIENT, Mesh_ET_Face);
+  ActData_Mesh_ElementsIterator aMeshIt(aActData_Mesh_TRANSIENT, ActData_Mesh_ET_Face);
   for ( ; aMeshIt.More(); aMeshIt.Next() )
   {
     anElemId++;
-    const Handle(Mesh_Element)& aMeshElem = aMeshIt.GetValue();
-    if ( aMeshElem->IsInstance( STANDARD_TYPE(Mesh_Triangle) ) )
+    const Handle(ActData_Mesh_Element)& aMeshElem = aMeshIt.GetValue();
+    if ( aMeshElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Triangle) ) )
     {
-      Handle(Mesh_Triangle) aTriElem = Handle(Mesh_Triangle)::DownCast(aMeshElem);
+      Handle(ActData_Mesh_Triangle) aTriElem = Handle(ActData_Mesh_Triangle)::DownCast(aMeshElem);
       Standard_Integer aTriNodeIds[3];
       Standard_Integer aNbNodes;
       aTriElem->GetFaceDefinedByNodes(3, aTriNodeIds, aNbNodes);
@@ -337,9 +337,9 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
       ACT_VERIFY(aTriNodeIds[1] == TRIANGLES[anElemId - 1][1]);
       ACT_VERIFY(aTriNodeIds[2] == TRIANGLES[anElemId - 1][2]);
     }
-    else if ( aMeshElem->IsInstance( STANDARD_TYPE(Mesh_Quadrangle) ) )
+    else if ( aMeshElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Quadrangle) ) )
     {
-      Handle(Mesh_Quadrangle) aQuadElem = Handle(Mesh_Quadrangle)::DownCast(aMeshElem);
+      Handle(ActData_Mesh_Quadrangle) aQuadElem = Handle(ActData_Mesh_Quadrangle)::DownCast(aMeshElem);
 
       Standard_Integer aQuadNodeIds[4];
       Standard_Integer aNbNodes;
@@ -585,12 +585,12 @@ bool ActTest_MeshAttrPersistent::meshSaveOpenTest(const int ActTestLib_NotUsed(f
 
   // Verify mesh nodes
   Standard_Integer aNodeIndex = 0;
-  Mesh_ElementsIterator aMeshNodesIt(aMeshDS, Mesh_ET_Node);
+  ActData_Mesh_ElementsIterator aMeshNodesIt(aMeshDS, ActData_Mesh_ET_Node);
   for ( ; aMeshNodesIt.More(); aMeshNodesIt.Next() )
   {
     // Access next node
-    Handle(Mesh_Node)
-      aNode = Handle(Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
+    Handle(ActData_Mesh_Node)
+      aNode = Handle(ActData_Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
 
     // Verify node ID
     ACT_VERIFY( aNode->GetID() == NODE_IDS(aNodeIndex + 1) )
@@ -605,16 +605,16 @@ bool ActTest_MeshAttrPersistent::meshSaveOpenTest(const int ActTestLib_NotUsed(f
 
   // Verify mesh elements
   Standard_Integer aTriIndex = 0, aQuadIndex = 0;
-  Mesh_ElementsIterator aMeshElemsIt(aMeshDS, Mesh_ET_Face);
+  ActData_Mesh_ElementsIterator aMeshElemsIt(aMeshDS, ActData_Mesh_ET_Face);
   for ( ; aMeshElemsIt.More(); aMeshElemsIt.Next() )
   {
-    const Handle(Mesh_Element)& anElem = aMeshElemsIt.GetValue();
+    const Handle(ActData_Mesh_Element)& anElem = aMeshElemsIt.GetValue();
 
     // Proceed with TRIANGLE elements
-    if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Triangle) ) )
+    if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Triangle) ) )
     {
       // Access element data
-      Handle(Mesh_Triangle) aTriElem = Handle(Mesh_Triangle)::DownCast(anElem);
+      Handle(ActData_Mesh_Triangle) aTriElem = Handle(ActData_Mesh_Triangle)::DownCast(anElem);
 
       // Verify element ID
       ACT_VERIFY( aTriElem->GetID() == TRIANGLE_IDS(aTriIndex + 1) )
@@ -629,10 +629,10 @@ bool ActTest_MeshAttrPersistent::meshSaveOpenTest(const int ActTestLib_NotUsed(f
       aTriIndex++;
     }
     // Proceed with QUADRANGLE elements
-    else if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Quadrangle) ) )
+    else if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Quadrangle) ) )
     {
       // Access element data
-      Handle(Mesh_Quadrangle) aQuadElem = Handle(Mesh_Quadrangle)::DownCast(anElem);
+      Handle(ActData_Mesh_Quadrangle) aQuadElem = Handle(ActData_Mesh_Quadrangle)::DownCast(anElem);
 
       // Verify element ID
       ACT_VERIFY( aQuadElem->GetID() == QUADRANGLE_IDS(aQuadIndex + 1) )

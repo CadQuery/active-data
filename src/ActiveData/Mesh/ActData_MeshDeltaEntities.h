@@ -39,7 +39,7 @@
 #include <Standard_Type.hxx>
 
 // Mesh includes
-#include <Mesh.h>
+#include <ActData_Mesh.h>
 
 //-----------------------------------------------------------------------------
 // Class: ActData_DeltaMObject

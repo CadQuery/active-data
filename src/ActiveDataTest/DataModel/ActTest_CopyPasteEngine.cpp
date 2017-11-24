@@ -50,7 +50,7 @@
 #include <ActData_Utils.h>
 
 // Mesh includes
-#include <Mesh_Node.h>
+#include <ActData_Mesh_Node.h>
 
 #pragma warning(disable: 4127) // "Conditional expression is constant" by ACT_VERIFY
 #pragma warning(disable: 4800) // "Standard_Boolean: forcing value to bool" by ACT_VERIFY
@@ -2613,11 +2613,11 @@ bool ActTest_CopyPasteEngine::testCopyPaste_PlainMeshToPlain(const int ActTestLi
   // Prepare simple test mesh
   M->OpenCommand();
   Handle(ActData_MeshParameter)
-    MESH_P = ActData_ParameterFactory::AsMesh( MESH->Parameter(ActTest_StubMeshNode::Param_Mesh) );
-  Standard_Integer NODES[] = { MESH_P->AddNode(0, 0, 0),
-                               MESH_P->AddNode(0, 0, 1),
-                               MESH_P->AddNode(0, 1, 0) };
-  MESH_P->AddElement(NODES, 3);
+    ActData_Mesh_P = ActData_ParameterFactory::AsMesh( MESH->Parameter(ActTest_StubMeshNode::Param_Mesh) );
+  Standard_Integer NODES[] = { ActData_Mesh_P->AddNode(0, 0, 0),
+                               ActData_Mesh_P->AddNode(0, 0, 1),
+                               ActData_Mesh_P->AddNode(0, 1, 0) };
+  ActData_Mesh_P->AddElement(NODES, 3);
   M->CommitCommand();
 
   // Dump the Model before modifications
@@ -2652,12 +2652,12 @@ bool ActTest_CopyPasteEngine::testCopyPaste_PlainMeshToPlain(const int ActTestLi
    * =============== */
 
   M->OpenCommand();
-  Handle(ActAPI_INode) MESH_COPY = tool->RestoreFromBuffer();
-  A->AddChildNode(MESH_COPY);
+  Handle(ActAPI_INode) ActData_Mesh_COPY = tool->RestoreFromBuffer();
+  A->AddChildNode(ActData_Mesh_COPY);
   M->CommitCommand();
 
-  ACT_VERIFY( !MESH_COPY.IsNull() );
-  ACT_VERIFY( MESH_COPY->IsWellFormed() );
+  ACT_VERIFY( !ActData_Mesh_COPY.IsNull() );
+  ACT_VERIFY( ActData_Mesh_COPY->IsWellFormed() );
 
   // Dump the Model just after the pasting
   TCollection_AsciiString
@@ -2675,18 +2675,18 @@ bool ActTest_CopyPasteEngine::testCopyPaste_PlainMeshToPlain(const int ActTestLi
    *  Perform verification
    * ====================== */
 
-  Handle(ActTest_StubMeshNode) MESH_COPY_STUB = Handle(ActTest_StubMeshNode)::DownCast(MESH_COPY);
+  Handle(ActTest_StubMeshNode) ActData_Mesh_COPY_STUB = Handle(ActTest_StubMeshNode)::DownCast(ActData_Mesh_COPY);
 
   Handle(ActData_MeshParameter)
-    MESH_COPY_P = ActData_ParameterFactory::AsMesh( MESH->Parameter(ActTest_StubMeshNode::Param_Mesh) );
+    ActData_Mesh_COPY_P = ActData_ParameterFactory::AsMesh( MESH->Parameter(ActTest_StubMeshNode::Param_Mesh) );
 
-  Handle(ActData_Mesh) aMeshDS_Copy = MESH_COPY_P->GetMesh();
+  Handle(ActData_Mesh) aMeshDS_Copy = ActData_Mesh_COPY_P->GetMesh();
 
   for ( Standard_Integer k = 0; k < 3; k++ )
   {
-    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->X() == MESH_P->GetMesh()->FindNode(NODES[k])->X() );
-    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->Y() == MESH_P->GetMesh()->FindNode(NODES[k])->Y() );
-    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->Z() == MESH_P->GetMesh()->FindNode(NODES[k])->Z() );
+    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->X() == ActData_Mesh_P->GetMesh()->FindNode(NODES[k])->X() );
+    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->Y() == ActData_Mesh_P->GetMesh()->FindNode(NODES[k])->Y() );
+    ACT_VERIFY( aMeshDS_Copy->FindNode(NODES[k])->Z() == ActData_Mesh_P->GetMesh()->FindNode(NODES[k])->Z() );
   }
 
   return true;

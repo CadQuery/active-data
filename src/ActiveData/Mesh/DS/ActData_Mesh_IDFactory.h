@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,68 +30,59 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
-
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
+#ifndef ActData_Mesh_IDFactory_HeaderFile
+#define ActData_Mesh_IDFactory_HeaderFile
 
 // Mesh includes
-#include <ActData_Mesh.h>
+#include <ActData_Mesh_Object.h>
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
+// OCCT includes
+#include <NCollection_Vector.hxx>
+#include <TColStd_PackedMapOfInteger.hxx>
 
-//! \ingroup AD_TEST
+class ActData_Mesh_Element;
+
+DEFINE_STANDARD_HANDLE(ActData_Mesh_IDFactory, ActData_Mesh_Object)
+
+//! \ingroup AD_DF
 //!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//! ID factory for mesh objects.
+class ActData_Mesh_IDFactory : public ActData_Mesh_Object
 {
 public:
 
   // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
-
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
+  DEFINE_STANDARD_RTTI_INLINE(ActData_Mesh_IDFactory, ActData_Mesh_Object)
 
 public:
 
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
+  ActData_EXPORT ActData_Mesh_IDFactory();
 
-public:
+  //! returns a free identifier for mesh from
+  //! the pool of ID
+  ActData_EXPORT Standard_Integer GetFreeID();
 
-  static Handle(ActAPI_INode) Instance();
+  //! free the ID and give it back to the pool of ID
+  ActData_EXPORT void ReleaseID (const Standard_Integer ID);
 
-// Generic accessors:
-public:
+  //! bind the ID with the mesh element
+  //! returns False if the ID is already bound.
+  //! In this case the element is not replaced
+  ActData_EXPORT Standard_Boolean BindID (const Standard_Integer ID, const Handle(ActData_Mesh_Element)& elem);
 
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
+  //! returns the MeshElement associated with ID
+  //! Returns NULL handle the ID is not bound
+  ActData_EXPORT Handle(ActData_Mesh_Element) MeshElement (const Standard_Integer ID) const;
 
-// Initialization and accessors:
-public:
+  //! returns the iterator of the whole collection
+  //! of mesh entities
+  ActData_EXPORT NCollection_Vector<Handle(ActData_Mesh_Element)>::Iterator Iterator() const;
 
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
+private:
 
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
+  NCollection_Vector<Handle(ActData_Mesh_Element)> myElements;
+  TColStd_PackedMapOfInteger               myPoolOfID;
+  Standard_Integer                         myMaxID;
 
 };
 

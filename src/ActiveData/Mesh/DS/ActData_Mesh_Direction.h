@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,52 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
-
-// Active Data unit tests
-#include <ActTest.h>
+#ifndef ActData_Mesh_Direction_HeaderFile
+#define ActData_Mesh_Direction_HeaderFile
 
 // Active Data includes
-#include <ActData_BaseNode.h>
+#include <ActData.h>
 
-// Mesh includes
-#include <ActData_Mesh.h>
+// OCCT includes
+#include <gp_XYZ.hxx>
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
+//! \ingroup AD_DF
 //!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//! Direction which occupies only few memory. The components are stored in
+//! normalized integer numbers, so that the value 1 is stored as INT_MAX
+//! and the value -1 is stored as -INT_MAX.
+class ActData_Mesh_Direction
 {
-public:
+ public:
+  // ---------- PUBLIC METHODS ----------
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+  /// Empty constructor
+  inline ActData_Mesh_Direction ()
+  { Clear(); }
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
+  /// Constructor
+  inline ActData_Mesh_Direction (const gp_XYZ& theXYZ)
+  { Set (theXYZ); }
 
-public:
+  /// Reset (empty) this data object
+  inline void                           Clear   ()
+  { myCoord[0] = 0; myCoord[1] = 0; myCoord[2] = 0; }
 
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
+  /// Check for emptiness
+  inline Standard_Boolean               IsNull  () const
+  { return ((myCoord[0] | myCoord[1] | myCoord[2]) == 0); }
 
-public:
+  ActData_EXPORT void                  Set     (const Standard_Real theX,
+                                                 const Standard_Real theY,
+                                                 const Standard_Real theZ);
 
-  static Handle(ActAPI_INode) Instance();
+  ActData_EXPORT void                  Set     (const gp_XYZ& theXYZ);
 
-// Generic accessors:
-public:
+  ActData_EXPORT Standard_Boolean      Get     (gp_Dir& outDir) const;
 
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
+ private:
+  // ---------- PRIVATE FIELDS ----------
+  Standard_Integer myCoord[3];
 };
 
 #endif

@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,56 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
+#ifndef ActData_Mesh_PntHasher_HeaderFile
+#define ActData_Mesh_PntHasher_HeaderFile
 
-// Active Data unit tests
-#include <ActTest.h>
+// OCCT includes
+#include <gp_Pnt.hxx>
 
-// Active Data includes
-#include <ActData_BaseNode.h>
-
-// Mesh includes
-#include <ActData_Mesh.h>
-
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+class ActData_Mesh_PntHasher 
 {
 public:
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+  //! Returns a HasCode value  for  the  Key <K>  in the
+  //! range 0..Upper.
+  static int HashCode(const gp_Pnt& Point, const int Upper);
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
-
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
+  //! Returns True  when the two  keys are the same. Two
+  //! same  keys  must   have  the  same  hashcode,  the
+  //! contrary is not necessary.
+  static unsigned IsEqual(const gp_Pnt& Point1, const gp_Pnt& Point2);
 };
+
+
+//=======================================================================
+//function : HashCode
+//purpose  : 
+//=======================================================================
+
+inline int ActData_Mesh_PntHasher::HashCode(const gp_Pnt& point, const int Upper)
+{
+  union 
+  {
+    double R[3];
+    int    I[6];
+  } U;
+
+  point.Coord(U.R[0],U.R[1],U.R[2]);
+
+  return ::HashCode(U.I[0]/23+U.I[1]/19+U.I[2]/17+U.I[3]/13+U.I[4]/11+U.I[5]/7,Upper);
+}
+
+//=======================================================================
+//function : IsEqual
+//purpose  : 
+//=======================================================================
+
+inline unsigned ActData_Mesh_PntHasher::IsEqual(const gp_Pnt& point1, const gp_Pnt& point2)
+{
+  Standard_Real tab1[3], tab2[3];
+  point1.Coord(tab1[0],tab1[1],tab1[2]);
+  point2.Coord(tab2[0],tab2[1],tab2[2]);
+  return (memcmp(tab1,tab2,sizeof(tab1)) == 0);
+}
 
 #endif

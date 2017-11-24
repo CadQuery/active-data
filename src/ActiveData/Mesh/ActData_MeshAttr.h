@@ -42,7 +42,7 @@
 #include <TDF_Label.hxx>
 
 // Mesh includes
-#include <Mesh.h>
+#include <ActData_Mesh.h>
 
 DEFINE_STANDARD_HANDLE(ActData_MeshAttr, TDF_Attribute)
 

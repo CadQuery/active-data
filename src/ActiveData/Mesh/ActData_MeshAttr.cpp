@@ -40,10 +40,10 @@
 #include <TDF_Data.hxx>
 
 // Mesh includes
-#include <Mesh_ElementsIterator.h>
-#include <Mesh_Node.h>
-#include <Mesh_Quadrangle.h>
-#include <Mesh_Triangle.h>
+#include <ActData_Mesh_ElementsIterator.h>
+#include <ActData_Mesh_Node.h>
+#include <ActData_Mesh_Quadrangle.h>
+#include <ActData_Mesh_Triangle.h>
 
 #undef COUT_DEBUG
 
@@ -250,12 +250,12 @@ void ActData_MeshAttr::Paste(const Handle(TDF_Attribute)& Into,
    *  Paste mesh nodes
    * ================== */
 
-  Mesh_ElementsIterator aMeshNodesIt(m_mesh, Mesh_ET_Node);
+  ActData_Mesh_ElementsIterator aMeshNodesIt(m_mesh, ActData_Mesh_ET_Node);
   for ( ; aMeshNodesIt.More(); aMeshNodesIt.Next() )
   {
     // Access next node
-    Handle(Mesh_Node)
-      aNode = Handle(Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
+    Handle(ActData_Mesh_Node)
+      aNode = Handle(ActData_Mesh_Node)::DownCast( aMeshNodesIt.GetValue() );
     
     // Paste node
     IntoMeshDS->AddNodeWithID( aNode->X(), aNode->Y(), aNode->Z(), aNode->GetID() );
@@ -265,21 +265,21 @@ void ActData_MeshAttr::Paste(const Handle(TDF_Attribute)& Into,
    *  Paste mesh elements
    * ===================== */
 
-  Mesh_ElementsIterator aMeshElemsIt(m_mesh, Mesh_ET_Face);
+  ActData_Mesh_ElementsIterator aMeshElemsIt(m_mesh, ActData_Mesh_ET_Face);
   for ( ; aMeshElemsIt.More(); aMeshElemsIt.Next() )
   {
-    const Handle(Mesh_Element)& anElem = aMeshElemsIt.GetValue();
+    const Handle(ActData_Mesh_Element)& anElem = aMeshElemsIt.GetValue();
 
     // Proceed with TRIANGLE elements
-    if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Triangle) ) )
+    if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Triangle) ) )
     {
-      Handle(Mesh_Triangle) aTriElem = Handle(Mesh_Triangle)::DownCast(anElem);
+      Handle(ActData_Mesh_Triangle) aTriElem = Handle(ActData_Mesh_Triangle)::DownCast(anElem);
       IntoMeshDS->AddElementWithID( aTriElem, aTriElem->GetID() );
     }
     // Proceed with QUADRANGLE elements
-    else if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Quadrangle) ) )
+    else if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Quadrangle) ) )
     {
-      Handle(Mesh_Quadrangle) aQuadElem = Handle(Mesh_Quadrangle)::DownCast(anElem);
+      Handle(ActData_Mesh_Quadrangle) aQuadElem = Handle(ActData_Mesh_Quadrangle)::DownCast(anElem);
       IntoMeshDS->AddElementWithID( aQuadElem, aQuadElem->GetID() );
     }
   }
@@ -508,7 +508,7 @@ Standard_Boolean
 Standard_Boolean ActData_MeshAttr::RemoveElement(const Standard_Integer ID)
 {
   // Check if the requested element exists in Mesh DS
-  Handle(Mesh_Element) anElem = m_mesh->FindElement(ID);
+  Handle(ActData_Mesh_Element) anElem = m_mesh->FindElement(ID);
   if ( anElem.IsNull() )
     return Standard_False;
 
@@ -516,11 +516,11 @@ Standard_Boolean ActData_MeshAttr::RemoveElement(const Standard_Integer ID)
   m_mesh->RemoveElement(anElem);
 
   // Deltalize removal
-  if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Triangle) ) )
+  if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Triangle) ) )
   {
     MDELTA_REMOVED_TRI(ID);
   }
-  else if ( anElem->IsInstance( STANDARD_TYPE(Mesh_Quadrangle) ) )
+  else if ( anElem->IsInstance( STANDARD_TYPE(ActData_Mesh_Quadrangle) ) )
   {
     MDELTA_REMOVED_QUAD(ID);
   }

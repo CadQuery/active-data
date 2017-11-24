@@ -73,7 +73,7 @@ void ActData_DeltaMTriangle::AddTo(Handle(ActData_Mesh)& theMesh)
 //! \param theMesh [in] mesh to apply modifications on.
 void ActData_DeltaMTriangle::RemoveFrom(Handle(ActData_Mesh)& theMesh)
 {
-  Handle(Mesh_Element) anElem = theMesh->FindElement(ID);
+  Handle(ActData_Mesh_Element) anElem = theMesh->FindElement(ID);
   theMesh->RemoveElement(ID);
 }
 
@@ -94,7 +94,7 @@ void ActData_DeltaMQuadrangle::AddTo(Handle(ActData_Mesh)& theMesh)
 //! \param theMesh [in] mesh to apply modifications on.
 void ActData_DeltaMQuadrangle::RemoveFrom(Handle(ActData_Mesh)& theMesh)
 {
-  Handle(Mesh_Element) anElem = theMesh->FindElement(ID);
+  Handle(ActData_Mesh_Element) anElem = theMesh->FindElement(ID);
   theMesh->RemoveElement(ID);
 }
 

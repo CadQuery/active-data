@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,15 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
+// Own include
+#include <ActData_Mesh_Position.h>
 
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
-
-// Mesh includes
-#include <ActData_Mesh.h>
-
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//=======================================================================
+//function : Coords
+//purpose  : 
+//=======================================================================
+const gp_Pnt& ActData_Mesh_Position::Coords() const
 {
-public:
-
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
-
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
-
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
-};
-
-#endif
+  static const gp_Pnt aDummyPnt(0.,0.,0.);
+  return aDummyPnt;
+}

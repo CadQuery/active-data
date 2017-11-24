@@ -39,7 +39,7 @@
 #include <ActData_ParameterDTO.h>
 
 // Mesh includes
-#include <Mesh.h>
+#include <ActData_Mesh.h>
 
 //-----------------------------------------------------------------------------
 // Parameter DTO

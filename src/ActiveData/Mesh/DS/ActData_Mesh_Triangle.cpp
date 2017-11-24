@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,48 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
+// Own include
+#include <ActData_Mesh_Triangle.h>
 
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
-
-// Mesh includes
-#include <ActData_Mesh.h>
-
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//=======================================================================
+//function : GetKey
+//purpose  : compute the Key of the face based on the ids of its bounding nodes
+//=======================================================================
+Standard_Integer ActData_Mesh_Triangle::GetKey() const
 {
-public:
+  Standard_Integer aKey = myNodes[0];
+  aKey += (aKey << 10);
+  aKey ^= (aKey >> 6);
+  aKey += myNodes[1] + myNodes[2];
+  aKey += (aKey << 10);
+  aKey ^= (aKey >> 6);
+  aKey += (aKey << 3);
+  aKey ^= (aKey >> 11);
+//    return aKey + (aKey << 15);
+  return aKey & 0x7fffffff;
+}
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+//=======================================================================
+//function : SetConnections
+//purpose  : 
+//=======================================================================
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
-
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
+void ActData_Mesh_Triangle::SetConnections(const Standard_Integer idnode1, 
+                                        const Standard_Integer idnode2,
+                                        const Standard_Integer idnode3)
+{
+  Standard_Integer idmin = (idnode1 < idnode2 ? idnode1 : idnode2);
+  idmin = (idmin < idnode3 ? idmin : idnode3);
   
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
-};
-
-#endif
+  myNodes[0] = idmin;
+  if (idmin == idnode1) {
+    myNodes[1] = idnode2;
+    myNodes[2] = idnode3;
+  } else if (idmin == idnode2) {
+    myNodes[1] = idnode3;
+    myNodes[2] = idnode1;
+  } else {
+    myNodes[1] = idnode1;
+    myNodes[2] = idnode2;
+  }
+}

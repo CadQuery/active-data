@@ -132,13 +132,13 @@ set (kernel_CPP_FILES
 # Mesh
 #------------------------------------------------------------------------------
 
-set (mesh_H_FILES
+set (ActData_Mesh_H_FILES
   Mesh/ActData_MeshAttr.h
   Mesh/ActData_MeshDeltaEntities.h
   Mesh/ActData_MeshMDelta.h
 )
 
-set (mesh_CPP_FILES 
+set (ActData_Mesh_CPP_FILES 
   Mesh/ActData_MeshAttr.cpp
   Mesh/ActData_MeshDeltaEntities.cpp
   Mesh/ActData_MeshMDelta.cpp
@@ -149,45 +149,45 @@ set (mesh_CPP_FILES
 #------------------------------------------------------------------------------
 
 set (meshds_H_FILES
-  Mesh/DS/Mesh.h
-  Mesh/DS/Mesh_Direction.h
-  Mesh/DS/Mesh_Edge.h
-  Mesh/DS/Mesh_EdgesIterator.h
-  Mesh/DS/Mesh_Element.h
-  Mesh/DS/Mesh_ElementsIterator.h
-  Mesh/DS/Mesh_ElementType.h
-  Mesh/DS/Mesh_Face.h
-  Mesh/DS/Mesh_FacesIterator.h
-  Mesh/DS/Mesh_Group.h
-  Mesh/DS/Mesh_IDFactory.h
-  Mesh/DS/Mesh_MapOfMeshElement.h
-  Mesh/DS/Mesh_MapOfMeshOrientedElement.h
-  Mesh/DS/Mesh_Node.h
-  Mesh/DS/Mesh_NodesIterator.h
-  Mesh/DS/Mesh_Object.h
-  Mesh/DS/Mesh_PntHasher.h
-  Mesh/DS/Mesh_Position.h
-  Mesh/DS/Mesh_Quadrangle.h
-  Mesh/DS/Mesh_SpacePosition.h
-  Mesh/DS/Mesh_Triangle.h
-  Mesh/DS/Mesh_TypeOfPosition.h
+  Mesh/DS/ActData_Mesh.h
+  Mesh/DS/ActData_Mesh_Direction.h
+  Mesh/DS/ActData_Mesh_Edge.h
+  Mesh/DS/ActData_Mesh_EdgesIterator.h
+  Mesh/DS/ActData_Mesh_Element.h
+  Mesh/DS/ActData_Mesh_ElementsIterator.h
+  Mesh/DS/ActData_Mesh_ElementType.h
+  Mesh/DS/ActData_Mesh_Face.h
+  Mesh/DS/ActData_Mesh_FacesIterator.h
+  Mesh/DS/ActData_Mesh_Group.h
+  Mesh/DS/ActData_Mesh_IDFactory.h
+  Mesh/DS/ActData_Mesh_MapOfMeshElement.h
+  Mesh/DS/ActData_Mesh_MapOfMeshOrientedElement.h
+  Mesh/DS/ActData_Mesh_Node.h
+  Mesh/DS/ActData_Mesh_NodesIterator.h
+  Mesh/DS/ActData_Mesh_Object.h
+  Mesh/DS/ActData_Mesh_PntHasher.h
+  Mesh/DS/ActData_Mesh_Position.h
+  Mesh/DS/ActData_Mesh_Quadrangle.h
+  Mesh/DS/ActData_Mesh_SpacePosition.h
+  Mesh/DS/ActData_Mesh_Triangle.h
+  Mesh/DS/ActData_Mesh_TypeOfPosition.h
 )
 
 set (meshds_CPP_FILES 
-  Mesh/DS/Mesh.cpp
-  Mesh/DS/Mesh_Direction.cpp
-  Mesh/DS/Mesh_Edge.cpp
-  Mesh/DS/Mesh_Element.cpp
-  Mesh/DS/Mesh_ElementsIterator.cpp
-  Mesh/DS/Mesh_Face.cpp
-  Mesh/DS/Mesh_Group.cpp
-  Mesh/DS/Mesh_IDFactory.cpp
-  Mesh/DS/Mesh_MapOfMeshElement.cpp
-  Mesh/DS/Mesh_MapOfMeshOrientedElement.cpp
-  Mesh/DS/Mesh_Node.cpp
-  Mesh/DS/Mesh_Position.cpp
-  Mesh/DS/Mesh_Quadrangle.cpp
-  Mesh/DS/Mesh_Triangle.cpp
+  Mesh/DS/ActData_Mesh.cpp
+  Mesh/DS/ActData_Mesh_Direction.cpp
+  Mesh/DS/ActData_Mesh_Edge.cpp
+  Mesh/DS/ActData_Mesh_Element.cpp
+  Mesh/DS/ActData_Mesh_ElementsIterator.cpp
+  Mesh/DS/ActData_Mesh_Face.cpp
+  Mesh/DS/ActData_Mesh_Group.cpp
+  Mesh/DS/ActData_Mesh_IDFactory.cpp
+  Mesh/DS/ActData_Mesh_MapOfMeshElement.cpp
+  Mesh/DS/ActData_Mesh_MapOfMeshOrientedElement.cpp
+  Mesh/DS/ActData_Mesh_Node.cpp
+  Mesh/DS/ActData_Mesh_Position.cpp
+  Mesh/DS/ActData_Mesh_Quadrangle.cpp
+  Mesh/DS/ActData_Mesh_Triangle.cpp
 )
 
 #------------------------------------------------------------------------------
@@ -321,12 +321,12 @@ foreach (FILE ${kernel_CPP_FILES})
   source_group ("Source Files\\Kernel" FILES "${FILE}")
 endforeach (FILE)
 
-foreach (FILE ${mesh_H_FILES})
+foreach (FILE ${ActData_Mesh_H_FILES})
   set (src_files ${src_files} ${FILE})
   source_group ("Header Files\\Mesh" FILES "${FILE}")
 endforeach (FILE)
 
-foreach (FILE ${mesh_CPP_FILES})
+foreach (FILE ${ActData_Mesh_CPP_FILES})
   set (src_files ${src_files} ${FILE})
   source_group ("Source Files\\Mesh" FILES "${FILE}")
 endforeach (FILE)
@@ -404,7 +404,7 @@ add_library (ActiveData SHARED
   ${H_FILES}          ${CPP_FILES}
   ${drivers_H_FILES}  ${drivers_CPP_FILES}
   ${kernel_H_FILES}   ${kernel_CPP_FILES}
-  ${mesh_H_FILES}     ${mesh_CPP_FILES}
+  ${ActData_Mesh_H_FILES}     ${ActData_Mesh_CPP_FILES}
   ${meshds_H_FILES}   ${meshds_CPP_FILES}
   ${patterns_H_FILES} ${patterns_CPP_FILES}
   ${std_H_FILES}      ${std_CPP_FILES}
@@ -476,7 +476,7 @@ install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMP
 install (FILES ${H_FILES}          DESTINATION include)
 install (FILES ${drivers_H_FILES}  DESTINATION include)
 install (FILES ${kernel_H_FILES}   DESTINATION include)
-install (FILES ${mesh_H_FILES}     DESTINATION include)
+install (FILES ${ActData_Mesh_H_FILES}     DESTINATION include)
 install (FILES ${meshds_H_FILES}   DESTINATION include)
 install (FILES ${patterns_H_FILES} DESTINATION include)
 install (FILES ${std_H_FILES}      DESTINATION include)

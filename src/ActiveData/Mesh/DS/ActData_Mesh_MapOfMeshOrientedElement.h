@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,45 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
-
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
+#ifndef ActData_Mesh_MapOfMeshOrientedElement_HeaderFile
+#define ActData_Mesh_MapOfMeshOrientedElement_HeaderFile
 
 // Mesh includes
-#include <ActData_Mesh.h>
+#include <ActData_Mesh_Element.h>
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//! Redefinition/definition  of methods of Map from NCollection
+class ActData_Mesh_MapOfMeshOrientedElement  : public ActData_Mesh_MapOfOrientedElements
 {
-public:
+ public:
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
-
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
-
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
+  DEFINE_STANDARD_ALLOC
   
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
+  //! Creates   a Map with  <NbBuckets> buckets. Without
+  //! arguments the map is automatically dimensioned.
+  ActData_Mesh_MapOfMeshOrientedElement(const Standard_Integer NbBuckets = 1)
+  : ActData_Mesh_MapOfOrientedElements( NbBuckets )
+  {}
+  
+  //! Returns  the Item stored  with the Key  <K> in the Map.
+  Standard_EXPORT const Handle(ActData_Mesh_Element)& Find (const Handle(ActData_Mesh_Element)& K) const;
+  const Handle(ActData_Mesh_Element)& operator() (const Handle(ActData_Mesh_Element)& K) const
+  { return Find(K); }
+  
+  //! Returns the  Item stored with  the Key  <K> in the
+  //! Map. This Item can be   modified with  the  syntax
+  //! aMap(K) = newItem;
+  Standard_EXPORT Handle(ActData_Mesh_Element)& ChangeFind (const Handle(ActData_Mesh_Element)& K);
+  Handle(ActData_Mesh_Element)& operator() (const Handle(ActData_Mesh_Element)& K)
+  { return ChangeFind(K); }
+  
+  //! Returns  the Item stored  with the ID in the Map.
+  Standard_EXPORT const Handle(ActData_Mesh_Element)& FindID (const Standard_Integer ID) const;
+  const Handle(ActData_Mesh_Element)& operator() (const Standard_Integer ID) const
+  { return FindID(ID); }
+  
+  //! Returns True  if the ID is stored  in the
+  //! map <me>.
+  Standard_EXPORT Standard_Boolean ContainsID (const Standard_Integer ID) const;
 };
 
 #endif

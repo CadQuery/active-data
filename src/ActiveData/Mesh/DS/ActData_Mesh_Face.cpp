@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// Created on: June 2012
+// Created on: June 2016
 //-----------------------------------------------------------------------------
 // Copyright (c) 2017, OPEN CASCADE SAS
 // All rights reserved.
@@ -30,69 +30,33 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActTest_StubMeshNode_HeaderFile
-#define ActTest_StubMeshNode_HeaderFile
-
-// Active Data unit tests
-#include <ActTest.h>
-
-// Active Data includes
-#include <ActData_BaseNode.h>
-
 // Mesh includes
-#include <ActData_Mesh.h>
+#include <ActData_Mesh_Face.h>
 
-DEFINE_STANDARD_HANDLE(ActTest_StubMeshNode, ActData_BaseNode)
-
-//! \ingroup AD_TEST
-//!
-//! Implementation of Data Node for unit tests.
-class ActTest_StubMeshNode : public ActData_BaseNode
+//=======================================================================
+//function : GetFaceDefinedByNodes
+//purpose  : 
+//=======================================================================
+void ActData_Mesh_Face::GetFaceDefinedByNodes(const Standard_Integer /*rank*/, 
+                                           const Standard_Address idnode,
+                                           Standard_Integer& nb) const
 {
-public:
+  nb = myNbNodes;
+  Standard_Integer *ptr = (Standard_Integer *)idnode;
+  const Standard_Integer *ptrFrom = (const Standard_Integer *)GetConnections();
+  for (Standard_Integer i=0; i < nb; ++i)
+    ptr[i] = ptrFrom[i];
+}
 
-  // OCCT RTTI
-  DEFINE_STANDARD_RTTI_INLINE(ActTest_StubMeshNode, ActData_BaseNode)
+//=======================================================================
+//function : Print
+//purpose  : 
+//=======================================================================
 
-  // Automatic registration of Node instance in the Nodal Factory.
-  DEFINE_NODE_FACTORY(ActTest_StubMeshNode, Instance)
-
-public:
-
-  //! IDs of the underlying Parameters.
-  enum ParamId
-  {
-    Param_Name = ActData_BaseNode::UserParam_Last,
-    Param_Mesh //!< Test mesh.
-  };
-
-public:
-
-  static Handle(ActAPI_INode) Instance();
-
-// Generic accessors:
-public:
-
-  virtual TCollection_ExtendedString
-    GetName();
-  
-  virtual void
-    SetName(const TCollection_ExtendedString& theName);
-
-// Initialization and accessors:
-public:
-
-  void
-    Init(const Handle(ActData_Mesh)& theMesh);
-
-  Handle(ActData_Mesh)
-    GetMesh() const;
-
-protected:
-
-  //! Allocation is allowed only via Instance method.
-  ActTest_StubMeshNode();
-
-};
-
-#endif
+void ActData_Mesh_Face::Print(Standard_OStream& OS) const
+{
+  OS << "face < " << myID <<" > : ( ";
+  for (Standard_Integer i=1; i<myNbNodes; ++i)
+    OS << GetConnection(i) << " , ";
+  OS << GetConnection(myNbNodes) << " )" << endl;
+}
