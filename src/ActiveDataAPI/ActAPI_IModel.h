@@ -46,6 +46,9 @@
 #include <Standard_Type.hxx>
 #include <TCollection_AsciiString.hxx>
 
+// Standard includes
+#include <vector>
+
 //! \ingroup AD_API
 //!
 // Active Data (API) forward declarations
@@ -311,6 +314,28 @@ public:
   //! \return Node instance.
   virtual Handle(ActAPI_INode)
     FindNode(const ActAPI_DataObjectId& theNodeId) const = 0;
+
+  //! Finds Data Node by its name.
+  //!
+  //! \param theNodeName [in] name of the Node to find.
+  //! \return found Node or NULL if nothing was found.
+  virtual Handle(ActAPI_INode)
+    FindNodeByName(const TCollection_ExtendedString& theNodeName) const = 0;
+
+  //! Finds all Data Nodes which have the specified name.
+  //!
+  //! \param theNodeName [in] name of the Nodes to find.
+  //! \return found Nodes or empty list if nothing was found.
+  virtual Handle(ActAPI_HNodeList)
+    FindNodesByName(const TCollection_ExtendedString& theNodeName) const = 0;
+
+  //! Finds Data Node by its name and the names of its direct parents.
+  //!
+  //! \param theNodeNames [in] names of the parent Nodes and the target
+  //!                          Node (the last item in the sequence).
+  //! \return found Node or NULL if nothing was found.
+  virtual Handle(ActAPI_INode)
+    FindNodeByNames(const std::vector<TCollection_ExtendedString>& theNodeNames) const = 0;
 
   //! Returns root Node of the Model.
   //! \return root Node.

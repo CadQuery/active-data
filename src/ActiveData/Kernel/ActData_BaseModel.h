@@ -201,6 +201,12 @@ public:
   ActData_EXPORT virtual Handle(ActAPI_INode)
     FindNodeByName(const TCollection_ExtendedString& theNodeName) const;
 
+  ActData_EXPORT virtual Handle(ActAPI_HNodeList)
+    FindNodesByName(const TCollection_ExtendedString& theNodeName) const;
+
+  ActData_EXPORT virtual Handle(ActAPI_INode)
+    FindNodeByNames(const std::vector<TCollection_ExtendedString>& theNodeNames) const;
+
   ActData_EXPORT virtual Handle(ActAPI_INode)
     GetRootNode() const;
 

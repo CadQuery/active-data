@@ -83,6 +83,22 @@
 Standard_Boolean ActData_BaseModel::MTime_On = 1;
 
 //----------------------------------------------------------------------------
+
+namespace
+{
+  Standard_Boolean HasParentWithName(const Handle(ActAPI_INode)&       theCandidate,
+                                     const TCollection_ExtendedString& theParentName)
+  {
+    Handle(ActAPI_INode) aParent = theCandidate->GetParentNode();
+    //
+    if ( aParent->GetName() == theParentName )
+      return Standard_True;
+
+    return Standard_False;
+  }
+};
+
+//----------------------------------------------------------------------------
 // Construction methods
 //----------------------------------------------------------------------------
 
@@ -485,6 +501,23 @@ Handle(ActAPI_INode) ActData_BaseModel::FindNode(const ActAPI_DataObjectId& theN
 Handle(ActAPI_INode)
   ActData_BaseModel::FindNodeByName(const TCollection_ExtendedString& theNodeName) const
 {
+  Handle(ActAPI_HNodeList) aFoundNodes = this->FindNodesByName(theNodeName);
+
+  if ( aFoundNodes->IsEmpty() )
+    return NULL;
+
+  return aFoundNodes->First();
+}
+
+//! Finds all Data Nodes which have the specified name.
+//!
+//! \param theNodeName [in] name of the Nodes to find.
+//! \return found Nodes or empty list if nothing was found.
+Handle(ActAPI_HNodeList)
+  ActData_BaseModel::FindNodesByName(const TCollection_ExtendedString& theNodeName) const
+{
+  Handle(ActAPI_HNodeList) aResult = new ActAPI_HNodeList;
+
   // Iterate over all registered Partitions
   PartitionMap::Iterator aPartIt( *m_partitionMap.operator->() );
   for ( ; aPartIt.More(); aPartIt.Next() )
@@ -502,11 +535,77 @@ Handle(ActAPI_INode)
         continue;
 
       if ( aNode->GetName() == theNodeName )
-        return aNode;
+        aResult->Append(aNode);
     }
   }
 
-  return NULL;
+  return aResult;
+}
+
+//! Finds Data Node by its name and the names of its direct parents.
+//!
+//! \param theNodeNames [in] names of the parent Nodes and the target
+//!                          Node (the last item in the sequence).
+//! \return found Node or NULL if nothing was found.
+Handle(ActAPI_INode)
+  ActData_BaseModel::FindNodeByNames(const std::vector<TCollection_ExtendedString>& theNodeNames) const
+{
+  if ( theNodeNames.size() < 1 )
+    return NULL;
+
+  // The last item in the passed sequence is the Node name
+  const TCollection_ExtendedString& aNodeName = theNodeNames[theNodeNames.size() - 1];
+
+  // In case if there is a single item, just find any Node
+  if ( theNodeNames.size() == 1 )
+    return this->FindNodeByName(aNodeName);
+
+  // Find all Nodes with the given Name
+  Handle(ActAPI_HNodeList) aHeadNodes = this->FindNodesByName(aNodeName);
+  //
+  if ( aHeadNodes->Length() < 1 )
+    return NULL;
+  //
+  if ( aHeadNodes->Length() == 1 )
+    return aHeadNodes->First();
+
+  // Loop over the parent Nodes checking their names.
+  //
+  // name 1 / name 2 / name 3
+  // -------------------------
+  //   N1  ->  N2   ->  N3
+  //   N4  ->  N5   ->  N6
+  //   N7  ->  N8   ->  N9
+  //   N10 ->  N11  ->  N12
+  // ...
+
+  Handle(ActAPI_INode) aResult;
+  //
+  for ( size_t k = theNodeNames.size() - 2; k >= 0; --k )
+  {
+    // Loop over the parent path for each candidate Node
+    for ( ActAPI_HNodeList::Iterator nit(*aHeadNodes); nit.More(); nit.Next() )
+    {
+      // Set result to be the currently iterated head Node
+      aResult = nit.Value();
+
+      Handle(ActAPI_INode) aParent = nit.Value()->GetParentNode();
+      //
+      if ( aParent.IsNull() || !aParent->IsWellFormed() )
+        break;
+
+      if ( aParent->GetName() == theNodeNames[k] )
+    }
+
+    // Prepend parent Nodes to the sequence of paths which is ordered
+    // like the input collection of names
+    aPathColumns.Prepend(aParents);
+  }
+
+  // Now choose those paths which have all names from the list
+  for ( int p = 1; p <= aNumPaths; ++p )
+  {
+  }
 }
 
 //! Returns the root Data Node defined by custom implementation.
