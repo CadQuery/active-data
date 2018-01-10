@@ -565,9 +565,6 @@ Handle(ActAPI_INode)
   //
   if ( aHeadNodes->Length() < 1 )
     return NULL;
-  //
-  if ( aHeadNodes->Length() == 1 )
-    return aHeadNodes->First();
 
   // Loop over the parent Nodes checking their names.
   //
@@ -579,33 +576,40 @@ Handle(ActAPI_INode)
   //   N10 ->  N11  ->  N12
   // ...
 
-  Handle(ActAPI_INode) aResult;
-  //
-  for ( size_t k = theNodeNames.size() - 2; k >= 0; --k )
+  // Loop over the head Nodes. For each head Node, we will traverse its
+  // parents to match their names against the input list of names.
+  for ( ActAPI_HNodeList::Iterator nit(*aHeadNodes); nit.More(); nit.Next() )
   {
-    // Loop over the parent path for each candidate Node
-    for ( ActAPI_HNodeList::Iterator nit(*aHeadNodes); nit.More(); nit.Next() )
-    {
-      // Set result to be the currently iterated head Node
-      aResult = nit.Value();
+    Handle(ActAPI_INode) aHead = nit.Value();
 
-      Handle(ActAPI_INode) aParent = nit.Value()->GetParentNode();
+    // Loop over the parents
+    Standard_Boolean     areNamesMatching = Standard_True;
+    Handle(ActAPI_INode) aCurrentNode     = aHead;
+    //
+    for ( int k = (int) theNodeNames.size() - 2; k >= 0; --k )
+    {
+      Handle(ActAPI_INode) aParent = aCurrentNode->GetParentNode();
       //
       if ( aParent.IsNull() || !aParent->IsWellFormed() )
+      {
+        areNamesMatching = Standard_False;
         break;
+      }
 
-      if ( aParent->GetName() == theNodeNames[k] )
+      if ( aParent->GetName() != theNodeNames[k] )
+      {
+        areNamesMatching = Standard_False;
+        break;
+      }
+
+      aCurrentNode = aParent;
     }
 
-    // Prepend parent Nodes to the sequence of paths which is ordered
-    // like the input collection of names
-    aPathColumns.Prepend(aParents);
+    if ( areNamesMatching )
+      return aHead;
   }
 
-  // Now choose those paths which have all names from the list
-  for ( int p = 1; p <= aNumPaths; ++p )
-  {
-  }
+  return NULL;
 }
 
 //! Returns the root Data Node defined by custom implementation.
