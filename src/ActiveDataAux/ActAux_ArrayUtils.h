@@ -96,6 +96,54 @@ public:
                 const Standard_Integer theNumElems,
                 Handle(HRealArray)&    theResult);
 
+  //-------------------------------------------------------------------------//
+
+  template <typename T>
+  static void ToCoords3d(const std::vector<T>& elems,
+                         Handle(HRealArray)&   coords)
+  {
+    if ( elems.size() == 0 )
+      return;
+
+    const Standard_Integer numElems = (Standard_Integer) elems.size();
+    //
+    coords = new HRealArray(0, numElems*3 - 1);
+    //
+    Standard_Integer idx = 0;
+    for ( size_t k = 0; k < elems.size(); ++k )
+    {
+      const Standard_Real x = elems[k].X();
+      const Standard_Real y = elems[k].Y();
+      const Standard_Real z = elems[k].Z();
+      //
+      coords->ChangeValue(idx++) = x;
+      coords->ChangeValue(idx++) = y;
+      coords->ChangeValue(idx++) = z;
+    }
+  }
+
+  //-------------------------------------------------------------------------//
+
+  template <typename T>
+  static void FromCoords3d(const Handle(HRealArray)& coords,
+                           std::vector<T>&           elems)
+  {
+    if ( coords.IsNull() )
+      return;
+
+    for ( Standard_Integer idx = 0; idx < coords->Length(); idx += 3 )
+    {
+      T elem;
+      elem.SetX( coords->Value(idx + 0) );
+      elem.SetY( coords->Value(idx + 1) );
+      elem.SetZ( coords->Value(idx + 2) );
+      //
+      elems.push_back(elem);
+    }
+  }
+
+  //-------------------------------------------------------------------------//
+
   //! Prepares copy of the passed array.
   //! \param theArr [in] array to copy.
   //! \return new array.
@@ -116,6 +164,8 @@ public:
 
     return aCopyCol;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Appends new element to the given array. New grown array will be actually
   //! created instead.
@@ -141,6 +191,8 @@ public:
     return aResizedCol;
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Prepend new element to the given array. New grown array will be actually
   //! created instead.
   //! \param theArr [in] array to affect.
@@ -164,6 +216,8 @@ public:
 
     return aResizedCol;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Removes the given element from the passed array. New array will be
   //! actually created instead.
@@ -194,6 +248,8 @@ public:
 
     return aResizedCol;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Resizes the passed array to the new size.
   //! New array will be actually created instead if the
@@ -228,6 +284,8 @@ public:
 
     return aResizedCol;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Resizes the passed matrix to the new size.
   //! New matrix will be actually created instead if the
@@ -279,6 +337,8 @@ public:
     return aResizedMx;
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Inserts new element after the given one in the passed array. New grown
   //! array will be actually created instead.
   //! \param theArr [in] array to affect.
@@ -311,6 +371,8 @@ public:
     return aResizedCol;
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Performs binary search in the given array.
   //! \param theArr [in] array to search in.
   //! \param theElem [in] element to search for.
@@ -330,6 +392,8 @@ public:
     return binarySearch<HColType, ElemType, ComparatorType>(aRangeFirst, aRangeLast, theArr, theElem,
                                                             theComparator);
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Searches for position of the given value in the passed array.
   //! \param theArr [in] source array.
@@ -352,6 +416,8 @@ public:
                                                                theComparator);
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Searches for position of the given value in the passed array.
   //! \param theArr [in] source array.
   //! \param theNumElems [in] number of elements in the array.
@@ -363,6 +429,8 @@ public:
   {
     return binarySearchPos_Real(0, theNumElems-1, theArr, theElem);
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Populates the given array with the passed value, incrementing this
   //! value as index monotonically grows.
@@ -384,6 +452,8 @@ public:
       aNextVal += theStep;
     }
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Populates the given array with random values lying in the specified
   //! range.
@@ -408,6 +478,8 @@ public:
     }
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Populates the given array with the passed value.
   //! \param theArr [in] array to populate.
   //! \param theVal [in] value to set in each element.
@@ -421,6 +493,8 @@ public:
     for ( Standard_Integer i = theArr->Lower(); i <= theArr->Upper(); ++i )
       theArr->SetValue(i, theVal);
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Populates the given matrix with the passed value.
   //! \param theMx [in] matrix to populate.
@@ -436,6 +510,8 @@ public:
       for ( Standard_Integer c = theMx->LowerCol(); c <= theMx->UpperCol(); ++c )
         theMx->SetValue(r, c, theVal);
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Populates the given matrix with random values lying in the specified
   //! range.
@@ -461,6 +537,8 @@ public:
     }
   }
 
+  //-------------------------------------------------------------------------//
+
   //! Compares two arrays with exact comparison via operator==.
   //! \param theArr1 [in] first array.
   //! \param theArr2 [in] second array.
@@ -485,6 +563,8 @@ public:
 
     return Standard_True;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Compares two arrays with tolerant comparison.
   //! \param theArr1 [in] first array.
@@ -514,6 +594,8 @@ public:
 
     return Standard_True;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Removes negative values from the given array. Initial array is not
   //! actually modified.
@@ -547,6 +629,8 @@ public:
 
     return aResult;
   }
+
+  //-------------------------------------------------------------------------//
 
   //! Makes array symmetrical against zero. This function will only
   //! work for positive- and negative-definite arrays.
@@ -601,6 +685,8 @@ public:
 
     return aResult;
   }
+
+  //-------------------------------------------------------------------------//
 
   ActAux_EXPORT static void
     NullifyArr(const Handle(HRealArray)& theArr);
