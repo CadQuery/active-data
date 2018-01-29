@@ -45,7 +45,7 @@
 
 // OCCT includes
 #include <BinMDF_ADriver.hxx>
-#include <CDM_MessageDriver.hxx>
+#include <Message_Messenger.hxx>
 
 DEFINE_STANDARD_HANDLE(ActData_MeshDriver, BinMDF_ADriver)
 
@@ -216,7 +216,7 @@ public:
 public:
 
   ActData_EXPORT
-    ActData_MeshDriver(const Handle(CDM_MessageDriver)& theMsgDriver);
+    ActData_MeshDriver(const Handle(Message_Messenger)& theMsgDriver);
 
 // Kernel:
 public:

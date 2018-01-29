@@ -40,7 +40,7 @@
 
 //! Constructor accepting Message Driver for the parent class.
 //! \param theMsgDriver [in] Message Driver for parent.
-ActData_MeshDriver::ActData_MeshDriver(const Handle(CDM_MessageDriver)& theMsgDriver)
+ActData_MeshDriver::ActData_MeshDriver(const Handle(Message_Messenger)& theMsgDriver)
 : BinMDF_ADriver(theMsgDriver)
 {
 }
@@ -70,7 +70,7 @@ Standard_Boolean
   Handle(ActData_MeshAttr) aMeshAttr = Handle(ActData_MeshAttr)::DownCast(ToTransient);
   if ( aMeshAttr.IsNull() )
   {
-    WriteMessage("ERROR: NULL Mesh Attribute");
+    myMessageDriver->Send("ERROR: NULL Mesh Attribute", Message_Fail);
     return Standard_False;
   }
 
@@ -105,7 +105,7 @@ void ActData_MeshDriver::Paste(const Handle(TDF_Attribute)& FromTransient,
   Handle(ActData_MeshAttr) aMeshAttr = Handle(ActData_MeshAttr)::DownCast(FromTransient);
   if ( aMeshAttr.IsNull() )
   {
-    WriteMessage("ERROR: NULL Mesh Attribute");
+    myMessageDriver->Send("ERROR: NULL Mesh Attribute", Message_Fail);
     return;
   }
 

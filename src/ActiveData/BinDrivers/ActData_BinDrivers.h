@@ -38,7 +38,7 @@
 
 // OCCT forward declarations
 class BinMDF_ADriverTable;
-class CDM_MessageDriver;
+class Message_Messenger;
 
 //! \ingroup AD_DF
 //!
@@ -49,7 +49,7 @@ public:
 
   ActData_EXPORT static void
     AddDrivers(const Handle(BinMDF_ADriverTable)& theDriverTable,
-               const Handle(CDM_MessageDriver)&   theMsgDriver);
+               const Handle(Message_Messenger)&   theMsgDriver);
 
 };
 

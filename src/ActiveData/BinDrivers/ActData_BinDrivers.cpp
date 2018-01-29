@@ -38,7 +38,7 @@
 
 // OCCT includes
 #include <BinMDF_ADriverTable.hxx>
-#include <CDM_MessageDriver.hxx>
+#include <Message_Messenger.hxx>
 
 #undef COUT_DEBUG
 
@@ -46,7 +46,7 @@
 //! \param theDriverTable [in] Driver Table.
 //! \param theMsgDriver [in] Message Driver.
 void ActData_BinDrivers::AddDrivers(const Handle(BinMDF_ADriverTable)& theDriverTable,
-                                    const Handle(CDM_MessageDriver)&   theMsgDriver)
+                                    const Handle(Message_Messenger)&   theMsgDriver)
 {
   theDriverTable->AddDriver( new ActData_MeshDriver(theMsgDriver) );
 }
