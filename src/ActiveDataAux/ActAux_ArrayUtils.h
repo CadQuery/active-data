@@ -96,6 +96,14 @@ public:
                 const Standard_Integer theNumElems,
                 Handle(HRealArray)&    theResult);
 
+  ActAux_EXPORT static void
+    ToRealArray(const std::vector<Standard_Real>& theVector,
+                Handle(HRealArray)&               theResult);
+
+  ActAux_EXPORT static void
+    FromRealArray(const Handle(HRealArray)&   theArray,
+                  std::vector<Standard_Real>& theResult);
+
   //-------------------------------------------------------------------------//
 
   template <typename T>

@@ -59,6 +59,28 @@ void ActAux_ArrayUtils::ToRealArray(const Standard_Real*   theArray,
     theResult->SetValue(i, theArray[i]);
 }
 
+//! Converts the passed vector of real values to persistent array.
+//! \param[in]  theVector vector to convert.
+//! \param[out] theResult resulting array.
+void ActAux_ArrayUtils::ToRealArray(const std::vector<Standard_Real>& theVector,
+                                    Handle(HRealArray)&               theResult)
+{
+  theResult = new HRealArray(0, Standard_Integer ( theVector.size() ) - 1);
+  //
+  for ( int k = 0; k < theResult->Length(); ++k )
+    theResult->ChangeValue(k) = theVector[k];
+}
+
+//! Converts the passed persistent array of real values to a vector.
+//! \param[in]  theArray  array to convert.
+//! \param[out] theResult resulting vector.
+void ActAux_ArrayUtils::FromRealArray(const Handle(HRealArray)&   theArray,
+                                      std::vector<Standard_Real>& theResult)
+{
+  for ( int k = theArray->Lower(); k != theArray->Upper(); ++k )
+    theResult.push_back( theArray->Value(k) );
+}
+
 //! Initializes the passed array with zeros.
 //! \param theArr [in] array to nullify.
 void ActAux_ArrayUtils::NullifyArr(const Handle(HRealArray)& theArr)
