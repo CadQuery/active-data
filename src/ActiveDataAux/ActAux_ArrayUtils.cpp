@@ -77,7 +77,7 @@ void ActAux_ArrayUtils::ToRealArray(const std::vector<Standard_Real>& theVector,
 void ActAux_ArrayUtils::FromRealArray(const Handle(HRealArray)&   theArray,
                                       std::vector<Standard_Real>& theResult)
 {
-  for ( int k = theArray->Lower(); k != theArray->Upper(); ++k )
+  for ( int k = theArray->Lower(); k <= theArray->Upper(); ++k )
     theResult.push_back( theArray->Value(k) );
 }
 
