@@ -216,7 +216,7 @@ public:
 public:
 
   ActData_EXPORT
-    ActData_MeshDriver(const Handle(Message_Messenger)& theMsgDriver);
+    ActData_MeshDriver(const Handle(CDM_MessageDriver)& theMsgDriver);
 
 // Kernel:
 public:

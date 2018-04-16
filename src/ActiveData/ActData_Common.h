@@ -43,6 +43,9 @@
 #include <ActAPI_INode.h>
 #include <ActAPI_IParameter.h>
 
+// OCCT includes
+#include <CDM_MessageDriver.hxx>
+
 // Macro to silent compiler warnings on unused function arguments
 #define ActData_NotUsed(x)
 

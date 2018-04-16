@@ -46,7 +46,7 @@
 //! \param theDriverTable [in] Driver Table.
 //! \param theMsgDriver [in] Message Driver.
 void ActData_BinDrivers::AddDrivers(const Handle(BinMDF_ADriverTable)& theDriverTable,
-                                    const Handle(Message_Messenger)&   theMsgDriver)
+                                    const Handle(CDM_MessageDriver)&   theMsgDriver)
 {
   theDriverTable->AddDriver( new ActData_MeshDriver(theMsgDriver) );
 }

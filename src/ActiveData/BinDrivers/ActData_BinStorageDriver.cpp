@@ -51,7 +51,7 @@ ActData_BinStorageDriver::ActData_BinStorageDriver()
 //! \param theMsgDriver [in] Message Driver.
 //! \return Driver Table.
 Handle(BinMDF_ADriverTable)
-ActData_BinStorageDriver::AttributeDrivers(const Handle(Message_Messenger)& theMsgDriver)
+ActData_BinStorageDriver::AttributeDrivers(const Handle(CDM_MessageDriver)& theMsgDriver)
 {
   // Standard drivers
   Handle(BinMDF_ADriverTable) aTable = BinDrivers::AttributeDrivers(theMsgDriver);

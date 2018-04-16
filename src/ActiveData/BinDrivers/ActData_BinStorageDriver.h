@@ -64,7 +64,7 @@ public:
 public:
 
   ActData_EXPORT virtual Handle(BinMDF_ADriverTable)
-    AttributeDrivers(const Handle(Message_Messenger)& theMsgDriver);
+    AttributeDrivers(const Handle(CDM_MessageDriver)& theMsgDriver);
 
 };
 
