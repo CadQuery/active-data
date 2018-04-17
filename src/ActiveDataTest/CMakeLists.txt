@@ -118,6 +118,7 @@ set (testdatamodel_CPP_FILES
 set (OCCT_LIB_FILES
   TKernel
   TKMath
+  TKG3d
 )
 
 #------------------------------------------------------------------------------

@@ -5,3 +5,9 @@
 [1:OVERVIEW]
 
   Performs test on accessing data stored in Shape Parameter.
+
+[2:OVERVIEW]
+
+  Performs test on accessing data stored in Shape Parameter.
+  In this case, a single reversed face is stored to check what
+  happens with its orientation.

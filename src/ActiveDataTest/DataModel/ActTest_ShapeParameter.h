@@ -72,13 +72,15 @@ public:
   //! \param functions [out] output collection of pointers.
   static void Functions(ActiveDataTestFunctions& functions)
   {
-    functions << &accessValue;
+    functions << &accessValue
+              << &accessReversedValue;
   }
 
 // Test functions:
 private:
 
   static bool accessValue(const int funcID);
+  static bool accessReversedValue(const int funcID);
 
 };
 
