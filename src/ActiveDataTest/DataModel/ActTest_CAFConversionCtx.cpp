@@ -1955,6 +1955,7 @@ Standard_Boolean
                                           const TCollection_AsciiString& theRefFn)
 {
   ActTestLib_FileComparator aFileCmp(theActualFn, theRefFn, Aux::DiffLineFilter);
+  aFileCmp.StartFromLine(6); // Skip irrelevant (and unstable) header.
   aFileCmp.Perform();
 
   if ( !aFileCmp.IsDone() )

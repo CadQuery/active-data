@@ -204,16 +204,24 @@ public:
 
 public:
 
+  //! Sets the starting line.
+  //! \param line [in] 1-based line index of the first line from which
+  //!                  comparison will start.
+  void StartFromLine(const Standard_Integer line)
+  {
+    m_iStartingLine = line;
+  }
+
   //! Returns true if comparison has been performed.
   //! \return true/false.
-  inline Standard_Boolean IsDone() const
+  Standard_Boolean IsDone() const
   {
     return m_bDone;
   }
 
   //! Returns true if compared files are the same.
   //! \return true/false.
-  inline Standard_Boolean AreSame() const
+  Standard_Boolean AreSame() const
   {
     return m_bResult;
   }
@@ -221,17 +229,18 @@ public:
   //! Returns index of the first line where some differences have been
   //! detected. Returns -1 if no such line found.
   //! \return index of line, starting from 1.
-  inline Standard_Integer LineWithDiffs() const
+  Standard_Integer LineWithDiffs() const
   {
     return m_iLineWithDiffs;
   }
 
 private:
 
-  TCollection_AsciiString               m_filename1;  //!< Filename 1.
-  TCollection_AsciiString               m_filename2;  //!< Filename 2.
-  ActAux_StrFilter                      m_filter;     //!< Line filter.
-  Handle(ActTestLib_BaseLineComparator) m_comparator; //!< Line comparator.
+  TCollection_AsciiString               m_filename1;     //!< Filename 1.
+  TCollection_AsciiString               m_filename2;     //!< Filename 2.
+  ActAux_StrFilter                      m_filter;        //!< Line filter.
+  Handle(ActTestLib_BaseLineComparator) m_comparator;    //!< Line comparator.
+  Standard_Integer                      m_iStartingLine; //!< Where to start.
 
 private:
 

@@ -56,6 +56,7 @@ ActTestLib_FileComparator::ActTestLib_FileComparator(const TCollection_AsciiStri
   m_filename2(theFilename2),
   m_filter(theLineFilter),
   m_comparator(theLineComparator.IsNull() ? new ActTestLib_DefaultLineComparator : theLineComparator),
+  m_iStartingLine(1),
   m_bDone(Standard_False),
   m_bResult(Standard_False),
   m_iLineWithDiffs(-1)
@@ -107,6 +108,9 @@ void ActTestLib_FileComparator::Perform()
     }
 
     FILE2.ReadLine(Buff2, BUFLEN, NbChar2);
+
+    if ( LineIdx < m_iStartingLine )
+      continue; // Skip until the starting line is iterated
 
     // Check filters. Normally filters are useful to exclude some dedicated
     // lines from comparison process. E.g. we can skip comparison of comment
