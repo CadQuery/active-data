@@ -225,7 +225,7 @@ Handle(ActAPI_IUserParameter)
   TDF_Label aTypeLab = theLabel.FindChild(ActData_UserParameter::DS_ParamType, Standard_False);
 
   if ( aTypeLab.IsNull() )
-    Standard_ProgramError::Raise("Inconsistent Type Label");
+    return NULL;
 
   Handle(TDataStd_Integer) aTypeAttr;
   if ( !aTypeLab.FindAttribute(TDataStd_Integer::GetID(), aTypeAttr) )
