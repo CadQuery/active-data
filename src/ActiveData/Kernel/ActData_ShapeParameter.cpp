@@ -71,6 +71,16 @@ void ActData_ShapeParameter::SetShape(const TopoDS_Shape& theShape,
   if ( this->IsDetached() )
     Standard_ProgramError::Raise("Cannot access detached data");
 
+  // NOTICE: there is a bug in OCAF. When you change orientation of a persistent
+  //         shape and rewrite this shape in its corresponding TNaming_NamedShape
+  //         attribute, this modification has no effect. To workaround the issue,
+  //         we unbind the previous shape from OCAF.
+  TopoDS_Shape prevShape = ActData_Utils::GetShapeValue(m_label, DS_Shape);
+  //
+  if ( !prevShape.IsNull() && prevShape.IsSame(theShape) )
+    ActData_Utils::SetShapeValue( m_label, DS_Shape, TopoDS_Shape() );
+
+  // Store new shape.
   ActData_Utils::SetShapeValue(m_label, DS_Shape, theShape);
 
   // Mark root label of the Parameter as modified (Touched, Impacted or Silent)

@@ -166,9 +166,8 @@ bool ActTest_ShapeParameter::accessReversedValue(const int ActTestLib_NotUsed(fu
 
   TopoDS_Shape returnedShape2 = param->GetShape();
 
-  // Validate the expected problem: orientation should change but that
-  // does not happen.
-  ACT_VERIFY(returnedShape2 != returnedShape)
+  // Validate: orientation should change.
+  ACT_VERIFY( returnedShape2.IsEqual(returnedShape) )
 
   return true;
 }

@@ -51,6 +51,7 @@
 #include <TFunction_Scope.hxx>
 #include <TNaming_Builder.hxx>
 #include <TNaming_NamedShape.hxx>
+#include <TNaming_UsedShapes.hxx>
 
 #define RET_DISPATCHED_ARRAY2MX_BEGIN(MxType, NbRows, NbCols, DataSource) \
   Handle(MxType) aResult = new MxType(0, NbRows - 1, 0, NbCols - 1); \
@@ -398,18 +399,44 @@ void ActData_Utils::SetShapeValue(const TDF_Label&       theLab,
                                   const TopoDS_Shape&    theShape)
 {
   TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag, Standard_True);
-  
-  TNaming_Builder aNBuilder(aDataLab);
-  aNBuilder.Generated(theShape);
+
+  if ( theShape.IsNull() )
+  {
+    TopoDS_Shape prevShape = GetShapeValue(theLab, theSubTag);
+
+    if ( !prevShape.IsNull() )
+    {
+      // Remove from the global UsedShapes attribute.
+      const TDF_Label& root = aDataLab.Root();
+      Handle(TNaming_UsedShapes) usedShapesAttr;
+      //
+      if ( root.FindAttribute(TNaming_UsedShapes::GetID(), usedShapesAttr) )
+        usedShapesAttr->Map().UnBind(prevShape);
+
+      // Remove from NamedShape attribute.
+      aDataLab.ForgetAttribute( TNaming_NamedShape::GetID() );
+    }
+  }
+  else
+  {
+    TNaming_Builder aNBuilder(aDataLab);
+    aNBuilder.Generated(theShape);
+  }
 }
 
 TopoDS_Shape ActData_Utils::GetShapeValue(const TDF_Label&       theLab,
                                           const Standard_Integer theSubTag)
 {
   TDF_Label aDataLab = ChooseLabelByTag(theLab, theSubTag);
+  //
+  if ( aDataLab.IsNull() )
+    return TopoDS_Shape();
 
   Handle(TNaming_NamedShape) aShapeAttr;
   aDataLab.FindAttribute(TNaming_NamedShape::GetID(), aShapeAttr);
+  //
+  if ( aShapeAttr.IsNull() )
+    return TopoDS_Shape();
 
   return aShapeAttr->Get();
 }
