@@ -412,16 +412,11 @@ void ActData_Utils::SetShapeValue(const TDF_Label&       theLab,
       //
       if ( root.FindAttribute(TNaming_UsedShapes::GetID(), usedShapesAttr) )
         usedShapesAttr->Map().UnBind(prevShape);
-
-      // Remove from NamedShape attribute.
-      aDataLab.ForgetAttribute( TNaming_NamedShape::GetID() );
     }
   }
-  else
-  {
-    TNaming_Builder aNBuilder(aDataLab);
-    aNBuilder.Generated(theShape);
-  }
+
+  TNaming_Builder aNBuilder(aDataLab);
+  aNBuilder.Generated(theShape);
 }
 
 TopoDS_Shape ActData_Utils::GetShapeValue(const TDF_Label&       theLab,
