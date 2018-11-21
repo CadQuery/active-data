@@ -152,6 +152,9 @@ public:
   ActData_EXPORT virtual Handle(ActAPI_INode)
     GetNode();
 
+  ActData_EXPORT virtual ActAPI_DataObjectId
+    GetNodeId();
+
   ActData_EXPORT virtual void
     SetUserFlags(const Standard_Integer theUFlags,
                  const ActAPI_ModificationType theModType = MT_Silent);

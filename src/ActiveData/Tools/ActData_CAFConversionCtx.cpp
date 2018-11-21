@@ -410,7 +410,7 @@ Standard_Boolean
     // Label. It can happen that this Label is a "ghost" one if it corresponds
     // to removed Parameter with any remaining references
     Handle(ActAPI_IUserParameter) P;
-    if ( ActParamTool::IsParameter(PRoot) )
+    if ( ActParamTool::IsUserParameter(PRoot) )
       P = ActParamTool::NewParameterSettle(PRoot);
 
     // If we face "ghost" Parameter, we just skip it. Subsequently all
@@ -745,7 +745,7 @@ Handle(ActAPI_IUserParameter)
     N->RootLabel().FindChild(ActData_BaseNode::TagUser, Standard_False)
                   .FindChild(theGID.PID, Standard_False);
 
-  if ( !ActParamTool::IsParameter(PLab) )
+  if ( !ActParamTool::IsUserParameter(PLab) )
     return NULL;
 
   return ActParamTool::NewParameterSettle(PLab);

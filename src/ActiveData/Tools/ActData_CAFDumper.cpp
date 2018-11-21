@@ -459,7 +459,7 @@ void
   }
 
   // Check whether this Label represents a Parameter. If so, dump it
-  Standard_Boolean isParameter = ActData_ParameterFactory::IsParameter(theLabel);
+  Standard_Boolean isParameter = ActData_ParameterFactory::IsUserParameter(theLabel);
   if ( isParameter &&
        theVerbosity > Verbosity_StructureNodesOnly )
   {

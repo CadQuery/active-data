@@ -180,17 +180,26 @@ Handle(ActAPI_INode) ActData_UserParameter::GetNode()
    *  Access Node TDF Label & allocate the Node instance
    * ==================================================== */
 
-  // NOTICE: User Parameters may be used in META section. If it happens,
-  //         then Father() should be called three times
-
   // Two levels up: check if we have reached META root
   TDF_Label aNodeLabel = m_label.Father().Father();
   //
-  Handle(TDataStd_TreeNode) TN;
-  if ( aNodeLabel.FindAttribute(TDataStd_TreeNode::GetDefaultTreeID(), TN) )
-    aNodeLabel = aNodeLabel.Father();
+  if ( !ActData_NodeFactory::IsNode(aNodeLabel) )
+  {
+    // NOTICE: User Parameters may be used in META section. If it happens,
+    //         then Father() should be called three times
+    Handle(TDataStd_TreeNode) TN;
+    if ( aNodeLabel.FindAttribute(TDataStd_TreeNode::GetDefaultTreeID(), TN) )
+      aNodeLabel = aNodeLabel.Father();
+  }
 
   return ActData_NodeFactory::NodeSettle(aNodeLabel);
+}
+
+//! Extract ID of the Node by cutting out the trailing tags of the
+//! Parameter's ID.
+ActAPI_DataObjectId ActData_UserParameter::GetNodeId()
+{
+  return ActData_Common::NodeIdByParameterId( this->GetId() );
 }
 
 //! Sets client-specific flags in form of a single integer. Normally such

@@ -34,6 +34,7 @@
 #include <ActData_TransactionEngine.h>
 
 // Active Data includes
+#include <ActData_BaseNode.h>
 #include <ActData_ParameterFactory.h>
 
 // OCCT includes
@@ -42,12 +43,16 @@
 #include <TDF_ListIteratorOfAttributeDeltaList.hxx>
 #include <TDF_ListIteratorOfDeltaList.hxx>
 #include <TDF_ListIteratorOfLabelList.hxx>
+#include <TDF_Tool.hxx>
 
 #define ERR_TRANSACTION_DEPLOYMENT_OFF "Transactions are OFF"
 #define ERR_NULL_DOC "Document is NULL"
 #define ERR_TR_ALREADY_OPENED "Command is already opened"
 
 #undef COUT_DEBUG
+#if defined COUT_DEBUG
+  #pragma message("===== warning: COUT_DEBUG is enabled")
+#endif
 
 //-----------------------------------------------------------------------------
 // Construction & initialization
@@ -162,8 +167,8 @@ void ActData_TransactionEngine::AbortCommand()
 
 //! Performs Undo operation.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-//! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+//! \return affected Parameters (including META).
+Handle(ActAPI_TxRes)
   ActData_TransactionEngine::Undo(const Standard_Integer theNbUndoes)
 {
   if ( this->isTransactionModeOff() )
@@ -174,7 +179,8 @@ Handle(ActAPI_HParameterMap)
 
   // Get Parameters which are going to be affected by Undo operation with
   // the given depth
-  Handle(ActAPI_HParameterMap) anAffectedParams = this->parametersToUndo(theNbUndoes);
+  Handle(ActAPI_HDataObjectIdMap)
+    anAffectedObjectIds = this->entriesToUndo(theNbUndoes);
 
   // Perform Undoes one-by-one
   for ( Standard_Integer NbDone = 0; NbDone < theNbUndoes; NbDone++ )
@@ -182,12 +188,16 @@ Handle(ActAPI_HParameterMap)
     m_doc->Undo();
   }
 
+  // Get Parameters after Data Model modification by Undo()
+  Handle(ActAPI_TxRes)
+    aTxRes = this->extractTxRes(anAffectedObjectIds);
+
   // Now touch the affected Parameters so that actualizing their MTime
-  this->touchParameters(anAffectedParams);
+  this->touchAffectedParameters(aTxRes);
 
   m_bIsActiveTransaction = Standard_False;
 
-  return anAffectedParams;
+  return aTxRes;
 }
 
 //! Returns the number of available Undo deltas.
@@ -205,8 +215,8 @@ Standard_Integer ActData_TransactionEngine::NbUndos() const
 
 //! Performs Redo operation.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-//! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+//! \return affected Parameters (including META).
+Handle(ActAPI_TxRes)
   ActData_TransactionEngine::Redo(const Standard_Integer theNbRedoes)
 {
   if ( this->isTransactionModeOff() )
@@ -217,7 +227,8 @@ Handle(ActAPI_HParameterMap)
 
   // Get Parameters which are going to be affected by Redo operation with
   // the given depth
-  Handle(ActAPI_HParameterMap) anAffectedParams = this->parametersToRedo(theNbRedoes);
+  Handle(ActAPI_HDataObjectIdMap)
+    anAffectedObjectIds = this->entriesToRedo(theNbRedoes);
 
   // Perform Redoes one-by-one
   for ( Standard_Integer NbDone = 0; NbDone < theNbRedoes; NbDone++ )
@@ -225,12 +236,16 @@ Handle(ActAPI_HParameterMap)
     m_doc->Redo();
   }
 
+  // Get Parameters after Data Model modification by Redo()
+  Handle(ActAPI_TxRes)
+    aTxRes = this->extractTxRes(anAffectedObjectIds);
+
   // Now touch the affected Parameters so that actualizing their MTime
-  this->touchParameters(anAffectedParams);
+  this->touchAffectedParameters(aTxRes);
 
   m_bIsActiveTransaction = Standard_False;
 
-  return anAffectedParams;
+  return aTxRes;
 }
 
 //! Returns the number of available Redo deltas.
@@ -250,20 +265,24 @@ Standard_Integer ActData_TransactionEngine::NbRedos() const
 // Services for internal & friend usage only
 //-----------------------------------------------------------------------------
 
-//! Collects the Nodal Parameters which are going to affected by Undo
+//! Collects IDs of the data objects which are going to affected by Undo
 //! operation with the given depth. This method must be invoked BEFORE
 //! actual Undo is launched.
 //! \param theNbUndoes [in] Undo depth.
-//! \return collection of affected Parameters.
-Handle(ActAPI_HParameterMap)
-  ActData_TransactionEngine::parametersToUndo(const Standard_Integer theNbUndoes) const
+//! \return collection of affected data object IDs.
+Handle(ActAPI_HDataObjectIdMap)
+  ActData_TransactionEngine::entriesToUndo(const Standard_Integer theNbUndoes) const
 {
-  Handle(ActAPI_HParameterMap) aParamMap = new ActAPI_HParameterMap();
+  Handle(ActAPI_HDataObjectIdMap) aMap = new ActAPI_HDataObjectIdMap();
 
-  const TDF_DeltaList& aDeltaList = m_doc->GetUndos();
-  Standard_Integer aNbDeltas = aDeltaList.Extent();
-  Standard_Integer aDeltaIndex = 0;
-  Standard_Integer aFirstDeltaIndex = aNbDeltas - theNbUndoes + 1;
+  const TDF_DeltaList& aDeltaList       = m_doc->GetUndos();
+  Standard_Integer     aNbDeltas        = aDeltaList.Extent();
+  Standard_Integer     aDeltaIndex      = 0;
+  Standard_Integer     aFirstDeltaIndex = aNbDeltas - theNbUndoes + 1;
+
+#if defined COUT_DEBUG
+  std::cout << "Undo..." << std::endl;
+#endif
 
   for ( TDF_ListIteratorOfDeltaList it(aDeltaList); it.More(); it.Next() )
   {
@@ -271,26 +290,30 @@ Handle(ActAPI_HParameterMap)
     if ( aDeltaIndex < aFirstDeltaIndex )
       continue; // Skip the oldest non-requested Deltas
 
-    this->addParametersByDelta(it.Value(), aParamMap);
+    this->addEntriesByDelta(it.Value(), aMap);
   }
 
-  return aParamMap;
+  return aMap;
 }
 
-//! Collects the Nodal Parameters which are going to affected by Redo
+//! Collects IDs of the data objects which are going to affected by Redo
 //! operation with the given depth. This method must be invoked BEFORE
 //! actual Redo is launched.
 //! \param theNbRedoes [in] Redo depth.
-//! \return collection of affected Parameters.
-Handle(ActAPI_HParameterMap)
-  ActData_TransactionEngine::parametersToRedo(const Standard_Integer theNbRedoes) const
+//! \return collection of affected data object IDs.
+Handle(ActAPI_HDataObjectIdMap)
+  ActData_TransactionEngine::entriesToRedo(const Standard_Integer theNbRedoes) const
 {
-  Handle(ActAPI_HParameterMap) aParamMap = new ActAPI_HParameterMap();
+  Handle(ActAPI_HDataObjectIdMap) aMap = new ActAPI_HDataObjectIdMap();
 
-  const TDF_DeltaList& aDeltaList = m_doc->GetRedos();
-  Standard_Integer aNbDeltas = aDeltaList.Extent();
-  Standard_Integer aDeltaIndex = 0;
-  Standard_Integer aLastDeltaIndex = aNbDeltas - theNbRedoes + 1;
+  const TDF_DeltaList& aDeltaList      = m_doc->GetRedos();
+  Standard_Integer     aNbDeltas       = aDeltaList.Extent();
+  Standard_Integer     aDeltaIndex     = 0;
+  Standard_Integer     aLastDeltaIndex = aNbDeltas - theNbRedoes + 1;
+
+#if defined COUT_DEBUG
+  std::cout << "Redo..." << std::endl;
+#endif
 
   for ( TDF_ListIteratorOfDeltaList it(aDeltaList); it.More(); it.Next() )
   {
@@ -298,38 +321,44 @@ Handle(ActAPI_HParameterMap)
     if ( aDeltaIndex > aLastDeltaIndex )
       break; // Skip the oldest non-requested Deltas
 
-    this->addParametersByDelta(it.Value(), aParamMap);
+    this->addEntriesByDelta(it.Value(), aMap);
   }
 
-  return aParamMap;
+  return aMap;
 }
 
 //! Iterates over the passed collection of Parameters attempting to touch
 //! those of them which are still WELL-FORMED, i.e. were not removed or
 //! damaged anyhow.
 //! \param theParam [in] Parameters to touch.
-void ActData_TransactionEngine::touchParameters(const Handle(ActAPI_HParameterMap)& theParams)
+void ActData_TransactionEngine::touchAffectedParameters(const Handle(ActAPI_TxRes)& theRes)
 {
   // Now touch the affected Parameters so that actualizing their MTime
   this->DisableTransactions();
-  for ( ActAPI_ParameterMap::Iterator it( *theParams.operator->() ); it.More(); it.Next() )
+  for ( int k = 1; k <= theRes->parameterRefs.Extent(); ++k )
   {
-    const Handle(ActAPI_IUserParameter)& aParam = it.Value();
+    const Handle(ActAPI_IDataCursor)& aDC = theRes->parameterRefs(k).dc;
+    //
+    if ( aDC.IsNull() || !aDC->IsKind( STANDARD_TYPE(ActAPI_IUserParameter) ) )
+      continue;
 
-#if defined ACT_DEBUG && defined COUT_DEBUG
-    cout << "UNDO: touching Parameter " << aParam->DynamicType()->Name() << "... ";
+    const Handle(ActAPI_IUserParameter)&
+      aUserParam = Handle(ActAPI_IUserParameter)::DownCast(aDC);
+
+#if defined COUT_DEBUG
+    cout << "UNDO: touching Parameter " << aUserParam->DynamicType()->Name() << "... ";
 #endif
 
-    if ( aParam->IsWellFormed() )
+    if ( aUserParam->IsWellFormed() )
     {
-      aParam->SetModified();
+      aUserParam->SetModified();
 
-#if defined ACT_DEBUG && defined COUT_DEBUG
+#if defined COUT_DEBUG
       cout << "WELL-FORMED ["
-           << aParam->GetNode()->DynamicType()->Name() << "] --> Modified" << endl;
+           << aUserParam->GetNode()->DynamicType()->Name() << "] --> Modified" << endl;
 #endif
     }
-#if defined ACT_DEBUG && defined COUT_DEBUG
+#if defined COUT_DEBUG
     else
       cout << "BAD-FORMED <-- Deleted?" << endl;
 #endif
@@ -338,12 +367,12 @@ void ActData_TransactionEngine::touchParameters(const Handle(ActAPI_HParameterMa
 }
 
 //! Retrieves Nodal Parameters affected by the given Delta and pushes them
-//! into the passed collection.
-//! \param theDelta [in] Delta to get Parameters for.
-//! \param theMap [out] resulting cumulative map of Parameters. It is not
-//!        cleaned up before usage.
-void ActData_TransactionEngine::addParametersByDelta(const Handle(TDF_Delta)& theDelta,
-                                                     Handle(ActAPI_HParameterMap)& theMap) const
+//! into the passed collection. META Parameters are also added.
+//! \param theDelta [in]  Delta to get Parameters for.
+//! \param theMap   [out] resulting cumulative map of Parameters. It is not
+//!                       cleaned up before usage.
+void ActData_TransactionEngine::addEntriesByDelta(const Handle(TDF_Delta)&         theDelta,
+                                                  Handle(ActAPI_HDataObjectIdMap)& theMap) const
 {
   const TDF_AttributeDeltaList& attrDeltas = theDelta->AttributeDeltas();
   for ( TDF_ListIteratorOfAttributeDeltaList it(attrDeltas); it.More(); it.Next() )
@@ -353,12 +382,16 @@ void ActData_TransactionEngine::addParametersByDelta(const Handle(TDF_Delta)& th
       continue;
 
     TDF_Label aLab = attrDelta->Label();
+    //
+    TCollection_AsciiString entry;
+    TDF_Tool::Entry(aLab, entry);
 
-    Handle(ActAPI_IUserParameter)
-      aParamByLabel = ActData_ParameterFactory::ParamByChildLabelSettle(aLab);
+#if defined COUT_DEBUG
+    std::cout << "\tEntry of affected label: " << entry.ToCString() << std::endl;
+#endif
 
-    if ( !aParamByLabel.IsNull() && aParamByLabel->IsWellFormed() )
-      theMap->Add(aParamByLabel);
+    // Add entry.
+    theMap->Add(entry);
   }
 }
 
@@ -376,4 +409,74 @@ Standard_Boolean ActData_TransactionEngine::isTransactionModeOn() const
 Standard_Boolean ActData_TransactionEngine::isTransactionModeOff() const
 {
   return !this->isTransactionModeOn();
+}
+
+//! Creates a Data Cursor for a Parameter by its global ID.
+//! \param[in]  pid     persistent ID.
+//! \param[out] isParam indicates whether the passed persistent ID is the ID
+//!                     of a User or Meta Parameter.
+//! \return Data Cursor instance.
+Handle(ActAPI_IDataCursor)
+  ActData_TransactionEngine::parameterById(const ActAPI_ParameterId& pid,
+                                           Standard_Boolean&         isParam) const
+{
+  // Check the number of tags.
+  std::vector<ActAPI_DataObjectId> tags;
+  ActData_Common::SplitTags(pid, tags);
+  //
+  const int nTags = int( tags.size() );
+  //
+  if ( nTags < ActData_NumTags_MetaParameterId )
+  {
+    isParam = Standard_False;
+    return NULL; // Not a Parameter simply because its ID has not enough capacity.
+  }
+  //
+  isParam = Standard_True;
+
+  TDF_Label aLab;
+  TDF_Tool::Label(m_doc->GetData(), pid, aLab);
+
+  // Try to get User Parameter.
+  Handle(ActAPI_IDataCursor) aParamByLabel;
+  //
+  if ( nTags == ActData_NumTags_UserParameterId )
+  {
+    if ( aLab.Father().Tag() != ActData_BaseNode::TagUser )
+    {
+      isParam = Standard_False;
+      return NULL; // Not a Parameter because it is not under the USER (`TagUser`) section.
+    }
+
+    aParamByLabel = ActData_ParameterFactory::ParamByChildLabelSettle(aLab);
+  }
+  else
+    aParamByLabel = ActData_ParameterFactory::MetaParamByLabelSettle(aLab);
+
+  return aParamByLabel;
+}
+
+//! Extracts the transaction result for the passed collection of persistent IDs.
+//! \param[in] pids collection of persistent IDs.
+Handle(ActAPI_TxRes)
+  ActData_TransactionEngine::extractTxRes(const Handle(ActAPI_HDataObjectIdMap)& pids) const
+{
+  Handle(ActAPI_TxRes) result = new ActAPI_TxRes;
+
+  for ( int k = 1; k <= pids->Extent(); ++k )
+  {
+    Standard_Boolean           isParam = Standard_False;
+    ActAPI_DataObjectId        id      = ActData_Common::TrimToParameterId( pids->FindKey(k) );
+    Handle(ActAPI_IDataCursor) dc      = this->parameterById(id, isParam);
+    //
+    if ( !isParam )
+      continue; // Skip persistent items which are not Parameters.
+
+    // Check whether the Parameter in question is alive or not.
+    const Standard_Boolean isAlive = ( !dc.IsNull() && dc->IsWellFormed() );
+    //
+    result->Add(id, dc, isAlive);
+  }
+
+  return result;
 }

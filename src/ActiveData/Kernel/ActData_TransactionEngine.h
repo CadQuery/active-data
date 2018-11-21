@@ -36,12 +36,13 @@
 // Active Data includes
 #include <ActData_Common.h>
 
+// Active Data (API) includes
+#include <ActAPI_TxRes.h>
+
 // OCCT includes
 #include <TDocStd_Document.hxx>
 
 #define DEFAULT_UNDO_LIMIT 100
-
-DEFINE_STANDARD_HANDLE(ActData_TransactionEngine, Standard_Transient)
 
 //! \ingroup AD_DF
 //!
@@ -63,12 +64,13 @@ public:
   // OCCT RTTI
   DEFINE_STANDARD_RTTI_INLINE(ActData_TransactionEngine, Standard_Transient)
 
-// Common functionality:
 public:
 
   ActData_EXPORT
     ActData_TransactionEngine(const Handle(TDocStd_Document)& theDoc,
-                              const Standard_Integer UndoLimit = DEFAULT_UNDO_LIMIT);
+                              const Standard_Integer          theUndoLimit = DEFAULT_UNDO_LIMIT);
+
+public:
 
   ActData_EXPORT virtual void
     Release();
@@ -94,13 +96,13 @@ public:
   ActData_EXPORT virtual void
     AbortCommand();
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Undo(const Standard_Integer theNbUndoes = 1);
 
   ActData_EXPORT virtual Standard_Integer
     NbUndos() const;
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Redo(const Standard_Integer theNbRedoes = 1);
 
   ActData_EXPORT virtual Standard_Integer
@@ -114,24 +116,31 @@ protected:
 
 private:
 
-  Handle(ActAPI_HParameterMap)
-    parametersToUndo(const Standard_Integer theNbUndoes) const;
+  Handle(ActAPI_HDataObjectIdMap)
+    entriesToUndo(const Standard_Integer theNbUndoes) const;
 
-  Handle(ActAPI_HParameterMap)
-    parametersToRedo(const Standard_Integer theNbRedoes) const;
-
-  void
-    touchParameters(const Handle(ActAPI_HParameterMap)& theParams);
+  Handle(ActAPI_HDataObjectIdMap)
+    entriesToRedo(const Standard_Integer theNbRedoes) const;
 
   void
-    addParametersByDelta(const Handle(TDF_Delta)& theDelta,
-                         Handle(ActAPI_HParameterMap)& theMap) const;
+    touchAffectedParameters(const Handle(ActAPI_TxRes)& theParams);
+
+  void
+    addEntriesByDelta(const Handle(TDF_Delta)&         theDelta,
+                      Handle(ActAPI_HDataObjectIdMap)& theMap) const;
 
   Standard_Boolean
     isTransactionModeOn() const;
 
   Standard_Boolean
     isTransactionModeOff() const;
+
+  Handle(ActAPI_IDataCursor)
+    parameterById(const ActAPI_ParameterId& pid,
+                  Standard_Boolean&         isParam) const;
+
+  Handle(ActAPI_TxRes)
+    extractTxRes(const Handle(ActAPI_HDataObjectIdMap)& pids) const;
 
 protected:
 

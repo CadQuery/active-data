@@ -38,6 +38,7 @@
 #include <ActAPI_IPartition.h>
 #include <ActAPI_IProgressNotifier.h>
 #include <ActAPI_TxData.h>
+#include <ActAPI_TxRes.h>
 
 // OCCT includes
 #include <NCollection_DataMap.hxx>
@@ -253,8 +254,8 @@ public:
 
   //! Performs Undo action on the underlying CAF document.
   //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
-  //! \return affected Parameters.
-  virtual Handle(ActAPI_HParameterMap)
+  //! \return affected Parameters (including META ones).
+  virtual Handle(ActAPI_TxRes)
     Undo(const Standard_Integer theNbUndoes = 1) = 0;
 
   //! Returns the number of currently available Undo deltas.
@@ -264,8 +265,8 @@ public:
 
   //! Performs Redo action on the underlying CAF document.
   //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
-  //! \return affected Parameters.
-  virtual Handle(ActAPI_HParameterMap)
+  //! \return affected Parameters (including META ones).
+  virtual Handle(ActAPI_TxRes)
     Redo(const Standard_Integer theNbRedoes = 1) = 0;
 
   //! Returns the number of currently available Redo deltas.

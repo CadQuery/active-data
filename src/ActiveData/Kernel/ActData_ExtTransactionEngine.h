@@ -64,10 +64,10 @@ public:
 // Kernel methods:
 public:
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Undo(const Standard_Integer theNbUndoes);
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Redo(const Standard_Integer theNbRedoes);
 
   ActData_EXPORT virtual void

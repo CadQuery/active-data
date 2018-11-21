@@ -375,7 +375,7 @@ Handle(ActAPI_IDataCursor)
 
   if ( !aTargetLab.IsNull() )
   {
-    if ( ActData_ParameterFactory::IsParameter(aTargetLab) )
+    if ( ActData_ParameterFactory::IsUserParameter(aTargetLab) )
       return ActData_ParameterFactory::NewParameterSettle(aTargetLab);
     else if ( ActData_NodeFactory::IsNode(aTargetLab) )
       return ActData_NodeFactory::NodeSettle(aTargetLab);

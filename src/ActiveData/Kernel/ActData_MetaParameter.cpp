@@ -129,6 +129,34 @@ TDF_Label ActData_MetaParameter::RootLabel() const
 }
 
 //-----------------------------------------------------------------------------
+// Getters for the owner Node
+//-----------------------------------------------------------------------------
+
+//! Returns the Data Node the Parameter is associated to.
+//! \return Data Node instance.
+Handle(ActAPI_INode) ActData_MetaParameter::GetNode()
+{
+  if ( this->IsDetached() )
+    Standard_ProgramError::Raise("Cannot access detached data");
+
+  /* ====================================================
+   *  Access Node TDF Label & allocate the Node instance
+   * ==================================================== */
+
+  // Level up
+  TDF_Label aNodeLabel = m_label.Father();
+
+  return ActData_NodeFactory::NodeSettle(aNodeLabel);
+}
+
+//! Extract ID of the Node by cutting out the trailing tags of the
+//! Parameter's ID.
+ActAPI_DataObjectId ActData_MetaParameter::GetNodeId() const
+{
+  return ActData_Common::NodeIdByParameterId( this->GetId() );
+}
+
+//-----------------------------------------------------------------------------
 // Getters & Setters [TYPE]
 //-----------------------------------------------------------------------------
 

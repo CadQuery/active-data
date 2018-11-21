@@ -243,7 +243,7 @@ Handle(ActAPI_HParameterList)
   {
     TDF_Label aParamRootLab = it.Value();
 
-    if ( !ActData_ParameterFactory::IsParameter(aParamRootLab) )
+    if ( !ActData_ParameterFactory::IsUserParameter(aParamRootLab) )
       Standard_ProgramError::Raise("Not valid CAF Document structure");
 
     Handle(ActData_UserParameter)

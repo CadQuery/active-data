@@ -91,6 +91,7 @@ class ActData_MetaParameter : public ActAPI_IDataCursor
 {
 friend class ActData_BaseNode;
 friend class ActData_CAFConversionCtx;
+friend class ActData_ParameterFactory;
 
 public:
 
@@ -127,6 +128,15 @@ public:
 
 // Setters and getters:
 public:
+
+  //---------------------------------------------------------------------------
+  // NODE
+
+  ActData_EXPORT Handle(ActAPI_INode)
+    GetNode();
+
+  ActData_EXPORT ActAPI_DataObjectId
+    GetNodeId() const;
 
   //---------------------------------------------------------------------------
   // TYPE
@@ -244,7 +254,7 @@ public:
 // Evaluation mechanism:
 public:
 
-  inline Handle(ActAPI_HSparseParameterList)& Evaluators() { return m_evaluators; }
+  Handle(ActAPI_HSparseParameterList)& Evaluators() { return m_evaluators; }
 
 protected:
 

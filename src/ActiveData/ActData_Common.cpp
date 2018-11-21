@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
-// Created on: February 2012
+// Created on: November 2018
 //-----------------------------------------------------------------------------
-// Copyright (c) 2017, OPEN CASCADE SAS
+// Copyright (c) 2018-present, OPEN CASCADE SAS
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -30,57 +30,72 @@
 // Web: http://dev.opencascade.org
 //-----------------------------------------------------------------------------
 
-#ifndef ActData_Common_HeaderFile
-#define ActData_Common_HeaderFile
-
 // Active Data includes
-#include <ActData.h>
-
-// Active Data (auxiliary) includes
-#include <ActAux.h>
-
-// Active Data (API) includes
-#include <ActAPI_INode.h>
-#include <ActAPI_IParameter.h>
-
-// Macro to silent compiler warnings on unused function arguments
-#define ActData_NotUsed(x)
-
-#define ActData_NumTags_NodeId          4
-#define ActData_NumTags_MetaParameterId 5
-#define ActData_NumTags_UserParameterId 6
+#include <ActData_Common.h>
 
 //-----------------------------------------------------------------------------
-// DOXY group definition
-//-----------------------------------------------------------------------------
-//! \defgroup AD_DF Data Framework
-//!
-//! Data Framework.
-//-----------------------------------------------------------------------------
 
-namespace ActData_Common
+void ActData_Common::SplitTags(const ActAPI_DataObjectId&            objectId,
+                               std::vector<TCollection_AsciiString>& tags)
 {
-  //! Splits the passed ID by the conventional delimiter ":" onto tags.
-  //! E.g., the result of splitting the id "0:1:2" will be the vector
-  //! whose components are "0", "1" and "2".
-  //! \param[in]  objectId input ID to split.
-  //! \param[out] tags     resulting collection of tags after split.
-  ActData_EXPORT void
-    SplitTags(const ActAPI_DataObjectId&            objectId,
-              std::vector<TCollection_AsciiString>& tags);
+  TCollection_AsciiString token;
+  Standard_Integer t = 1;
+  //
+  do
+  {
+    token = objectId.Token(":", t++);
+    if ( token.Length() )
+      tags.push_back(token);
+  }
+  while ( token.Length() );
+}
 
-  //! Extracts ID of the Node by ID of the Parameter.
-  //! \param[in] paramId ID of the Parameter.
-  //! \return corresponding Node ID.
-  ActData_EXPORT ActAPI_NodeId
-    NodeIdByParameterId(const ActAPI_ParameterId& paramId);
+//-----------------------------------------------------------------------------
 
-  //! Removes trailing tags to trim the passed object ID to the User Parameter
-  //! ID or Meta Parameter ID.
-  //! \param[in] objectId object ID to trim.
-  //! \return trimmed objectId.
-  ActData_EXPORT ActAPI_DataObjectId
-    TrimToParameterId(const ActAPI_DataObjectId& objectId);
-};
+ActAPI_NodeId
+  ActData_Common::NodeIdByParameterId(const ActAPI_ParameterId& paramId)
+{
+  std::vector<ActAPI_DataObjectId> tags;
+  ActData_Common::SplitTags(paramId, tags);
 
-#endif
+  int tagsToSkip = 0;
+  if ( tags.size() == ActData_NumTags_MetaParameterId )
+    tagsToSkip = 1;
+  else if ( tags.size() == ActData_NumTags_UserParameterId )
+    tagsToSkip = 2;
+  else
+    Standard_ProgramError::Raise("Unexpected format of Parameter ID.");
+
+  ActAPI_DataObjectId nodeId;
+  for ( size_t k = 0; k < tags.size() - tagsToSkip; ++k )
+  {
+    if ( k > 0 )
+      nodeId += ":";
+    //
+    nodeId += tags[k];
+  }
+
+  return nodeId;
+}
+
+//-----------------------------------------------------------------------------
+
+ActAPI_DataObjectId
+  ActData_Common::TrimToParameterId(const ActAPI_DataObjectId& objectId)
+{
+  std::vector<ActAPI_DataObjectId> tags;
+  ActData_Common::SplitTags(objectId, tags);
+
+  ActAPI_DataObjectId trimmedId;
+  const int limit = Min( ActData_NumTags_UserParameterId, int( tags.size() ) );
+  //
+  for ( size_t k = 0; k < limit; ++k )
+  {
+    if ( k > 0 )
+      trimmedId += ":";
+    //
+    trimmedId += tags[k];
+  }
+
+  return trimmedId;
+}

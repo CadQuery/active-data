@@ -33,6 +33,9 @@
 // Own include
 #include <ActData_ParameterFactory.h>
 
+// ActData includes
+#include <ActData_NodeFactory.h>
+
 // OCCT includes
 #include <Standard_ProgramError.hxx>
 #include <TDataStd_Integer.hxx>
@@ -144,7 +147,7 @@ Handle(ActAPI_IUserParameter)
 //! \param theLabel [in] raw Label to check.
 //! \return true/false.
 Standard_Boolean
-  ActData_ParameterFactory::IsParameter(const TDF_Label& theLabel)
+  ActData_ParameterFactory::IsUserParameter(const TDF_Label& theLabel)
 {
   /* =====================================
    *  Check if TYPE Attribute is in place
@@ -178,6 +181,66 @@ Standard_Boolean
     return Standard_False;
 
   return Standard_True;
+}
+
+//! Checks whether the given Label represents User Parameter or not.
+//! \param theLabel     [in]  raw Label to check.
+//! \param theMetaParam [out] settled User Parameter or NULL.
+//! \return true/false.
+Standard_Boolean
+  ActData_ParameterFactory::IsUserParameter(const TDF_Label&               theLabel,
+                                            Handle(ActAPI_IUserParameter)& theUserParam)
+{
+  // Create User Parameter interface to use its IsWellFormed() checker
+  Handle(ActAPI_IUserParameter) dao = NewParameterSettle(theLabel);
+  //
+  if ( dao.IsNull() )
+    return Standard_False;
+
+  // NewParameterSettle check the type attribute. So the only remaining
+  // thing to check here is the validity attribute.
+
+  TDF_Label aParamValidityLab =
+    theLabel.FindChild(ActData_UserParameter::DS_IsValid, Standard_False);
+
+  if ( aParamValidityLab.IsNull() )
+    return Standard_False;
+
+  Handle(TDataStd_Integer) aParamValidityAttr;
+  if ( !aParamValidityLab.FindAttribute(TDataStd_Integer::GetID(), aParamValidityAttr) )
+    return Standard_False;
+
+  theUserParam = dao;
+
+  return Standard_True;
+}
+
+//! Checks whether the given Label represents META Parameter or not.
+//! \param theLabel     [in]  raw Label to check.
+//! \param theMetaParam [out] settled META Parameter or NULL.
+//! \return true/false.
+Standard_Boolean
+  ActData_ParameterFactory::IsMetaParameter(const TDF_Label&               theLabel,
+                                            Handle(ActData_MetaParameter)& theMetaParam)
+{
+  if ( theLabel.IsNull() )
+    return Standard_False;
+
+  // Create META Parameter interface to use its IsWellFormed() checker
+  Handle(ActData_MetaParameter) dao = ActData_MetaParameter::Instance();
+  //
+  dao->settleOn(theLabel);
+
+  // Check Parameter itself
+  const bool isParamOk = dao->IsWellFormed();
+  //
+  if ( !isParamOk )
+    return Standard_False;
+
+  theMetaParam = dao;
+
+  // Attempt to settle the Node
+  return ActData_NodeFactory::IsNode( theLabel.Father() );
 }
 
 //! READ-ONLY method settling down the Parameter Data Cursor of the given type
@@ -259,7 +322,7 @@ Handle(ActAPI_HParameterList)
 Handle(ActAPI_IUserParameter)
   ActData_ParameterFactory::ParamByChildLabelSettle(const TDF_Label& theLabel)
 {
-  if ( IsParameter(theLabel) )
+  if ( IsUserParameter(theLabel) )
     return NewParameterSettle(theLabel);
 
   TDF_Label aFather = theLabel.Father();
@@ -267,4 +330,18 @@ Handle(ActAPI_IUserParameter)
     return NULL;
 
   return ParamByChildLabelSettle(aFather);
+}
+
+//! Attempts to find a META Parameter instance owning the passed Label.
+//! \param theLabel [in] Label to recover a META Parameter for.
+//! \return Parameter instance or NULL if nothing appropriate was found.
+Handle(ActData_MetaParameter)
+  ActData_ParameterFactory::MetaParamByLabelSettle(const TDF_Label& theLabel)
+{
+  Handle(ActData_MetaParameter) theResult;
+  //
+  if ( IsMetaParameter(theLabel, theResult) )
+    return theResult;
+
+  return NULL;
 }

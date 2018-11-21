@@ -43,6 +43,7 @@
 #include <ActData_IntArrayParameter.h>
 #include <ActData_IntParameter.h>
 #include <ActData_MeshParameter.h>
+#include <ActData_MetaParameter.h>
 #include <ActData_NameParameter.h>
 #include <ActData_ReferenceListParameter.h>
 #include <ActData_ReferenceParameter.h>
@@ -94,7 +95,15 @@ public:
     NewParameterDetached(const Standard_Integer theParamType);
 
   ActData_EXPORT static Standard_Boolean
-    IsParameter(const TDF_Label& theLabel);
+    IsUserParameter(const TDF_Label& theLabel);
+
+  ActData_EXPORT static Standard_Boolean
+    IsUserParameter(const TDF_Label&               theLabel,
+                    Handle(ActAPI_IUserParameter)& theUserParam);
+
+  ActData_EXPORT static Standard_Boolean
+    IsMetaParameter(const TDF_Label&               theLabel,
+                    Handle(ActData_MetaParameter)& theMetaParam);
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
     NewParameterSettle(const Standard_Integer theParamType,
@@ -112,6 +121,11 @@ public:
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
     ParamByChildLabelSettle(const TDF_Label& theLabel);
+
+public:
+
+  ActData_EXPORT static Handle(ActData_MetaParameter)
+    MetaParamByLabelSettle(const TDF_Label& theLabel);
 
 // Safe Conversion methods:
 public:

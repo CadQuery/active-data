@@ -234,6 +234,7 @@ friend class ActData_MetaParameter;
 friend class ActData_NodeFactory;
 friend class ActData_ReferenceListParameter;
 friend class ActData_TreeNodeParameter;
+friend class ActData_TransactionEngine;
 friend class ActData_Utils;
 
 public:

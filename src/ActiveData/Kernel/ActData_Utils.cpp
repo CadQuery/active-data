@@ -1058,7 +1058,7 @@ Handle(ActAPI_HDataCursorList) ActData_Utils::ConvertToCursors(const TDF_LabelLi
   {
     TDF_Label aTargetRoot = anIt.Value();
 
-    if ( ActData_ParameterFactory::IsParameter(aTargetRoot) ) // NODE
+    if ( ActData_ParameterFactory::IsUserParameter(aTargetRoot) ) // NODE
     {
       aResult->Append( ActData_ParameterFactory::NewParameterSettle(aTargetRoot) );
     }

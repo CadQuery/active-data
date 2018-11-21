@@ -42,6 +42,23 @@
 // Active Data (API) forward declarations
 class ActAPI_INode;
 
+//! \ingroup AD_API
+//!
+//! ID in form of CAF entry, e.g. "0:1:1".
+typedef TCollection_AsciiString ActAPI_ParameterId;
+
+//! \ingroup AD_API
+//!
+//! Short-cuts for collection of Parameter IDs.
+typedef NCollection_Sequence<ActAPI_ParameterId>   ActAPI_ParameterIdList;
+typedef NCollection_Shared<ActAPI_ParameterIdList> ActAPI_HParameterIdList;
+
+//! \ingroup AD_API
+//!
+//! Short-cuts for collection of Parameter IDs.
+typedef NCollection_IndexedMap<ActAPI_ParameterId> ActAPI_ParameterIdMap;
+typedef NCollection_Shared<ActAPI_ParameterIdMap>  ActAPI_HParameterIdMap;
+
 //-----------------------------------------------------------------------------
 // Common enumerations
 //-----------------------------------------------------------------------------
@@ -148,6 +165,9 @@ public:
 
   virtual Handle(ActAPI_INode)
     GetNode() = 0;
+
+  virtual ActAPI_DataObjectId
+    GetNodeId() = 0;
 
   virtual void
     SetUserFlags(const Standard_Integer theUFlags,

@@ -18,6 +18,7 @@ set (H_FILES
   ActAPI_IProgressNotifier.h
   ActAPI_ITreeFunction.h
   ActAPI_TxData.h
+  ActAPI_TxRes.h
   ActAPI_Variables.h
   ActAPI_Version.h
 )

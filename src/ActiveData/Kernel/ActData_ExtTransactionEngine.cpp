@@ -45,14 +45,14 @@ ActData_ExtTransactionEngine::ActData_ExtTransactionEngine(const Handle(TDocStd_
 //! Customized Undo method for extended transactions.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
 //! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+Handle(ActAPI_TxRes)
   ActData_ExtTransactionEngine::Undo(const Standard_Integer theNbUndoes)
 {
   if ( m_undoData.IsEmpty() )
     return NULL; // There is nothing to Undo
 
   // Perform actual Undo
-  Handle(ActAPI_HParameterMap)
+  Handle(ActAPI_TxRes)
     result = ActData_TransactionEngine::Undo(theNbUndoes);
 
   // Juggle naming stack
@@ -68,14 +68,14 @@ Handle(ActAPI_HParameterMap)
 //! Customized Redo method for extended transactions.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
 //! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+Handle(ActAPI_TxRes)
   ActData_ExtTransactionEngine::Redo(const Standard_Integer theNbRedoes)
 {
   if ( m_redoData.IsEmpty() )
     return NULL; // There is nothing to Redo
 
   // Perform actual Redo
-  Handle(ActAPI_HParameterMap)
+  Handle(ActAPI_TxRes)
     result = ActData_TransactionEngine::Redo(theNbRedoes);
 
   // Juggle naming stack

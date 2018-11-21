@@ -11,6 +11,7 @@ set (H_FILES
 )
 
 set (CPP_FILES
+  ActData_Common.cpp
   ActData_Plugin.cpp
 )
 

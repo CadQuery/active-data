@@ -72,12 +72,12 @@
 #include <TFunction_Scope.hxx>
 
 #define ERR_UNDEFINED_TX_DATA "### Error: undefined"
-#undef DUMP_CAF_DATA
 
+#undef DUMP_CAF_DATA
 #if defined DUMP_CAF_DATA
   #include <ActData_CAFDumper.h>
-
-  #define FILE_DEBUG_DUMPING_PATH "D://"
+  #define FILE_DEBUG_DUMPING_PATH "F://"
+  #pragma message("===== warning: DUMP_CAF_DATA is enabled")
 #endif
 
 Standard_Boolean ActData_BaseModel::MTime_On = 1;
@@ -357,14 +357,14 @@ void ActData_BaseModel::CommitCommand(ActAPI_TxData theData)
 //! Performs Undo operation.
 //! \param theNbUndoes [in] number of Undo operations to perform one-by-one.
 //! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+Handle(ActAPI_TxRes)
   ActData_BaseModel::Undo(const Standard_Integer theNbUndoes)
 {
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_UNDO_before.log"), this);
 #endif
 
-  Handle(ActAPI_HParameterMap) result = m_trEngine->Undo(theNbUndoes);
+  Handle(ActAPI_TxRes) result = m_trEngine->Undo(theNbUndoes);
 
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_UNDO_after.log"), this);
@@ -383,14 +383,14 @@ Standard_Integer ActData_BaseModel::NbUndos() const
 //! Performs Redo operation.
 //! \param theNbRedoes [in] number of Redo operations to perform one-by-one.
 //! \return affected Parameters.
-Handle(ActAPI_HParameterMap)
+Handle(ActAPI_TxRes)
   ActData_BaseModel::Redo(const Standard_Integer theNbRedoes)
 {
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_REDO_before.log"), this);
 #endif
 
-  Handle(ActAPI_HParameterMap) result = m_trEngine->Redo(theNbRedoes);
+  Handle(ActAPI_TxRes) result = m_trEngine->Redo(theNbRedoes);
 
 #if defined DUMP_CAF_DATA
   ActData_CAFDumper::Dump(TCollection_AsciiString(FILE_DEBUG_DUMPING_PATH).Cat("CAFDumper_REDO_after.log"), this);

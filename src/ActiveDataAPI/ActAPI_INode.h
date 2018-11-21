@@ -42,6 +42,23 @@
 #include <TCollection_AsciiString.hxx>
 #include <TCollection_ExtendedString.hxx>
 
+//! \ingroup AD_API
+//!
+//! ID in form of CAF entry, e.g. "0:1:1".
+typedef TCollection_AsciiString ActAPI_NodeId;
+
+//! \ingroup AD_API
+//!
+//! Short-cuts for collection of Node IDs.
+typedef NCollection_Sequence<ActAPI_NodeId>   ActAPI_NodeIdList;
+typedef NCollection_Shared<ActAPI_NodeIdList> ActAPI_HNodeIdList;
+
+//! \ingroup AD_API
+//!
+//! Short-cuts for collection of Node IDs.
+typedef NCollection_IndexedMap<ActAPI_NodeId> ActAPI_NodeIdMap;
+typedef NCollection_Shared<ActAPI_NodeIdMap>  ActAPI_HNodeIdMap;
+
 //-----------------------------------------------------------------------------
 
 //! \ingroup AD_API

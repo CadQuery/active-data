@@ -168,13 +168,13 @@ public:
   ActData_EXPORT virtual void
     CommitCommand(ActAPI_TxData theData = 0);
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Undo(const Standard_Integer theNbUndoes = 1);
 
   ActData_EXPORT virtual Standard_Integer
     NbUndos() const;
 
-  ActData_EXPORT virtual Handle(ActAPI_HParameterMap)
+  ActData_EXPORT virtual Handle(ActAPI_TxRes)
     Redo(const Standard_Integer theNbRedoes = 1);
 
   ActData_EXPORT virtual Standard_Integer
