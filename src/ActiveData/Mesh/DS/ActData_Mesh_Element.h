@@ -114,7 +114,7 @@ public:
 public:
 
   //! Destructor.
-  void Destruct();
+  ActData_EXPORT void Destruct();
 
   ~ActData_Mesh_Element()
   {
