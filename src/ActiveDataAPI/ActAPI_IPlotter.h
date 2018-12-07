@@ -59,11 +59,20 @@ class ActAPI_Color : public Quantity_Color
 {
 public:
 
+  //! Ctor.
   ActAPI_Color() : Quantity_Color (),
                    m_bIsDefined   (Standard_False) {}
 
+  //! Ctor.
   ActAPI_Color(Quantity_NameOfColor name) : Quantity_Color (name),
                                             m_bIsDefined   (Standard_True) {}
+
+  //! Ctor.
+  ActAPI_Color(const Standard_Real        R1,
+               const Standard_Real        R2,
+               const Standard_Real        R3,
+               const Quantity_TypeOfColor Type) : Quantity_Color (R1, R2, R3, Type),
+                                                  m_bIsDefined   (Standard_True) {}
 
 public:
 
@@ -75,7 +84,7 @@ public:
 
 protected:
 
-  Standard_Boolean m_bIsDefined;
+  Standard_Boolean m_bIsDefined; //!< Whether the color is defined or not.
 
 };
 
