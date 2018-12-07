@@ -51,6 +51,7 @@ class Poly_Triangulation;
 
 //-----------------------------------------------------------------------------
 
+#define Color_Default Quantity_Color(NCollection_Vec3<float>(-1, -1, -1))
 #define Color_Red     Quantity_Color(Quantity_NOC_RED)
 #define Color_Green   Quantity_Color(Quantity_NOC_GREEN)
 #define Color_Blue    Quantity_Color(Quantity_NOC_BLUE1)

@@ -463,7 +463,7 @@ Handle(ActAPI_TxRes)
 {
   Handle(ActAPI_TxRes) result = new ActAPI_TxRes;
 
-  for ( int k = 1; k <= pids->Extent(); ++k )
+  for ( Standard_Integer k = 1; k <= pids->Extent(); ++k )
   {
     Standard_Boolean           isParam = Standard_False;
     ActAPI_DataObjectId        id      = ActData_Common::TrimToParameterId( pids->FindKey(k) );
