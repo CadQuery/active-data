@@ -51,15 +51,45 @@ class Poly_Triangulation;
 
 //-----------------------------------------------------------------------------
 
-#define Color_Default Quantity_Color(NCollection_Vec3<float>(-1, -1, -1))
-#define Color_Red     Quantity_Color(Quantity_NOC_RED)
-#define Color_Green   Quantity_Color(Quantity_NOC_GREEN)
-#define Color_Blue    Quantity_Color(Quantity_NOC_BLUE1)
-#define Color_Yellow  Quantity_Color(Quantity_NOC_YELLOW)
-#define Color_White   Quantity_Color(Quantity_NOC_WHITE)
-#define Color_Black   Quantity_Color(Quantity_NOC_BLACK)
-#define Color_Violet  Quantity_Color(Quantity_NOC_VIOLET)
-#define Color_Magenta Quantity_Color(Quantity_NOC_MAGENTA1)
+//! \ingroup AD_API
+//!
+//! Wrapper for Quantity_Color which allows undefined colors (we need such
+//! for "default color" option in imperative plotter).
+class ActAPI_Color : public Quantity_Color
+{
+public:
+
+  ActAPI_Color() : Quantity_Color (),
+                   m_bIsDefined   (Standard_False) {}
+
+  ActAPI_Color(Quantity_NameOfColor name) : Quantity_Color (name),
+                                            m_bIsDefined   (Standard_True) {}
+
+public:
+
+  //! \return true if the color is defined.
+  Standard_Boolean IsDefined() const
+  {
+    return m_bIsDefined;
+  }
+
+protected:
+
+  Standard_Boolean m_bIsDefined;
+
+};
+
+//-----------------------------------------------------------------------------
+
+#define Color_Default ActAPI_Color()
+#define Color_Red     ActAPI_Color(Quantity_NOC_RED)
+#define Color_Green   ActAPI_Color(Quantity_NOC_GREEN)
+#define Color_Blue    ActAPI_Color(Quantity_NOC_BLUE1)
+#define Color_Yellow  ActAPI_Color(Quantity_NOC_YELLOW)
+#define Color_White   ActAPI_Color(Quantity_NOC_WHITE)
+#define Color_Black   ActAPI_Color(Quantity_NOC_BLACK)
+#define Color_Violet  ActAPI_Color(Quantity_NOC_VIOLET)
+#define Color_Magenta ActAPI_Color(Quantity_NOC_MAGENTA1)
 
 //-----------------------------------------------------------------------------
 
@@ -103,104 +133,104 @@ public:
 
   virtual void
     DRAW_POINT(const gp_XY&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_Pnt2d&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_XYZ&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POINT(const gp_Pnt&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_XY&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_Pnt2d&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_XYZ&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   virtual void
     REDRAW_POINT(const TCollection_AsciiString&,
                  const gp_Pnt&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_POINTS(const Handle(HRealArray)&,
-                const Quantity_Color&,
+                const ActAPI_Color&,
                 const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_POINTS(const TCollection_AsciiString&,
                   const Handle(HRealArray)&,
-                  const Quantity_Color&) {}
+                  const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_VECTOR_AT(const gp_Pnt&,
                    const gp_Vec&,
-                   const Quantity_Color&,
+                   const ActAPI_Color&,
                    const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_VECTOR_AT(const TCollection_AsciiString&,
                      const gp_Pnt&,
                      const gp_Vec&,
-                     const Quantity_Color&) {}
+                     const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_CURVE(const Handle(Geom_Curve)&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_CURVE(const TCollection_AsciiString&,
                  const Handle(Geom_Curve)&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_CURVE2D(const Handle(Geom2d_Curve)&,
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_CURVE2D(const TCollection_AsciiString&,
                    const Handle(Geom2d_Curve)&,
-                   const Quantity_Color&) {}
+                   const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const double, // opacity
                  const TCollection_AsciiString&) {}
 
@@ -208,26 +238,26 @@ public:
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const double, // U limit
                  const double, // V limit
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
                  const double, // U limit
                  const double, // V limit
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const double, // opacity
                  const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
-                   const Quantity_Color&) {}
+                   const ActAPI_Color&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
-                   const Quantity_Color&,
+                   const ActAPI_Color&,
                    const double) {} // opacity
 
   virtual void
@@ -235,14 +265,14 @@ public:
                    const Handle(Geom_Surface)&,
                    const double, // U limit
                    const double, // V limit
-                   const Quantity_Color&) {}
+                   const ActAPI_Color&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
                    const double, // U limit
                    const double, // V limit
-                   const Quantity_Color&,
+                   const ActAPI_Color&,
                    const double) {} // opacity
 
 // TOPOLOGY:
@@ -254,7 +284,7 @@ public:
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const TCollection_AsciiString&) {}
 
   virtual void
@@ -264,13 +294,13 @@ public:
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const double, // opacity
                const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SHAPE(const TopoDS_Shape&,
-               const Quantity_Color&,
+               const ActAPI_Color&,
                const double, // opacity
                const bool, // is wireframe
                const TCollection_AsciiString&) {}
@@ -282,7 +312,7 @@ public:
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
-                 const Quantity_Color&) {}
+                 const ActAPI_Color&) {}
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
@@ -292,13 +322,13 @@ public:
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const double) {} // opacity
 
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString&,
                  const TopoDS_Shape&,
-                 const Quantity_Color&,
+                 const ActAPI_Color&,
                  const double, // opacity
                  const bool) {} // is wireframe
 
@@ -308,72 +338,72 @@ public:
   virtual void
     DRAW_LINK(const gp_Pnt&,
               const gp_Pnt&,
-              const Quantity_Color&,
+              const ActAPI_Color&,
               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_XYZ&,
               const gp_XYZ&,
-              const Quantity_Color&,
+              const ActAPI_Color&,
               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_Pnt2d&,
               const gp_Pnt2d&,
-              const Quantity_Color&,
+              const ActAPI_Color&,
               const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_LINK(const gp_XY&,
               const gp_XY&,
-              const Quantity_Color&,
+              const ActAPI_Color&,
               const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_Pnt&,
                 const gp_Pnt&,
-                const Quantity_Color&) {}
+                const ActAPI_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_XYZ&,
                 const gp_XYZ&,
-                const Quantity_Color&) {}
+                const ActAPI_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_Pnt2d&,
                 const gp_Pnt2d&,
-                const Quantity_Color&) {}
+                const ActAPI_Color&) {}
 
   virtual void
     REDRAW_LINK(const TCollection_AsciiString&,
                 const gp_XY&,
                 const gp_XY&,
-                const Quantity_Color&) {}
+                const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_POLYLINE(const std::vector<gp_XY>&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_POLYLINE(const std::vector<gp_XYZ>&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_POLYLINE(const TCollection_AsciiString&,
                     const std::vector<gp_XY>&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   virtual void
     REDRAW_POLYLINE(const TCollection_AsciiString&,
                     const std::vector<gp_XYZ>&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
@@ -381,28 +411,28 @@ public:
     DRAW_TRIANGLE(const gp_Pnt&,
                   const gp_Pnt&,
                   const gp_Pnt&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_XYZ&,
                   const gp_XYZ&,
                   const gp_XYZ&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_Pnt2d&,
                   const gp_Pnt2d&,
                   const gp_Pnt2d&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_TRIANGLE(const gp_XY&,
                   const gp_XY&,
                   const gp_XY&,
-                  const Quantity_Color&,
+                  const ActAPI_Color&,
                   const TCollection_AsciiString&) {}
 
   virtual void
@@ -410,41 +440,41 @@ public:
                     const gp_Pnt&,
                     const gp_Pnt&,
                     const gp_Pnt&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_XYZ&,
                     const gp_XYZ&,
                     const gp_XYZ&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_Pnt2d&,
                     const gp_Pnt2d&,
                     const gp_Pnt2d&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   virtual void
     REDRAW_TRIANGLE(const TCollection_AsciiString&,
                     const gp_XY&,
                     const gp_XY&,
                     const gp_XY&,
-                    const Quantity_Color&) {}
+                    const ActAPI_Color&) {}
 
   //-------------------------------------------------------------------------//
 
   virtual void
     DRAW_TRIANGULATION(const Handle(Poly_Triangulation)&,
-                       const Quantity_Color&,
+                       const ActAPI_Color&,
                        const double, // opacity
                        const TCollection_AsciiString&) {}
 
   virtual void
     REDRAW_TRIANGULATION(const TCollection_AsciiString&,
                          const Handle(Poly_Triangulation)&,
-                         const Quantity_Color&,
+                         const ActAPI_Color&,
                          const double) {} // opacity
 
 // TEXT
@@ -512,7 +542,7 @@ public:
 
   void
     DRAW_POINT(const gp_XY&                   coord,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -524,7 +554,7 @@ public:
 
   void
     DRAW_POINT(const gp_Pnt2d&                point,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -536,7 +566,7 @@ public:
 
   void
     DRAW_POINT(const gp_XYZ&                  coord,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -548,7 +578,7 @@ public:
 
   void
     DRAW_POINT(const gp_Pnt&                  point,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -561,7 +591,7 @@ public:
   void
     REDRAW_POINT(const TCollection_AsciiString& name,
                  const gp_XY&                   point,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -573,7 +603,7 @@ public:
   void
     REDRAW_POINT(const TCollection_AsciiString& name,
                  const gp_Pnt2d&                point,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -585,7 +615,7 @@ public:
   void
     REDRAW_POINT(const TCollection_AsciiString& name,
                  const gp_XYZ&                  point,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -597,7 +627,7 @@ public:
   void
     REDRAW_POINT(const TCollection_AsciiString& name,
                  const gp_Pnt&                  point,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -608,7 +638,7 @@ public:
 
   void
     DRAW_POINTS(const Handle(HRealArray)&      coords,
-                const Quantity_Color&          color,
+                const ActAPI_Color&            color,
                 const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -621,7 +651,7 @@ public:
   void
     REDRAW_POINTS(const TCollection_AsciiString& name,
                   const Handle(HRealArray)&      coords,
-                  const Quantity_Color&          color)
+                  const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -633,7 +663,7 @@ public:
   void
     DRAW_VECTOR_AT(const gp_Pnt&                  P,
                    const gp_Vec&                  V,
-                   const Quantity_Color&          color,
+                   const ActAPI_Color&            color,
                    const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -647,7 +677,7 @@ public:
     REDRAW_VECTOR_AT(const TCollection_AsciiString& name,
                      const gp_Pnt&                  P,
                      const gp_Vec&                  V,
-                     const Quantity_Color&          color)
+                     const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -658,7 +688,7 @@ public:
 
   void
     DRAW_CURVE(const Handle(Geom_Curve)&      curve,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -671,7 +701,7 @@ public:
   void
     REDRAW_CURVE(const TCollection_AsciiString& name,
                  const Handle(Geom_Curve)&      curve,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -682,7 +712,7 @@ public:
 
   void
     DRAW_CURVE2D(const Handle(Geom2d_Curve)&    curve,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -695,7 +725,7 @@ public:
   void
     REDRAW_CURVE2D(const TCollection_AsciiString& name,
                    const Handle(Geom2d_Curve)&    curve,
-                   const Quantity_Color&          color)
+                   const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -706,7 +736,7 @@ public:
 
   void
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -718,7 +748,7 @@ public:
 
   void
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const double                   opacity,
                  const TCollection_AsciiString& name = "")
   {
@@ -733,7 +763,7 @@ public:
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
                  const double                   uLimit,
                  const double                   vLimit,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -747,7 +777,7 @@ public:
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
                  const double                   uLimit,
                  const double                   vLimit,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const double                   opacity,
                  const TCollection_AsciiString& name = "")
   {
@@ -761,7 +791,7 @@ public:
   void
     REDRAW_SURFACE(const TCollection_AsciiString& name,
                    const Handle(Geom_Surface)&    surface,
-                   const Quantity_Color&          color)
+                   const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -773,7 +803,7 @@ public:
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString& name,
                    const Handle(Geom_Surface)&    surface,
-                   const Quantity_Color&          color,
+                   const ActAPI_Color&            color,
                    const double                   opacity)
   {
     if ( m_iv.IsNull() ) return;
@@ -788,7 +818,7 @@ public:
                    const Handle(Geom_Surface)&    surface,
                    const double                   uLimit,
                    const double                   vLimit,
-                   const Quantity_Color&          color)
+                   const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -802,7 +832,7 @@ public:
                    const Handle(Geom_Surface)&    surface,
                    const double                   uLimit,
                    const double                   vLimit,
-                   const Quantity_Color&          color,
+                   const ActAPI_Color&            color,
                    const double                   opacity)
   {
     if ( m_iv.IsNull() ) return;
@@ -825,7 +855,7 @@ public:
 
   void
     DRAW_SHAPE(const TopoDS_Shape&            shape,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -849,7 +879,7 @@ public:
 
   void
     DRAW_SHAPE(const TopoDS_Shape&            shape,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const double                   opacity,
                const TCollection_AsciiString& name = "")
   {
@@ -862,7 +892,7 @@ public:
 
   void
     DRAW_SHAPE(const TopoDS_Shape&            shape,
-               const Quantity_Color&          color,
+               const ActAPI_Color&            color,
                const double                   opacity,
                const bool                     isWireframe,
                const TCollection_AsciiString& name = "")
@@ -888,7 +918,7 @@ public:
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString& name,
                  const TopoDS_Shape&            shape,
-                 const Quantity_Color&          color)
+                 const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -912,7 +942,7 @@ public:
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString& name,
                  const TopoDS_Shape&            shape,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const double                   opacity)
   {
     if ( m_iv.IsNull() ) return;
@@ -925,7 +955,7 @@ public:
   virtual void
     REDRAW_SHAPE(const TCollection_AsciiString& name,
                  const TopoDS_Shape&            shape,
-                 const Quantity_Color&          color,
+                 const ActAPI_Color&            color,
                  const double                   opacity,
                  const bool                     isWireframe)
   {
@@ -939,7 +969,7 @@ public:
   void
     DRAW_LINK(const gp_Pnt&                  p1,
               const gp_Pnt&                  p2,
-              const Quantity_Color&          color,
+              const ActAPI_Color&            color,
               const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -952,7 +982,7 @@ public:
   void
     DRAW_LINK(const gp_XYZ&                  p1,
               const gp_XYZ&                  p2,
-              const Quantity_Color&          color,
+              const ActAPI_Color&            color,
               const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -965,7 +995,7 @@ public:
   void
     DRAW_LINK(const gp_Pnt2d&                p1,
               const gp_Pnt2d&                p2,
-              const Quantity_Color&          color,
+              const ActAPI_Color&            color,
               const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -978,7 +1008,7 @@ public:
   void
     DRAW_LINK(const gp_XY&                   p1,
               const gp_XY&                   p2,
-              const Quantity_Color&          color,
+              const ActAPI_Color&            color,
               const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -992,7 +1022,7 @@ public:
     REDRAW_LINK(const TCollection_AsciiString& name,
                 const gp_Pnt&                  p1,
                 const gp_Pnt&                  p2,
-                const Quantity_Color&          color)
+                const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1005,7 +1035,7 @@ public:
     REDRAW_LINK(const TCollection_AsciiString& name,
                 const gp_XYZ&                  p1,
                 const gp_XYZ&                  p2,
-                const Quantity_Color&          color)
+                const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1018,7 +1048,7 @@ public:
     REDRAW_LINK(const TCollection_AsciiString& name,
                 const gp_Pnt2d&                p1,
                 const gp_Pnt2d&                p2,
-                const Quantity_Color&          color)
+                const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1031,7 +1061,7 @@ public:
     REDRAW_LINK(const TCollection_AsciiString& name,
                 const gp_XY&                   p1,
                 const gp_XY&                   p2,
-                const Quantity_Color&          color)
+                const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1042,7 +1072,7 @@ public:
 
   void
     DRAW_POLYLINE(const std::vector<gp_XY>&      poles,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name)
   {
     if ( m_iv.IsNull() ) return;
@@ -1054,7 +1084,7 @@ public:
 
   void
     DRAW_POLYLINE(const std::vector<gp_XYZ>&     poles,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name)
   {
     if ( m_iv.IsNull() ) return;
@@ -1067,7 +1097,7 @@ public:
   void
     REDRAW_POLYLINE(const TCollection_AsciiString& name,
                     const std::vector<gp_XY>&      poles,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1079,7 +1109,7 @@ public:
   void
     REDRAW_POLYLINE(const TCollection_AsciiString& name,
                     const std::vector<gp_XYZ>&     poles,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1092,7 +1122,7 @@ public:
     DRAW_TRIANGLE(const gp_Pnt&                  p1,
                   const gp_Pnt&                  p2,
                   const gp_Pnt&                  p3,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -1106,7 +1136,7 @@ public:
     DRAW_TRIANGLE(const gp_XYZ&                  p1,
                   const gp_XYZ&                  p2,
                   const gp_XYZ&                  p3,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -1120,7 +1150,7 @@ public:
     DRAW_TRIANGLE(const gp_Pnt2d&                p1,
                   const gp_Pnt2d&                p2,
                   const gp_Pnt2d&                p3,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -1134,7 +1164,7 @@ public:
     DRAW_TRIANGLE(const gp_XY&                   p1,
                   const gp_XY&                   p2,
                   const gp_XY&                   p3,
-                  const Quantity_Color&          color,
+                  const ActAPI_Color&            color,
                   const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
@@ -1149,7 +1179,7 @@ public:
                     const gp_Pnt&                  p1,
                     const gp_Pnt&                  p2,
                     const gp_Pnt&                  p3,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1163,7 +1193,7 @@ public:
                     const gp_XYZ&                  p1,
                     const gp_XYZ&                  p2,
                     const gp_XYZ&                  p3,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1177,7 +1207,7 @@ public:
                     const gp_Pnt2d&                p1,
                     const gp_Pnt2d&                p2,
                     const gp_Pnt2d&                p3,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1191,7 +1221,7 @@ public:
                     const gp_XY&                   p1,
                     const gp_XY&                   p2,
                     const gp_XY&                   p3,
-                    const Quantity_Color&          color)
+                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
@@ -1202,7 +1232,7 @@ public:
 
   void
     DRAW_TRIANGULATION(const Handle(Poly_Triangulation)& tess,
-                       const Quantity_Color&             color,
+                       const ActAPI_Color&               color,
                        const double                      opacity,
                        const TCollection_AsciiString&    name = "")
   {
@@ -1216,7 +1246,7 @@ public:
   void
     REDRAW_TRIANGULATION(const TCollection_AsciiString&    name,
                          const Handle(Poly_Triangulation)& tess,
-                         const Quantity_Color&             color,
+                         const ActAPI_Color&               color,
                          const double                      opacity)
   {
     if ( m_iv.IsNull() ) return;
