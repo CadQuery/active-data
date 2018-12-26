@@ -201,6 +201,34 @@ public:
 
   //-------------------------------------------------------------------------//
 
+  //! Appends new triple of elements to the given array. New grown array will
+  //! be actually created instead.
+  //! \param theArr [in] array to affect.
+  //! \param theElem [in] element to add.
+  //! \return new array.
+  template<typename ColType, typename HColType, typename ElemType>
+  static HColType Append3d(const HColType& theArr, const ElemType& theElem)
+  {
+    // Create new collection
+    Standard_Integer aLower = theArr.IsNull() ? 0 : theArr->Lower();
+    Standard_Integer anUpper = theArr.IsNull() ? 2 : (theArr->Upper() + 3);
+    HColType aResizedCol = new ColType(aLower, anUpper);
+
+    // Transfer old data to the new collection
+    if ( !theArr.IsNull() )
+      for ( Standard_Integer i = theArr->Lower(); i <= theArr->Upper(); ++i )
+        aResizedCol->SetValue( i, theArr->Value(i) );
+
+    // Add the target value to the end
+    aResizedCol->SetValue( aResizedCol->Upper() - 2, theElem.X() );
+    aResizedCol->SetValue( aResizedCol->Upper() - 1, theElem.Y() );
+    aResizedCol->SetValue( aResizedCol->Upper() - 0, theElem.Z() );
+
+    return aResizedCol;
+  }
+
+  //-------------------------------------------------------------------------//
+
   //! Prepend new element to the given array. New grown array will be actually
   //! created instead.
   //! \param theArr [in] array to affect.
