@@ -39,8 +39,6 @@
 
 //-----------------------------------------------------------------------------
 
-DEFINE_STANDARD_HANDLE(ActAPI_IAlgorithm, Standard_Transient)
-
 //! \ingroup AD_API
 //!
 //! Interface for algorithms.
@@ -58,8 +56,42 @@ public:
 
 public:
 
-  inline ActAPI_ProgressEntry& Progress() const { return m_progress; }
-  inline ActAPI_PlotterEntry&  Plotter()  const { return m_plotter; }
+  ActAPI_ProgressEntry& GetProgress() const { return m_progress; }
+  ActAPI_PlotterEntry&  GetPlotter()  const { return m_plotter; }
+
+public:
+
+  //! Sets status code as an integer.
+  //! \param[in] status code to set.
+  void SetStatusCode(const Standard_Integer status)
+  {
+    m_iStatusCode = status;
+  }
+
+  //! \return integer status code.
+  Standard_Integer GetStatusCode() const
+  {
+    return m_iStatusCode;
+  }
+
+  //! Adds status to the currently stored one. The derived classes take
+  //! responsibility to implement status codes as bitmasks like 0x01, 0x02,
+  //! 0x04, 0x08, 0x10, 0x20, 0x40, etc. This may we can store several statuses
+  //! in one integer variable.
+  //! \param[in] statBit status bit to add to the current status.
+  void AddStatusCode(const Standard_Integer statBit)
+  {
+    m_iStatusCode |= statBit;
+  }
+
+  //! Checks whether the stored status code contains bits for the passed
+  //! status.
+  //! \param[in] statBit bits to check.
+  //! \return true/false.
+  Standard_Boolean HasStatusCode(const Standard_Integer statBit) const
+  {
+    return (m_iStatusCode & statBit) > 0;
+  }
 
 protected:
 
@@ -72,9 +104,13 @@ protected:
   mutable ActAPI_ProgressEntry m_progress; //!< Progress Notifier.
   mutable ActAPI_PlotterEntry  m_plotter;  //!< Imperative Plotter.
 
+  //! Status code which can be an error code, warning code or any other
+  //! status which gives more detalisation on algorithm's execution state.
+  Standard_Integer m_iStatusCode;
+
 private:
 
-  ActAPI_IAlgorithm() : Standard_Transient() {}
+  ActAPI_IAlgorithm() : Standard_Transient() {} //!< Default ctor.
 
 };
 

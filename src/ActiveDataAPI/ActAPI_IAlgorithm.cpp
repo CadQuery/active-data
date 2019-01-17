@@ -36,13 +36,14 @@
 //-----------------------------------------------------------------------------
 
 //! Constructor.
-//! \param progress [in] Progress Notifier.
-//! \param plotter  [in] Imperative Plotter.
+//! \param[in] progress Progress Notifier.
+//! \param[in] plotter  Imperative Plotter.
 ActAPI_IAlgorithm::ActAPI_IAlgorithm(ActAPI_ProgressEntry progress,
                                      ActAPI_PlotterEntry  plotter)
 : Standard_Transient (),
   m_progress         (progress),
-  m_plotter          (plotter)
+  m_plotter          (plotter),
+  m_iStatusCode      (0) // Zero value is reserved for "no error" status.
 {}
 
 //-----------------------------------------------------------------------------
