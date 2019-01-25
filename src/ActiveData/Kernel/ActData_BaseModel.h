@@ -124,13 +124,15 @@ public:
     NewEmpty();
 
   ActData_EXPORT virtual Standard_Boolean
-    Open(const TCollection_AsciiString& theFilename);
+    Open(const TCollection_AsciiString& theFilename,
+         ActAPI_ProgressEntry           theNotifier = NULL);
 
   ActData_EXPORT virtual void
     Release(const VersionStatus theVersionStatus = Version_Undefined);
 
   ActData_EXPORT virtual Standard_Boolean
-    SaveAs(const TCollection_AsciiString& theFilename);
+    SaveAs(const TCollection_AsciiString& theFilename,
+           ActAPI_ProgressEntry           theNotifier = NULL);
 
   ActData_EXPORT virtual Standard_Boolean
     IsModified() const;

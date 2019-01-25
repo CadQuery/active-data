@@ -145,8 +145,11 @@ Standard_Boolean ActData_BaseModel::NewEmpty()
 //! Initializes the Model instance with the CAF Document opened from
 //! file with the given filename.
 //! \param theFilename [in] name of the file containing CAF Document to open.
+//! \param theNotifier [in] notifier.
 //! \return true in case of success, false -- otherwise.
-Standard_Boolean ActData_BaseModel::Open(const TCollection_AsciiString& theFilename)
+Standard_Boolean
+  ActData_BaseModel::Open(const TCollection_AsciiString& theFilename,
+                          ActAPI_ProgressEntry           theNotifier)
 {
   /* ==========================
    *  Prepare the CAF Document
@@ -162,11 +165,11 @@ Standard_Boolean ActData_BaseModel::Open(const TCollection_AsciiString& theFilen
    *  Open the CAF Document
    * ======================= */
 
-  PCDM_ReaderStatus aStatus = PCDM_RS_OpenError;
+  PCDM_ReaderStatus readerStatus = PCDM_RS_OpenError;
 
   try
   {
-    aStatus = anApp->Open(theFilename, aDoc);
+    readerStatus = anApp->Open(theFilename, aDoc);
   }
   catch ( Standard_Failure exc )
   {
@@ -180,8 +183,37 @@ Standard_Boolean ActData_BaseModel::Open(const TCollection_AsciiString& theFilen
    *  Initialize Data Model
    * ======================= */
 
-  if ( aStatus != PCDM_RS_OK )
+  // Check status
+  if ( readerStatus != PCDM_RS_OK )
+  {
+    TCollection_AsciiString statusStr;
+
+         if ( readerStatus == PCDM_RS_NoDriver )                    statusStr = "PCDM_RS_NoDriver";
+    else if ( readerStatus == PCDM_RS_UnknownFileDriver )           statusStr = "PCDM_RS_UnknownFileDriver";
+    else if ( readerStatus == PCDM_RS_OpenError )                   statusStr = "PCDM_RS_OpenError";
+    else if ( readerStatus == PCDM_RS_NoVersion )                   statusStr = "PCDM_RS_NoVersion";
+    else if ( readerStatus == PCDM_RS_NoSchema )                    statusStr = "PCDM_RS_NoSchema";
+    else if ( readerStatus == PCDM_RS_NoDocument )                  statusStr = "PCDM_RS_NoDocument";
+    else if ( readerStatus == PCDM_RS_ExtensionFailure )            statusStr = "PCDM_RS_ExtensionFailure";
+    else if ( readerStatus == PCDM_RS_WrongStreamMode )             statusStr = "PCDM_RS_WrongStreamMode";
+    else if ( readerStatus == PCDM_RS_FormatFailure )               statusStr = "PCDM_RS_FormatFailure";
+    else if ( readerStatus == PCDM_RS_TypeFailure )                 statusStr = "PCDM_RS_TypeFailure";
+    else if ( readerStatus == PCDM_RS_TypeNotFoundInSchema )        statusStr = "PCDM_RS_TypeNotFoundInSchema";
+    else if ( readerStatus == PCDM_RS_UnrecognizedFileFormat )      statusStr = "PCDM_RS_UnrecognizedFileFormat";
+    else if ( readerStatus == PCDM_RS_MakeFailure )                 statusStr = "PCDM_RS_MakeFailure";
+    else if ( readerStatus == PCDM_RS_PermissionDenied )            statusStr = "PCDM_RS_PermissionDenied";
+    else if ( readerStatus == PCDM_RS_DriverFailure )               statusStr = "PCDM_RS_DriverFailure";
+    else if ( readerStatus == PCDM_RS_AlreadyRetrievedAndModified ) statusStr = "PCDM_RS_AlreadyRetrievedAndModified";
+    else if ( readerStatus == PCDM_RS_AlreadyRetrieved )            statusStr = "PCDM_RS_AlreadyRetrieved";
+    else if ( readerStatus == PCDM_RS_UnknownDocument )             statusStr = "PCDM_RS_UnknownDocument";
+    else if ( readerStatus == PCDM_RS_WrongResource )               statusStr = "PCDM_RS_WrongResource";
+    else if ( readerStatus == PCDM_RS_ReaderException )             statusStr = "PCDM_RS_ReaderException";
+    else if ( readerStatus == PCDM_RS_NoModel )                     statusStr = "PCDM_RS_NoModel";
+
+    theNotifier.SendLogMessage(LogErr(Normal) << "Status of reader is not OK. Error code: %1." << statusStr);
+
     return Standard_False;
+  }
 
   this->init(aDoc);
   this->initPartitions();
@@ -224,8 +256,11 @@ void ActData_BaseModel::Release(const VersionStatus theVersionStatus)
 
 //! Saves the model into the file with the given name.
 //! \param theFilename [in] filename.
+//! \param theNotifier [in] notifier.
 //! \return true in case of success, false -- otherwise.
-Standard_Boolean ActData_BaseModel::SaveAs(const TCollection_AsciiString& theFilename)
+Standard_Boolean
+  ActData_BaseModel::SaveAs(const TCollection_AsciiString& theFilename,
+                            ActAPI_ProgressEntry           theNotifier)
 {
   if ( m_doc.IsNull() )
     return Standard_False;
@@ -243,15 +278,35 @@ Standard_Boolean ActData_BaseModel::SaveAs(const TCollection_AsciiString& theFil
 
   const Handle(ActData_Application)& anApp = ActData_Application::Instance();
 
+  // Write
+  PCDM_StoreStatus writerStatus = PCDM_SS_WriteFailure;
+  //
   try
   {
-    anApp->SaveAs(m_doc, theFilename);
+    writerStatus = anApp->SaveAs(m_doc, theFilename);
   }
   catch ( Standard_Failure exc )
   {
     cout << "OCCT exception:" << endl;
     cout << exc.DynamicType()->Name() << endl;
     cout << exc.GetMessageString() << endl;
+    return Standard_False;
+  }
+  //
+  // Check status
+  if ( writerStatus != PCDM_SS_OK )
+  {
+    TCollection_AsciiString statusStr;
+
+         if ( writerStatus == PCDM_SS_DriverFailure )      statusStr = "PCDM_SS_DriverFailure";
+    else if ( writerStatus == PCDM_SS_WriteFailure )       statusStr = "PCDM_SS_WriteFailure";
+    else if ( writerStatus == PCDM_SS_Failure )            statusStr = "PCDM_SS_Failure";
+    else if ( writerStatus == PCDM_SS_Doc_IsNull )         statusStr = "PCDM_SS_Doc_IsNull";
+    else if ( writerStatus == PCDM_SS_No_Obj )             statusStr = "PCDM_SS_No_Obj";
+    else if ( writerStatus == PCDM_SS_Info_Section_Error ) statusStr = "PCDM_SS_Info_Section_Error";
+
+    theNotifier.SendLogMessage(LogErr(Normal) << "Status of writer is not OK. Error code: %1." << statusStr);
+
     return Standard_False;
   }
 
