@@ -95,9 +95,14 @@ Handle(Poly_Triangulation) ActData_TriangulationParameter::GetTriangulation()
 //! \return true if the object is well-formed, false -- otherwise.
 Standard_Boolean ActData_TriangulationParameter::isWellFormed() const
 {
-  if ( !ActData_Utils::CheckLabelAttr( m_label, DS_Triangulation,
+  // The following check is disabled to allow Triangulation Parameter be
+  // empty. Otherwise, we obtain crashes on deserialization because the
+  // corresponding OCCT driver attempts to create Poly_Triangulation
+  // with 0 elements which is prohibited.
+
+  /*if ( !ActData_Utils::CheckLabelAttr( m_label, DS_Triangulation,
                                        TDataXtd_Triangulation::GetID() ) )
-    return Standard_False;
+    return Standard_False;*/
 
   return Standard_True;
 }

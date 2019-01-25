@@ -58,7 +58,7 @@ bool ActTest_TriangulationParameter::accessValue(const int ActTestLib_NotUsed(fu
     param = ActParamTool::AsTriangulation( createParameter(doc, Parameter_Triangulation) );
   doc->CommitCommand();
 
-  ACT_VERIFY( !param->IsWellFormed() ) // As not yet initialized
+  ACT_VERIFY( param->IsWellFormed() ) // Triangulation Node is well-formed even without initialization
 
   /* ===========================
    *  Initialize Mesh Parameter
