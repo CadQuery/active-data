@@ -186,9 +186,11 @@ public:
 
   //! Opens Data Model contents from file.
   //! \param theFilename [in] filename.
+  //! \param theNotifier [in] notifier.
   //! \return true in case of success, false -- otherwise.
   virtual Standard_Boolean
-    Open(const TCollection_AsciiString& theFilename) = 0;
+    Open(const TCollection_AsciiString& theFilename,
+         ActAPI_ProgressEntry           theNotifier = NULL) = 0;
 
   //! Releases the Data Model.
   //! \param theVersionStatus [in] ultimate version status to set.
@@ -197,9 +199,11 @@ public:
 
   //! Saves Data Model into external file.
   //! \param theFilename [in] filename.
+  //! \param theNotifier [in] notifier.
   //! \return true in case of success, false -- otherwise.
   virtual Standard_Boolean
-    SaveAs(const TCollection_AsciiString& theFilename) = 0;
+    SaveAs(const TCollection_AsciiString& theFilename,
+           ActAPI_ProgressEntry           theNotifier = NULL) = 0;
 
   //! Returns true if the Model has been modified.
   //! \return true/false.
