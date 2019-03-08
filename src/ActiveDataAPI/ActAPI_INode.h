@@ -224,6 +224,9 @@ public:
   virtual void
     SetUserFlags(const Standard_Integer theUFlags) = 0;
 
+  virtual void
+    AddUserFlags(const Standard_Integer theUFlags) = 0;
+
 // Alternative hierarchy of Nodes:
 public:
 

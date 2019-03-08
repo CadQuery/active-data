@@ -309,6 +309,9 @@ public:
   ActData_EXPORT virtual void
     SetUserFlags(const Standard_Integer theUFlags);
 
+  ActData_EXPORT virtual void
+    AddUserFlags(const Standard_Integer theUFlags);
+
 // Alternative hierarchy of Nodes:
 public:
 

@@ -337,6 +337,13 @@ void ActData_BaseNode::SetUserFlags(const Standard_Integer theUFlags)
   m_paramScope.Meta->SetUserFlags(theUFlags);
 }
 
+//! Adds application-specific flags for the Data Node.
+//! \param theUFlags [in] application-specific flags to add.
+void ActData_BaseNode::AddUserFlags(const Standard_Integer theUFlags)
+{
+  m_paramScope.Meta->SetUserFlags(this->GetUserFlags() | theUFlags);
+}
+
 //-----------------------------------------------------------------------------
 // Accessors parent/child Data Nodes
 //-----------------------------------------------------------------------------
