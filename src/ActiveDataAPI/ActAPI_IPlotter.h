@@ -520,6 +520,15 @@ public:
 
 public:
 
+  //! Assignment operator.
+  //! \param iv [in] IV to wrap.
+  void operator=(const Handle(ActAPI_IPlotter)& iv)
+  {
+    m_iv = iv;
+  }
+
+public:
+
   //! \return Journal instance.
   const Handle(ActAPI_IPlotter)& Plotter() const { return m_iv; }
 
