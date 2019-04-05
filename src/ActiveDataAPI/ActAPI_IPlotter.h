@@ -245,15 +245,19 @@ public:
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
-                 const double, // U limit
-                 const double, // V limit
+                 const double, // U min
+                 const double, // U max
+                 const double, // V min
+                 const double, // V max
                  const ActAPI_Color&,
                  const TCollection_AsciiString&) {}
 
   virtual void
     DRAW_SURFACE(const Handle(Geom_Surface)&,
-                 const double, // U limit
-                 const double, // V limit
+                 const double, // U min
+                 const double, // U max
+                 const double, // V min
+                 const double, // V max
                  const ActAPI_Color&,
                  const double, // opacity
                  const TCollection_AsciiString&) {}
@@ -272,15 +276,19 @@ public:
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
-                   const double, // U limit
-                   const double, // V limit
+                   const double, // U min
+                   const double, // U max
+                   const double, // V min
+                   const double, // V max
                    const ActAPI_Color&) {}
 
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString&,
                    const Handle(Geom_Surface)&,
-                   const double, // U limit
-                   const double, // V limit
+                   const double, // U min
+                   const double, // U max
+                   const double, // V min
+                   const double, // V max
                    const ActAPI_Color&,
                    const double) {} // opacity
 
@@ -779,29 +787,33 @@ public:
 
   void
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
-                 const double                   uLimit,
-                 const double                   vLimit,
+                 const double                   uMin,
+                 const double                   uMax,
+                 const double                   vMin,
+                 const double                   vMax,
                  const ActAPI_Color&            color,
                  const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->DRAW_SURFACE(surface, uLimit, vLimit, color, name);
+    m_iv->DRAW_SURFACE(surface, uMin, uMax, vMin, vMax, color, name);
   }
 
 //---------------------------------------------------------------------------//
 
   void
     DRAW_SURFACE(const Handle(Geom_Surface)&    surface,
-                 const double                   uLimit,
-                 const double                   vLimit,
+                 const double                   uMin,
+                 const double                   uMax,
+                 const double                   vMin,
+                 const double                   vMax,
                  const ActAPI_Color&            color,
                  const double                   opacity,
                  const TCollection_AsciiString& name = "")
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->DRAW_SURFACE(surface, uLimit, vLimit, color, opacity, name);
+    m_iv->DRAW_SURFACE(surface, uMin, uMax, vMin, vMax, color, opacity, name);
   }
 
 //---------------------------------------------------------------------------//
@@ -834,13 +846,15 @@ public:
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString& name,
                    const Handle(Geom_Surface)&    surface,
-                   const double                   uLimit,
-                   const double                   vLimit,
+                   const double                   uMin,
+                   const double                   uMax,
+                   const double                   vMin,
+                   const double                   vMax,
                    const ActAPI_Color&            color)
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->REDRAW_SURFACE(name, surface, uLimit, vLimit, color);
+    m_iv->REDRAW_SURFACE(name, surface, uMin, uMax, vMin, vMax, color);
   }
 
 //---------------------------------------------------------------------------//
@@ -848,14 +862,16 @@ public:
   virtual void
     REDRAW_SURFACE(const TCollection_AsciiString& name,
                    const Handle(Geom_Surface)&    surface,
-                   const double                   uLimit,
-                   const double                   vLimit,
+                   const double                   uMin,
+                   const double                   uMax,
+                   const double                   vMin,
+                   const double                   vMax,
                    const ActAPI_Color&            color,
                    const double                   opacity)
   {
     if ( m_iv.IsNull() ) return;
     //
-    m_iv->REDRAW_SURFACE(name, surface, uLimit, vLimit, color, opacity);
+    m_iv->REDRAW_SURFACE(name, surface, uMin, uMax, vMin, vMax, color, opacity);
   }
 
 //---------------------------------------------------------------------------//
