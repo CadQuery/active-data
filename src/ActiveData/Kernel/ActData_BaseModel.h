@@ -284,17 +284,32 @@ public:
   ActData_EXPORT virtual void
     FuncSetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier);
 
-  ActData_EXPORT virtual Handle(ActAPI_IProgressNotifier)
+  ActData_EXPORT virtual void
+    FuncSetPlotter(const Handle(ActAPI_IPlotter)& thePlotter);
+
+  ActData_EXPORT virtual const Handle(ActAPI_IProgressNotifier)&
     FuncProgressNotifier() const;
+
+  ActData_EXPORT virtual const Handle(ActAPI_IPlotter)&
+    FuncPlotter() const;
 
   ActData_EXPORT virtual Standard_Boolean
     FuncIsProgressNotifierOn() const;
+
+  ActData_EXPORT virtual Standard_Boolean
+    FuncIsPlotterOn() const;
 
   ActData_EXPORT virtual void
     FuncProgressNotifierOn();
 
   ActData_EXPORT virtual void
+    FuncPlotterOn();
+
+  ActData_EXPORT virtual void
     FuncProgressNotifierOff();
+
+  ActData_EXPORT virtual void
+    FuncPlotterOff();
 
   ActData_EXPORT virtual void
     FuncReleaseLogBook();

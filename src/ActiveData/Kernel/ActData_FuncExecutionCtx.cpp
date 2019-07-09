@@ -56,6 +56,7 @@ ActData_FuncExecutionCtx::ActData_FuncExecutionCtx()
 : Standard_Transient()
 {
   this->ProgressNotifierOff();
+  this->PlotterOff();
   this->UnFreezeGraph();
 }
 
@@ -142,14 +143,28 @@ void ActData_FuncExecutionCtx::ReleaseTxData()
 //! \param thePNotifier [in] Progress Notifier instance to set.
 void ActData_FuncExecutionCtx::SetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier)
 {
-  m_PNotifier = thePNotifier;
+  m_progress = thePNotifier;
+}
+
+//! Sets the global Imperative Plotter.
+//! \param thePlotter [in] Plotter instance to set.
+void ActData_FuncExecutionCtx::SetPlotter(const Handle(ActAPI_IPlotter)& thePlotter)
+{
+  m_plotter = thePlotter;
 }
 
 //! Accessor for the global Progress Notifier.
 //! \return global Progress Notifier.
-Handle(ActAPI_IProgressNotifier) ActData_FuncExecutionCtx::ProgressNotifier() const
+const Handle(ActAPI_IProgressNotifier)& ActData_FuncExecutionCtx::ProgressNotifier() const
 {
-  return m_PNotifier;
+  return m_progress;
+}
+
+//! Accessor for the global Plotter.
+//! \return global Progress Notifier.
+const Handle(ActAPI_IPlotter)& ActData_FuncExecutionCtx::Plotter() const
+{
+  return m_plotter;
 }
 
 //! Returns true if Progress Notification is ENABLED, false -- otherwise.
@@ -159,16 +174,35 @@ Standard_Boolean ActData_FuncExecutionCtx::IsProgressNotifierOn() const
   return m_bProgressNotifierOn;
 }
 
+//! Returns true if Plotter is ENABLED, false -- otherwise.
+//! \return true/false.
+Standard_Boolean ActData_FuncExecutionCtx::IsPlotterOn() const
+{
+  return m_bPlotterOn;
+}
+
 //! Sets Progress Notification ENABLED.
 void ActData_FuncExecutionCtx::ProgressNotifierOn()
 {
   m_bProgressNotifierOn = Standard_True;
 }
 
+//! Sets Imperative Plotter ENABLED.
+void ActData_FuncExecutionCtx::PlotterOn()
+{
+  m_bPlotterOn = Standard_True;
+}
+
 //! Sets Progress Notification DISABLED.
 void ActData_FuncExecutionCtx::ProgressNotifierOff()
 {
   m_bProgressNotifierOn = Standard_False;
+}
+
+//! Sets Imperative Plotter DISABLED.
+void ActData_FuncExecutionCtx::PlotterOff()
+{
+  m_bPlotterOn = Standard_False;
 }
 
 //-----------------------------------------------------------------------------
@@ -270,9 +304,7 @@ void ActData_FuncExecutionCtx::Deploy(const Handle(ActData_TreeFunctionParameter
 //! Each root is forced for execution. Each heavy Tree Function gets
 //! DEPLOYMENT pass.
 //! \param theModel [in] Data Model instance.
-//! \param PEntry [in] Progress Entry.
-void ActData_FuncExecutionCtx::ForceDeployPropagation(const Handle(ActData_BaseModel)& theModel,
-                                                      ActAPI_ProgressEntry PEntry)
+void ActData_FuncExecutionCtx::ForceDeployPropagation(const Handle(ActData_BaseModel)& theModel)
 {
   if ( m_functions2Deploy.IsNull() || m_functions2Deploy->IsEmpty() )
     return; // Nothing to deploy
@@ -325,8 +357,8 @@ void ActData_FuncExecutionCtx::ForceDeployPropagation(const Handle(ActData_BaseM
         }
 
         // Put logging message
-        if ( !TFunc.IsNull() )
-          PEntry.SendLogMessage( LogInfo(Normal) << "HEAVY_FUNC_DEPLOY_NEXTFUNC" << TFunc->GetName() );
+        if ( !TFunc.IsNull() && !m_progress.IsNull() )
+          m_progress->SendLogMessage( LogInfo(Normal) << "HEAVY_FUNC_DEPLOY_NEXTFUNC" << TFunc->GetName() );
       }
 
       // Go to the next Function

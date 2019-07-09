@@ -38,6 +38,7 @@
 #include <ActData_TreeFunctionParameter.h>
 
 // Active Data (API) includes
+#include <ActAPI_IPlotter.h>
 #include <ActAPI_IProgressNotifier.h>
 #include <ActAPI_TxData.h>
 
@@ -131,17 +132,32 @@ public:
   ActData_EXPORT void
     SetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier);
 
-  ActData_EXPORT Handle(ActAPI_IProgressNotifier)
+  ActData_EXPORT void
+    SetPlotter(const Handle(ActAPI_IPlotter)& thePlotter);
+
+  ActData_EXPORT const Handle(ActAPI_IProgressNotifier)&
     ProgressNotifier() const;
+
+  ActData_EXPORT const Handle(ActAPI_IPlotter)&
+    Plotter() const;
 
   ActData_EXPORT Standard_Boolean
     IsProgressNotifierOn() const;
+
+  ActData_EXPORT Standard_Boolean
+    IsPlotterOn() const;
 
   ActData_EXPORT void
     ProgressNotifierOn();
 
   ActData_EXPORT void
+    PlotterOn();
+
+  ActData_EXPORT void
     ProgressNotifierOff();
+
+  ActData_EXPORT void
+    PlotterOff();
 
   ActData_EXPORT void
     FreezeGraph();
@@ -168,22 +184,21 @@ public:
 public:
 
   ActData_EXPORT void
-    ForceDeployPropagation(const Handle(ActData_BaseModel)& theModel,
-                           ActAPI_ProgressEntry PEntry);
+    ForceDeployPropagation(const Handle(ActData_BaseModel)& theModel);
 
 public:
 
   //! Sets a collection of Tree Function Parameters requiring "heavy"
   //! execution.
   //! \param theRoots [in] list to set.
-  inline void SetFunctions2Deploy(const Handle(ActAPI_HParameterList)& theRoots)
+  void SetFunctions2Deploy(const Handle(ActAPI_HParameterList)& theRoots)
   {
     m_functions2Deploy = theRoots;
   }
 
   //! Cleans up the collection of Tree Function Parameters registered for
   //! "heavy" execution.
-  inline void CleanFunctions2Deploy()
+  void CleanFunctions2Deploy()
   {
     m_functions2Deploy.Nullify();
   }
@@ -195,10 +210,16 @@ private:
   Handle(HFunctionDataMap) m_funcDataMap;
 
   //! Global Progress Notifier for all Tree Functions.
-  Handle(ActAPI_IProgressNotifier) m_PNotifier;
+  Handle(ActAPI_IProgressNotifier) m_progress;
+
+  //! Global Plotter for all Tree Functions.
+  Handle(ActAPI_IPlotter) m_plotter;
 
   //! Indicates whether Progress Notification is enabled or not.
   Standard_Boolean m_bProgressNotifierOn;
+
+  //! Indicates whether Imperative Plotter is enabled or not.
+  Standard_Boolean m_bPlotterOn;
 
   //! Indicates whether Execution Graph is frozen or not.
   Standard_Boolean m_bIsGraphFrozen;

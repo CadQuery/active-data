@@ -66,8 +66,7 @@ Standard_CString ActTest_DummyTreeFunction::GetGUID() const
 Standard_Integer
   ActTest_DummyTreeFunction::execute(const Handle(ActAPI_HParameterList)&,
                                      const Handle(ActAPI_HParameterList)&,
-                                     const Handle(Standard_Transient)&,
-                                     ActAPI_ProgressEntry) const
+                                     const Handle(Standard_Transient)&) const
 {
   // Do nothing...
   return 0; // SUCCESS

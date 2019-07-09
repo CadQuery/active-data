@@ -538,7 +538,7 @@ public:
 public:
 
   //! \return Journal instance.
-  const Handle(ActAPI_IPlotter)& Plotter() const { return m_iv; }
+  const Handle(ActAPI_IPlotter)& Access() const { return m_iv; }
 
 public:
 

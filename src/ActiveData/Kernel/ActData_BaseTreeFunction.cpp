@@ -87,7 +87,7 @@ Standard_Integer
 
   if ( !this->validate(theArgsIN, theArgsOUT) )
   {
-    m_PEntry.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_VALIDATION_FAILED" << this->GetName() );
+    m_progress.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_VALIDATION_FAILED" << this->GetName() );
     return 1; // VALIDATION ERROR
   }
 
@@ -113,7 +113,7 @@ Standard_Integer
 
   if ( isRecoPending )
   {
-    m_PEntry.SendLogMessage( LogNotice(Normal) << "TREE_FUNCTION_PENDING_INPUTS" << this->GetName() );
+    m_progress.SendLogMessage( LogNotice(Normal) << "TREE_FUNCTION_PENDING_INPUTS" << this->GetName() );
 
     if ( !isBlocking )
       this->propagatePending(theArgsOUT); // IDLE execution
@@ -133,10 +133,10 @@ Standard_Integer
       const Standard_Boolean isDeployed = ActData_LogBook::IsPendingCursor(TFuncParam);
 
       if ( isDeployed && !isRecoValid )
-        m_PEntry.SendLogMessage( LogWarn(Normal) << "TREE_FUNCTION_INVALID_UNRECOVERABLE_INPUT" << this->GetName() );
+        m_progress.SendLogMessage( LogWarn(Normal) << "TREE_FUNCTION_INVALID_UNRECOVERABLE_INPUT" << this->GetName() );
 
       if ( !isDeployed )
-        m_PEntry.SendLogMessage( LogNotice(Normal) << "TREE_FUNCTION_HEAVY_SKIPPED" << this->GetName() );
+        m_progress.SendLogMessage( LogNotice(Normal) << "TREE_FUNCTION_HEAVY_SKIPPED" << this->GetName() );
 
       canExecute = isDeployed && isRecoValid;
     }
@@ -152,7 +152,7 @@ Standard_Integer
         ActAux_SpyLog::Instance()->CallCount( this->GetName() );
 
       // Execute
-      aRes = this->execute(theArgsIN, theArgsOUT, m_UserData, m_PEntry.Access());
+      aRes = this->execute(theArgsIN, theArgsOUT, m_UserData);
     }
     else
     {
@@ -237,7 +237,7 @@ Standard_Boolean
   Standard_Boolean isOk = this->validateBySignature( theArgsIN, this->inputSignature() );
   if ( !isOk )
   {
-    m_PEntry.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_INPUT_VALIDATION_FAILED" << this->GetName() );
+    m_progress.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_INPUT_VALIDATION_FAILED" << this->GetName() );
   }
   return isOk;
 }
@@ -251,7 +251,7 @@ Standard_Boolean
   Standard_Boolean isOk = this->validateBySignature( theArgsOUT, this->outputSignature() );
   if ( !isOk )
   {
-    m_PEntry.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_OUTPUT_VALIDATION_FAILED" << this->GetName() );
+    m_progress.SendLogMessage( LogErr(Normal) << "TREE_FUNCTION_OUTPUT_VALIDATION_FAILED" << this->GetName() );
   }
   return isOk;
 }

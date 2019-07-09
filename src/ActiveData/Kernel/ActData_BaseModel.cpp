@@ -1028,7 +1028,7 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   ActData_FuncExecutionCtx::UpdateDependencies(this);
 
   // Prepare graph for deployment
-  m_funcCtx->ForceDeployPropagation( this, this->FuncProgressNotifier() );
+  m_funcCtx->ForceDeployPropagation(this);
 
   /* ============================================================
    *  Build a dependency graph for Tree Functions. Then check it
@@ -1111,6 +1111,9 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   ActAPI_ProgressEntry aPEntry( m_funcCtx->IsProgressNotifierOn() ? m_funcCtx->ProgressNotifier() : NULL );
   aPEntry.Reset();
 
+  // Plotter
+  ActAPI_PlotterEntry aPlotter( m_funcCtx->IsPlotterOn() ? m_funcCtx->Plotter() : NULL );
+
   // NOTICE: it is not possible to iterate independent Tree Functions in a
   //         parallel manner as they still have possibility to be prioritized.
   //         Indeed, Real Evaluation Tree Functions are normally of higher
@@ -1143,6 +1146,7 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
 
       aTreeFuncBase->SetUserData( m_funcCtx->AccessUserData( aTreeFuncBase->GetGUID() ) );
       aTreeFuncBase->SetProgressNotifier( aPEntry.Access() );
+      aTreeFuncBase->SetPlotter( aPlotter.Access() );
 
       /* ====================================
        *  Perform workflow for modified data
@@ -1209,11 +1213,25 @@ void ActData_BaseModel::FuncSetProgressNotifier(const Handle(ActAPI_IProgressNot
   m_funcCtx->SetProgressNotifier(thePNotifier);
 }
 
+//! Sets Plotter for execution context.
+//! \param thePlotter [in] Plotter to set.
+void ActData_BaseModel::FuncSetPlotter(const Handle(ActAPI_IPlotter)& thePlotter)
+{
+  m_funcCtx->SetPlotter(thePlotter);
+}
+
 //! Returns global Progress Notifier.
 //! \return Progress Notifier instance.
-Handle(ActAPI_IProgressNotifier) ActData_BaseModel::FuncProgressNotifier() const
+const Handle(ActAPI_IProgressNotifier)& ActData_BaseModel::FuncProgressNotifier() const
 {
   return m_funcCtx->ProgressNotifier();
+}
+
+//! Returns global Imperative Plotter.
+//! \return Imperative Plotter instance.
+const Handle(ActAPI_IPlotter)& ActData_BaseModel::FuncPlotter() const
+{
+  return m_funcCtx->Plotter();
 }
 
 //! Returns true if Progress Notifier is ENABLED, false -- otherwise.
@@ -1223,16 +1241,35 @@ Standard_Boolean ActData_BaseModel::FuncIsProgressNotifierOn() const
   return m_funcCtx->IsProgressNotifierOn();
 }
 
+//! Returns true if Plotter is ENABLED, false -- otherwise.
+//! \return true/false.
+Standard_Boolean ActData_BaseModel::FuncIsPlotterOn() const
+{
+  return m_funcCtx->IsPlotterOn();
+}
+
 //! Sets Progress Notifier ENABLED.
 void ActData_BaseModel::FuncProgressNotifierOn()
 {
   m_funcCtx->ProgressNotifierOn();
 }
 
+//! Sets Plotter ENABLED.
+void ActData_BaseModel::FuncPlotterOn()
+{
+  m_funcCtx->PlotterOn();
+}
+
 //! Sets Progress Notifier DISABLED.
 void ActData_BaseModel::FuncProgressNotifierOff()
 {
   m_funcCtx->ProgressNotifierOff();
+}
+
+//! Sets Plotter DISABLED.
+void ActData_BaseModel::FuncPlotterOff()
+{
+  m_funcCtx->PlotterOff();
 }
 
 //! Cleans up the LogBook section.

@@ -74,8 +74,7 @@ private:
   virtual Standard_Integer
     execute(const Handle(ActAPI_HParameterList)&,
             const Handle(ActAPI_HParameterList)&,
-            const Handle(Standard_Transient)&,
-            ActAPI_ProgressEntry) const;
+            const Handle(Standard_Transient)&) const;
 
 
   virtual ActAPI_ParameterTypeStream

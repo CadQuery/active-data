@@ -36,6 +36,7 @@
 // Active Data (API) includes
 #include <ActAPI_INode.h>
 #include <ActAPI_IPartition.h>
+#include <ActAPI_IPlotter.h>
 #include <ActAPI_IProgressNotifier.h>
 #include <ActAPI_TxData.h>
 #include <ActAPI_TxRes.h>
@@ -451,23 +452,46 @@ public:
   virtual void
     FuncSetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier) = 0;
 
+  //! Sets Imperative Plotter for execution context.
+  //! \param thePlotter [in] Imperative Plotter to set.
+  virtual void
+    FuncSetPlotter(const Handle(ActAPI_IPlotter)& thePlotter) = 0;
+
   //! Returns global Progress Notifier.
   //! \return Progress Notifier instance.
-  virtual Handle(ActAPI_IProgressNotifier)
+  virtual const Handle(ActAPI_IProgressNotifier)&
     FuncProgressNotifier() const = 0;
+
+  //! Returns global Imperative Plotter.
+  //! \return Imperative Plotter instance.
+  virtual const Handle(ActAPI_IPlotter)&
+    FuncPlotter() const = 0;
 
   //! Returns true if Progress Notifier is ENABLED, false -- otherwise.
   //! \return true/false.
   virtual Standard_Boolean
     FuncIsProgressNotifierOn() const = 0;
 
+  //! Returns true if Plotter is ENABLED, false -- otherwise.
+  //! \return true/false.
+  virtual Standard_Boolean
+    FuncIsPlotterOn() const = 0;
+
   //! Sets Progress Notifier ENABLED.
   virtual void
     FuncProgressNotifierOn() = 0;
 
+  //! Sets Plotter ENABLED.
+  virtual void
+    FuncPlotterOn() = 0;
+
   //! Sets Progress Notifier DISABLED.
   virtual void
     FuncProgressNotifierOff() = 0;
+
+  //! Sets Plotter DISABLED.
+  virtual void
+    FuncPlotterOff() = 0;
 
   //! Releases Modification LogBook utilized by Tree Function mechanism.
   virtual void

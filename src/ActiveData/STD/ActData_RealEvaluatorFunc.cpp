@@ -114,10 +114,9 @@ Standard_Integer ActData_RealEvaluatorFunc::Priority() const
 Standard_Integer
   ActData_RealEvaluatorFunc::execute(const Handle(ActAPI_HParameterList)& theArgsIN,
                                      const Handle(ActAPI_HParameterList)& theArgsOUT,
-                                     const Handle(Standard_Transient)& theUserData,
-                                     ActAPI_ProgressEntry PEntry) const
+                                     const Handle(Standard_Transient)& theUserData) const
 {
-  PEntry.SetMessageKey("EVAL_FUNC_STARTING");
+  m_progress.SetMessageKey("EVAL_FUNC_STARTING");
 
   /* ============================
    *  Interpret INPUT parameters
@@ -206,7 +205,7 @@ Standard_Integer
 
   if ( !anErr.IsEmpty() )
   {
-    PEntry.SendLogMessage(LogWarn(Normal) << "EVAL_FUNC_FAILED_WITH_ERROR" << anErr);
+    m_progress.SendLogMessage(LogWarn(Normal) << "EVAL_FUNC_FAILED_WITH_ERROR" << anErr);
     return 1;
   }
 
@@ -227,7 +226,7 @@ Standard_Integer
     Handle(ActData_IntParameter)::DownCast(aTargetParam_OUT)->SetValue( (Standard_Integer) aResult,
                                                                          MT_Impacted );
 
-  PEntry.SendLogMessage(LogInfo(Normal) << "EVAL_FUNC_SUCCESS" << anErr);
+  m_progress.SendLogMessage(LogInfo(Normal) << "EVAL_FUNC_SUCCESS" << anErr);
 
   return 0; // OK
 }

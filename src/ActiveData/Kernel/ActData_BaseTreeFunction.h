@@ -37,6 +37,7 @@
 #include <ActData_Common.h>
 
 // Active Data (API) includes
+#include <ActAPI_IPlotter.h>
 #include <ActAPI_IProgressNotifier.h>
 #include <ActAPI_ITreeFunction.h>
 
@@ -87,35 +88,48 @@ public:
 
   //! Initializes shared user data.
   //! \param theUserData [in] user data container to set.
-  inline void SetUserData(const Handle(Standard_Transient)& theUserData)
+  void SetUserData(const Handle(Standard_Transient)& theUserData)
   {
     m_UserData = theUserData;
   }
 
   //! Accessor for the shared user data.
   //! \return requested container.
-  inline const Handle(Standard_Transient)& GetUserData() const
+  const Handle(Standard_Transient)& GetUserData() const
   {
     return m_UserData;
   }
 
   //! Initializes shared Progress Notifier.
-  //! \param thePCol [in] Progress Notifier instance to set.
-  inline void SetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier)
+  //! \param thePNotifier [in] Progress Notifier instance to set.
+  void SetProgressNotifier(const Handle(ActAPI_IProgressNotifier)& thePNotifier)
   {
-    m_PEntry = thePNotifier;
+    m_progress = thePNotifier;
   }
 
   //! Accessor for the shared Progress Notifier.
   //! \return requested Progress Notifier instance.
-  inline Handle(ActAPI_IProgressNotifier) GetProgressNotifier() const
+  Handle(ActAPI_IProgressNotifier) GetProgressNotifier() const
   {
-    return m_PEntry.Access();
+    return m_progress.Access();
+  }
+
+  //! Initializes shared Progress Notifier.
+  //! \param thePlotter [in] Imperative Plotter to set.
+  void SetPlotter(const Handle(ActAPI_IPlotter)& thePlotter)
+  {
+    m_plotter = thePlotter;
+  }
+
+  //! \return plotter.
+  Handle(ActAPI_IPlotter) GetPlotter() const
+  {
+    return m_plotter.Access();
   }
 
   //! Returns Tree Function Driver.
   //! \return Function Driver.
-  inline const Handle(ActData_TreeFunctionDriver)& GetDriver() const
+  const Handle(ActData_TreeFunctionDriver)& GetDriver() const
   {
     return m_driver;
   }
@@ -142,8 +156,7 @@ private:
   virtual Standard_Integer
     execute(const Handle(ActAPI_HParameterList)& theArgsIN,
             const Handle(ActAPI_HParameterList)& theArgsOUT,
-            const Handle(Standard_Transient)& theUserData = NULL,
-            ActAPI_ProgressEntry PEntry = NULL) const = 0;
+            const Handle(Standard_Transient)& theUserData = NULL) const = 0;
 
   virtual ActAPI_ParameterTypeStream
     inputSignature() const = 0;
@@ -168,6 +181,14 @@ protected:
   ActData_EXPORT void
     propagatePending(const Handle(ActAPI_HParameterList)& theArgs) const;
 
+protected:
+
+  //! Shared Progress Notifier.
+  mutable ActAPI_ProgressEntry m_progress;
+
+  //! Shared Plotter.
+  mutable ActAPI_PlotterEntry m_plotter;
+
 private:
 
   //! Internal OCCT TFunction Driver.
@@ -175,9 +196,6 @@ private:
 
   //! Shared user data.
   Handle(Standard_Transient) m_UserData;
-
-  //! Shared Progress Notifier.
-  ActAPI_ProgressEntry m_PEntry;
 
 };
 
