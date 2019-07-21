@@ -380,6 +380,24 @@ Handle(ActAPI_INode)
   return current_n;
 }
 
+//! Collects all children of this Node.
+//! \param[out] theChildren children.
+//! \return number of children.
+int ActData_BaseNode::GetChildren(Handle(ActAPI_HNodeList)& theChildren) const
+{
+  int res = 0;
+  theChildren = new ActAPI_HNodeList;
+
+  for ( Handle(ActAPI_IChildIterator) cit = this->GetChildIterator();
+        cit->More(); cit->Next() )
+  {
+    theChildren->Append( cit->Value() );
+    ++res;
+  }
+
+  return res;
+}
+
 //! Adds a child Node to this one.
 //! \param theNode [in] child Node to add.
 void ActData_BaseNode::AddChildNode(const Handle(ActAPI_INode)& theNode)

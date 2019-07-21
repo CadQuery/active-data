@@ -63,6 +63,20 @@ typedef NCollection_Shared<ActAPI_NodeIdMap>  ActAPI_HNodeIdMap;
 
 //! \ingroup AD_API
 //!
+//! Short-cuts for collection of Nodes.
+typedef NCollection_Sequence<Handle(ActAPI_INode)> ActAPI_NodeList;
+typedef NCollection_Shared<ActAPI_NodeList>        ActAPI_HNodeList;
+
+//! \ingroup AD_API
+//!
+//! Shortcuts for map of Nodes.
+typedef NCollection_Map<Handle(ActAPI_INode), ActAPI_IDataCursor::Hasher> ActAPI_NodeMap;
+typedef NCollection_Shared<ActAPI_NodeMap>                                ActAPI_HNodeMap;
+
+//-----------------------------------------------------------------------------
+
+//! \ingroup AD_API
+//!
 //! Iterator for Nodal Parameters.
 class ActAPI_IParamIterator : public Standard_Transient
 {
@@ -236,6 +250,9 @@ public:
   virtual Handle(ActAPI_INode)
     GetChildNode(const Standard_Integer oneBased_idx) const = 0;
 
+  virtual int
+    GetChildren(Handle(ActAPI_HNodeList)& theChildren) const = 0;
+
   virtual void
     AddChildNode(const Handle(ActAPI_INode)& theNode) = 0;
 
@@ -323,19 +340,5 @@ public:
     GetReferrers() = 0;
 
 };
-
-//-----------------------------------------------------------------------------
-
-//! \ingroup AD_API
-//!
-//! Short-cuts for collection of Nodes.
-typedef NCollection_Sequence<Handle(ActAPI_INode)> ActAPI_NodeList;
-typedef NCollection_Shared<ActAPI_NodeList>        ActAPI_HNodeList;
-
-//! \ingroup AD_API
-//!
-//! Shortcuts for map of Nodes.
-typedef NCollection_Map<Handle(ActAPI_INode), ActAPI_IDataCursor::Hasher> ActAPI_NodeMap;
-typedef NCollection_Shared<ActAPI_NodeMap>                                ActAPI_HNodeMap;
 
 #endif
