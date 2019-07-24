@@ -1,7 +1,7 @@
 # Useful functions
 
 # Macro
-include (${CMAKE_SOURCE_DIR}/cmake/ACTDATA_macros.cmake)
+include (${CMAKE_SOURCE_DIR}/cmake/actdata_macros.cmake)
 
 #-------------------------------------------------------------------------------
 # Name:    ACTDATA_RETRIEVE_VERSION

@@ -793,11 +793,11 @@ Handle(ActAPI_INode) ActData_BaseModel::PasteAsChild(const Handle(ActAPI_INode)&
   // Access the buffered Node
   Handle(ActAPI_INode) aBufRoot = m_copyPasteEngine->GetRootBuffered();
   if ( aBufRoot.IsNull() || !aBufRoot->IsWellFormed() )
-    return Standard_False;
+    return Handle(ActAPI_INode)();
 
   // Pasting is prohibited to children of the source Node
   if ( m_copyPasteEngine->GetRelocationTable(Standard_True).IsBound1( theParent->RootLabel() ) )
-    return Standard_False;
+    return Handle(ActAPI_INode)();
 
   // Restore the Data Node from the buffering section distributing itself
   // with all the children by proper Partitions

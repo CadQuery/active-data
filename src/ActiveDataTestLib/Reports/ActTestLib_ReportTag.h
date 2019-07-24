@@ -38,6 +38,7 @@
 
 // STD includes
 #include <vector>
+#include <string>
 
 //! Base class representing HTML tag for test report.
 class ActTestLib_ReportTag

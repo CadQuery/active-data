@@ -140,7 +140,7 @@ endif()
 install (TARGETS ActiveDataAux
          RUNTIME DESTINATION bin COMPONENT Runtime
          CONFIGURATIONS Release
-         ARCHIVE DESTINATION lib COMPONENT Library
+         ARCHIVE DESTINATION lib LIBRARY DESTINATION lib COMPONENT Library
          CONFIGURATIONS Release)
 
 install (TARGETS ActiveDataAux
@@ -152,7 +152,7 @@ install (TARGETS ActiveDataAux
 install (TARGETS ActiveDataAux
          RUNTIME DESTINATION bind COMPONENT Runtime
          CONFIGURATIONS Debug
-         ARCHIVE DESTINATION libd COMPONENT Library
+         ARCHIVE DESTINATION libd LIBRARY DESTINATION libd COMPONENT Library
          CONFIGURATIONS Debug)
 
 install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveDataAux.pdb DESTINATION bind CONFIGURATIONS Debug)

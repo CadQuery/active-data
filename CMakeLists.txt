@@ -9,6 +9,7 @@ set (CMAKE_INSTALL_PREFIX "${INSTALL_DIR}" CACHE INTERNAL "" FORCE )
 
 # Build configurations
 set (CMAKE_CONFIGURATION_TYPES Release Debug RelWithDebInfo CACHE INTERNAL "" FORCE)
+set (USE_TEST ON CACHE BOOL "Allows switching ON/OFF of building test library and executable")
 
 #-------------------------------------------------------------------------------
 # Find 3rd-parties
@@ -108,8 +109,10 @@ endif()
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataAPI)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataAux)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveData)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataTestLib)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataTest)
+if (USE_TEST)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataTestLib)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/src/ActiveDataTest)
+endif()
 
 #-------------------------------------------------------------------------------
 # Folders
@@ -120,8 +123,10 @@ set_property(TARGET ActiveData        PROPERTY FOLDER Core)
 set_property(TARGET ActiveDataAPI     PROPERTY FOLDER Core)
 set_property(TARGET ActiveDataAux     PROPERTY FOLDER Core)
 ################################################################################
-set_property(TARGET ActiveDataTest    PROPERTY FOLDER Tests)
-set_property(TARGET ActiveDataTestLib PROPERTY FOLDER Tests)
+if (USE_TEST)
+  set_property(TARGET ActiveDataTest    PROPERTY FOLDER Tests)
+  set_property(TARGET ActiveDataTestLib PROPERTY FOLDER Tests)
+endif()
 ################################################################################
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)

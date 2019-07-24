@@ -45,6 +45,10 @@
 #include <iostream>
 #include <string>
 
+#ifndef _WIN32
+#include <unistd.h>
+#endif
+
 #define SpyLog_Filename "statistics.txt"
 
 Handle(ActAux_SpyLog) ActAux_SpyLog::__instance;
@@ -74,6 +78,7 @@ ActAux_SpyLog::~ActAux_SpyLog()
 //! Starts logging.
 void ActAux_SpyLog::Start()
 {
+#ifdef _WIN32
   // Get user name
   CHAR username[UNLEN+1];
   DWORD username_len = UNLEN+1;
@@ -85,7 +90,18 @@ void ActAux_SpyLog::Start()
   DWORD compname_len = UNLEN+1;
   GetComputerNameA(compname, &compname_len);
   m_compname = compname;
+#else
+  // Get user name
+  const size_t UNLEN = 256;
+  char username[UNLEN];
+  getlogin_r(username, UNLEN);
+  m_username = username;
 
+  // Get computer name
+  char compname[UNLEN];
+  gethostname(compname, UNLEN);
+  m_compname = compname;
+#endif
   // Session start timestamp
   m_session_start = ActAux_TimeStampTool::Generate();
 }
@@ -115,7 +131,11 @@ void ActAux_SpyLog::Stop()
   FILE.open(filename, std::ios_base::app);
   while ( !FILE.is_open() && attempt < limit )
   {
-    Sleep(100);
+#ifdef _WIN32
+    Sleep(100); // msec
+#else
+    usleep(100000); // mksec
+#endif
     FILE.open(filename, std::ios_base::app);
     ++attempt;
   }

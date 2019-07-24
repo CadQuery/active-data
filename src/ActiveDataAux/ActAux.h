@@ -33,10 +33,14 @@
 #ifndef ActAux_HeaderFile
 #define ActAux_HeaderFile
 
-#ifdef ActiveDataAux_EXPORTS
-#define ActAux_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+# ifdef ActiveDataAux_EXPORTS
+#  define ActAux_EXPORT __declspec(dllexport)
+# else
+#  define ActAux_EXPORT __declspec(dllimport)
+# endif
 #else
-#define ActAux_EXPORT __declspec(dllimport)
+# define ActAux_EXPORT
 #endif
 
 // STD includes

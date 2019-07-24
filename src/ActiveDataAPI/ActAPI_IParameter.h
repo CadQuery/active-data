@@ -409,14 +409,14 @@ public:
 public:
 
   //! Default constructor.
-  ActAPI_ParameterLocatorStream::ActAPI_ParameterLocatorStream()
+  ActAPI_ParameterLocatorStream()
   {
     List = new ActAPI_HParameterLocatorList();
   }
 
   //! Copy constructor. Performs SHALLOW copying.
   //! \param S [in] stream to copy.
-  ActAPI_ParameterLocatorStream::ActAPI_ParameterLocatorStream(const ActAPI_ParameterLocatorStream& S)
+  ActAPI_ParameterLocatorStream(const ActAPI_ParameterLocatorStream& S)
   {
     List = S.List;
   }

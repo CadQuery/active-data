@@ -33,10 +33,14 @@
 #ifndef ActTestLib_HeaderFile
 #define ActTestLib_HeaderFile
 
-#if defined ActiveDataTestLib_EXPORTS
-  #define ActTestLib_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+# if defined ActiveDataTestLib_EXPORTS
+#  define ActTestLib_EXPORT __declspec(dllexport)
+# else
+#  define ActTestLib_EXPORT __declspec(dllimport)
+# endif
 #else
-  #define ActTestLib_EXPORT __declspec(dllimport)
+# define ActTestLib_EXPORT
 #endif
 
 #define ActTestLib_NotUsed(x)

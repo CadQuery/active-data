@@ -31,7 +31,11 @@
 //-----------------------------------------------------------------------------
 
 // Windows includes
+#ifdef _WIN32
 #include <windows.h>
+#else
+#include <sys/stat.h>
+#endif
 
 // Own include
 #include <ActTestLib_Launcher.h>
@@ -80,7 +84,14 @@ bool ActTestLib_Launcher::Launch(std::ostream* out) const
 
   // TODO: for Windows only (!!!)
   // Create temporary directory
-  if ( !CreateDirectory(current_temp_dir.c_str(), NULL) )
+  if (
+#if _WIN32
+      !CreateDirectory(current_temp_dir.c_str(), NULL)
+#else
+      mkdir(current_temp_dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != 0
+#endif
+    )
+  
   {
     if ( out )
       *out << "\tFailed to create directory: " << current_temp_dir.c_str() << "\n";
@@ -89,7 +100,13 @@ bool ActTestLib_Launcher::Launch(std::ostream* out) const
 
   // TODO: for Windows only (!!!)
   // Create temporary directory for files
-  if ( !CreateDirectory(current_temp_dir_files().c_str(), NULL) )
+  if (
+#if _WIN32
+      !CreateDirectory(current_temp_dir_files().c_str(), NULL)
+#else
+      mkdir(current_temp_dir_files().c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != 0
+#endif
+    )
   {
     if ( out )
       *out << "\tFailed to create directory: " << current_temp_dir_files().c_str() << "\n";

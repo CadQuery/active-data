@@ -99,7 +99,7 @@ public:
   //! \return variable instance.
   ActAPI_EXPORT static Handle(ActAPI_VariableInt)
     Instance(const TCollection_AsciiString& theName,
-             const Standard_Integer         theValue)
+             Standard_Integer         theValue)
   {
     return new ActAPI_VariableInt(theName, theValue);
   }
@@ -127,7 +127,7 @@ public:
   //! \param theName [in] variable name.
   //! \param theValue [in] variable value.
   ActAPI_VariableInt(const TCollection_AsciiString& theName,
-                     const Standard_Integer         theValue) : ActAPI_VariableBase()
+                     Standard_Integer         theValue) : ActAPI_VariableBase()
   {
     Name = theName;
     Value = theValue;

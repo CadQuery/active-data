@@ -465,7 +465,7 @@ endif()
 install (TARGETS ActiveData
          RUNTIME DESTINATION bin COMPONENT Runtime
          CONFIGURATIONS Release
-         ARCHIVE DESTINATION lib COMPONENT Library
+         ARCHIVE DESTINATION lib LIBRARY DESTINATION lib COMPONENT Library
          CONFIGURATIONS Release)
 
 install (TARGETS ActiveData
@@ -477,7 +477,7 @@ install (TARGETS ActiveData
 install (TARGETS ActiveData
          RUNTIME DESTINATION bind COMPONENT Runtime
          CONFIGURATIONS Debug
-         ARCHIVE DESTINATION libd COMPONENT Library
+         ARCHIVE DESTINATION libd LIBRARY DESTINATION libd COMPONENT Library
          CONFIGURATIONS Debug)
 
 install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveData.pdb DESTINATION bind CONFIGURATIONS Debug)

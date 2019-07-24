@@ -33,10 +33,14 @@
 #ifndef ActAPI_HeaderFile
 #define ActAPI_HeaderFile
 
-#ifdef ActiveDataAPI_EXPORTS
-#define ActAPI_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+# ifdef ActiveDataAPI_EXPORTS
+#  define ActAPI_EXPORT __declspec(dllexport)
+# else
+#  define ActAPI_EXPORT __declspec(dllimport)
+# endif
 #else
-#define ActAPI_EXPORT __declspec(dllimport)
+# define ActAPI_EXPORT
 #endif
 
 #endif

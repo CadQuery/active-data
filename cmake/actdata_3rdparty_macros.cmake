@@ -1,7 +1,7 @@
 # Useful macro to work with 3-rd parties
 
 # Include functions
-include (${CMAKE_SOURCE_DIR}/cmake/ACTDATA_functions.cmake)
+include (${CMAKE_SOURCE_DIR}/cmake/actdata_functions.cmake)
 
 #-------------------------------------------------------------------------------
 # Name:    ACTDATA_CHECK_PATH_FOR_CONSISTENCY

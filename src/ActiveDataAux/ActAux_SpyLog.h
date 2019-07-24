@@ -33,9 +33,11 @@
 #ifndef ActAux_SpyLog_HeaderFile
 #define ActAux_SpyLog_HeaderFile
 
+#ifdef _WIN32
 // Win API and services
 #include <windows.h>
 #include <lmcons.h>
+#endif
 
 // Active Data (auxiliary) includes
 #include <ActAux_TimeStamp.h>

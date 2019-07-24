@@ -101,14 +101,14 @@ public:
 public:
 
   //! Default constructor.
-  ActAPI_FuncGUIDStream::ActAPI_FuncGUIDStream()
+  ActAPI_FuncGUIDStream()
   {
     List = new ActAPI_HFuncGUIDList();
   }
 
   //! Copy constructor. Performs SHALLOW copying.
   //! \param S [in] stream to copy.
-  ActAPI_FuncGUIDStream::ActAPI_FuncGUIDStream(const ActAPI_FuncGUIDStream& S)
+  ActAPI_FuncGUIDStream(const ActAPI_FuncGUIDStream& S)
   {
     List = S.List;
   }

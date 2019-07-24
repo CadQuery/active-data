@@ -33,10 +33,14 @@
 #ifndef ActData_HeaderFile
 #define ActData_HeaderFile
 
-#ifdef ActiveData_EXPORTS
-#define ActData_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+# ifdef ActiveData_EXPORTS
+#  define ActData_EXPORT __declspec(dllexport)
+# else
+#  define ActData_EXPORT __declspec(dllimport)
+# endif
 #else
-#define ActData_EXPORT __declspec(dllimport)
+# define ActData_EXPORT
 #endif
 
 // Define BINARY format to be used for ACT Data persistence. Two formats

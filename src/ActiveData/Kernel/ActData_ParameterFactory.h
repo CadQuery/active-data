@@ -64,7 +64,7 @@
 #include <TDF_Label.hxx>
 
 #define Parameter_SafeDownCast_Macro(Type) \
-  inline static Handle(ActData_##Type##Parameter) As##Type##(const Handle(ActAPI_IUserParameter)& theParam) \
+  inline static Handle(ActData_##Type##Parameter) As##Type(const Handle(ActAPI_IUserParameter)& theParam) \
   { \
     return Handle(ActData_##Type##Parameter)::DownCast(theParam); \
   }

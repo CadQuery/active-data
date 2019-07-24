@@ -31,6 +31,7 @@
 //-----------------------------------------------------------------------------
 
 #include <ActAux_TimeStamp.h>
+#include <Standard_Mutex.hxx>
 
 //! Generates timestamp structure for the current time.
 //! \return timestamp structure.
@@ -49,7 +50,7 @@ Handle(ActAux_TimeStamp) ActAux_TimeStampTool::Generate()
   static Standard_Mutex MUTEX;
 
   MUTEX.Lock();
-  anInternal = ++INTERNAL
+  anInternal = ++INTERNAL;
   MUTEX.Unlock();
 #endif
 
@@ -68,7 +69,11 @@ Handle(HIntArray)
   if ( theUTime->Time != -1 )
   {
     tm aTimeInfo;
+#ifdef _WIN32
     localtime_s(&aTimeInfo, &theUTime->Time);
+#else
+    localtime_r(&theUTime->Time, &aTimeInfo);
+#endif
 
     aResult->ChangeValue(0) = aTimeInfo.tm_sec;
     aResult->ChangeValue(1) = aTimeInfo.tm_min;

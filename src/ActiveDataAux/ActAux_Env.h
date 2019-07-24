@@ -34,7 +34,9 @@
 #define ActAux_Env_HeaderFile
 
 // Win includes
+#ifdef _WIN32
 #include <windows.h>
+#endif
 
 // ActAux includes
 #include <ActAux.h>
@@ -80,8 +82,12 @@ public:
   //! \return value of the variable.
   static std::string GetVariable(const char* VarName)
   {
+#ifdef _WIN32
     TCHAR chNewEnv[BUFSIZE];
     GetEnvironmentVariable(VarName, chNewEnv, BUFSIZE);
+#else
+    char* chNewEnv = getenv(VarName);
+#endif
     return chNewEnv;
   }
 

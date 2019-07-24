@@ -150,7 +150,11 @@ public:
                                    const Standard_Boolean isCompatible = Standard_False) const
   {
     Standard_Character aBuf[26];
+#ifdef _WIN32
     ctime_s(aBuf, 26, &Time);
+#else
+    ctime_r(&Time, aBuf);
+#endif
     aBuf[24] = '\0'; // Replace EOL [\n\0 --> \0\0]
 
     TCollection_AsciiString aRes;

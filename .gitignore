@@ -30,3 +30,5 @@ log.txt
 /msvc/vc12/My*Results*
 /msvc/My*Results*
 /test/*.brep
+/build*
+/install*

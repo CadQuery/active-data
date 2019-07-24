@@ -57,7 +57,7 @@
 #include <STD/ActData_BoolVarNode.h>
 #include <STD/ActData_BoolVarPartition.h>
 #include <STD/ActData_IntVarNode.h>
-#include <STD/Actdata_IntVarPartition.h>
+#include <STD/ActData_IntVarPartition.h>
 #include <STD/ActData_RealEvaluatorFunc.h>
 #include <STD/ActData_RealVarNode.h>
 #include <STD/ActData_RealVarPartition.h>

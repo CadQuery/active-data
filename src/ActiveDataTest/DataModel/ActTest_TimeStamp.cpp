@@ -33,6 +33,10 @@
 // Own include
 #include <ActTest_TimeStamp.h>
 
+#ifndef _WIN32
+#include <unistd.h>
+#endif
+
 #pragma warning(disable: 4127) // "Conditional expression is constant" by ACT_VERIFY
 #pragma warning(disable: 4800) // "Standard_Boolean: forcing value to bool" by ACT_VERIFY
 
@@ -51,7 +55,11 @@ bool ActTest_TimeStamp::cumulTest(const int ActTestLib_NotUsed(funcID))
 
   TEST_PRINT_DECOR_L("Sleep for a while just for clear experiment")
 
-  Sleep(100);
+#ifdef _WIN32
+  Sleep(100); // msec
+#else
+  usleep(100000); // mksec
+#endif
 
   TEST_PRINT_DECOR_L("Convert initial UniqueTime structure to CAF-suitable array")
 
