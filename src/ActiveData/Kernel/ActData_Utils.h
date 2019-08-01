@@ -504,6 +504,6 @@ namespace ActData_StringAux
     ReplaceRecursive(TCollection_AsciiString&       Source,
                      const TCollection_AsciiString& What,
                      const TCollection_AsciiString& With);
-};
+}
 
 #endif

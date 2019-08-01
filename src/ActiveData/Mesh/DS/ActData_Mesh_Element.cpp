@@ -55,7 +55,7 @@ ActData_Mesh_Element::ActData_Mesh_Element(const int ID, const int nb)
 //purpose  : desctructor
 //=======================================================================
 
-inline void ActData_Mesh_Element::Destruct ()
+void ActData_Mesh_Element::Destruct ()
 {
   if (myNormals) {
     Standard::Free(myNormals);
@@ -68,7 +68,7 @@ inline void ActData_Mesh_Element::Destruct ()
 //purpose  : 
 //=======================================================================
 
-inline int ActData_Mesh_Element::HashCode(const int Upper) const
+int ActData_Mesh_Element::HashCode(const int Upper) const
 {
   const int aKey = GetKey();
   return ( (aKey >= 0 ? aKey : -aKey) % Upper );
@@ -79,7 +79,7 @@ inline int ActData_Mesh_Element::HashCode(const int Upper) const
 //purpose  : 
 //=======================================================================
 
-inline void ActData_Mesh_Element::GetEdgeDefinedByNodes(const Standard_Integer /*rank*/,
+void ActData_Mesh_Element::GetEdgeDefinedByNodes(const Standard_Integer /*rank*/,
                                                      Standard_Integer& idnode1,
                                                      Standard_Integer& idnode2) const
 {
@@ -92,7 +92,7 @@ inline void ActData_Mesh_Element::GetEdgeDefinedByNodes(const Standard_Integer /
 //purpose  : 
 //=======================================================================
 
-inline void ActData_Mesh_Element::GetFaceDefinedByNodes(const Standard_Integer /*rank*/,
+void ActData_Mesh_Element::GetFaceDefinedByNodes(const Standard_Integer /*rank*/,
                                                        const Standard_Address /*idnode*/,
                                                        Standard_Integer& idface) const
 {
@@ -104,7 +104,7 @@ inline void ActData_Mesh_Element::GetFaceDefinedByNodes(const Standard_Integer /
 //purpose  : 
 //=======================================================================
 
-inline Standard_Address ActData_Mesh_Element::GetConnections() const
+Standard_Address ActData_Mesh_Element::GetConnections() const
 {
   return (Standard_Address) &myID;
 }
@@ -114,7 +114,7 @@ inline Standard_Address ActData_Mesh_Element::GetConnections() const
 //purpose  : 
 //=======================================================================
 
-inline Standard_Integer ActData_Mesh_Element::GetConnection(const Standard_Integer /*rank*/) const
+Standard_Integer ActData_Mesh_Element::GetConnection(const Standard_Integer /*rank*/) const
 {
   return myID;
 }
@@ -124,7 +124,7 @@ inline Standard_Integer ActData_Mesh_Element::GetConnection(const Standard_Integ
 //purpose  : 
 //=======================================================================
 
-inline void ActData_Mesh_Element::AddInverseElement(const Handle(ActData_Mesh_Element)& /*elem*/)
+void ActData_Mesh_Element::AddInverseElement(const Handle(ActData_Mesh_Element)& /*elem*/)
 {
 }
 
@@ -133,7 +133,7 @@ inline void ActData_Mesh_Element::AddInverseElement(const Handle(ActData_Mesh_El
 //purpose  : 
 //=======================================================================
 
-inline void ActData_Mesh_Element::ClearInverseElements()
+void ActData_Mesh_Element::ClearInverseElements()
 {
 }
 
@@ -143,7 +143,7 @@ inline void ActData_Mesh_Element::ClearInverseElements()
 //           
 //=======================================================================
 
-inline Standard_Integer ActData_Mesh_Element::NbNodes() const
+Standard_Integer ActData_Mesh_Element::NbNodes() const
 {
   return myNbNodes;
 }
@@ -153,7 +153,7 @@ inline Standard_Integer ActData_Mesh_Element::NbNodes() const
 //purpose  : 
 //=======================================================================
 
-inline Standard_Integer ActData_Mesh_Element::NbEdges() const
+Standard_Integer ActData_Mesh_Element::NbEdges() const
 {
   return 0;
 }
@@ -163,7 +163,7 @@ inline Standard_Integer ActData_Mesh_Element::NbEdges() const
 //purpose  : 
 //=======================================================================
 
-inline Standard_Integer ActData_Mesh_Element::NbFaces() const
+Standard_Integer ActData_Mesh_Element::NbFaces() const
 {
   return 0;
 }
@@ -173,7 +173,7 @@ inline Standard_Integer ActData_Mesh_Element::NbFaces() const
 //purpose  : 
 //=======================================================================
 
-inline Standard_Integer ActData_Mesh_Element::GetID() const
+Standard_Integer ActData_Mesh_Element::GetID() const
 {
   return myID;
 }
@@ -183,7 +183,7 @@ inline Standard_Integer ActData_Mesh_Element::GetID() const
 //purpose  : 
 //=======================================================================
 
-inline ActData_Mesh * ActData_Mesh_Element::GetMesh() const
+ActData_Mesh * ActData_Mesh_Element::GetMesh() const
 {
   return 0L;
 }
@@ -193,7 +193,7 @@ inline ActData_Mesh * ActData_Mesh_Element::GetMesh() const
 //purpose  : 
 //=======================================================================
 
-inline void ActData_Mesh_Element::SetNormal(const Standard_Integer rank, const gp_Vec& V)
+void ActData_Mesh_Element::SetNormal(const Standard_Integer rank, const gp_Vec& V)
 {
   SetNormal (rank, V.X(), V.Y(), V.Z());
 }
