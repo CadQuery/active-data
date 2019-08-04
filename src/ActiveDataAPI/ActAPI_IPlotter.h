@@ -214,9 +214,21 @@ public:
                const TCollection_AsciiString&) {}
 
   virtual void
+    DRAW_CURVE(const Handle(Geom_Curve)&,
+               const ActAPI_Color&,
+               const bool,
+               const TCollection_AsciiString&) {}
+
+  virtual void
     REDRAW_CURVE(const TCollection_AsciiString&,
                  const Handle(Geom_Curve)&,
                  const ActAPI_Color&) {}
+
+  virtual void
+    REDRAW_CURVE(const TCollection_AsciiString&,
+                 const Handle(Geom_Curve)&,
+                 const ActAPI_Color&,
+                 const bool) {}
 
   //-------------------------------------------------------------------------//
 
@@ -725,6 +737,19 @@ public:
 //---------------------------------------------------------------------------//
 
   void
+    DRAW_CURVE(const Handle(Geom_Curve)&      curve,
+               const ActAPI_Color&            color,
+               const bool                     showOri,
+               const TCollection_AsciiString& name = "")
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->DRAW_CURVE(curve, color, showOri, name);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
     REDRAW_CURVE(const TCollection_AsciiString& name,
                  const Handle(Geom_Curve)&      curve,
                  const ActAPI_Color&            color)
@@ -732,6 +757,19 @@ public:
     if ( m_iv.IsNull() ) return;
     //
     m_iv->REDRAW_CURVE(name, curve, color);
+  }
+
+//---------------------------------------------------------------------------//
+
+  void
+    REDRAW_CURVE(const TCollection_AsciiString& name,
+                 const Handle(Geom_Curve)&      curve,
+                 const ActAPI_Color&            color,
+                 const bool                     showOri)
+  {
+    if ( m_iv.IsNull() ) return;
+    //
+    m_iv->REDRAW_CURVE(name, curve, color, showOri);
   }
 
 //---------------------------------------------------------------------------//
