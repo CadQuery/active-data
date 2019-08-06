@@ -267,39 +267,35 @@ typedef NCollection_Shared<StringList>                HStringList;
 
 //! \ingroup AD_ALGO
 //!
-//! Global HashCode function to be used in OCCT Data Maps.
-//! \param theGuid [in] GUID to calculate a hash code for.
-//! \param theUpper [in] upper index.
-//! \return hash code.
-inline Standard_Integer HashCode(const Standard_GUID& theGuid,
-                                 const Standard_Integer theUpper)
+//! Global namespace.
+namespace ActiveData
 {
-  return Standard_GUID::HashCode(theGuid, theUpper);
-}
+  //! \ingroup AD_ALGO
+  //!
+  //! Hasher for GUIDs.
+  struct GuidHasher
+  {
+    //! Global HashCode function to be used in OCCT Data Maps.
+    //! \param theGuid [in] GUID to calculate a hash code for.
+    //! \param theUpper [in] upper index.
+    //! \return hash code.
+    static Standard_Integer HashCode(const Standard_GUID& theGuid,
+                                     const Standard_Integer theUpper)
+    {
+      return Standard_GUID::HashCode(theGuid, theUpper);
+    }
 
-//! \ingroup AD_ALGO
-//!
-//! Global IsEqual function to be used in OCCT Data Maps.
-//! \param theGuid1 [in] first GUID.
-//! \param theGuid2 [in] second GUID.
-//! \return true in case of equality, false -- otherwise.
-inline Standard_Boolean IsEqual(const Standard_GUID& theGuid1,
-                                const Standard_GUID& theGuid2)
-{
-  return Standard_GUID::IsEqual(theGuid1, theGuid2);
-}
-
-//! \ingroup AD_ALGO
-//!
-//! Global IsEqual function to be used in OCCT Data Maps.
-//! \param theShape1 [in] first shape.
-//! \param theShape2 [in] second shape.
-//! \return true in case of equality, false -- otherwise.
-inline Standard_Boolean IsEqual(const TopoDS_Shape& theShape1,
-                                const TopoDS_Shape& theShape2) 
-{
-  return theShape1.IsEqual(theShape2);
-}
+    //! Check equality of the two passed GUIDs.
+    //! \param[in] theGuid1 GUID 1.
+    //! \param[in] theGuid2 GUID 2.
+    //! \return true in case of equality.
+    static Standard_Boolean IsEqual(const Standard_GUID& theGuid1,
+                                    const Standard_GUID& theGuid2)
+    {
+      return Standard_GUID::IsEqual(theGuid1, theGuid2);
+    }
+  };
+};
 
 //! \ingroup AD_ALGO
 //!

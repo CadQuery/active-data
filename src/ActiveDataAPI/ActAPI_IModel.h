@@ -71,7 +71,8 @@ typedef NCollection_Shared<PartitionMap> HPartitionMap;
 //!
 //! Type definition for map of registered Tree Functions.
 typedef NCollection_DataMap<Standard_GUID,
-                            Handle(ActAPI_ITreeFunction)> TreeFunctionMap;
+                            Handle(ActAPI_ITreeFunction),
+                            ActiveData::GuidHasher> TreeFunctionMap;
 
 //! \ingroup AD_API
 //!

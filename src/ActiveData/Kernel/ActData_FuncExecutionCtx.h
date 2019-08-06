@@ -76,8 +76,11 @@ public:
   //! Tree Functions by means of a specialized data map. Note that unlike
   //! input & output Parameters, this kind of data is always optional and
   //! exists in a single instance for each type of Tree Function.
-  typedef NCollection_DataMap<Standard_GUID, Handle(Standard_Transient)> FunctionDataMap;
-  typedef NCollection_Shared<FunctionDataMap>                            HFunctionDataMap;
+  typedef NCollection_DataMap<Standard_GUID,
+                              Handle(Standard_Transient),
+                              ActiveData::GuidHasher> FunctionDataMap;
+  //
+  typedef NCollection_Shared<FunctionDataMap> HFunctionDataMap;
 
 // Construction:
 public:

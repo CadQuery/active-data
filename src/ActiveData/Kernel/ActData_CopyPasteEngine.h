@@ -125,7 +125,7 @@ public:
     private:
 
       //! Map of Tree Function GUIDs to pass through out-scoped filtering.
-      NCollection_Map<Standard_GUID> m_outScopedToPass;
+      NCollection_Map<Standard_GUID, ActiveData::GuidHasher> m_outScopedToPass;
 
     };
 
