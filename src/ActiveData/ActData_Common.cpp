@@ -80,13 +80,13 @@ ActAPI_NodeId
 
 //-----------------------------------------------------------------------------
 
-ActAPI_DataObjectId
+ActAPI_ParameterId
   ActData_Common::TrimToParameterId(const ActAPI_DataObjectId& objectId)
 {
   std::vector<ActAPI_DataObjectId> tags;
   ActData_Common::SplitTags(objectId, tags);
 
-  ActAPI_DataObjectId trimmedId;
+  ActAPI_ParameterId trimmedId;
   const int limit = Min( ActData_NumTags_UserParameterId, int( tags.size() ) );
   //
   for ( size_t k = 0; k < limit; ++k )

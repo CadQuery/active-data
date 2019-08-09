@@ -280,6 +280,10 @@ public:
   virtual Standard_Integer
     NbRedos() const = 0;
 
+  //! \return IDs of the Data Nodes modified in the last transaction.
+  virtual Handle(ActAPI_HNodeIdMap)
+    GetModifiedNodes() const = 0;
+
 // Structure services:
 public:
 

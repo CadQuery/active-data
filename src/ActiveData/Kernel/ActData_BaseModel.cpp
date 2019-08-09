@@ -461,6 +461,38 @@ Standard_Integer ActData_BaseModel::NbRedos() const
   return m_trEngine->NbRedos();
 }
 
+//! \return map of Data Node IDs modified in the current transaction.
+Handle(ActAPI_HNodeIdMap) ActData_BaseModel::GetModifiedNodes() const
+{
+  Handle(ActAPI_HNodeIdMap) res = new ActAPI_HNodeIdMap;
+
+  // Iterate over the last delta.
+  Handle(ActAPI_HDataObjectIdMap) ids = m_trEngine->entriesToUndo(1);
+  //
+  for ( ActAPI_HDataObjectIdMap::Iterator it(*ids); it.More(); it.Next() )
+  {
+    /*
+     * A Data Node is, by design, referenced by an ID having a format like
+     * A:B:C:D, i.e., the tuple of four integer numbers. Since the transaction
+     * engine return the entries of labels which are nested hierarchically
+     * to the Node's root (these labels have IDs like A:B:C:D:E:F...), to
+     * get the modified Nodes it is necessary to trim these IDs by the initial
+     * four positions. Doing so, we will likely obtain duplications, and that
+     * is why the returned collection is a map (to preserve unique entities).
+     */
+
+    // Compose a Node ID.
+    const ActAPI_DataObjectId& id      = it.Value();
+    ActAPI_ParameterId         paramId = ActData_Common::TrimToParameterId(id);
+    ActAPI_NodeId              nodeId  = ActData_Common::NodeIdByParameterId(paramId);
+
+    // Add to result.
+    res->Add(nodeId);
+  }
+
+  return res;
+}
+
 //----------------------------------------------------------------------------
 // Services for working with Data Model structure
 //----------------------------------------------------------------------------

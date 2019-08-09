@@ -182,6 +182,9 @@ public:
   ActData_EXPORT virtual Standard_Integer
     NbRedos() const;
 
+  ActData_EXPORT virtual Handle(ActAPI_HNodeIdMap)
+    GetModifiedNodes() const;
+
 // Services for managing Document's structure:
 public:
 

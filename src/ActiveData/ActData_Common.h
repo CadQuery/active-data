@@ -79,7 +79,7 @@ namespace ActData_Common
   //! ID or Meta Parameter ID.
   //! \param[in] objectId object ID to trim.
   //! \return trimmed objectId.
-  ActData_EXPORT ActAPI_DataObjectId
+  ActData_EXPORT ActAPI_ParameterId
     TrimToParameterId(const ActAPI_DataObjectId& objectId);
 };
 
