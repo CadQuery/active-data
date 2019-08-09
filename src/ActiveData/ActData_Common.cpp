@@ -81,10 +81,20 @@ ActAPI_NodeId
 //-----------------------------------------------------------------------------
 
 ActAPI_ParameterId
-  ActData_Common::TrimToParameterId(const ActAPI_DataObjectId& objectId)
+  ActData_Common::TrimToParameterId(const ActAPI_DataObjectId& objectId,
+                                    bool&                      isValid)
 {
   std::vector<ActAPI_DataObjectId> tags;
   ActData_Common::SplitTags(objectId, tags);
+
+  // Validate the passed ID.
+  if ( tags.size() < ActData_NumTags_MetaParameterId )
+  {
+    isValid = false;
+    return ActAPI_ParameterId();
+  }
+  //
+  isValid = true;
 
   ActAPI_ParameterId trimmedId;
   const int limit = Min( ActData_NumTags_UserParameterId, int( tags.size() ) );

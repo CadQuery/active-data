@@ -77,10 +77,12 @@ namespace ActData_Common
 
   //! Removes trailing tags to trim the passed object ID to the User Parameter
   //! ID or Meta Parameter ID.
-  //! \param[in] objectId object ID to trim.
+  //! \param[in]  objectId object ID to trim.
+  //! \param[out] isValid  true if the passed ID is valid, false -- otherwise.
   //! \return trimmed objectId.
   ActData_EXPORT ActAPI_ParameterId
-    TrimToParameterId(const ActAPI_DataObjectId& objectId);
+    TrimToParameterId(const ActAPI_DataObjectId& objectId,
+                      bool&                      isValid);
 };
 
 #endif

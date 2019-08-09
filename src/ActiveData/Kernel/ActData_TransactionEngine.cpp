@@ -465,8 +465,9 @@ Handle(ActAPI_TxRes)
 
   for ( Standard_Integer k = 1; k <= pids->Extent(); ++k )
   {
+    Standard_Boolean           isOk    = Standard_True;
     Standard_Boolean           isParam = Standard_False;
-    ActAPI_DataObjectId        id      = ActData_Common::TrimToParameterId( pids->FindKey(k) );
+    ActAPI_DataObjectId        id      = ActData_Common::TrimToParameterId( pids->FindKey(k), isOk );
     Handle(ActAPI_IDataCursor) dc      = this->parameterById(id, isParam);
     //
     if ( !isParam )

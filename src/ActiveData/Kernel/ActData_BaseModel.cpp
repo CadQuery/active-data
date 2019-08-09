@@ -481,10 +481,16 @@ Handle(ActAPI_HNodeIdMap) ActData_BaseModel::GetModifiedNodes() const
      * is why the returned collection is a map (to preserve unique entities).
      */
 
-    // Compose a Node ID.
+    // Access the modified Parameter.
+    bool                       isOk    = true;
     const ActAPI_DataObjectId& id      = it.Value();
-    ActAPI_ParameterId         paramId = ActData_Common::TrimToParameterId(id);
-    ActAPI_NodeId              nodeId  = ActData_Common::NodeIdByParameterId(paramId);
+    ActAPI_ParameterId         paramId = ActData_Common::TrimToParameterId(id, isOk);
+    //
+    if ( !isOk )
+      continue;
+
+    // Compose a Node ID.
+    ActAPI_NodeId nodeId  = ActData_Common::NodeIdByParameterId(paramId);
 
     // Add to result.
     res->Add(nodeId);
