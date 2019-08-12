@@ -35,10 +35,14 @@
 
 // OCCT includes
 #include <TColStd_MapIteratorOfMapOfInteger.hxx>
+#include <TDF_Tool.hxx>
 #include <TFunction_IFunction.hxx>
 #include <TFunction_Scope.hxx>
 
 #undef COUT_DEBUG
+#if defined COUT_DEBUG
+  #pragma message("===== warning: COUT_DEBUG is enabled")
+#endif
 
 //-----------------------------------------------------------------------------
 // Construction methods
@@ -88,6 +92,13 @@ void ActData_DependencyGraph::Build(const Handle(ActData_BaseModel)& theModel)
     // Get next graph node
     Standard_Integer aNextRootID = aGraphIt.Key1();
     const TDF_Label& aNextRootLab = aGraphIt.Key2();
+
+#if defined COUT_DEBUG
+    TCollection_AsciiString aNextRootEntry;
+    TDF_Tool::Entry(aNextRootLab, aNextRootEntry);
+    //
+    std::cout << "(id, label) = (" << aNextRootID << ", " << aNextRootEntry.ToCString() << ")" << std::endl;
+#endif
 
     // Settle TFunction interface cursor
     TFunction_IFunction anIRoot(aNextRootLab);
@@ -175,10 +186,8 @@ void ActData_DependencyGraph::buildFrom(const TDF_Label& theLNode,
     this->registerVertex(aNextID, VertexData( aNextIFunc.GetDriver() ), aNextDriven);
 
     // Add graph edges
-    m_edges.Add( OriEdge(theID, aNextID) );
-
-     // Continue recursively
-    this->buildFrom(aNextDriven, aNextID);
+    if ( m_edges.Add( OriEdge(theID, aNextID) ) )
+      this->buildFrom(aNextDriven, aNextID); // Continue recursively
   }
 }
 

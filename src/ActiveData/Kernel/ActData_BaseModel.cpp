@@ -1142,15 +1142,15 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
     }
   }
 
-  // Iterate over the Dependency Graph with sequential (!!!) iterator
-  ActData_SequentialFuncIterator aFuncIt(m_rootLabel);
-
   // Process started
   ActAPI_ProgressEntry aPEntry( m_funcCtx->IsProgressNotifierOn() ? m_funcCtx->ProgressNotifier() : NULL );
   aPEntry.Reset();
 
   // Plotter
   ActAPI_PlotterEntry aPlotter( m_funcCtx->IsPlotterOn() ? m_funcCtx->Plotter() : NULL );
+
+  // Iterate over the Dependency Graph with sequential (!!!) iterator
+  ActData_SequentialFuncIterator aFuncIt(m_rootLabel);
 
   // NOTICE: it is not possible to iterate independent Tree Functions in a
   //         parallel manner as they still have possibility to be prioritized.

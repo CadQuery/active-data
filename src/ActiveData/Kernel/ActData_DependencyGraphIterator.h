@@ -45,10 +45,11 @@
 //! Iterator for Dependency Graph. This class can iterate starting from a
 //! single graph node in two directions: up and down. Iterating down you
 //! traverse all Tree Functions scheduled for execution after yours.
-//! Iterating uo you traverse all Tree Functions scheduled for execution
+//! Iterating up you traverse all Tree Functions scheduled for execution
 //! before yours. The iterator first traverses a single level:
-//! only after the complete level traversal it goes deeper. The diving
-//! point is not deterministic.
+//! only after the complete level traversal it goes deeper. It means that
+//! a successor function will be executed only after all its predecessors
+//! are done. The diving point is not deterministic.
 class ActData_DependencyGraphIterator
 {
 public:
