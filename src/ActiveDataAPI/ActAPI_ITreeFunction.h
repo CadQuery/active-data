@@ -67,13 +67,17 @@ public:
     GetName() const = 0;
 
   virtual Standard_Boolean
-    MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN) const = 0;
+    MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN,
+                      const Handle(Standard_Transient)&    theUserData = NULL) const = 0;
 
   virtual Standard_Boolean
     IsHeavy() const = 0;
 
   virtual Standard_Integer
     Priority() const = 0;
+
+  virtual const Handle(Standard_Transient)&
+    GetUserData() const = 0;
 
 };
 

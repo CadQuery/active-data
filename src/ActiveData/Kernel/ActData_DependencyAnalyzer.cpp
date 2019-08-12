@@ -45,6 +45,9 @@
 #include <TFunction_Scope.hxx>
 
 #undef COUT_DEBUG
+#if defined COUT_DEBUG
+  #pragma message("===== warning: COUT_DEBUG is enabled")
+#endif
 
 //-----------------------------------------------------------------------------
 // Construction methods

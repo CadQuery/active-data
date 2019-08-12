@@ -73,7 +73,8 @@ public:
             const Handle(ActAPI_HParameterList)& theArgsOUT) const;
 
   ActData_EXPORT virtual Standard_Boolean
-    MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN) const;
+    MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN,
+                      const Handle(Standard_Transient)&    theUserData = NULL) const;
 
   ActData_EXPORT virtual Standard_Boolean
     NoPropagation() const;
@@ -122,7 +123,7 @@ public:
   }
 
   //! \return plotter.
-  Handle(ActAPI_IPlotter) GetPlotter() const
+  const Handle(ActAPI_IPlotter)& GetPlotter() const
   {
     return m_plotter.Access();
   }

@@ -179,10 +179,12 @@ Standard_Integer
 //! -- method returns FALSE.
 //! \param theArgsIN [in] input arguments. All them are guaranteed to be
 //!        untouched (not referenced in the LogBook).
+//! \param theUserData [in] user data.
 //! \return true if your Tree Function asks for execution regardless of
 //!         the fact that its arguments are untouched.
 Standard_Boolean
-  ActData_BaseTreeFunction::MustExecuteIntact(const Handle(ActAPI_HParameterList)& ActData_NotUsed(theArgsIN)) const
+  ActData_BaseTreeFunction::MustExecuteIntact(const Handle(ActAPI_HParameterList)& ActData_NotUsed(theArgsIN),
+                                              const Handle(Standard_Transient)&    ActData_NotUsed(theUserData)) const
 {
   return Standard_False;
 }
@@ -400,7 +402,7 @@ Standard_Boolean
 
   Handle(ActAPI_HParameterList) aInputParams =
     ActData_ParameterFactory::ParamsByLabelsSettle(anArgLabels);
-  return m_func->MustExecuteIntact(aInputParams);
+  return m_func->MustExecuteIntact( aInputParams, m_func->GetUserData() );
 }
 
 //! Entry point to Tree Function execution routine.

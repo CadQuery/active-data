@@ -80,6 +80,11 @@
   #pragma message("===== warning: DUMP_CAF_DATA is enabled")
 #endif
 
+#undef COUT_DEBUG
+#if defined COUT_DEBUG
+  #pragma message("===== warning: COUT_DEBUG is enabled")
+#endif
+
 Standard_Boolean ActData_BaseModel::MTime_On = 1;
 
 //----------------------------------------------------------------------------
@@ -1152,6 +1157,10 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   // Iterate over the Dependency Graph with sequential (!!!) iterator
   ActData_SequentialFuncIterator aFuncIt(m_rootLabel);
 
+#if defined COUT_DEBUG
+  TCollection_AsciiString dumpPrefix(">>>");
+#endif
+
   // NOTICE: it is not possible to iterate independent Tree Functions in a
   //         parallel manner as they still have possibility to be prioritized.
   //         Indeed, Real Evaluation Tree Functions are normally of higher
@@ -1165,6 +1174,10 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
     if ( aCurrentFunctions.IsEmpty() )
       break;
 
+#if defined COUT_DEBUG
+    dumpPrefix += "\t";
+#endif
+
     TDF_ListIteratorOfLabelList aCurrentIt(aCurrentFunctions);
     for ( ; aCurrentIt.More(); aCurrentIt.Next() )
     {
@@ -1177,23 +1190,27 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
        *  Access Tree Function to set custom transient data
        * =================================================== */
 
-      Handle(ActData_TreeFunctionDriver) aFuncDriver =
+      Handle(ActData_TreeFunctionDriver) funcDriver =
         Handle(ActData_TreeFunctionDriver)::DownCast( aFuncInterface.GetDriver() );
-      Handle(ActData_BaseTreeFunction) aTreeFuncBase =
-        Handle(ActData_BaseTreeFunction)::DownCast( aFuncDriver->GetFunction() );
+      Handle(ActData_BaseTreeFunction) funcBase =
+        Handle(ActData_BaseTreeFunction)::DownCast( funcDriver->GetFunction() );
 
-      aTreeFuncBase->SetUserData( m_funcCtx->AccessUserData( aTreeFuncBase->GetGUID() ) );
-      aTreeFuncBase->SetProgressNotifier( aPEntry.Access() );
-      aTreeFuncBase->SetPlotter( aPlotter.Access() );
+      funcBase->SetUserData( m_funcCtx->AccessUserData( funcBase->GetGUID() ) );
+      funcBase->SetProgressNotifier( aPEntry.Access() );
+      funcBase->SetPlotter( aPlotter.Access() );
+
+#if defined COUT_DEBUG
+      std::cout << dumpPrefix.ToCString() << "F: " << funcBase->DynamicType()->Name() << std::endl;
+#endif
 
       /* ====================================
        *  Perform workflow for modified data
        * ==================================== */
 
       Handle(TFunction_Logbook) log; // TODO: dummy (because OCCT wants it)
-      if ( aFuncDriver->MustExecute(log) ) // Check our custom LogBook
+      if ( funcDriver->MustExecute(log) ) // Check our custom LogBook
       {
-        const Standard_Integer aRes = aFuncDriver->Execute(log);
+        const Standard_Integer aRes = funcDriver->Execute(log);
         if ( aRes > 0 )
           aCumulRes++; // Cumulate errors
       }

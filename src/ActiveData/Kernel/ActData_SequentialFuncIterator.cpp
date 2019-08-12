@@ -45,10 +45,16 @@
 #include <TFunction_GraphNode.hxx>
 #include <TFunction_IFunction.hxx>
 
+#undef COUT_DEBUG
+#if defined COUT_DEBUG
+  #pragma message("===== warning: COUT_DEBUG is enabled")
+#endif
+
+//-----------------------------------------------------------------------------
+
 //! Default constructor.
 ActData_SequentialFuncIterator::ActData_SequentialFuncIterator()
-{
-}
+{}
 
 //! Complete constructor.
 //! \param theAccess [in] key object to access Data Model internals.
@@ -86,6 +92,14 @@ void ActData_SequentialFuncIterator::Init(const TDF_Label& theAccess)
     const TDF_Label& L = fit.Key2();
 
     TFunction_IFunction iFunction(L);
+
+#if defined COUT_DEBUG
+    Handle(ActData_BaseTreeFunction) funcBase =
+      Handle(ActData_BaseTreeFunction)::DownCast( Handle(ActData_TreeFunctionDriver)::DownCast( iFunction.GetDriver() )->GetFunction() );
+    //
+    std::cout << ">>> Next function: " << funcBase->DynamicType()->Name() << std::endl;
+#endif
+
     Handle(TFunction_GraphNode) graphNode = iFunction.GetGraphNode();
     TFunction_ExecutionStatus status = graphNode->GetStatus();
 
@@ -125,6 +139,15 @@ void ActData_SequentialFuncIterator::Next()
     const TDF_Label& L = lit.Value();
     TFunction_IFunction iFunction(L);
 
+#if defined COUT_DEBUG
+    {
+      Handle(ActData_BaseTreeFunction) funcBase =
+        Handle(ActData_BaseTreeFunction)::DownCast( Handle(ActData_TreeFunctionDriver)::DownCast( iFunction.GetDriver() )->GetFunction() );
+      //
+      std::cout << ">>> Current function: " << funcBase->DynamicType()->Name() << std::endl;
+    }
+#endif
+
     Handle(TFunction_GraphNode) graphNode = iFunction.GetGraphNode();
     const TColStd_MapOfInteger& next      = graphNode->GetNext();
     TFunction_ExecutionStatus   status    = graphNode->GetStatus();
@@ -157,6 +180,16 @@ void ActData_SequentialFuncIterator::Next()
 
       // Check status, it should be "not executed"
       TFunction_IFunction iNextFunction(LNext);
+
+#if defined COUT_DEBUG
+      {
+        Handle(ActData_BaseTreeFunction) funcBase =
+          Handle(ActData_BaseTreeFunction)::DownCast( Handle(ActData_TreeFunctionDriver)::DownCast( iNextFunction.GetDriver() )->GetFunction() );
+        //
+        std::cout << ">>>\t Next function: " << funcBase->DynamicType()->Name() << std::endl;
+      }
+#endif
+
       Handle(TFunction_GraphNode) nextGraphNode = iNextFunction.GetGraphNode();
       TFunction_ExecutionStatus nextStatus = nextGraphNode->GetStatus();
       if ( nextStatus != TFunction_ES_NotExecuted && nextStatus != TFunction_ES_Executing )
