@@ -346,7 +346,7 @@ void ActData_TransactionEngine::touchAffectedParameters(const Handle(ActAPI_TxRe
       aUserParam = Handle(ActAPI_IUserParameter)::DownCast(aDC);
 
 #if defined COUT_DEBUG
-    cout << "UNDO: touching Parameter " << aUserParam->DynamicType()->Name() << "... ";
+    std::cout << "UNDO: touching Parameter " << aUserParam->DynamicType()->Name() << "... ";
 #endif
 
     if ( aUserParam->IsWellFormed() )
@@ -354,13 +354,13 @@ void ActData_TransactionEngine::touchAffectedParameters(const Handle(ActAPI_TxRe
       aUserParam->SetModified();
 
 #if defined COUT_DEBUG
-      cout << "WELL-FORMED ["
-           << aUserParam->GetNode()->DynamicType()->Name() << "] --> Modified" << endl;
+      std::cout << "WELL-FORMED ["
+           << aUserParam->GetNode()->DynamicType()->Name() << "] --> Modified" << std::endl;
 #endif
     }
 #if defined COUT_DEBUG
     else
-      cout << "BAD-FORMED <-- Deleted?" << endl;
+      std::cout << "BAD-FORMED <-- Deleted?" << std::endl;
 #endif
   }
   this->EnableTransactions();

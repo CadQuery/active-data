@@ -77,12 +77,12 @@
 
 #define TIMER_COUT_RESULT \
   { \
-    std::cout << "\n=============================================" << endl; \
-    std::cout << "Seconds:  " << __aux_debug_Seconds               << endl; \
-    std::cout << "Minutes:  " << __aux_debug_Minutes               << endl; \
-    std::cout << "Hours:    " << __aux_debug_Hours                 << endl; \
-    std::cout << "CPU time: " << __aux_debug_CPUTime               << endl; \
-    std::cout << "=============================================\n" << endl; \
+    std::cout << "\n=============================================" << std::endl; \
+    std::cout << "Seconds:  " << __aux_debug_Seconds               << std::endl; \
+    std::cout << "Minutes:  " << __aux_debug_Minutes               << std::endl; \
+    std::cout << "Hours:    " << __aux_debug_Hours                 << std::endl; \
+    std::cout << "CPU time: " << __aux_debug_CPUTime               << std::endl; \
+    std::cout << "=============================================\n" << std::endl; \
   }
 
 #endif

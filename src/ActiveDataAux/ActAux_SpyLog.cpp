@@ -111,7 +111,7 @@ void ActAux_SpyLog::Stop()
 
   // Loop until the file is accessible
   int limit = 1000, attempt = 0;
-  ofstream FILE;
+  std::ofstream FILE;
   FILE.open(filename, std::ios_base::app);
   while ( !FILE.is_open() && attempt < limit )
   {

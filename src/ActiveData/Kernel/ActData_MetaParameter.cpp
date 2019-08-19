@@ -498,7 +498,7 @@ void ActData_MetaParameter::attach(const TDF_Label& theLabel)
 {
 #if defined COUT_DEBUG
   if ( theLabel.IsNull() )
-    cout << "WARN: settling down META Parameter on NULL Label" << endl;
+    std::cout << "WARN: settling down META Parameter on NULL Label" << std::endl;
 #endif
 
   m_status = SS_Attached;

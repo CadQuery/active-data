@@ -267,7 +267,7 @@ void ActData_DependencyAnalyzer::performAD_DFS(const ActData_Graph& theGraph)
     FuncIDStack aNextStack = aLoopSeqIt.Value();
 
 #if defined ACT_DEBUG && defined COUT_DEBUG
-    cout << "=====> Next stack:" << endl;
+    std::cout << "=====> Next stack:" << std::endl;
 #endif
 
     FuncIDStack::Iterator aStackIt(aNextStack);
@@ -278,7 +278,7 @@ void ActData_DependencyAnalyzer::performAD_DFS(const ActData_Graph& theGraph)
 #if defined ACT_DEBUG && defined COUT_DEBUG
       TDF_Label aLab = theGraph.Find1( aStackIt.Value() );
       TCollection_AsciiString anEntry = ActData_Utils::GetEntry(aLab);
-      cout << "Next Entry: " << anEntry << endl;
+      std::cout << "Next Entry: " << anEntry << std::endl;
 #endif
     }
   }

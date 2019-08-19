@@ -71,5 +71,5 @@ void ActData_Mesh_Edge::SetConnections(const Standard_Integer idnode1,
 
 void ActData_Mesh_Edge::Print(Standard_OStream& OS) const
 {
-  OS << "edge < " << myID <<" > : ( " << myNodes[0] << " , " << myNodes[1] << " )" << endl;
+  OS << "edge < " << myID <<" > : ( " << myNodes[0] << " , " << myNodes[1] << " )" << std::endl;
 }

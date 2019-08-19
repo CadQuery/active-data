@@ -491,7 +491,7 @@ void ActData_UserParameter::attach(const TDF_Label& theLabel)
 {
 #if defined COUT_DEBUG
   if ( theLabel.IsNull() )
-    cout << "WARN: settling down Parameter on NULL Label" << endl;
+    std::cout << "WARN: settling down Parameter on NULL Label" << std::endl;
 #endif
 
   m_status = SS_Attached;

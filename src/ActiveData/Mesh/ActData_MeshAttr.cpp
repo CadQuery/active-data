@@ -203,7 +203,7 @@ Standard_Boolean ActData_MeshAttr::BeforeUndo(const Handle(TDF_AttributeDelta)& 
     aMeshDelta->Invert();
 
 #if defined ACT_DEBUG && defined COUT_DEBUG
-  cout << "\nBeforeUndo:" << endl;
+  std::cout << "\nBeforeUndo:" << std::endl;
   if ( !aMeshDelta.IsNull() )
     aMeshDelta->Dump(cout);
 #endif
@@ -309,11 +309,11 @@ Handle(TDF_DeltaOnModification)
   Handle(ActData_MeshMDelta) aResult = ( MDELTA.IsNull() ? NULL : MDELTA->DeepCopy() );
 
 #if defined ACT_DEBUG && defined COUT_DEBUG
-  cout << "\nDeltaOnModification [FROM]:" << endl;
+  std::cout << "\nDeltaOnModification [FROM]:" << std::endl;
   if ( !MDELTA.IsNull() )
     MDELTA->Dump(cout);
 
-  cout << "\nDeltaOnModification [RESULT]:" << endl;
+  std::cout << "\nDeltaOnModification [RESULT]:" << std::endl;
   if ( !aResult.IsNull() )
     aResult->Dump(cout);
 #endif

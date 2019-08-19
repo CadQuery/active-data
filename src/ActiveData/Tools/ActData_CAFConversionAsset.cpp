@@ -153,7 +153,7 @@ Handle(ActAPI_IUserParameter)
     return NULL;
 
 #if defined COUT_DEBUG
-  cout << "CAF Conversion> changing type of Parameter " << P->DynamicType()->Name() << endl;
+  std::cout << "CAF Conversion> changing type of Parameter " << P->DynamicType()->Name() << std::endl;
 #endif
 
   // Clean up CAF raw data

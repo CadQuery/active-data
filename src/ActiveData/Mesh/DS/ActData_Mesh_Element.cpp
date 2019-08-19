@@ -385,7 +385,7 @@ ActData_Mesh_Direction ActData_Mesh_Element::GetNDirection(const Standard_Intege
 
 void ActData_Mesh_Element::Print(Standard_OStream& OS) const
 {
-  OS << "dump of mesh element" << endl;
+  OS << "dump of mesh element" << std::endl;
 }
 
 Standard_OStream& operator << (Standard_OStream& OS, const Handle(ActData_Mesh_Element)& ME)

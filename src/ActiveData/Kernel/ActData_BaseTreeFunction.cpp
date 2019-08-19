@@ -422,16 +422,16 @@ Standard_Integer
     ActData_ParameterFactory::ParamsByLabelsSettle(anOutputArgLabels);
 
 #ifdef COUT_DEBUG
-  cout << "\nExecuting: number of INPUT parameters: " << aInputParams->Length() << endl;
+  std::cout << "\nExecuting: number of INPUT parameters: " << aInputParams->Length() << std::endl;
   for ( Standard_Integer i = 1; i <= aInputParams->Length(); i++ )
-    cout << "         +->>> " << aInputParams->Value(i)->DynamicType()->Name() << endl;
+    std::cout << "         +->>> " << aInputParams->Value(i)->DynamicType()->Name() << std::endl;
 
   if ( !aOutputParams.IsNull() )
   {
-    cout << "         | number of OUTPUT parameters: " << aOutputParams->Length() << endl;
+    std::cout << "         | number of OUTPUT parameters: " << aOutputParams->Length() << std::endl;
     for ( Standard_Integer i = 1; i <= aOutputParams->Length(); i++ )
-      cout << "         +->>> " << aOutputParams->Value(i)->DynamicType()->Name() << endl;
-    cout << "\n";
+      std::cout << "         +->>> " << aOutputParams->Value(i)->DynamicType()->Name() << std::endl;
+    std::cout << "\n";
   }
 #endif
 

@@ -735,7 +735,7 @@ void ActData_Mesh::RemoveElement (const Handle(ActData_Mesh_Element)& theElem,
     RemoveFace(elem);
     break;
   default:
-    cout << "remove function : unknown type" << endl;
+    std::cout << "remove function : unknown type" << std::endl;
     return;
   }
 
@@ -884,7 +884,7 @@ Handle(ActData_Mesh_Node) ActData_Mesh::GetNode
 
 void ActData_Mesh::DumpNodes (Standard_OStream& aStream) const
 {
-  aStream << "  DUMP NODES OF MESH : " << endl;
+  aStream << "  DUMP NODES OF MESH : " << std::endl;
 
   ActData_MeshNodesIterator itnode (this);
   for (;itnode.More();itnode.Next()) {
@@ -900,7 +900,7 @@ void ActData_Mesh::DumpNodes (Standard_OStream& aStream) const
 
 void ActData_Mesh::DumpEdges (Standard_OStream& aStream) const
 {
-  aStream << "  DUMP EDGES OF MESH : " << endl;
+  aStream << "  DUMP EDGES OF MESH : " << std::endl;
 
   ActData_MeshEdgesIterator itedge (this);
   for (;itedge.More();itedge.Next()) {
@@ -916,7 +916,7 @@ void ActData_Mesh::DumpEdges (Standard_OStream& aStream) const
 
 void ActData_Mesh::DumpFaces(Standard_OStream& aStream) const
 {
-  aStream << "  DUMP FACES OF MESH : " << endl;
+  aStream << "  DUMP FACES OF MESH : " << std::endl;
 
   ActData_MeshFacesIterator itface (this);
   for (;itface.More();itface.Next()) {
@@ -932,18 +932,18 @@ void ActData_Mesh::DumpFaces(Standard_OStream& aStream) const
 
 void ActData_Mesh::DebugStats(Standard_OStream& aStream) const
 {
-  aStream << "Debug stats of mesh : " << endl;
+  aStream << "Debug stats of mesh : " << std::endl;
 
-  aStream << "===== NODES =====" << endl;
+  aStream << "===== NODES =====" << std::endl;
   myNodes.Statistics(aStream);
 
-  aStream << "===== EDGES =====" << endl;
+  aStream << "===== EDGES =====" << std::endl;
   myEdges.Statistics(aStream);
 
-  aStream << "===== FACES =====" << endl;
+  aStream << "===== FACES =====" << std::endl;
   myFaces.Statistics(aStream);
 
-  aStream << "End Debug stats of mesh " << endl;
+  aStream << "End Debug stats of mesh " << std::endl;
 
   //#ifdef DEB
   ActData_MeshNodesIterator itnode (this);
@@ -970,8 +970,8 @@ void ActData_Mesh::DebugStats(Standard_OStream& aStream) const
 
   // These totals do not take into account the sizes of normals in
   // every node/face
-  aStream << "total size of node elements = " << sizeofnodes << endl;;
-  aStream << "total size of face elements = " << sizeoffaces << endl;;
+  aStream << "total size of node elements = " << sizeofnodes << std::endl;;
+  aStream << "total size of face elements = " << sizeoffaces << std::endl;;
 
   //#endif
 }

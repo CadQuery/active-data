@@ -122,55 +122,55 @@ void ActData_LogBook::ClearReferencesFor(const TDF_Label& theLab)
 #if defined COUT_DEBUG
   TCollection_AsciiString RefEntry;
   TDF_Tool::Entry(theLab, RefEntry);
-  cout << "TO DELETE: " << RefEntry.ToCString() << endl;
+  std::cout << "TO DELETE: " << RefEntry.ToCString() << std::endl;
   if ( !aRefTList.IsNull() )
   {
-    cout << "----------------------------------"  << endl;
-    cout << "---> TOUCHED: "                      << endl;
+    std::cout << "----------------------------------"  << std::endl;
+    std::cout << "---> TOUCHED: "                      << std::endl;
     const TDF_LabelList& aLabListT = aRefTList->List();
     for ( TDF_ListIteratorOfLabelList it(aLabListT); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
-      cout << "--->>> " << Entry.ToCString() << endl;
+      std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
   if ( !aRefIList.IsNull() )
   {
-    cout << "----------------------------------" << endl;
-    cout << "---> IMPACTED: "                    << endl;
+    std::cout << "----------------------------------" << std::endl;
+    std::cout << "---> IMPACTED: "                    << std::endl;
     const TDF_LabelList& aLabListI = aRefIList->List();
     for ( TDF_ListIteratorOfLabelList it(aLabListI); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
-      cout << "--->>> " << Entry.ToCString() << endl;
+      std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
   if ( !aRefFList.IsNull() )
   {
-    cout << "----------------------------------" << endl;
-    cout << "---> FORCED: "                      << endl;
+    std::cout << "----------------------------------" << std::endl;
+    std::cout << "---> FORCED: "                      << std::endl;
     const TDF_LabelList& aLabListF = aRefFList->List();
     for ( TDF_ListIteratorOfLabelList it(aLabListF); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
-      cout << "--->>> " << Entry.ToCString() << endl;
+      std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
   if ( !aRefHList.IsNull() )
   {
-    cout << "----------------------------------" << endl;
-    cout << "---> HEAVY DEPLOYMENT: "            << endl;
+    std::cout << "----------------------------------" << std::endl;
+    std::cout << "---> HEAVY DEPLOYMENT: "            << std::endl;
     const TDF_LabelList& aLabListH = aRefHList->List();
     for ( TDF_ListIteratorOfLabelList it(aLabListH); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
-      cout << "--->>> " << Entry.ToCString() << endl;
+      std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
-    cout << "----------------------------------" << endl;
+    std::cout << "----------------------------------" << std::endl;
   }
 #endif
 

@@ -69,7 +69,7 @@ Handle(Standard_Transient) ActDataDrivers::Factory(const Standard_GUID& theGUID)
   if ( theGUID == BinStorageDriver )
   {
 #if defined ACT_DEBUG && defined COUT_DEBUG
-    cout << "ActDataDrivers: BINARY Storage Plugin" << endl;
+    std::cout << "ActDataDrivers: BINARY Storage Plugin" << std::endl;
 #endif
     static Handle(ActData_BinStorageDriver) DRV_Storage = new ActData_BinStorageDriver();
     return DRV_Storage;
@@ -78,7 +78,7 @@ Handle(Standard_Transient) ActDataDrivers::Factory(const Standard_GUID& theGUID)
   if ( theGUID == BinRetrievalDriver )
   {
 #if defined ACT_DEBUG && defined COUT_DEBUG
-    cout << "ActDataDrivers: BINARY Retrieval Plugin" << endl;
+    std::cout << "ActDataDrivers: BINARY Retrieval Plugin" << std::endl;
 #endif
     static Handle(ActData_BinRetrievalDriver) DRV_Retrieval = new ActData_BinRetrievalDriver();
     return DRV_Retrieval;

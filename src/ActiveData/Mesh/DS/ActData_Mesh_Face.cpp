@@ -58,5 +58,5 @@ void ActData_Mesh_Face::Print(Standard_OStream& OS) const
   OS << "face < " << myID <<" > : ( ";
   for (Standard_Integer i=1; i<myNbNodes; ++i)
     OS << GetConnection(i) << " , ";
-  OS << GetConnection(myNbNodes) << " )" << endl;
+  OS << GetConnection(myNbNodes) << " )" << std::endl;
 }

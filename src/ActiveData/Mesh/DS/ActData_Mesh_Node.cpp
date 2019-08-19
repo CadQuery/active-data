@@ -98,5 +98,5 @@ void ActData_Mesh_Node::RemoveInverseElement(const Handle(ActData_Mesh_Element)&
 
 void ActData_Mesh_Node::Print(Standard_OStream& OS) const
 {
-  OS << "Node < " << myID << " > : X = " << myPnt.X() << " Y = " << myPnt.Y() << " Z = " << myPnt.Z() << endl;
+  OS << "Node < " << myID << " > : X = " << myPnt.X() << " Y = " << myPnt.Y() << " Z = " << myPnt.Z() << std::endl;
 }

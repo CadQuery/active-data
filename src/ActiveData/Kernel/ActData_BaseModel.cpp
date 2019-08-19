@@ -178,9 +178,9 @@ Standard_Boolean
   }
   catch ( Standard_Failure exc )
   {
-    cout << "OCCT exception:" << endl;
-    cout << exc.DynamicType()->Name() << endl;
-    cout << exc.GetMessageString() << endl;
+    std::cout << "OCCT exception:"         << std::endl;
+    std::cout << exc.DynamicType()->Name() << std::endl;
+    std::cout << exc.GetMessageString()    << std::endl;
     return Standard_False;
   }
 
@@ -292,9 +292,9 @@ Standard_Boolean
   }
   catch ( Standard_Failure exc )
   {
-    cout << "OCCT exception:" << endl;
-    cout << exc.DynamicType()->Name() << endl;
-    cout << exc.GetMessageString() << endl;
+    std::cout << "OCCT exception:"         << std::endl;
+    std::cout << exc.DynamicType()->Name() << std::endl;
+    std::cout << exc.GetMessageString()    << std::endl;
     return Standard_False;
   }
   //
@@ -1037,7 +1037,7 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   NCollection_Map<Handle(ActAPI_IUserParameter), ActAPI_IDataCursor::Hasher> UniqueParams;
   for ( ; aScopeIt.More(); aScopeIt.Next() )
   {
-    Standard_Integer Key1 = aScopeIt.Key1(); cout << Key1 << endl;
+    Standard_Integer Key1 = aScopeIt.Key1(); std::cout << Key1 << std::endl;
     const TDF_Label& aCurrentLab = aScopeIt.Key2();
     if ( aCurrentLab.IsNull() || !aCurrentLab.NbAttributes() )
       continue;
