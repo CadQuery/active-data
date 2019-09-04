@@ -144,6 +144,12 @@ install (TARGETS ActiveDataAux
          CONFIGURATIONS Release)
 
 install (TARGETS ActiveDataAux
+         RUNTIME DESTINATION bini COMPONENT Runtime
+         CONFIGURATIONS RelWithDebInfo
+         ARCHIVE DESTINATION libi COMPONENT Library
+         CONFIGURATIONS RelWithDebInfo)
+
+install (TARGETS ActiveDataAux
          RUNTIME DESTINATION bind COMPONENT Runtime
          CONFIGURATIONS Debug
          ARCHIVE DESTINATION libd COMPONENT Library

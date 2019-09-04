@@ -133,13 +133,13 @@ set (kernel_CPP_FILES
 # Mesh
 #------------------------------------------------------------------------------
 
-set (ActData_Mesh_H_FILES
+set (mesh_H_FILES
   Mesh/ActData_MeshAttr.h
   Mesh/ActData_MeshDeltaEntities.h
   Mesh/ActData_MeshMDelta.h
 )
 
-set (ActData_Mesh_CPP_FILES 
+set (mesh_CPP_FILES 
   Mesh/ActData_MeshAttr.cpp
   Mesh/ActData_MeshDeltaEntities.cpp
   Mesh/ActData_MeshMDelta.cpp
@@ -322,12 +322,12 @@ foreach (FILE ${kernel_CPP_FILES})
   source_group ("Source Files\\Kernel" FILES "${FILE}")
 endforeach (FILE)
 
-foreach (FILE ${ActData_Mesh_H_FILES})
+foreach (FILE ${mesh_H_FILES})
   set (src_files ${src_files} ${FILE})
   source_group ("Header Files\\Mesh" FILES "${FILE}")
 endforeach (FILE)
 
-foreach (FILE ${ActData_Mesh_CPP_FILES})
+foreach (FILE ${mesh_CPP_FILES})
   set (src_files ${src_files} ${FILE})
   source_group ("Source Files\\Mesh" FILES "${FILE}")
 endforeach (FILE)
@@ -405,7 +405,7 @@ add_library (ActiveData SHARED
   ${H_FILES}          ${CPP_FILES}
   ${drivers_H_FILES}  ${drivers_CPP_FILES}
   ${kernel_H_FILES}   ${kernel_CPP_FILES}
-  ${ActData_Mesh_H_FILES}     ${ActData_Mesh_CPP_FILES}
+  ${mesh_H_FILES}     ${mesh_CPP_FILES}
   ${meshds_H_FILES}   ${meshds_CPP_FILES}
   ${patterns_H_FILES} ${patterns_CPP_FILES}
   ${std_H_FILES}      ${std_CPP_FILES}
@@ -467,6 +467,12 @@ install (TARGETS ActiveData
          CONFIGURATIONS Release)
 
 install (TARGETS ActiveData
+         RUNTIME DESTINATION bini COMPONENT Runtime
+         CONFIGURATIONS RelWithDebInfo
+         ARCHIVE DESTINATION libi COMPONENT Library
+         CONFIGURATIONS RelWithDebInfo)
+
+install (TARGETS ActiveData
          RUNTIME DESTINATION bind COMPONENT Runtime
          CONFIGURATIONS Debug
          ARCHIVE DESTINATION libd COMPONENT Library
@@ -477,7 +483,7 @@ install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMP
 install (FILES ${H_FILES}          DESTINATION include)
 install (FILES ${drivers_H_FILES}  DESTINATION include)
 install (FILES ${kernel_H_FILES}   DESTINATION include)
-install (FILES ${ActData_Mesh_H_FILES}     DESTINATION include)
+install (FILES ${mesh_H_FILES}     DESTINATION include)
 install (FILES ${meshds_H_FILES}   DESTINATION include)
 install (FILES ${patterns_H_FILES} DESTINATION include)
 install (FILES ${std_H_FILES}      DESTINATION include)

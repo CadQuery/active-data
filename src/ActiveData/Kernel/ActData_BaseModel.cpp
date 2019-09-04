@@ -486,6 +486,10 @@ Handle(ActAPI_HNodeIdMap) ActData_BaseModel::GetModifiedNodes() const
      * is why the returned collection is a map (to preserve unique entities).
      */
 
+#ifdef COUT_DEBUG
+    std::cout << "\t>>> modified label: " << it.Value() << std::endl;
+#endif
+
     // Access the modified Parameter.
     bool                       isOk    = true;
     const ActAPI_DataObjectId& id      = it.Value();
