@@ -40,7 +40,7 @@
 //! \ingroup AD_DF
 //!
 //! Auxiliary Data Cursor for accessing LogBook section of Data Model. LogBook
-//! is used to record Tree Function Execution requests before actual Execution
+//! is used to record Tree Function Execution requests before actual execution
 //! session. We distinguish two types of Tree Functions:
 //!
 //! 1. Normal (light);
@@ -115,9 +115,11 @@ public:
   ActData_EXPORT void
     ClearReferencesFor(const TDF_Label& theLab);
 
+public:
+
   //! Accessor for the root Label.
   //! \return root Label.
-  inline TDF_Label Label() const
+  const TDF_Label& Label() const
   {
     return m_root;
   }
@@ -191,11 +193,11 @@ public:
 // Kernel methods:
 public:
 
-  void addToReferenceList(const TDF_Label& theLab,
+  void addToReferenceMap(const TDF_Label& theLab,
                           const StructureTags theTag);
 
-  void addToReferenceList(const Handle(ActAPI_IUserParameter)& theParam,
-                          const StructureTags theTag);
+  void addToReferenceMap(const Handle(ActAPI_IUserParameter)& theParam,
+                         const StructureTags theTag);
 
   Standard_Boolean isReferenced(const TDF_Label& theLab,
                                 const StructureTags theTag) const;

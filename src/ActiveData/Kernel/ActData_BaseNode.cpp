@@ -1163,16 +1163,22 @@ void ActData_BaseNode::beforeRemove()
 //!    our arrays synchronized.
 //!
 //! \param theReferrer [in] Reference Parameter being adjusted.
-void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceParameter)& ActData_NotUsed(theReferrer))
+void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceParameter)& theReferrer)
 {
+  ActData_NotUsed(theReferrer);
+
   // Empty in basic implementation
 }
 
 //! Idea is the same as for beforeRemoveMyReferrer() for Reference Parameter.
 //! \param theReferrer [in] Reference Parameter being adjusted.
-void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceListParameter)& ActData_NotUsed(theReferrer),
-                                               const Handle(ActAPI_IDataCursor)& ActData_NotUsed(theDC))
+//! \param theDC       [in] corresponding Data Cursor.
+void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceListParameter)& theReferrer,
+                                               const Handle(ActAPI_IDataCursor)& theDC)
 {
+  ActData_NotUsed(theReferrer);
+  ActData_NotUsed(theDC);
+
   // Empty in basic implementation
 }
 

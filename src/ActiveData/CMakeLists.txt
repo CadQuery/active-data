@@ -58,6 +58,7 @@ set (kernel_H_FILES
   Kernel/ActData_IntArrayParameter.h
   Kernel/ActData_IntParameter.h
   Kernel/ActData_LogBook.h
+  Kernel/ActData_LogBookAttr.h
   Kernel/ActData_MeshParameter.h
   Kernel/ActData_MetaParameter.h
   Kernel/ActData_NameParameter.h
@@ -104,6 +105,7 @@ set (kernel_CPP_FILES
   Kernel/ActData_IntArrayParameter.cpp
   Kernel/ActData_IntParameter.cpp
   Kernel/ActData_LogBook.cpp
+  Kernel/ActData_LogBookAttr.cpp
   Kernel/ActData_MeshParameter.cpp
   Kernel/ActData_MetaParameter.cpp
   Kernel/ActData_NameParameter.cpp

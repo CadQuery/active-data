@@ -296,8 +296,10 @@ void ActData_DependencyAnalyzer::performAD_DFS(const ActData_Graph& theGraph)
 //! Performs Tarjan's algorithms for searching of the Strongly Connected
 //! Components in the initial oriented dependency graph.
 //! \param theGraph [in] dependency graph to process.
-void ActData_DependencyAnalyzer::performTarjan(const ActData_Graph& ActData_NotUsed(theGraph))
+void ActData_DependencyAnalyzer::performTarjan(const ActData_Graph& theGraph)
 {
+  ActData_NotUsed(theGraph);
+
   // TODO: NYI Tarjan's algorithm of SCC searching
   Standard_ProgramError::Raise("Not yet implemented");
 }

@@ -551,10 +551,12 @@ void
   ActData_CAFDumper::dumpAttribute(Standard_OStream&              theOut,
                                    const Handle(TDF_Attribute)&   theAttribute,
                                    const Standard_Integer         theNbSpacesOnTheLeft,
-                                   const Content                  ActData_NotUsed(theContentType),
+                                   const Content                  theContentType,
                                    const Verbosity                theVerbosity,
                                    const TCollection_AsciiString& thePrefix)
 {
+  ActData_NotUsed(theContentType);
+
   // Attempt to dump the Attribute's value
   TCollection_AsciiString aValStr;
   if ( theAttribute->IsInstance( STANDARD_TYPE(TDataStd_Integer) ) )

@@ -43,9 +43,6 @@
 #include <ActAPI_INode.h>
 #include <ActAPI_IParameter.h>
 
-// Macro to silent compiler warnings on unused function arguments
-#define ActData_NotUsed(x)
-
 #define ActData_NumTags_NodeId          4
 #define ActData_NumTags_MetaParameterId 5
 #define ActData_NumTags_UserParameterId 6

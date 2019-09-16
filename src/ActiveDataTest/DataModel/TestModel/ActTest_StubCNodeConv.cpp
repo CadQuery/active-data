@@ -85,8 +85,10 @@ TCollection_ExtendedString ActTest_StubCNodeConv::GetName()
 
 //! Sets name for the Node.
 //! \param theName [in] name to set.
-void ActTest_StubCNodeConv::SetName(const TCollection_ExtendedString& ActData_NotUsed(theName))
+void ActTest_StubCNodeConv::SetName(const TCollection_ExtendedString& theName)
 {
+  ActData_NotUsed(theName);
+
   // Do nothing...
 }
 

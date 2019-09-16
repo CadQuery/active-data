@@ -163,10 +163,14 @@ Standard_Integer
 //! \param doResetPending  [in] indicates whether pending flag must be reset
 //!                             or not.
 void ActData_TreeNodeParameter::setFromDTO(const Handle(ActData_ParameterDTO)& theDTO,
-                                           const ActAPI_ModificationType       ActData_NotUsed(theModType),
-                                           const Standard_Boolean              ActData_NotUsed(doResetValidity),
-                                           const Standard_Boolean              ActData_NotUsed(doResetPending))
+                                           const ActAPI_ModificationType       theModType,
+                                           const Standard_Boolean              doResetValidity,
+                                           const Standard_Boolean              doResetPending)
 {
+  ActData_NotUsed(theModType);
+  ActData_NotUsed(doResetValidity);
+  ActData_NotUsed(doResetPending);
+
   Handle(ActData_TreeNodeDTO) MyDTO = Handle(ActData_TreeNodeDTO)::DownCast(theDTO);
 
   // Get parent Label

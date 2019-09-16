@@ -35,6 +35,7 @@
 
 // Active Data includes
 #include <ActData_BaseModel.h>
+#include <ActData_LogBookAttr.h>
 #include <ActData_ParameterFactory.h>
 #include <ActData_Utils.h>
 
@@ -45,18 +46,16 @@
 
 #undef COUT_DEBUG
 
-//! Removes all occurrences of the passed Label from the given list.
-//! \param theList [in] reference list to remove Label occurrences from.
-//! \param theLabel [in] Label reference to remove.
-static void RemoveAllOccurrences(const Handle(TDataStd_ReferenceList)& theList,
-                                 const TDF_Label& theLabel)
+//! Removes all occurrences of the passed Label from the logbook attribute.
+//! \param[in] attr  logbook attribute.
+//! \param[in] label label reference to remove.
+static void RemoveAllOccurrences(const Handle(ActData_LogBookAttr)& attr,
+                                 const TDF_Label&                   label)
 {
-  Standard_Boolean isDone;
-  do
-  {
-    isDone = ( !theList.IsNull() && theList->Remove(theLabel) );
-  }
-  while ( isDone );
+  if ( attr.IsNull() )
+    return;
+
+  attr->ReleaseLogged(label);
 }
 
 //-----------------------------------------------------------------------------
@@ -114,57 +113,57 @@ void ActData_LogBook::ClearReferencesFor(const TDF_Label& theLab)
             aLogFScope = m_root.FindChild(StructureTag_Forced),
             aLogHScope = m_root.FindChild(StructureTag_HeavyDeploy);
 
-  Handle(TDataStd_ReferenceList) aRefTList = TDataStd_ReferenceList::Set(aLogTScope),
-                                 aRefIList = TDataStd_ReferenceList::Set(aLogIScope),
-                                 aRefFList = TDataStd_ReferenceList::Set(aLogFScope),
-                                 aRefHList = TDataStd_ReferenceList::Set(aLogHScope);
+  Handle(ActData_LogBookAttr) refTMap = ActData_LogBookAttr::Set(aLogTScope),
+                              refIMap = ActData_LogBookAttr::Set(aLogIScope),
+                              refFMap = ActData_LogBookAttr::Set(aLogFScope),
+                              refHMap = ActData_LogBookAttr::Set(aLogHScope);
 
 #if defined COUT_DEBUG
   TCollection_AsciiString RefEntry;
   TDF_Tool::Entry(theLab, RefEntry);
   std::cout << "TO DELETE: " << RefEntry.ToCString() << std::endl;
-  if ( !aRefTList.IsNull() )
+  if ( !refTMap.IsNull() )
   {
     std::cout << "----------------------------------"  << std::endl;
     std::cout << "---> TOUCHED: "                      << std::endl;
-    const TDF_LabelList& aLabListT = aRefTList->List();
-    for ( TDF_ListIteratorOfLabelList it(aLabListT); it.More(); it.Next() )
+    const TDF_LabelMap& labMapT = refTMap->GetMap();
+    for ( TDF_LabelMap::Iterator it(labMapT); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
       std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
-  if ( !aRefIList.IsNull() )
+  if ( !refIMap.IsNull() )
   {
     std::cout << "----------------------------------" << std::endl;
     std::cout << "---> IMPACTED: "                    << std::endl;
-    const TDF_LabelList& aLabListI = aRefIList->List();
-    for ( TDF_ListIteratorOfLabelList it(aLabListI); it.More(); it.Next() )
+    const TDF_LabelMap& labMapI = refIMap->GetMap();
+    for ( TDF_LabelMap::Iterator it(labMapI); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
       std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
-  if ( !aRefFList.IsNull() )
+  if ( !refFMap.IsNull() )
   {
     std::cout << "----------------------------------" << std::endl;
     std::cout << "---> FORCED: "                      << std::endl;
-    const TDF_LabelList& aLabListF = aRefFList->List();
-    for ( TDF_ListIteratorOfLabelList it(aLabListF); it.More(); it.Next() )
+    const TDF_LabelMap& labMapF = refFMap->GetMap();
+    for ( TDF_LabelMap::Iterator it(labMapF); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
       std::cout << "--->>> " << Entry.ToCString() << std::endl;
     }
   }
-  if ( !aRefHList.IsNull() )
+  if ( !refHMap.IsNull() )
   {
     std::cout << "----------------------------------" << std::endl;
     std::cout << "---> HEAVY DEPLOYMENT: "            << std::endl;
-    const TDF_LabelList& aLabListH = aRefHList->List();
-    for ( TDF_ListIteratorOfLabelList it(aLabListH); it.More(); it.Next() )
+    const TDF_LabelMap& labMapH = refHMap->GetMap();
+    for ( TDF_LabelMap::Iterator it(labMapH); it.More(); it.Next() )
     {
       TCollection_AsciiString Entry;
       TDF_Tool::Entry(it.Value(), Entry);
@@ -188,7 +187,7 @@ void ActData_LogBook::ClearReferencesFor(const TDF_Label& theLab)
 //! \param theParam [in] Parameter to set TOUCHED.
 void ActData_LogBook::Touch(const TDF_Label& theLab)
 {
-  this->addToReferenceList(theLab, StructureTag_Touched);
+  this->addToReferenceMap(theLab, StructureTag_Touched);
 }
 
 //! Marks the passed Data Parameter as TOUCHED.
@@ -220,7 +219,7 @@ Standard_Boolean
 //! \param theParam [in] Parameter to set IMPACTED.
 void ActData_LogBook::Impact(const TDF_Label& theLab)
 {
-  this->addToReferenceList(theLab, StructureTag_Impacted);
+  this->addToReferenceMap(theLab, StructureTag_Impacted);
 }
 
 //! Marks the passed Data Parameter as IMPACTED.
@@ -283,7 +282,7 @@ void ActData_LogBook::ReleaseModified()
 //! \param theParam [in] Parameter requesting forced execution.
 void ActData_LogBook::Force(const Handle(ActData_TreeFunctionParameter)& theFuncParam)
 {
-  this->addToReferenceList(theFuncParam->RootLabel(), StructureTag_Forced);
+  this->addToReferenceMap(theFuncParam->RootLabel(), StructureTag_Forced);
 }
 
 //! Checks whether the passed CAF Label is marked as requesting
@@ -320,7 +319,7 @@ void ActData_LogBook::ReleaseForced()
 //! \param theParam [in] Tree Function Parameter.
 void ActData_LogBook::HeavyDeploy(const Handle(ActData_TreeFunctionParameter)& theFuncParam)
 {
-  this->addToReferenceList(theFuncParam->RootLabel(), StructureTag_HeavyDeploy);
+  this->addToReferenceMap(theFuncParam->RootLabel(), StructureTag_HeavyDeploy);
 }
 
 //! Checks whether the passed OCAF Label is referenced in HEAVY DEPLOYMENT
@@ -356,22 +355,22 @@ void ActData_LogBook::ReleaseHeavyDeployment()
 //! defined by the second argument.
 //! \param theLab [in] CAF Label to register.
 //! \param theTag [in] tag determining the LogBook's destination scope.
-void ActData_LogBook::addToReferenceList(const TDF_Label& theLab,
-                                         const StructureTags theTag)
+void ActData_LogBook::addToReferenceMap(const TDF_Label& theLab,
+                                        const StructureTags theTag)
 {
   TDF_Label aLogScope = m_root.FindChild(theTag);
-  Handle(TDataStd_ReferenceList) aRefList = TDataStd_ReferenceList::Set(aLogScope);
-  aRefList->Append(theLab);
+  Handle(ActData_LogBookAttr) refMap = ActData_LogBookAttr::Set(aLogScope);
+  refMap->LogLabel(theLab);
 }
 
 //! Establishes a reference to the given Parameter in a logging sub-section
 //! defined by the second argument.
 //! \param theParam [in] Parameter to register.
 //! \param theTag [in] tag determining the LogBook's destination scope.
-void ActData_LogBook::addToReferenceList(const Handle(ActAPI_IUserParameter)& theParam,
-                                         const StructureTags theTag)
+void ActData_LogBook::addToReferenceMap(const Handle(ActAPI_IUserParameter)& theParam,
+                                        const StructureTags theTag)
 {
-  this->addToReferenceList( theParam->RootLabel(), theTag);
+  this->addToReferenceMap( theParam->RootLabel(), theTag);
 }
 
 //! Checks whether the given Label is registered in the LogBook's section
@@ -383,14 +382,9 @@ Standard_Boolean ActData_LogBook::isReferenced(const TDF_Label& theLab,
                                                const StructureTags theTag) const
 {
   TDF_Label aLogScope = m_root.FindChild(theTag);
-  Handle(TDataStd_ReferenceList) aRefList = TDataStd_ReferenceList::Set(aLogScope);
-  for ( TDF_ListIteratorOfLabelList it( aRefList->List() ); it.More(); it.Next() )
-  {
-    if ( theLab.IsEqual( it.Value() ) )
-      return Standard_True;
-  }
-
-  return Standard_False;
+  Handle(ActData_LogBookAttr) refMap = ActData_LogBookAttr::Set(aLogScope);
+  //
+  return refMap->IsLogged(theLab);
 }
 
 //! Checks whether the given Parameter is registered in the LogBook's section
@@ -408,8 +402,8 @@ Standard_Boolean ActData_LogBook::isReferenced(const Handle(ActAPI_IUserParamete
 void ActData_LogBook::clearReferences(const StructureTags theTag)
 {
   TDF_Label aLogScope = m_root.FindChild(theTag);
-  Handle(TDataStd_ReferenceList) aRefList = TDataStd_ReferenceList::Set(aLogScope);
-  aRefList->Clear();
+  Handle(ActData_LogBookAttr) refMap = ActData_LogBookAttr::Set(aLogScope);
+  refMap->ReleaseLogged();
 }
 
 //! Cleans up all references of the given Label in the given section of
@@ -421,9 +415,9 @@ void ActData_LogBook::clearReferences(const TDF_Label& theLabel,
                                       const StructureTags theTag)
 {
   TDF_Label aLogScope = m_root.FindChild(theTag);
-  Handle(TDataStd_ReferenceList) aRefList = TDataStd_ReferenceList::Set(aLogScope);
+  Handle(ActData_LogBookAttr) refMap = ActData_LogBookAttr::Set(aLogScope);
 
-  RemoveAllOccurrences(aRefList, theLabel);
+  RemoveAllOccurrences(refMap, theLabel);
   for ( TDF_ChildIterator it(theLabel, Standard_True); it.More(); it.Next() )
-    RemoveAllOccurrences( aRefList, it.Value() );
+    RemoveAllOccurrences( refMap, it.Value() );
 }

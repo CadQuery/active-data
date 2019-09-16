@@ -183,9 +183,12 @@ Standard_Integer
 //! \return true if your Tree Function asks for execution regardless of
 //!         the fact that its arguments are untouched.
 Standard_Boolean
-  ActData_BaseTreeFunction::MustExecuteIntact(const Handle(ActAPI_HParameterList)& ActData_NotUsed(theArgsIN),
-                                              const Handle(Standard_Transient)&    ActData_NotUsed(theUserData)) const
+  ActData_BaseTreeFunction::MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN,
+                                              const Handle(Standard_Transient)&    theUserData) const
 {
+  ActData_NotUsed(theArgsIN);
+  ActData_NotUsed(theUserData);
+
   return Standard_False;
 }
 
@@ -203,8 +206,9 @@ Standard_Boolean
 //! Gives Tree Function a possibility to connect its inputs and outputs
 //! before Execution Graph is built.
 //! \param theOwnerNode [in] Data Node owning the Function.
-void ActData_BaseTreeFunction::AutoConnect(const Handle(ActAPI_INode)& ActData_NotUsed(theOwnerNode)) const
+void ActData_BaseTreeFunction::AutoConnect(const Handle(ActAPI_INode)& theOwnerNode) const
 {
+  ActData_NotUsed(theOwnerNode);
 }
 
 //! Returns priority of the Tree Function. The bigger the returned value is,
