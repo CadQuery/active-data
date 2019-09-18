@@ -79,6 +79,9 @@ public:
   ActData_EXPORT static Standard_Boolean
     CheckWellFormed(const Handle(ActAPI_IModel)& theModel);
 
+  ActData_EXPORT static Standard_Boolean
+    ReconnectTreeFunctions(const Handle(ActAPI_IModel)& theModel);
+
 public:
 
   ActData_EXPORT

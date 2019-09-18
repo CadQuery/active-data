@@ -323,6 +323,14 @@ public:
   ActData_EXPORT virtual void
     FuncSetExecutionFlags(const Standard_Integer theFlags);
 
+public:
+
+  //! Default implementation of this method does not nothing but returns `true`.
+  virtual Standard_Boolean FuncReconnectAll()
+  {
+    return Standard_True;
+  }
+
 // Construction:
 protected:
 

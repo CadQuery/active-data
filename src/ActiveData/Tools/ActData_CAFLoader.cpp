@@ -83,7 +83,18 @@ Standard_Boolean
    * ========================================================= */
 
   if ( CheckWellFormed(theModel) )
+  {
+    /* =====================================================
+     *  Let the final state of the Data Model reconnect its
+     *  Tree Functions (this should be done at the very end
+     *  of the conversion process)
+     * ===================================================== */
+
+    if ( !ReconnectTreeFunctions(theModel) )
+      return Standard_False;
+
     return Standard_True;
+  }
 
   // Bad-formed Nodes were found after successful conversion. We have to
   // mark such Model as faulty, otherwise it becomes dangerous
@@ -299,6 +310,23 @@ Standard_Boolean
   }
 
   return Standard_True;
+}
+
+//! This function is invoked by the converter to let the Data Model reconnect
+//! its Tree Functions upon completion of the conversion procedure. The
+//! Tree Functions must be reconnected at the very end of the conversion routine
+//! as normally such reconnecting requires data access through the actual cursors
+//! which should be populated with the normalized data. If, in contrast, the
+//! reconnection is being done as long as the conversion process unfolds, there is
+//! a high probability to supply cursors with inconsistent data.
+//!
+//! \param theModel [in] final Data Model (after all conversions) to reconnect
+//!                      Tree Functions for.
+//! \return false if reconnection is impossible for whatever reason.
+Standard_Boolean
+  ActData_CAFLoader::ReconnectTreeFunctions(const Handle(ActAPI_IModel)& theModel)
+{
+  return theModel->FuncReconnectAll();
 }
 
 //-----------------------------------------------------------------------------

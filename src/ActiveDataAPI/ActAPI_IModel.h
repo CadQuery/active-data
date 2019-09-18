@@ -514,6 +514,13 @@ public:
   virtual void
     FuncSetExecutionFlags(const Standard_Integer theFlags) = 0;
 
+  //! This method allows reconnecting all Tree Functions in the Data Model.
+  //! The method is designed to be invoked by the compatibility conversion
+  //! routine.
+  //! \return true in case of success, false -- otherwise.
+  virtual Standard_Boolean
+    FuncReconnectAll() = 0;
+
 // Versioning:
 public:
 
