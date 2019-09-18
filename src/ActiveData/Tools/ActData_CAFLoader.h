@@ -103,6 +103,9 @@ public:
   ActData_EXPORT Standard_Boolean
     CheckWellFormed() const;
 
+  ActData_EXPORT Standard_Boolean
+    ReconnectTreeFunctions();
+
 public:
 
   //! Returns converted Data Model.

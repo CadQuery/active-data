@@ -415,6 +415,13 @@ Standard_Boolean ActData_CAFLoader::CheckWellFormed() const
   return CheckWellFormed(m_model);
 }
 
+//! Reconnects Tree Functions in the Data Model.
+//! \return true/false.
+Standard_Boolean ActData_CAFLoader::ReconnectTreeFunctions()
+{
+  return ReconnectTreeFunctions(m_model);
+}
+
 //! Converts the passed version number (stored in OCAF) to human-readable
 //! string representation in dot-form, i.e. xxx.yyy.zzz.
 //! \param theVerNum [in] version number to convert.
