@@ -146,7 +146,7 @@ install (TARGETS ActiveDataAux
 install (TARGETS ActiveDataAux
          RUNTIME DESTINATION bini COMPONENT Runtime
          CONFIGURATIONS RelWithDebInfo
-         ARCHIVE DESTINATION libi COMPONENT Library
+         ARCHIVE DESTINATION libi LIBRARY DESTINATION libi COMPONENT Library
          CONFIGURATIONS RelWithDebInfo)
 
 install (TARGETS ActiveDataAux
@@ -155,6 +155,8 @@ install (TARGETS ActiveDataAux
          ARCHIVE DESTINATION libd LIBRARY DESTINATION libd COMPONENT Library
          CONFIGURATIONS Debug)
 
-install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveDataAux.pdb DESTINATION bind CONFIGURATIONS Debug)
+if (WIN32)
+  install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveDataAux.pdb DESTINATION bind CONFIGURATIONS Debug)
+endif()
 
 install (FILES ${H_FILES} DESTINATION include)

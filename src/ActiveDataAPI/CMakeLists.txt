@@ -149,7 +149,7 @@ install (TARGETS ActiveDataAPI
 install (TARGETS ActiveDataAPI
          RUNTIME DESTINATION bini COMPONENT Runtime
          CONFIGURATIONS RelWithDebInfo
-         ARCHIVE DESTINATION libi COMPONENT Library
+         ARCHIVE DESTINATION libi LIBRARY DESTINATION libi COMPONENT Library
          CONFIGURATIONS RelWithDebInfo)
 
 install (TARGETS ActiveDataAPI
@@ -158,6 +158,8 @@ install (TARGETS ActiveDataAPI
          ARCHIVE DESTINATION libd LIBRARY DESTINATION libd COMPONENT Library
          CONFIGURATIONS Debug)
 
-install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveDataAPI.pdb DESTINATION bind CONFIGURATIONS Debug)
+if (WIN32)
+  install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveDataAPI.pdb DESTINATION bind CONFIGURATIONS Debug)
+endif()
 
 install (FILES ${H_FILES} DESTINATION include)
