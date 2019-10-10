@@ -40,6 +40,7 @@
 #include <NCollection_DataMap.hxx>
 #include <NCollection_Sequence.hxx>
 #include <NCollection_Shared.hxx>
+#include <NCollection_Vector.hxx>
 #include <Standard_ProgramError.hxx>
 #include <Standard_Type.hxx>
 #include <TCollection_AsciiString.hxx>
@@ -87,7 +88,7 @@ typedef NCollection_Sequence<Handle(ActAPI_VariableBase)> ActAPI_LogArguments;
 enum ActAPI_LogMessagePriority
 {
   Priority_Normal = 1, //!< Nothing special.
-  Priority_High,       //!< Important.
+  Priority_High        //!< Important.
 };
 
 //! \ingroup AD_API
@@ -127,21 +128,21 @@ struct ActAPI_LogMessage
   {}
 
   //! Complete constructor.
-  //! \param thePriority [in] message priority tag.
-  //! \param theSeverity [in] message severity tag.
-  //! \param theMsgKey [in] message localization key.
-  //! \param theArguments [in] arguments for the logging message if any.
-  //! \param theTimeStamp [in] application-specific timestamp.
-  ActAPI_LogMessage(const ActAPI_LogMessagePriority thePriority,
-                    const ActAPI_LogMessageSeverity theSeverity,
-                    const TCollection_AsciiString& theMsgKey,
-                    const ActAPI_LogArguments& theArguments = ActAPI_LogArguments(),
-                    const Handle(Standard_Transient)& theTimeStamp = NULL)
-  : Priority(thePriority),
-    Severity(theSeverity),
-    MsgKey(theMsgKey),
-    Arguments(theArguments),
-    TimeStamp(theTimeStamp)
+  //! \param priority  [in] message priority tag.
+  //! \param severity  [in] message severity tag.
+  //! \param msgKey    [in] message localization key.
+  //! \param arguments [in] arguments for the logging message if any.
+  //! \param timeStamp [in] application-specific timestamp.
+  ActAPI_LogMessage(const ActAPI_LogMessagePriority   priority,
+                    const ActAPI_LogMessageSeverity   severity,
+                    const TCollection_AsciiString&    msgKey,
+                    const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
+                    const Handle(Standard_Transient)& timeStamp = NULL)
+  : Priority  (priority),
+    Severity  (severity),
+    MsgKey    (msgKey),
+    Arguments (arguments),
+    TimeStamp (timeStamp)
   {}
 
   virtual Standard_Boolean operator>(const ActAPI_LogMessage&) const
@@ -179,34 +180,56 @@ public:
 public:
 
   virtual void
-    Info(const TCollection_AsciiString& theMessage,
-         const ActAPI_LogMessagePriority thePriority = Priority_Normal,
-         const ActAPI_LogArguments& theArguments = ActAPI_LogArguments(),
-         const Handle(Standard_Transient)& theTimeStamp = NULL) = 0;
+    Info(const TCollection_AsciiString&    message,
+         const ActAPI_LogMessagePriority   priority  = Priority_Normal,
+         const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
+         const Handle(Standard_Transient)& timeStamp = NULL) = 0;
 
   virtual void
-    Notice(const TCollection_AsciiString& theMessage,
-           const ActAPI_LogMessagePriority thePriority = Priority_Normal,
-           const ActAPI_LogArguments& theArguments = ActAPI_LogArguments(),
-           const Handle(Standard_Transient)& theTimeStamp = NULL) = 0;
+    Notice(const TCollection_AsciiString&    message,
+           const ActAPI_LogMessagePriority   priority  = Priority_Normal,
+           const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
+           const Handle(Standard_Transient)& timeStamp = NULL) = 0;
 
   virtual void
-    Warn(const TCollection_AsciiString& theMessage,
-         const ActAPI_LogMessagePriority thePriority = Priority_Normal,
-         const ActAPI_LogArguments& theArguments = ActAPI_LogArguments(),
-         const Handle(Standard_Transient)& theTimeStamp = NULL) = 0;
+    Warn(const TCollection_AsciiString&    message,
+         const ActAPI_LogMessagePriority   priority  = Priority_Normal,
+         const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
+         const Handle(Standard_Transient)& timeStamp = NULL) = 0;
 
   virtual void
-    Error(const TCollection_AsciiString& theMessage,
-          const ActAPI_LogMessagePriority thePriority = Priority_Normal,
-          const ActAPI_LogArguments& theArguments = ActAPI_LogArguments(),
-          const Handle(Standard_Transient)& theTimeStamp = NULL) = 0;
+    Error(const TCollection_AsciiString&    message,
+          const ActAPI_LogMessagePriority   priority  = Priority_Normal,
+          const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
+          const Handle(Standard_Transient)& timeStamp = NULL) = 0;
+
+public:
+
+  //! Appends output stream for replicating logging messages. This technique
+  //! is useful if you want to accumulate logged messages in custom collections
+  //! rather than only let the basic logging functionality do its job.
+  //! \param[in] outStream output stream to append.
+  virtual void AppendStream(Standard_OStream* outStream)
+  {
+    m_appenders.Append(outStream);
+  }
+
+  //! Removes all existing appender streams.
+  virtual void ClearAppenders()
+  {
+    m_appenders.Clear();
+  }
 
 // Logging kernel:
 public:
 
   ActAPI_EXPORT virtual void
-    Dispatch(const ActAPI_LogMessageList& theLogList);
+    Dispatch(const ActAPI_LogMessageList& logList);
+
+protected:
+
+  //! Appender streams.
+  NCollection_Vector<Standard_OStream*> m_appenders;
 
 };
 
@@ -225,13 +248,13 @@ public:
   }
 
   //! Constructor.
-  //! \param theSeverity [in] severity of the Log Message.
-  //! \param thePriority [in] priority of the Log Message.
-  ActAPI_LogStream(const ActAPI_LogMessageSeverity& theSeverity,
-                   const ActAPI_LogMessagePriority& thePriority)
+  //! \param severity [in] severity of the Log Message.
+  //! \param priority [in] priority of the Log Message.
+  ActAPI_LogStream(const ActAPI_LogMessageSeverity& severity,
+                   const ActAPI_LogMessagePriority& priority)
   {
-    m_severity          = theSeverity;
-    m_priority          = thePriority;
+    m_severity          = severity;
+    m_priority          = priority;
     m_bIsDummy          = Standard_False;
     m_bIsMsgInitialized = Standard_False;
   }
@@ -246,27 +269,35 @@ public:
   //! Pushes the passed value to the logging stream.
   //! \param theStr [in] value to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(Standard_CString theStr)
+  ActAPI_LogStream& operator<<(Standard_CString str)
   {
-    return this->operator<<( TCollection_AsciiString(theStr) );
+    return this->operator<<( TCollection_AsciiString(str) );
   }
 
   //! Pushes the passed value to the logging stream.
-  //! \param theStr [in] value to stream.
+  //! \param str [in] value to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(const TCollection_AsciiString& theStr)
+  ActAPI_LogStream& operator<<(const std::string& str)
+  {
+    return this->operator<<( TCollection_AsciiString( str.c_str() ) );
+  }
+
+  //! Pushes the passed value to the logging stream.
+  //! \param str [in] value to stream.
+  //! \return this instance for further streaming.
+  ActAPI_LogStream& operator<<(const TCollection_AsciiString& str)
   {
     if ( m_bIsDummy )
       return *this;
 
     if ( !m_bIsMsgInitialized )
     {
-      m_msg = theStr;
+      m_msg               = str;
       m_bIsMsgInitialized = Standard_True;
     }
     else
     {
-      Handle(ActAPI_VariableString) aTStr = new ActAPI_VariableString(theStr);
+      Handle(ActAPI_VariableString) aTStr = new ActAPI_VariableString(str);
       m_args.Append(aTStr);
     }
 
@@ -274,9 +305,9 @@ public:
   }
 
   //! Pushes the passed value to the logging stream.
-  //! \param theVal [in] value to stream.
+  //! \param val [in] value to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(const Standard_Integer theVal)
+  ActAPI_LogStream& operator<<(const Standard_Integer val)
   {
     if ( m_bIsDummy )
       return *this;
@@ -284,7 +315,7 @@ public:
     if ( !m_bIsMsgInitialized )
       Standard_ProgramError::Raise("Message must be initialized first");
 
-    Handle(ActAPI_VariableInt) aTVal = new ActAPI_VariableInt(theVal);
+    Handle(ActAPI_VariableInt) aTVal = new ActAPI_VariableInt(val);
     m_args.Append(aTVal);
 
     return *this;
@@ -293,7 +324,7 @@ public:
   //! Pushes the passed value to the logging stream.
   //! \param theVal [in] value to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(const Standard_Real theVal)
+  ActAPI_LogStream& operator<<(const Standard_Real val)
   {
     if ( m_bIsDummy )
       return *this;
@@ -301,24 +332,24 @@ public:
     if ( !m_bIsMsgInitialized )
       Standard_ProgramError::Raise("Message must be initialized first");
 
-    Handle(ActAPI_VariableReal) aTVal = new ActAPI_VariableReal(theVal);
+    Handle(ActAPI_VariableReal) aTVal = new ActAPI_VariableReal(val);
     m_args.Append(aTVal);
 
     return *this;
   }
 
   //! Pushes the passed value to the logging stream.
-  //! \param theVal [in] value to stream.
+  //! \param val [in] value to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(const Standard_Boolean theVal)
+  ActAPI_LogStream& operator<<(const Standard_Boolean val)
   {
-    return this->operator<<(theVal ? ActAPI_LogStr_True : ActAPI_LogStr_False);
+    return this->operator<<(val ? ActAPI_LogStr_True : ActAPI_LogStr_False);
   }
 
   //! Pushes the passed shape to the logging stream.
-  //! \param theShape [in] shape to stream.
+  //! \param shape [in] shape to stream.
   //! \return this instance for further streaming.
-  ActAPI_LogStream& operator<<(const TopoDS_Shape& theShape)
+  ActAPI_LogStream& operator<<(const TopoDS_Shape& shape)
   {
     if ( m_bIsDummy )
       return *this;
@@ -326,56 +357,56 @@ public:
     if ( !m_bIsMsgInitialized )
       Standard_ProgramError::Raise("Message must be initialized first");
 
-    Handle(ActAPI_VariableShape) aTVal = new ActAPI_VariableShape(theShape);
+    Handle(ActAPI_VariableShape) aTVal = new ActAPI_VariableShape(shape);
     m_args.Append(aTVal);
 
     return *this;
   }
 
   //! Pushes the streamed message to the passed Logger.
-  //! \param theLogger [in] target Logger.
-  void operator>>(const Handle(ActAPI_ILogger)& theLogger)
+  //! \param logger [in] target Logger.
+  void operator>>(const Handle(ActAPI_ILogger)& logger)
   {
     if ( m_bIsDummy )
       return;
 
-    if ( theLogger.IsNull() )
+    if ( logger.IsNull() )
       return;
 
     if ( m_severity == Severity_Information )
-      theLogger->Info(m_msg, m_priority, m_args);
+      logger->Info(m_msg, m_priority, m_args);
     if ( m_severity == Severity_Notice )
-      theLogger->Notice(m_msg, m_priority, m_args);
+      logger->Notice(m_msg, m_priority, m_args);
     else if ( m_severity == Severity_Warning )
-      theLogger->Warn(m_msg, m_priority, m_args);
+      logger->Warn(m_msg, m_priority, m_args);
     else if ( m_severity == Severity_Error )
-      theLogger->Error(m_msg, m_priority, m_args);
+      logger->Error(m_msg, m_priority, m_args);
   }
 
   //! Accessor for severity.
   //! \return message severity.
-  inline ActAPI_LogMessageSeverity Severity() const
+  ActAPI_LogMessageSeverity Severity() const
   {
     return m_severity;
   }
 
   //! Accessor for priority.
   //! \return message priority.
-  inline ActAPI_LogMessagePriority Priority() const
+  ActAPI_LogMessagePriority Priority() const
   {
     return m_priority;
   }
 
   //! Accessor for text.
   //! \return message text.
-  inline TCollection_AsciiString Text() const
+  const TCollection_AsciiString& Text() const
   {
     return m_msg;
   }
 
   //! Accessor for arguments.
   //! \return message arguments.
-  inline ActAPI_LogArguments Args() const
+  const ActAPI_LogArguments& Args() const
   {
     return m_args;
   }

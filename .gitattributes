@@ -1,6 +1,6 @@
 .gitattributes eol=lf
 .gitignore  eol=lf
-*.txt       eol=lf
+
 *.cmake     eol=lf
 *.xpm       eol=lf
 *.h         eol=lf
