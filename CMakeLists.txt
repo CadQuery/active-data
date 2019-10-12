@@ -9,7 +9,11 @@ set (CMAKE_INSTALL_PREFIX "${INSTALL_DIR}" CACHE INTERNAL "" FORCE )
 
 # Build configurations
 set (CMAKE_CONFIGURATION_TYPES Release Debug RelWithDebInfo CACHE INTERNAL "" FORCE)
-set (USE_TEST ON CACHE BOOL "Allows switching ON/OFF of building test library and executable")
+if (MSVC)
+  set (USE_TEST ON CACHE BOOL "Allows switching ON/OFF of building test library and executable")
+else()
+  set (USE_TEST OFF)
+endif()
 
 #-------------------------------------------------------------------------------
 # Find 3rd-parties
@@ -33,7 +37,7 @@ if (USE_TBB)
 endif()
 
 if (NOT DEFINED ${3RDPARTY_DIR} AND ${3RDPARTY_DIR} STREQUAL "")
-    message (FATAL_ERROR "... root 3rdparty directory was not found")
+  message (FATAL_ERROR "... root 3rdparty directory was not found")
 endif()
 
 # OCCT

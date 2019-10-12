@@ -53,44 +53,44 @@ public:
 
 public:
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     Release();
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     SetIsPaired(const bool isPaired);
 
-  ActTestLib_EXPORT inline bool
+  ActTestLib_EXPORT bool
     IsPaired() const;
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     SetIsClosed(const bool isClosed);
 
-  ActTestLib_EXPORT inline bool
+  ActTestLib_EXPORT bool
     IsClosed() const;
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     SetBase(const char* base);
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     SetBase(const std::string& base);
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     AddStyle(const char* styleName,
              const char* styleValue);
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     AddStyle(const std::string& styleName,
              const std::string& styleValue);
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     AddAttribute(const char* attrName,
                  const char* attrValue);
 
-  ActTestLib_EXPORT inline void
+  ActTestLib_EXPORT void
     AddAttribute(const std::string& attrName,
                  const std::string& attrValue);
 
-  ActTestLib_EXPORT inline std::string
+  ActTestLib_EXPORT std::string
     Result() const;
 
 private:
