@@ -114,7 +114,7 @@ void ActData_TransactionEngine::EnableTransactions()
 void ActData_TransactionEngine::OpenCommand()
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -130,7 +130,7 @@ void ActData_TransactionEngine::OpenCommand()
 void ActData_TransactionEngine::CommitCommand()
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -144,7 +144,7 @@ void ActData_TransactionEngine::CommitCommand()
 Standard_Boolean ActData_TransactionEngine::HasOpenCommand() const
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return Standard_False;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -156,7 +156,7 @@ Standard_Boolean ActData_TransactionEngine::HasOpenCommand() const
 void ActData_TransactionEngine::AbortCommand()
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -172,7 +172,7 @@ Handle(ActAPI_TxRes)
   ActData_TransactionEngine::Undo(const Standard_Integer theNbUndoes)
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return NULL;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -205,7 +205,7 @@ Handle(ActAPI_TxRes)
 Standard_Integer ActData_TransactionEngine::NbUndos() const
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return 0;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -220,7 +220,7 @@ Handle(ActAPI_TxRes)
   ActData_TransactionEngine::Redo(const Standard_Integer theNbRedoes)
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return NULL;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
@@ -253,7 +253,7 @@ Handle(ActAPI_TxRes)
 Standard_Integer ActData_TransactionEngine::NbRedos() const
 {
   if ( this->isTransactionModeOff() )
-    Standard_ProgramError::Raise(ERR_TRANSACTION_DEPLOYMENT_OFF);
+    return 0;
 
   if ( m_doc.IsNull() )
     Standard_ProgramError::Raise(ERR_NULL_DOC);
