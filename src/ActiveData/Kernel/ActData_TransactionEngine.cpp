@@ -412,19 +412,27 @@ Standard_Boolean ActData_TransactionEngine::isTransactionModeOff() const
 }
 
 //! Creates a Data Cursor for a Parameter by its global ID.
-//! \param[in]  pid     persistent ID.
-//! \param[out] isParam indicates whether the passed persistent ID is the ID
-//!                     of a User or Meta Parameter.
+//! \param[in]  pid         persistent ID.
+//! \param[out] isParam     indicates whether the passed persistent ID is the ID
+//!                         of a User or Meta Parameter.
+//! \param[out] isUndefined indicates whether the Parameter of the requested
+//!                         type is undefined in the Factory. This normally
+//!                         happens if the Parameter is of a non-standard
+//!                         type (i.e., its type is declared externally to
+//!                         Active Data).
 //! \return Data Cursor instance.
 Handle(ActAPI_IDataCursor)
   ActData_TransactionEngine::parameterById(const ActAPI_ParameterId& pid,
-                                           Standard_Boolean&         isParam) const
+                                           Standard_Boolean&         isParam,
+                                           Standard_Boolean&         isUndefinedType) const
 {
+  isUndefinedType = Standard_False; // Can be corrected for the User Parameters.
+
   // Check the number of tags.
   std::vector<ActAPI_DataObjectId> tags;
   ActData_Common::SplitTags(pid, tags);
   //
-  const int nTags = int( tags.size() );
+  const Standard_Integer nTags = Standard_Integer( tags.size() );
   //
   if ( nTags < ActData_NumTags_MetaParameterId )
   {
@@ -448,7 +456,7 @@ Handle(ActAPI_IDataCursor)
       return NULL; // Not a Parameter because it is not under the USER (`TagUser`) section.
     }
 
-    aParamByLabel = ActData_ParameterFactory::ParamByChildLabelSettle(aLab);
+    aParamByLabel = ActData_ParameterFactory::ParamByChildLabelSettle(aLab, isUndefinedType);
   }
   else
     aParamByLabel = ActData_ParameterFactory::MetaParamByLabelSettle(aLab);
@@ -465,16 +473,21 @@ Handle(ActAPI_TxRes)
 
   for ( Standard_Integer k = 1; k <= pids->Extent(); ++k )
   {
-    Standard_Boolean           isOk    = Standard_True;
-    Standard_Boolean           isParam = Standard_False;
-    ActAPI_DataObjectId        id      = ActData_Common::TrimToParameterId( pids->FindKey(k), isOk );
-    Handle(ActAPI_IDataCursor) dc      = this->parameterById(id, isParam);
+    Standard_Boolean           isOk         = Standard_True;
+    Standard_Boolean           isParam      = Standard_False;
+    Standard_Boolean           isParamUndef = Standard_False;
+    ActAPI_DataObjectId        id           = ActData_Common::TrimToParameterId( pids->FindKey(k), isOk );
+    Handle(ActAPI_IDataCursor) dc           = this->parameterById(id, isParam, isParamUndef);
     //
     if ( !isParam )
       continue; // Skip persistent items which are not Parameters.
 
     // Check whether the Parameter in question is alive or not.
-    const Standard_Boolean isAlive = ( !dc.IsNull() && dc->IsWellFormed() );
+    Standard_Boolean isAlive;
+    if ( isParamUndef )
+      isAlive = Standard_True; // We consider unknown Parameters alive.
+    else
+      isAlive = ( !dc.IsNull() && dc->IsWellFormed() );
     //
     result->Add(id, dc, isAlive);
   }

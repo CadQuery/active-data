@@ -159,7 +159,9 @@ public:
     {
       Handle(ActData_TreeFunctionDriver) aDrv = Handle(ActData_TreeFunctionDriver)::DownCast(theTFuncDrv);
       TreeFunction = aDrv->GetFunction();
-      Parameter = ActParamTool::NewParameterSettle( aDrv->Label() );
+
+      Standard_Boolean isUndefined;
+      Parameter = ActParamTool::NewParameterSettle( aDrv->Label(), isUndefined );
     }
   };
 

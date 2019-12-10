@@ -98,7 +98,8 @@ Standard_Boolean
     // Now we can use Parameter Cursors as their format is immutable from
     // version to version
 
-    Handle(ActAPI_IUserParameter) aParam = ActParamTool::NewParameterSettle(aParamLab);
+    Standard_Boolean isUndefinedType;
+    Handle(ActAPI_IUserParameter) aParam     = ActParamTool::NewParameterSettle(aParamLab, isUndefinedType);
     Handle(ActData_UserParameter) aParamBase = Handle(ActData_UserParameter)::DownCast(aParam);
 
     if ( aParamBase.IsNull() || !aParamBase->IsWellFormed() )

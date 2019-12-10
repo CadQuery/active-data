@@ -124,8 +124,9 @@ Handle(ActData_TreeFunctionParameter)
     return NULL;
 
   // Access Tree Function Parameter
+  Standard_Boolean isUndefinedType;
   const TDF_Label& aFuncRoot = aScope->GetFunction(theVertexID);
-  return ActParamTool::AsTreeFunction( ActParamTool::NewParameterSettle(aFuncRoot) );
+  return ActParamTool::AsTreeFunction( ActParamTool::NewParameterSettle(aFuncRoot, isUndefinedType) );
 }
 
 //! Returns vertex ID by Tree Function Parameter Label.

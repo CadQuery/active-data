@@ -415,7 +415,10 @@ Standard_Boolean
     // to removed Parameter with any remaining references
     Handle(ActAPI_IUserParameter) P;
     if ( ActParamTool::IsUserParameter(PRoot) )
-      P = ActParamTool::NewParameterSettle(PRoot);
+    {
+      Standard_Boolean isUndefinedType;
+      P = ActParamTool::NewParameterSettle(PRoot, isUndefinedType);
+    }
 
     // If we face "ghost" Parameter, we just skip it. Subsequently all
     // references to this Parameter will be normalized, so this ghost will
@@ -597,7 +600,9 @@ Standard_Boolean
       return Standard_False;
 
     // Parameter
-    ownerParam = ActData_ParameterFactory::NewParameterSettle( theRefListOwner.Father() );
+    Standard_Boolean isUndefinedType;
+    ownerParam = ActData_ParameterFactory::NewParameterSettle( theRefListOwner.Father(),
+                                                               isUndefinedType );
     //
     if ( ownerParam.IsNull() )
       return Standard_False;
@@ -687,8 +692,10 @@ Standard_Boolean
     //
     if ( isBackRef )
     {
+      Standard_Boolean isUndefinedType;
       Handle(ActAPI_IUserParameter)
-        targetParam = ActData_ParameterFactory::NewParameterSettle(NewTargetLab);
+        targetParam = ActData_ParameterFactory::NewParameterSettle(NewTargetLab,
+                                                                   isUndefinedType);
       //
       if ( targetParam.IsNull() )
         continue;
@@ -752,7 +759,8 @@ Handle(ActAPI_IUserParameter)
   if ( !ActParamTool::IsUserParameter(PLab) )
     return NULL;
 
-  return ActParamTool::NewParameterSettle(PLab);
+  Standard_Boolean isUndefinedType;
+  return ActParamTool::NewParameterSettle(PLab, isUndefinedType);
 }
 
 //! Transfers data cumulated by Sampler to OCAF Document of
@@ -828,9 +836,11 @@ Standard_Boolean ActData_CAFConversionCtx::samplerToOCAF()
         continue; // Deletion case
 
       // Expand Parameter data in OCAF
+      Standard_Boolean isUndefinedType;
       TDF_Label aParamRoot = aUGroupLab.FindChild(aNewPID, Standard_True);
+      //
       Handle(ActAPI_IUserParameter)
-        aParam = ActParamTool::NewParameterExpand(aDTO->ParamType(), aParamRoot);
+        aParam = ActParamTool::NewParameterExpand(aDTO->ParamType(), aParamRoot, isUndefinedType);
 
       // Populate Parameter with data
       Handle(ActData_UserParameter) aParamBase = Handle(ActData_UserParameter)::DownCast(aParam);

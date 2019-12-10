@@ -1054,8 +1054,10 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
     Handle(ActData_BaseTreeFunction) aTreeFuncBase =
       Handle(ActData_BaseTreeFunction)::DownCast( aFuncDriver->GetFunction() );
 
+    Standard_Boolean isUndefinedType;
+    //
     Handle(ActAPI_IUserParameter)
-      Parameter = ActParamTool::NewParameterSettle( aFuncDriver->Label() );
+      Parameter = ActParamTool::NewParameterSettle( aFuncDriver->Label(), isUndefinedType );
 
     if ( UniqueParams.Contains(Parameter) )
       continue;

@@ -47,11 +47,18 @@ ActData_ParameterFactory::ActData_ParameterFactory()
 
 //! Factory method performing actual allocation of DETACHED Parameter instance
 //! of the given type.
-//! \param theParamType [in] requested Parameter type.
+//! \param theParamType [in]  requested Parameter type.
+//! \param isUndefined  [out] indicates whether the Parameter of the requested
+//!                           type is undefined in the Factory. This normally
+//!                           happens if the Parameter is of a non-standard
+//!                           type (i.e., its type is declared externally to
+//!                           Active Data).
 //! \return new DETACHED Parameter instance.
 Handle(ActAPI_IUserParameter)
-  ActData_ParameterFactory::NewParameterDetached(const Standard_Integer theParamType)
+  ActData_ParameterFactory::NewParameterDetached(const Standard_Integer theParamType,
+                                                 Standard_Boolean&      isUndefined)
 {
+  isUndefined = Standard_False;
   Handle(ActAPI_IUserParameter) aResult;
 
   ActAPI_ParameterType aParamType = static_cast<ActAPI_ParameterType>(theParamType);
@@ -137,7 +144,9 @@ Handle(ActAPI_IUserParameter)
       aResult = ActData_TriangulationParameter::Instance();
       break;
 
-    default: break;
+    default:
+      isUndefined = Standard_True;
+      break;
   }
 
   return aResult;
@@ -186,13 +195,19 @@ Standard_Boolean
 //! Checks whether the given Label represents User Parameter or not.
 //! \param theLabel     [in]  raw Label to check.
 //! \param theMetaParam [out] settled User Parameter or NULL.
+//! \param isUndefined  [out] indicates whether the Parameter of the requested
+//!                           type is undefined in the Factory. This normally
+//!                           happens if the Parameter is of a non-standard
+//!                           type (i.e., its type is declared externally to
+//!                           Active Data).
 //! \return true/false.
 Standard_Boolean
   ActData_ParameterFactory::IsUserParameter(const TDF_Label&               theLabel,
-                                            Handle(ActAPI_IUserParameter)& theUserParam)
+                                            Handle(ActAPI_IUserParameter)& theUserParam,
+                                            Standard_Boolean&              isUndefined)
 {
   // Create User Parameter interface to use its IsWellFormed() checker
-  Handle(ActAPI_IUserParameter) dao = NewParameterSettle(theLabel);
+  Handle(ActAPI_IUserParameter) dao = NewParameterSettle(theLabel, isUndefined);
   //
   if ( dao.IsNull() )
     return Standard_False;
@@ -245,15 +260,21 @@ Standard_Boolean
 
 //! READ-ONLY method settling down the Parameter Data Cursor of the given type
 //! to the given CAF Label.
-//! \param theParamType [in] type of the Parameter to settle.
-//! \param theLabel     [in] target Label to get data access to.
+//! \param theParamType [in]  type of the Parameter to settle.
+//! \param theLabel     [in]  target Label to get data access to.
+//! \param isUndefined  [out] indicates whether the Parameter of the requested
+//!                           type is undefined in the Factory. This normally
+//!                           happens if the Parameter is of a non-standard
+//!                           type (i.e., its type is declared externally to
+//!                           Active Data).
 //! \return new Parameter instance.
 Handle(ActAPI_IUserParameter)
   ActData_ParameterFactory::NewParameterSettle(const Standard_Integer theParamType,
-                                               const TDF_Label&       theLabel)
+                                               const TDF_Label&       theLabel,
+                                               Standard_Boolean&      isUndefined)
 {
   Handle(ActData_UserParameter) aResult =
-    Handle(ActData_UserParameter)::DownCast( NewParameterDetached(theParamType) );
+    Handle(ActData_UserParameter)::DownCast( NewParameterDetached(theParamType, isUndefined) );
 
   if ( !aResult.IsNull() )
     aResult->settleOn(theLabel);
@@ -263,27 +284,40 @@ Handle(ActAPI_IUserParameter)
 
 //! Method EXPANDING the Parameter Data Cursor of the given type on the given
 //! CAF Label.
-//! \param theParamType [in] type of the Parameter to expand.
-//! \param theLabel     [in] target Label.
+//! \param theParamType [in]  type of the Parameter to expand.
+//! \param theLabel     [in]  target Label.
+//! \param isUndefined  [out] indicates whether the Parameter of the requested
+//!                           type is undefined in the Factory. This normally
+//!                           happens if the Parameter is of a non-standard
+//!                           type (i.e., its type is declared externally to
+//!                           Active Data).
 //! \return new Parameter instance.
 Handle(ActAPI_IUserParameter)
   ActData_ParameterFactory::NewParameterExpand(const Standard_Integer theParamType,
-                                               const TDF_Label&       theLabel)
+                                               const TDF_Label&       theLabel,
+                                               Standard_Boolean&      isUndefined)
 {
   Handle(ActData_UserParameter) aResult =
-    Handle(ActData_UserParameter)::DownCast( NewParameterDetached(theParamType) );
+    Handle(ActData_UserParameter)::DownCast( NewParameterDetached(theParamType, isUndefined) );
 
-  aResult->expandOn(theLabel);
+  if ( !aResult.IsNull() )
+    aResult->expandOn(theLabel);
 
   return aResult;
 }
 
 //! READ-ONLY method settling down the Parameter Data Cursor to the given
 //! CAF Label.
-//! \param theLabel [in] target Label to get data access to.
+//! \param theLabel    [in]  target Label to get data access to.
+//! \param isUndefined [out] indicates whether the Parameter of the requested
+//!                          type is undefined in the Factory. This normally
+//!                          happens if the Parameter is of a non-standard
+//!                          type (i.e., its type is declared externally to
+//!                          Active Data).
 //! \return new Parameter instance.
 Handle(ActAPI_IUserParameter)
-  ActData_ParameterFactory::NewParameterSettle(const TDF_Label& theLabel)
+  ActData_ParameterFactory::NewParameterSettle(const TDF_Label&  theLabel,
+                                               Standard_Boolean& isUndefined)
 {
   TDF_Label aTypeLab = theLabel.FindChild(ActData_UserParameter::DS_ParamType, Standard_False);
 
@@ -294,7 +328,7 @@ Handle(ActAPI_IUserParameter)
   if ( !aTypeLab.FindAttribute(TDataStd_Integer::GetID(), aTypeAttr) )
     return NULL; // Type Attribute not found
 
-  return NewParameterSettle(aTypeAttr->Get(), theLabel);
+  return NewParameterSettle(aTypeAttr->Get(), theLabel, isUndefined);
 }
 
 //! Constructs a list of Parameters by the list of the corresponding
@@ -308,8 +342,9 @@ Handle(ActAPI_HParameterList)
   TDF_ListIteratorOfLabelList aLabelIt(theLabels);
   for ( ; aLabelIt.More(); aLabelIt.Next() )
   {
+    Standard_Boolean isUndefined;
     TDF_Label aLab = aLabelIt.Value();
-    aPStream << ActData_ParameterFactory::NewParameterSettle(aLab);
+    aPStream << ActData_ParameterFactory::NewParameterSettle(aLab, isUndefined);
   }
 
   return aPStream;
@@ -317,19 +352,25 @@ Handle(ActAPI_HParameterList)
 
 //! Attempts to find a Parameter instance owning the passed Label as one
 //! of its children (any level is allowed).
-//! \param theLabel [in] Label to recover a Parameter for.
+//! \param theLabel    [in]  Label to recover a Parameter for.
+//! \param isUndefined [out] indicates whether the Parameter of the requested
+//!                          type is undefined in the Factory. This normally
+//!                          happens if the Parameter is of a non-standard
+//!                          type (i.e., its type is declared externally to
+//!                          Active Data).
 //! \return Parameter instance or NULL if nothing appropriate was found.
 Handle(ActAPI_IUserParameter)
-  ActData_ParameterFactory::ParamByChildLabelSettle(const TDF_Label& theLabel)
+  ActData_ParameterFactory::ParamByChildLabelSettle(const TDF_Label&  theLabel,
+                                                    Standard_Boolean& isUndefined)
 {
   if ( IsUserParameter(theLabel) )
-    return NewParameterSettle(theLabel);
+    return NewParameterSettle(theLabel, isUndefined);
 
   TDF_Label aFather = theLabel.Father();
   if ( aFather.IsNull() )
     return NULL;
 
-  return ParamByChildLabelSettle(aFather);
+  return ParamByChildLabelSettle(aFather, isUndefined);
 }
 
 //! Attempts to find a META Parameter instance owning the passed Label.

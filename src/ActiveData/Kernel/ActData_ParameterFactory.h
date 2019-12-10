@@ -92,14 +92,16 @@ public:
 public:
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
-    NewParameterDetached(const Standard_Integer theParamType);
+    NewParameterDetached(const Standard_Integer theParamType,
+                         Standard_Boolean&      isUndefined);
 
   ActData_EXPORT static Standard_Boolean
     IsUserParameter(const TDF_Label& theLabel);
 
   ActData_EXPORT static Standard_Boolean
     IsUserParameter(const TDF_Label&               theLabel,
-                    Handle(ActAPI_IUserParameter)& theUserParam);
+                    Handle(ActAPI_IUserParameter)& theUserParam,
+                    Standard_Boolean&              isUndefined);
 
   ActData_EXPORT static Standard_Boolean
     IsMetaParameter(const TDF_Label&               theLabel,
@@ -107,20 +109,24 @@ public:
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
     NewParameterSettle(const Standard_Integer theParamType,
-                       const TDF_Label&       theLabel);
+                       const TDF_Label&       theLabel,
+                       Standard_Boolean&      isUndefined);
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
     NewParameterExpand(const Standard_Integer theParamType,
-                       const TDF_Label&       theLabel);
+                       const TDF_Label&       theLabel,
+                       Standard_Boolean&      isUndefined);
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
-    NewParameterSettle(const TDF_Label& theLabel);
+    NewParameterSettle(const TDF_Label&  theLabel,
+                       Standard_Boolean& isUndefined);
 
   ActData_EXPORT static Handle(ActAPI_HParameterList)
     ParamsByLabelsSettle(const TDF_LabelList& theLabels);
 
   ActData_EXPORT static Handle(ActAPI_IUserParameter)
-    ParamByChildLabelSettle(const TDF_Label& theLabel);
+    ParamByChildLabelSettle(const TDF_Label&  theLabel,
+                            Standard_Boolean& isUndefined);
 
 public:
 

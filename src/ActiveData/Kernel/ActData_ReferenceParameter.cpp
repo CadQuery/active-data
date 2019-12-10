@@ -125,7 +125,10 @@ Handle(ActAPI_IDataCursor)
     return NULL;
 
   if ( theRefType == Ref_Parameter )
-    return ActData_ParameterFactory::NewParameterSettle(aTargetLab);
+  {
+    Standard_Boolean isUndefinedType;
+    return ActData_ParameterFactory::NewParameterSettle(aTargetLab, isUndefinedType);
+  }
   else if ( theRefType == Ref_Node )
   {
     if ( !ActData_NodeFactory::IsNode(aTargetLab) )

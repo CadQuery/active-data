@@ -137,7 +137,8 @@ private:
 
   Handle(ActAPI_IDataCursor)
     parameterById(const ActAPI_ParameterId& pid,
-                  Standard_Boolean&         isParam) const;
+                  Standard_Boolean&         isParam,
+                  Standard_Boolean&         isUndefinedType) const;
 
   Handle(ActAPI_TxRes)
     extractTxRes(const Handle(ActAPI_HDataObjectIdMap)& pids) const;

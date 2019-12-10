@@ -463,7 +463,9 @@ void
   if ( isParameter &&
        theVerbosity > Verbosity_StructureNodesOnly )
   {
-    Handle(ActAPI_IUserParameter) aParam = ActData_ParameterFactory::NewParameterSettle(theLabel);
+    Standard_Boolean isUndefinedType;
+    Handle(ActAPI_IUserParameter) aParam = ActData_ParameterFactory::NewParameterSettle(theLabel, isUndefinedType);
+    //
     if ( !aParam.IsNull() && aParam->IsWellFormed() )
     {
       TCollection_AsciiString aParamType = aParam->DynamicType()->Name();

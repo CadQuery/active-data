@@ -1294,8 +1294,11 @@ Handle(ActAPI_HParameterList)
   for ( ; aRefLabsIt.More(); aRefLabsIt.Next() )
   {
     TDF_Label& aNextRefLab = aRefLabsIt.Value();
+
+    Standard_Boolean isUndefinedType;
+    //
     Handle(ActAPI_IUserParameter)
-      aNextRefParam = ActData_ParameterFactory::NewParameterSettle(aNextRefLab);
+      aNextRefParam = ActData_ParameterFactory::NewParameterSettle(aNextRefLab, isUndefinedType);
 
     if ( aNextRefParam.IsNull() )
       continue; // Observer might have been removed or something...

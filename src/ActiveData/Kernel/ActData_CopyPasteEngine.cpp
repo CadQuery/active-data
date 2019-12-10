@@ -455,9 +455,10 @@ void ActData_CopyPasteEngine::normalizeTreeFunction(const Handle(ActData_BaseNod
 
       if ( aRefScope == ActData_RefClassifier::RefScope_OUT )
       {
+        Standard_Boolean isUndefinedType;
         isTFuncInScoped = Standard_False;
         anArgsRefsAttr->Append(aRefSrc); // Keep it as-is
-        OutScopedArguments->Append( ActData_ParameterFactory::NewParameterSettle(aRefSrc) );
+        OutScopedArguments->Append( ActData_ParameterFactory::NewParameterSettle(aRefSrc, isUndefinedType) );
       }
       else
       {
@@ -514,9 +515,10 @@ void ActData_CopyPasteEngine::normalizeTreeFunction(const Handle(ActData_BaseNod
 
       if ( aRefScope == ActData_RefClassifier::RefScope_OUT )
       {
+        Standard_Boolean isUndefinedType;
         isTFuncInScoped = Standard_False;
         aResRefsAttr->Append(aRefSrc); // Keep it as-is
-        OutScopedResults->Append( ActData_ParameterFactory::NewParameterSettle(aRefSrc) );
+        OutScopedResults->Append( ActData_ParameterFactory::NewParameterSettle(aRefSrc, isUndefinedType) );
       }
       else
       {

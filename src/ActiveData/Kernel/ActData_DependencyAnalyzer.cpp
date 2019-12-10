@@ -172,9 +172,10 @@ Handle(ActAPI_HParameterList)
   TColStd_MapIteratorOfPackedMapOfInteger aMapIt(anEntireIDs);
   for ( ; aMapIt.More(); aMapIt.Next() )
   {
+    Standard_Boolean isUndefinedType;
     Standard_Integer anID = aMapIt.Key();
     TDF_Label aLab = aGraph.Find1(anID);
-    aParamList->Append( ActData_ParameterFactory::NewParameterSettle(aLab) );
+    aParamList->Append( ActData_ParameterFactory::NewParameterSettle(aLab, isUndefinedType) );
   }
 
   return aParamList;

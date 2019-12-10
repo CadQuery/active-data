@@ -99,9 +99,10 @@ Handle(ActAPI_IUserParameter)
   ActTest_DataFramework::createParameter(const Handle(TDocStd_Document)& doc,
                                          const ActAPI_ParameterType type)
 {
+  Standard_Boolean isUndefinedType;
   TDF_Label aParamLab = nextParameterLabel(doc);
   Handle(ActAPI_IUserParameter)
-    aParam = ActData_ParameterFactory::NewParameterExpand(type, aParamLab);
+    aParam = ActData_ParameterFactory::NewParameterExpand(type, aParamLab, isUndefinedType);
 
   TEST_PRINT_DECOR_L("    |")
   TEST_PRINT_DECOR  ("    +---> ")
@@ -122,9 +123,10 @@ Handle(ActAPI_IUserParameter)
                                          const ActAPI_ParameterType type,
                                          TDF_Label& newLabel)
 {
+  Standard_Boolean isUndefinedType;
   newLabel = nextParameterLabel(doc);
   Handle(ActAPI_IUserParameter)
-    aParam = ActData_ParameterFactory::NewParameterExpand(type, newLabel);
+    aParam = ActData_ParameterFactory::NewParameterExpand(type, newLabel, isUndefinedType);
 
   TEST_PRINT_DECOR_L("    |")
   TEST_PRINT_DECOR  ("    +---> ")

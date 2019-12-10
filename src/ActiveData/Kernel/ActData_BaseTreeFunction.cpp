@@ -128,8 +128,10 @@ Standard_Integer
     // Check if HEAVY Tree Function has DEPLOYMENT record in LogBook
     if ( isHeavy )
     {
+      Standard_Boolean isUndefinedType;
       Handle(ActAPI_IUserParameter)
-        TFuncParam = ActData_ParameterFactory::NewParameterSettle( m_driver->Label() );
+        TFuncParam = ActData_ParameterFactory::NewParameterSettle( m_driver->Label(), isUndefinedType );
+
       const Standard_Boolean isDeployed = ActData_LogBook::IsPendingCursor(TFuncParam);
 
       if ( isDeployed && !isRecoValid )
@@ -448,8 +450,12 @@ Standard_Integer
 //! \param theArguments [out] output collection of input arguments.
 void ActData_TreeFunctionDriver::Arguments(TDF_LabelList& theArguments) const
 {
+  Standard_Boolean isUndefinedType;
   Handle(ActAPI_IUserParameter)
-    aParam = ActData_ParameterFactory::NewParameterSettle( Parameter_TreeFunction, this->Label() );
+    aParam = ActData_ParameterFactory::NewParameterSettle( Parameter_TreeFunction,
+                                                           this->Label(),
+                                                           isUndefinedType );
+  //
   Handle(ActData_TreeFunctionParameter)
     aTreeFuncParam = Handle(ActData_TreeFunctionParameter)::DownCast(aParam);
 
@@ -464,8 +470,12 @@ void ActData_TreeFunctionDriver::Arguments(TDF_LabelList& theArguments) const
 //! \param theResults [out] output collection of output arguments.
 void ActData_TreeFunctionDriver::Results(TDF_LabelList& theResults) const
 {
+  Standard_Boolean isUndefinedType;
   Handle(ActAPI_IUserParameter)
-    aParam = ActData_ParameterFactory::NewParameterSettle( Parameter_TreeFunction, this->Label() );
+    aParam = ActData_ParameterFactory::NewParameterSettle( Parameter_TreeFunction,
+                                                           this->Label(),
+                                                           isUndefinedType);
+  //
   Handle(ActData_TreeFunctionParameter)
     aTreeFuncParam = Handle(ActData_TreeFunctionParameter)::DownCast(aParam);
 

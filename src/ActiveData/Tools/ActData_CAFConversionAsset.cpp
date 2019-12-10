@@ -175,7 +175,9 @@ Handle(ActAPI_IUserParameter)
                                           const ActAPI_ParameterType theType) const
 {
   TDF_Label aParamRoot = this->uScopePRoot(theNode, thePID, Standard_True);
-  return ActData_ParameterFactory::NewParameterExpand(theType, aParamRoot);
+
+  Standard_Boolean isUndefinedType;
+  return ActData_ParameterFactory::NewParameterExpand(theType, aParamRoot, isUndefinedType);
 }
 
 //! Settles down a Parameter for the given PID on the Nodal CAF source for the
@@ -191,7 +193,8 @@ Handle(ActAPI_IUserParameter)
   if ( aParamRoot.IsNull() )
     return NULL;
 
-  return ActData_ParameterFactory::NewParameterSettle(aParamRoot);
+  Standard_Boolean isUndefinedType;
+  return ActData_ParameterFactory::NewParameterSettle(aParamRoot, isUndefinedType);
 }
 
 //! Accessor for the root TDF Label corresponding to the given Parameter ID in
@@ -246,8 +249,10 @@ Handle(ActAPI_HParameterList)
     if ( !ActData_ParameterFactory::IsUserParameter(aParamRootLab) )
       Standard_ProgramError::Raise("Not valid CAF Document structure");
 
+    Standard_Boolean isUndefinedType;
     Handle(ActData_UserParameter)
-      aParamBase = Handle(ActData_UserParameter)::DownCast( ActData_ParameterFactory::NewParameterSettle(aParamRootLab) );
+      aParamBase = Handle(ActData_UserParameter)::DownCast( ActData_ParameterFactory::NewParameterSettle(aParamRootLab,
+                                                                                                         isUndefinedType) );
 
     Handle(ActAux_TimeStamp) aTS = aParamBase->GetMTime();
     if ( aTS->IsOrigin() )

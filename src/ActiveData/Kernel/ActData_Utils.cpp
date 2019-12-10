@@ -1060,7 +1060,8 @@ Handle(ActAPI_HDataCursorList) ActData_Utils::ConvertToCursors(const TDF_LabelLi
 
     if ( ActData_ParameterFactory::IsUserParameter(aTargetRoot) ) // NODE
     {
-      aResult->Append( ActData_ParameterFactory::NewParameterSettle(aTargetRoot) );
+      Standard_Boolean isUndefinedType;
+      aResult->Append( ActData_ParameterFactory::NewParameterSettle(aTargetRoot, isUndefinedType) );
     }
     else if ( ActData_NodeFactory::IsNode(aTargetRoot) ) // PARAMETER
     {

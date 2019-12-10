@@ -376,9 +376,14 @@ Handle(ActAPI_IDataCursor)
   if ( !aTargetLab.IsNull() )
   {
     if ( ActData_ParameterFactory::IsUserParameter(aTargetLab) )
-      return ActData_ParameterFactory::NewParameterSettle(aTargetLab);
+    {
+      Standard_Boolean isUndefinedType;
+      return ActData_ParameterFactory::NewParameterSettle(aTargetLab, isUndefinedType);
+    }
     else if ( ActData_NodeFactory::IsNode(aTargetLab) )
+    {
       return ActData_NodeFactory::NodeSettle(aTargetLab);
+    }
   }
 
   return NULL;
