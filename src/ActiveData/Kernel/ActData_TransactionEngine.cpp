@@ -34,6 +34,7 @@
 #include <ActData_TransactionEngine.h>
 
 // Active Data includes
+#include <ActData_BaseModel.h>
 #include <ActData_BaseNode.h>
 #include <ActData_ParameterFactory.h>
 
@@ -337,32 +338,49 @@ void ActData_TransactionEngine::touchAffectedParameters(const Handle(ActAPI_TxRe
   this->DisableTransactions();
   for ( int k = 1; k <= theRes->parameterRefs.Extent(); ++k )
   {
-    const Handle(ActAPI_IDataCursor)& aDC = theRes->parameterRefs(k).dc;
-    //
-    if ( aDC.IsNull() || !aDC->IsKind( STANDARD_TYPE(ActAPI_IUserParameter) ) )
-      continue;
+    const ActAPI_TxRes::t_parameterRef& paramRef = theRes->parameterRefs(k);
 
-    const Handle(ActAPI_IUserParameter)&
-      aUserParam = Handle(ActAPI_IUserParameter)::DownCast(aDC);
+    // For undefined types, we update MTime without Data Cursor interfaces
+    // as they could not be created by Factory.
+    if ( paramRef.isUndefined )
+    {
+      TDF_Label paramLab;
+      TDF_Tool::Label( m_doc->GetData(), paramRef.id, paramLab);
+
+      // Update MTime at low level.
+      if ( ActData_BaseModel::MTime_On )
+        ActData_Utils::SetTimeStampValue(paramLab, ActData_UserParameter::DS_MTime);
+    }
+    else
+    {
+      const Handle(ActAPI_IDataCursor)& aDC = theRes->parameterRefs(k).dc;
+      //
+      if ( aDC.IsNull() || !aDC->IsKind( STANDARD_TYPE(ActAPI_IUserParameter) ) )
+        continue;
+
+      const Handle(ActAPI_IUserParameter)&
+        aUserParam = Handle(ActAPI_IUserParameter)::DownCast(aDC);
 
 #if defined COUT_DEBUG
-    std::cout << "UNDO: touching Parameter " << aUserParam->DynamicType()->Name() << "... ";
+      std::cout << "UNDO: touching Parameter " << aUserParam->DynamicType()->Name() << "... ";
 #endif
 
-    if ( aUserParam->IsWellFormed() )
-    {
-      aUserParam->SetModified();
+      if ( aUserParam->IsWellFormed() )
+      {
+        aUserParam->SetModified();
 
 #if defined COUT_DEBUG
-      std::cout << "WELL-FORMED ["
-           << aUserParam->GetNode()->DynamicType()->Name() << "] --> Modified" << std::endl;
+        std::cout << "WELL-FORMED ["
+                  << aUserParam->GetNode()->DynamicType()->Name() << "] --> Modified" << std::endl;
+#endif
+      }
+#if defined COUT_DEBUG
+      else
+        std::cout << "BAD-FORMED <-- Deleted?" << std::endl;
 #endif
     }
-#if defined COUT_DEBUG
-    else
-      std::cout << "BAD-FORMED <-- Deleted?" << std::endl;
-#endif
   }
+
   this->EnableTransactions();
 }
 
@@ -489,7 +507,7 @@ Handle(ActAPI_TxRes)
     else
       isAlive = ( !dc.IsNull() && dc->IsWellFormed() );
     //
-    result->Add(id, dc, isAlive);
+    result->Add(id, dc, isAlive, isParamUndef);
   }
 
   return result;

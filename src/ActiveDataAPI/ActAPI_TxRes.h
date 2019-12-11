@@ -52,13 +52,14 @@ public:
   //! whether this object is currently alive or not.
   struct t_parameterRef
   {
-    ActAPI_DataObjectId        id;      //!< Persistent ID.
-    Handle(ActAPI_IDataCursor) dc;      //!< Optional Data Cursor.
-    Standard_Boolean           isAlive; //!< Flag indicating whether the object is alive or not.
+    ActAPI_DataObjectId        id;          //!< Persistent ID.
+    Handle(ActAPI_IDataCursor) dc;          //!< Optional Data Cursor.
+    Standard_Boolean           isAlive;     //!< Flag indicating whether the object is alive or not.
+    Standard_Boolean           isUndefined; //!< Indicates whether a Parameter is of undefined type.
 
     //-----------------------------------------------------------------------//
 
-    t_parameterRef() : isAlive(Standard_False) {}
+    t_parameterRef() : isAlive(Standard_False), isUndefined(Standard_False) {}
 
     //-----------------------------------------------------------------------//
 
@@ -81,17 +82,20 @@ public:
 public:
 
   //! Adds a reference to the persistent object.
-  //! \param[in] _id      persistent ID.
-  //! \param[in] _dc      Data Cursor.
-  //! \param[in] _isAlive status of the object in the current transaction.
+  //! \param[in] _id          persistent ID.
+  //! \param[in] _dc          Data Cursor.
+  //! \param[in] _isAlive     status of the object in the current transaction.
+  //! \param[in] _isUndefined indicates if this Data Cursor is of undefined type.
   void Add(const ActAPI_DataObjectId&        _id,
            const Handle(ActAPI_IDataCursor)& _dc,
-           const Standard_Boolean            _isAlive)
+           const Standard_Boolean            _isAlive,
+           const Standard_Boolean            _isUndefined)
   {
     t_parameterRef ref;
-    ref.id      = _id;
-    ref.dc      = _dc;
-    ref.isAlive = _isAlive;
+    ref.id          = _id;
+    ref.dc          = _dc;
+    ref.isAlive     = _isAlive;
+    ref.isUndefined = _isUndefined;
     //
     this->parameterRefs.Add(ref);
   }

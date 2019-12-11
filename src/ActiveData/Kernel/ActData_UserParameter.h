@@ -92,6 +92,7 @@ friend class ActData_DependencyAnalyzer;
 friend class ActData_ParameterFactory;
 friend class ActData_ReferenceListParameter;
 friend class ActData_ReferenceParameter;
+friend class ActData_TransactionEngine;
 friend class ActData_TreeFunctionParameter;
 friend class ActData_TreeFunctionDriver;
 friend class ActData_Utils;
