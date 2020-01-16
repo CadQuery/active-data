@@ -69,6 +69,6 @@ namespace ActData_ConversionLibrary
 
   Standard_Boolean v080_to_v100(Handle(ActAPI_IModel)& theModel,
                                 const Handle(Message_ProgressIndicator)& theProgress);
-};
+}
 
 #endif

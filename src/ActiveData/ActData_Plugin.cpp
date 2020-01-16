@@ -44,7 +44,9 @@
 
 #undef COUT_DEBUG
 
+#ifdef _WIN32
 #pragma warning(disable: 4190)
+#endif
 
 //! Class exporting the entry point into Active Data for dynamic
 //! loading of Storage/Retrieval Drivers.
@@ -90,4 +92,6 @@ Handle(Standard_Transient) ActDataDrivers::Factory(const Standard_GUID& theGUID)
 // Declare entry point
 PLUGIN(ActDataDrivers)
 
+#ifdef _WIN32
 #pragma warning(default: 4190)
+#endif
