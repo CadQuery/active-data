@@ -871,12 +871,12 @@ void ActData_BaseModel::RenameVariable(const ActAPI_DataObjectId& theNodeId,
       for ( TDF_ChildIterator it(aBuffRoot, Standard_False); it.More(); it.Next() )
       {
         TDF_Label aNodeRoot = it.Value();
-        Handle(ActAPI_INode) aNode = ActData_NodeFactory::NodeSettle(aNodeRoot);
+        Handle(ActAPI_INode) aNode1 = ActData_NodeFactory::NodeSettle(aNodeRoot);
 
-        if ( aNode.IsNull() )
+        if ( aNode1.IsNull() )
           continue;
 
-        Handle(ActData_BaseNode) aNodeBase = Handle(ActData_BaseNode)::DownCast(aNode);
+        Handle(ActData_BaseNode) aNodeBase = Handle(ActData_BaseNode)::DownCast(aNode1);
         Handle(ActAPI_HNodalParameterList) aNParams = aNodeBase->accessAllParameters();
 
         for ( ActAPI_NodalParameterList::Iterator pit( *aNParams.operator->() ); pit.More(); pit.Next() )

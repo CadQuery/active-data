@@ -117,11 +117,11 @@ struct ActAPI_LogMessage
   //! localization key.
   TCollection_AsciiString MsgKey;
 
-  //! Application-specific timestamp.
-  Handle(Standard_Transient) TimeStamp;
-
   //! Arguments for logging message.
   ActAPI_LogArguments Arguments;
+
+  //! Application-specific timestamp.
+  Handle(Standard_Transient) TimeStamp;
 
   //! Default constructor.
   ActAPI_LogMessage()
@@ -137,7 +137,7 @@ struct ActAPI_LogMessage
                     const ActAPI_LogMessageSeverity   severity,
                     const TCollection_AsciiString&    msgKey,
                     const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
-                    const Handle(Standard_Transient)& timeStamp = NULL)
+                    const Handle(Standard_Transient)& timeStamp = nullptr)
   : Priority  (priority),
     Severity  (severity),
     MsgKey    (msgKey),
@@ -183,25 +183,25 @@ public:
     Info(const TCollection_AsciiString&    message,
          const ActAPI_LogMessagePriority   priority  = Priority_Normal,
          const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
-         const Handle(Standard_Transient)& timeStamp = NULL) = 0;
+         const Handle(Standard_Transient)& timeStamp = nullptr) = 0;
 
   virtual void
     Notice(const TCollection_AsciiString&    message,
            const ActAPI_LogMessagePriority   priority  = Priority_Normal,
            const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
-           const Handle(Standard_Transient)& timeStamp = NULL) = 0;
+           const Handle(Standard_Transient)& timeStamp = nullptr) = 0;
 
   virtual void
     Warn(const TCollection_AsciiString&    message,
          const ActAPI_LogMessagePriority   priority  = Priority_Normal,
          const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
-         const Handle(Standard_Transient)& timeStamp = NULL) = 0;
+         const Handle(Standard_Transient)& timeStamp = nullptr) = 0;
 
   virtual void
     Error(const TCollection_AsciiString&    message,
           const ActAPI_LogMessagePriority   priority  = Priority_Normal,
           const ActAPI_LogArguments&        arguments = ActAPI_LogArguments(),
-          const Handle(Standard_Transient)& timeStamp = NULL) = 0;
+          const Handle(Standard_Transient)& timeStamp = nullptr) = 0;
 
 public:
 

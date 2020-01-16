@@ -192,7 +192,7 @@ public:
   //! \return true in case of success, false -- otherwise.
   virtual Standard_Boolean
     Open(const TCollection_AsciiString& theFilename,
-         ActAPI_ProgressEntry           theNotifier = NULL) = 0;
+         ActAPI_ProgressEntry           theNotifier = nullptr) = 0;
 
   //! Releases the Data Model.
   //! \param theVersionStatus [in] ultimate version status to set.
@@ -205,7 +205,7 @@ public:
   //! \return true in case of success, false -- otherwise.
   virtual Standard_Boolean
     SaveAs(const TCollection_AsciiString& theFilename,
-           ActAPI_ProgressEntry           theNotifier = NULL) = 0;
+           ActAPI_ProgressEntry           theNotifier = nullptr) = 0;
 
   //! Returns true if the Model has been modified.
   //! \return true/false.

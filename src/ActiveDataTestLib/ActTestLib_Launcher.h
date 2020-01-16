@@ -221,7 +221,7 @@ public:
     operator<<(ActTestLib_CaseLauncherAPI* CaseLauncher);
 
   ActTestLib_EXPORT bool
-    Launch(std::ostream* out = NULL) const;
+    Launch(std::ostream* out = nullptr) const;
 
 protected:
 

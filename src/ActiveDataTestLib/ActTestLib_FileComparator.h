@@ -194,8 +194,8 @@ public:
   ActTestLib_EXPORT
     ActTestLib_FileComparator(const TCollection_AsciiString& theFilename1,
                               const TCollection_AsciiString& theFilename2,
-                              ActAux_StrFilter theLineFilter = NULL,
-                              const Handle(ActTestLib_BaseLineComparator)& theLineComparator = NULL);
+                              ActAux_StrFilter theLineFilter = nullptr,
+                              const Handle(ActTestLib_BaseLineComparator)& theLineComparator = nullptr);
 
 public:
 

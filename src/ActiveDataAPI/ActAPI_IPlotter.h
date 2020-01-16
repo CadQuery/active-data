@@ -532,7 +532,7 @@ public:
   ActAPI_PlotterEntry() {}
 
   //! Dummy conversion constructor.
-  ActAPI_PlotterEntry(Standard_Integer) {}
+  ActAPI_PlotterEntry(std::nullptr_t) {}
 
   //! Constructor.
   //! \param iv [in] IV to wrap.

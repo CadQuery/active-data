@@ -190,30 +190,30 @@ private:
   //! Style descriptor.
   struct TProps
   {
-    inline bool IsBorder()     const { return (pPxBorder   != NULL); }
-    inline bool IsBgColor()    const { return (pBgColor    != NULL); }
-    inline bool IsColor()      const { return (pColor      != NULL); }
-    inline bool IsFontFamily() const { return (pFontFamily != NULL); }
-    inline bool IsFontSize()   const { return (pPxFont     != NULL); }
-    inline bool IsFontWeight() const { return (pFontWeight != NULL); }
-    inline bool IsFontStyle()  const { return (pFontStyle  != NULL); }
-    inline bool IsTextAlign()  const { return (pTextAlign  != NULL); }
-    inline bool IsVertAlign()  const { return (pVertAlign  != NULL); }
-    inline bool IsPadding()    const { return (pPxPadding  != NULL); }
-    inline bool IsWidth()      const { return (pWidth      != NULL); }
+    inline bool IsBorder()     const { return (pPxBorder   != nullptr); }
+    inline bool IsBgColor()    const { return (pBgColor    != nullptr); }
+    inline bool IsColor()      const { return (pColor      != nullptr); }
+    inline bool IsFontFamily() const { return (pFontFamily != nullptr); }
+    inline bool IsFontSize()   const { return (pPxFont     != nullptr); }
+    inline bool IsFontWeight() const { return (pFontWeight != nullptr); }
+    inline bool IsFontStyle()  const { return (pFontStyle  != nullptr); }
+    inline bool IsTextAlign()  const { return (pTextAlign  != nullptr); }
+    inline bool IsVertAlign()  const { return (pVertAlign  != nullptr); }
+    inline bool IsPadding()    const { return (pPxPadding  != nullptr); }
+    inline bool IsWidth()      const { return (pWidth      != nullptr); }
 
     //! Default constructor.
-    TProps() : pPxBorder(NULL),
-               pPxPadding(NULL),
-               pPxFont(NULL),
-               pBgColor(NULL),
-               pColor(NULL),
-               pFontFamily(NULL),
-               pFontWeight(NULL),
-               pFontStyle(NULL),
-               pTextAlign(NULL),
-               pVertAlign(NULL),
-               pWidth(NULL) {}
+    TProps() : pPxBorder   (nullptr),
+               pPxPadding  (nullptr),
+               pPxFont     (nullptr),
+               pBgColor    (nullptr),
+               pColor      (nullptr),
+               pFontFamily (nullptr),
+               pFontWeight (nullptr),
+               pFontStyle  (nullptr),
+               pTextAlign  (nullptr),
+               pVertAlign  (nullptr),
+               pWidth      (nullptr) {}
 
     //! Returns true if all properties are nulls.
     //! \return true/false.

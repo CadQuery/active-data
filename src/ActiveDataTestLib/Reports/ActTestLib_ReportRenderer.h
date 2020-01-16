@@ -185,7 +185,7 @@ public:
     EndHeader();
 
   ActTestLib_EXPORT THAT
-    StartBody(const ActTestLib_ReportStyle& style = NULL);
+    StartBody(const ActTestLib_ReportStyle& style = 0);
 
   ActTestLib_EXPORT THAT
     StartBody(const std::string& className);
@@ -194,7 +194,7 @@ public:
     EndBody();
 
   ActTestLib_EXPORT THAT
-    StartTable(const ActTestLib_ReportStyle& style = NULL);
+    StartTable(const ActTestLib_ReportStyle& style = 0);
 
   ActTestLib_EXPORT THAT
     StartTable(const std::string& className);

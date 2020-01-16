@@ -212,7 +212,7 @@ public:
   ActAPI_ProgressEntry() {}
 
   //! Dummy conversion constructor.
-  ActAPI_ProgressEntry(Standard_Integer) {}
+  ActAPI_ProgressEntry(std::nullptr_t) {}
 
   //! Copy constructor.
   //! \param Entry [in] instance to copy.

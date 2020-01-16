@@ -295,7 +295,7 @@ namespace ActiveData
       return Standard_GUID::IsEqual(theGuid1, theGuid2);
     }
   };
-};
+} // ActiveData namespace.
 
 //! \ingroup AD_ALGO
 //!

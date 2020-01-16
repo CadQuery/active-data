@@ -74,7 +74,7 @@ public:
             const Standard_Integer theAppVerActual,
             const TCollection_AsciiString& theFnBefore = TCollection_AsciiString(),
             const TCollection_AsciiString& theFnAfter = TCollection_AsciiString(),
-            const Handle(Message_ProgressIndicator)& theProgress = NULL);
+            const Handle(Message_ProgressIndicator)& theProgress = nullptr);
 
   ActData_EXPORT static Standard_Boolean
     CheckWellFormed(const Handle(ActAPI_IModel)& theModel);
@@ -98,7 +98,7 @@ public:
   ActData_EXPORT Standard_Boolean
     Convert(const TCollection_AsciiString& theFnBefore = TCollection_AsciiString(),
             const TCollection_AsciiString& theFnAfter = TCollection_AsciiString(),
-            const Handle(Message_ProgressIndicator)& theProgress = NULL);
+            const Handle(Message_ProgressIndicator)& theProgress = nullptr);
 
   ActData_EXPORT Standard_Boolean
     CheckWellFormed() const;

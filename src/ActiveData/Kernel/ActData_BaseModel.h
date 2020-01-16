@@ -125,14 +125,14 @@ public:
 
   ActData_EXPORT virtual Standard_Boolean
     Open(const TCollection_AsciiString& theFilename,
-         ActAPI_ProgressEntry           theNotifier = NULL);
+         ActAPI_ProgressEntry           theNotifier = nullptr);
 
   ActData_EXPORT virtual void
     Release(const VersionStatus theVersionStatus = Version_Undefined);
 
   ActData_EXPORT virtual Standard_Boolean
     SaveAs(const TCollection_AsciiString& theFilename,
-           ActAPI_ProgressEntry           theNotifier = NULL);
+           ActAPI_ProgressEntry           theNotifier = nullptr);
 
   ActData_EXPORT virtual Standard_Boolean
     IsModified() const;

@@ -74,7 +74,7 @@ public:
 
   ActData_EXPORT virtual Standard_Boolean
     MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN,
-                      const Handle(Standard_Transient)&    theUserData = NULL) const;
+                      const Handle(Standard_Transient)&    theUserData = nullptr) const;
 
   ActData_EXPORT virtual Standard_Boolean
     NoPropagation() const;
@@ -157,7 +157,7 @@ private:
   virtual Standard_Integer
     execute(const Handle(ActAPI_HParameterList)& theArgsIN,
             const Handle(ActAPI_HParameterList)& theArgsOUT,
-            const Handle(Standard_Transient)& theUserData = NULL) const = 0;
+            const Handle(Standard_Transient)& theUserData = nullptr) const = 0;
 
   virtual ActAPI_ParameterTypeStream
     inputSignature() const = 0;

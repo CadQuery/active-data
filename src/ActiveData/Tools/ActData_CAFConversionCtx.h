@@ -199,7 +199,7 @@ public:
 
   ActData_EXPORT Standard_Boolean
     Apply(const Handle(ActAPI_IModel)& theModel,
-          const Handle(Message_ProgressIndicator)& theProgress = NULL);
+          const Handle(Message_ProgressIndicator)& theProgress = nullptr);
 
   ActData_EXPORT const Handle(ActAPI_IModel)&
     Result() const;

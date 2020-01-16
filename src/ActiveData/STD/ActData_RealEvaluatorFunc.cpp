@@ -169,7 +169,7 @@ Standard_Integer
     TCollection_AsciiString aVarName = aVarParam->GetName();
     Standard_Integer aVarType = aVarParam->GetParamType();
 
-    Handle(ActAPI_VariableBase) aVar = NULL;
+    Handle(ActAPI_VariableBase) aVar = nullptr;
 
     if ( aVarType == Parameter_Real )
     {

@@ -505,9 +505,9 @@ Standard_Boolean
         // Clean up OCAF attribute
         ArgListAttr->Clear();
 
-        for ( TDF_ListIteratorOfLabelList lit(ArgLabelList); lit.More(); lit.Next() )
+        for ( TDF_ListIteratorOfLabelList lit1(ArgLabelList); lit1.More(); lit1.Next() )
         {
-          TDF_Label& ArgLab = lit.Value();
+          TDF_Label& ArgLab = lit1.Value();
           ActAPI_ParameterGID OldGID = ActData_Utils::ConvertToGID(ArgLab, isInternal);
           ActAPI_ParameterGID NewGID = m_sampler->Converted(OldGID);
 
@@ -537,9 +537,9 @@ Standard_Boolean
         // Clean up OCAF attribute
         ResListAttr->Clear();
 
-        for ( TDF_ListIteratorOfLabelList lit(ResLabelList); lit.More(); lit.Next() )
+        for ( TDF_ListIteratorOfLabelList lit1(ResLabelList); lit1.More(); lit1.Next() )
         {
-          TDF_Label& ResLab = lit.Value();
+          TDF_Label& ResLab = lit1.Value();
           ActAPI_ParameterGID OldGID = ActData_Utils::ConvertToGID(ResLab, isInternal);
           ActAPI_ParameterGID NewGID = m_sampler->Converted(OldGID);
 

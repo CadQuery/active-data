@@ -282,7 +282,7 @@ public:
 
   virtual void
     ConnectEvaluator(const Standard_Integer theId,
-                     const Handle(ActAPI_HParameterList)& theVarsIN = NULL) = 0;
+                     const Handle(ActAPI_HParameterList)& theVarsIN = nullptr) = 0;
 
   virtual Standard_Boolean
     HasConnectedEvaluator(const Standard_Integer theId) = 0;

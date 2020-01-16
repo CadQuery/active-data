@@ -359,17 +359,17 @@ void ActTestLib_ReportStyle::nullify(const bool release)
     delete m_props.pWidth;
   }
 
-  m_props.pBgColor    = NULL;
-  m_props.pColor      = NULL;
-  m_props.pFontFamily = NULL;
-  m_props.pFontStyle  = NULL;
-  m_props.pFontWeight = NULL;
-  m_props.pPxBorder   = NULL;
-  m_props.pPxFont     = NULL;
-  m_props.pPxPadding  = NULL;
-  m_props.pTextAlign  = NULL;
-  m_props.pVertAlign  = NULL;
-  m_props.pWidth      = NULL;
+  m_props.pBgColor    = nullptr;
+  m_props.pColor      = nullptr;
+  m_props.pFontFamily = nullptr;
+  m_props.pFontStyle  = nullptr;
+  m_props.pFontWeight = nullptr;
+  m_props.pPxBorder   = nullptr;
+  m_props.pPxFont     = nullptr;
+  m_props.pPxPadding  = nullptr;
+  m_props.pTextAlign  = nullptr;
+  m_props.pVertAlign  = nullptr;
+  m_props.pWidth      = nullptr;
 }
 
 //! Copies styling properties.

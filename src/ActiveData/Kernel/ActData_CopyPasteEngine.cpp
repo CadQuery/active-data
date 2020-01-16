@@ -291,9 +291,9 @@ void ActData_CopyPasteEngine::rebuildTreeLinks(const CopyDirection theDirection)
 
     // Iterate over the child IDs to add their corresponding buffered Nodes
     // as children to the currently iterated Data Node
-    for ( NCollection_Sequence<ActData_SamplerTreeNode>::Iterator anIt(aChildIDs); anIt.More(); anIt.Next() )
+    for ( NCollection_Sequence<ActData_SamplerTreeNode>::Iterator anIt1(aChildIDs); anIt1.More(); anIt1.Next() )
     {
-      const ActData_SamplerTreeNode& aChildSampleID = anIt.Value();
+      const ActData_SamplerTreeNode& aChildSampleID = anIt1.Value();
       Handle(ActAPI_INode)
         aCurrentChild = this->getCopyBySampleID(aChildSampleID.ID, theDirection);
       aCurrentCopy->AddChildNode(aCurrentChild);

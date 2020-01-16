@@ -86,7 +86,7 @@ public:
     //! \return true/false.
     Standard_Boolean More() const
     {
-      return m_pCurrent != NULL;
+      return m_pCurrent != nullptr;
     }
 
     //! Moves iterator to the next item in the tree.

@@ -105,7 +105,7 @@ private:
   virtual Standard_Integer
     execute(const Handle(ActAPI_HParameterList)& theArgsIN,
             const Handle(ActAPI_HParameterList)& theArgsOUT,
-            const Handle(Standard_Transient)& theUserData = NULL) const;
+            const Handle(Standard_Transient)& theUserData = nullptr) const;
 
   virtual ActAPI_ParameterTypeStream
     inputSignature() const;

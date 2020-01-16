@@ -68,7 +68,7 @@ public:
 
   virtual Standard_Boolean
     MustExecuteIntact(const Handle(ActAPI_HParameterList)& theArgsIN,
-                      const Handle(Standard_Transient)&    theUserData = NULL) const = 0;
+                      const Handle(Standard_Transient)&    theUserData = nullptr) const = 0;
 
   virtual Standard_Boolean
     IsHeavy() const = 0;

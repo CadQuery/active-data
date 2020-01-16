@@ -114,13 +114,13 @@ public:
         // Access element data
         Handle(ActData_Mesh_Triangle) aTriElem = Handle(ActData_Mesh_Triangle)::DownCast(anElem);
         Standard_Integer aTriNodeIds[3];
-        Standard_Integer aNbNodes;
-        aTriElem->GetFaceDefinedByNodes(3, aTriNodeIds, aNbNodes);
+        Standard_Integer aNbFaceNodes;
+        aTriElem->GetFaceDefinedByNodes(3, aTriNodeIds, aNbFaceNodes);
 
         // Push data
         out << aTriElem->GetID();
-        out << aNbNodes;
-        for ( Standard_Integer i = 0; i < aNbNodes; i++ )
+        out << aNbFaceNodes;
+        for ( Standard_Integer i = 0; i < aNbFaceNodes; i++ )
           out << aTriNodeIds[i];
       }
       // Proceed with QUADRANGLE elements
@@ -129,13 +129,13 @@ public:
         // Access element data
         Handle(ActData_Mesh_Quadrangle) aQuadElem = Handle(ActData_Mesh_Quadrangle)::DownCast(anElem);
         Standard_Integer aQuadNodeIds[4];
-        Standard_Integer aNbNodes;
-        aQuadElem->GetFaceDefinedByNodes(4, aQuadNodeIds, aNbNodes);
+        Standard_Integer aNbFaceNodes;
+        aQuadElem->GetFaceDefinedByNodes(4, aQuadNodeIds, aNbFaceNodes);
 
         // Push data
         out << aQuadElem->GetID();
-        out << aNbNodes;
-        for ( Standard_Integer i = 0; i < aNbNodes; i++ )
+        out << aNbFaceNodes;
+        for ( Standard_Integer i = 0; i < aNbFaceNodes; i++ )
           out << aQuadNodeIds[i];
       }
     }
@@ -182,25 +182,25 @@ public:
 
     for ( Standard_Integer i = 1; i <= aNbFaces; i++ )
     {
-      Standard_Integer aFaceID, aNbNodes;
-      in >> aFaceID >> aNbNodes;
+      Standard_Integer aFaceID, aNbFaceNodes;
+      in >> aFaceID >> aNbFaceNodes;
 
-      if ( aNbNodes == 3 )
+      if ( aNbFaceNodes == 3 )
       {
         Standard_Integer aTriNodeIDs[3];
         in >> aTriNodeIDs[0] >> aTriNodeIDs[1] >> aTriNodeIDs[2];
 
         // Create a transient element
-        meshAttr->GetMesh()->AddFaceWithID(aTriNodeIDs, aNbNodes, aFaceID);
+        meshAttr->GetMesh()->AddFaceWithID(aTriNodeIDs, aNbFaceNodes, aFaceID);
       }
-      else if ( aNbNodes == 4 )
+      else if ( aNbFaceNodes == 4 )
       {
         Standard_Integer aQuadNodeIDs[4];
         in >> aQuadNodeIDs[0] >> aQuadNodeIDs[1]
            >> aQuadNodeIDs[2] >> aQuadNodeIDs[3];
 
         // Create a transient element
-        meshAttr->GetMesh()->AddFaceWithID(aQuadNodeIDs, aNbNodes, aFaceID);
+        meshAttr->GetMesh()->AddFaceWithID(aQuadNodeIDs, aNbFaceNodes, aFaceID);
       }
       else
       {
