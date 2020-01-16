@@ -43,7 +43,7 @@
 #include <TopoDS_Face.hxx>
 
 // Macro to silent compiler warnings on unused function arguments
-#define ActAux_NotUsed(x) x
+#define ActAux_NotUsed(x)
 
 //-----------------------------------------------------------------------------
 // DOXY group definition

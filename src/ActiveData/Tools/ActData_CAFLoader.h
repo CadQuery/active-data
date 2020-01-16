@@ -157,7 +157,8 @@ private:
 
 private:
 
-  ActData_CAFLoader() {}
+  //! Default ctor.
+  ActData_CAFLoader() : m_fwVerStored(-1), m_appVerStored(-1), m_fwVerActual(-1), m_appVerActual(-1) {}
 
 private:
 

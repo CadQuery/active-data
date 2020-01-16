@@ -65,10 +65,8 @@ Handle(TDF_Attribute) ActData_MeshDriver::NewEmpty() const
 Standard_Boolean
   ActData_MeshDriver::Paste(const BinObjMgt_Persistent&  FromPersistent,
                             const Handle(TDF_Attribute)& ToTransient,
-                            BinObjMgt_RRelocationTable&  RelocTable) const
+                            BinObjMgt_RRelocationTable&  ActData_NotUsed(RelocTable)) const
 {
-  ActData_NotUsed(RelocTable);
-
   Handle(ActData_MeshAttr) aMeshAttr = Handle(ActData_MeshAttr)::DownCast(ToTransient);
   if ( aMeshAttr.IsNull() )
   {
@@ -98,10 +96,8 @@ Standard_Boolean
 //! \param RelocTable [in] not used (see OCAF reference manual).
 void ActData_MeshDriver::Paste(const Handle(TDF_Attribute)& FromTransient,
                                BinObjMgt_Persistent&        ToPersistent,
-                               BinObjMgt_SRelocationTable&  RelocTable) const
+                               BinObjMgt_SRelocationTable&  ActData_NotUsed(RelocTable)) const
 {
-  ActData_NotUsed(RelocTable);
-
   /* ====================================================
    *  Access Mesh Attribute along with contained Mesh DS
    * ==================================================== */

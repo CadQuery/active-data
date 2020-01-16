@@ -395,14 +395,10 @@ Standard_Integer ActData_TreeFunctionParameter::parameterType() const
 //! \param doResetPending [in] indicates whether pending flag must be reset
 //!        or not.
 void ActData_TreeFunctionParameter::setFromDTO(const Handle(ActData_ParameterDTO)& theDTO,
-                                               const ActAPI_ModificationType       theModType,
-                                               const Standard_Boolean              doResetValidity,
-                                               const Standard_Boolean              doResetPending)
+                                               const ActAPI_ModificationType       ActData_NotUsed(theModType),
+                                               const Standard_Boolean              ActData_NotUsed(doResetValidity),
+                                               const Standard_Boolean              ActData_NotUsed(doResetPending))
 {
-  ActData_NotUsed(theModType);
-  ActData_NotUsed(doResetValidity);
-  ActData_NotUsed(doResetPending);
-
   Handle(ActData_TreeFunctionDTO) MyDTO = Handle(ActData_TreeFunctionDTO)::DownCast(theDTO);
 
   // Disconnect if already connected

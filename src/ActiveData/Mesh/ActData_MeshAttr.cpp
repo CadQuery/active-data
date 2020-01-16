@@ -181,11 +181,9 @@ Handle(TDF_Attribute) ActData_MeshAttr::NewEmpty() const
 //! Delta in the Main Attribute and push it to the "external world" in
 //! DeltaOnModification method.
 //! \param MainAttr [in] CAF Attribute to copy data from.
-void ActData_MeshAttr::Restore(const Handle(TDF_Attribute)& MainAttr)
+void ActData_MeshAttr::Restore(const Handle(TDF_Attribute)& ActData_NotUsed(MainAttr))
 {
-  ActData_NotUsed(MainAttr);
-
-  // Nothing is in here
+  // Nothing is here
 }
 
 //! Passing the Modification Delta from the top of the bi-directional stack
@@ -197,10 +195,8 @@ void ActData_MeshAttr::Restore(const Handle(TDF_Attribute)& MainAttr)
 //! \param doForce [in] not used (see OCAF reference for details).
 //! \return true always. False value is not used (see OCAF reference for details).
 Standard_Boolean ActData_MeshAttr::BeforeUndo(const Handle(TDF_AttributeDelta)& Delta,
-                                              const Standard_Boolean            doForce)
+                                              const Standard_Boolean            ActData_NotUsed(doForce))
 {
-  ActData_NotUsed(doForce);
-
   // Prepare Modification Delta for UNDO
   Handle(ActData_MeshMDelta) aMeshDelta = Handle(ActData_MeshMDelta)::DownCast(Delta);
   if ( !aMeshDelta.IsNull() ) // NULL if nothing exists in the stack
@@ -224,12 +220,9 @@ Standard_Boolean ActData_MeshAttr::BeforeUndo(const Handle(TDF_AttributeDelta)& 
 //! \param Delta [in] not used (see OCAF reference for details).
 //! \param doForce [in] not used (see OCAF reference for details).
 //! \return true always. False value is not used (see OCAF reference for details).
-Standard_Boolean ActData_MeshAttr::AfterUndo(const Handle(TDF_AttributeDelta)& Delta,
-                                             const Standard_Boolean            doForce)
+Standard_Boolean ActData_MeshAttr::AfterUndo(const Handle(TDF_AttributeDelta)& ActData_NotUsed(Delta),
+                                             const Standard_Boolean            ActData_NotUsed(doForce))
 {
-  ActData_NotUsed(Delta);
-  ActData_NotUsed(doForce);
-
   return Standard_True;
 }
 
@@ -245,13 +238,9 @@ void ActData_MeshAttr::BeforeCommitTransaction()
 
 //! Supporting method for Copy/Paste functionality. Performs full copying of
 //! the underlying mesh.
-//! \param Into [in] where to paste.
-//! \param RelocTable [in] not used.
-void ActData_MeshAttr::Paste(const Handle(TDF_Attribute)&       Into,
-                             const Handle(TDF_RelocationTable)& RelocTable) const
+void ActData_MeshAttr::Paste(const Handle(TDF_Attribute)& Into,
+                             const Handle(TDF_RelocationTable)&) const
 {
-  ActData_NotUsed(RelocTable);
-
   Handle(ActData_MeshAttr) IntoMesh = Handle(ActData_MeshAttr)::DownCast(Into);
   Handle(ActData_Mesh) IntoMeshDS = new ActData_Mesh();
 
@@ -311,10 +300,8 @@ void ActData_MeshAttr::Paste(const Handle(TDF_Attribute)&       Into,
 //! \param Backup [in] not used Backup copy of the Main Attribute.
 //! \return Modification Delta.
 Handle(TDF_DeltaOnModification)
-  ActData_MeshAttr::DeltaOnModification(const Handle(TDF_Attribute)& Backup) const
+  ActData_MeshAttr::DeltaOnModification(const Handle(TDF_Attribute)& ActData_NotUsed(Backup)) const
 {
-  ActData_NotUsed(Backup);
-
   // We push a copy to the bi-directional stack as our own transient instance
   // will be cleaned up soon
   Handle(ActData_MeshMDelta) aResult = ( MDELTA.IsNull() ? NULL : MDELTA->DeepCopy() );

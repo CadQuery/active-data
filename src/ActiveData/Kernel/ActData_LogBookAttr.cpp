@@ -84,11 +84,9 @@ void ActData_LogBookAttr::Restore(const Handle(TDF_Attribute)& from)
 
 //-----------------------------------------------------------------------------
 
-void ActData_LogBookAttr::Paste(const Handle(TDF_Attribute)&       into,
-                                const Handle(TDF_RelocationTable)& relocTable) const
+void ActData_LogBookAttr::Paste(const Handle(TDF_Attribute)& into,
+                                const Handle(TDF_RelocationTable)&) const
 {
-  ActData_NotUsed(relocTable);
-
   // Copy map.
   Handle(ActData_LogBookAttr) intoLog = Handle(ActData_LogBookAttr)::DownCast(into);
   intoLog->m_map = m_map;

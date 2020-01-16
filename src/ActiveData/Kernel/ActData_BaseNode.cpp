@@ -1161,24 +1161,15 @@ void ActData_BaseNode::beforeRemove()
 //! 7. In that case we can use this callback in order to drop the
 //!    corresponding record in the integer array as well. Thus we will keep
 //!    our arrays synchronized.
-//!
-//! \param theReferrer [in] Reference Parameter being adjusted.
-void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceParameter)& theReferrer)
+void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceParameter)&)
 {
-  ActData_NotUsed(theReferrer);
-
   // Empty in basic implementation
 }
 
 //! Idea is the same as for beforeRemoveMyReferrer() for Reference Parameter.
-//! \param theReferrer [in] Reference Parameter being adjusted.
-//! \param theDC       [in] corresponding Data Cursor.
-void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceListParameter)& theReferrer,
-                                               const Handle(ActAPI_IDataCursor)& theDC)
+void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceListParameter)&,
+                                               const Handle(ActAPI_IDataCursor)&)
 {
-  ActData_NotUsed(theReferrer);
-  ActData_NotUsed(theDC);
-
   // Empty in basic implementation
 }
 

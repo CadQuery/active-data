@@ -43,10 +43,8 @@
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean ActData_ConversionLibrary::v040_to_v050(Handle(ActAPI_IModel)& theModel,
-                                                         const Handle(Message_ProgressIndicator)& theProgress)
+                                                         const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Actualize both framework & application versions by setting their actual values
   ActData_CAFConversionAsset(theModel).ActualizeVersions();
 
@@ -59,10 +57,8 @@ Standard_Boolean ActData_ConversionLibrary::v040_to_v050(Handle(ActAPI_IModel)& 
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean ActData_ConversionLibrary::v050_to_v060(Handle(ActAPI_IModel)& theModel,
-                                                         const Handle(Message_ProgressIndicator)& theProgress)
+                                                         const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Actualize both framework & application versions by setting their actual values
   ActData_CAFConversionAsset(theModel).ActualizeVersions();
 
@@ -75,10 +71,8 @@ Standard_Boolean ActData_ConversionLibrary::v050_to_v060(Handle(ActAPI_IModel)& 
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean ActData_ConversionLibrary::v060_to_v070(Handle(ActAPI_IModel)& theModel,
-                                                         const Handle(Message_ProgressIndicator)& theProgress)
+                                                         const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Actualize both framework & application versions by setting their actual values
   ActData_CAFConversionAsset(theModel).ActualizeVersions();
 
@@ -91,10 +85,8 @@ Standard_Boolean ActData_ConversionLibrary::v060_to_v070(Handle(ActAPI_IModel)& 
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean ActData_ConversionLibrary::v070_to_v080(Handle(ActAPI_IModel)& theModel,
-                                                         const Handle(Message_ProgressIndicator)& theProgress)
+                                                         const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Actualize both framework & application versions by setting their actual values
   ActData_CAFConversionAsset(theModel).ActualizeVersions();
 
@@ -107,10 +99,8 @@ Standard_Boolean ActData_ConversionLibrary::v070_to_v080(Handle(ActAPI_IModel)& 
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean ActData_ConversionLibrary::v080_to_v100(Handle(ActAPI_IModel)& theModel,
-                                                         const Handle(Message_ProgressIndicator)& theProgress)
+                                                         const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Actualize both framework & application versions by setting their actual values
   ActData_CAFConversionAsset(theModel).ActualizeVersions();
 

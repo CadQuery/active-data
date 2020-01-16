@@ -75,7 +75,7 @@ struct ActData_Mesh_Link
     inline static unsigned IsEqual(const ActData_Mesh_Link& l1,
                                    const ActData_Mesh_Link& l2)
     {
-      return l1.n1 == l2.n1 && l1.n2 == l2.n2 || l1.n1 == l2.n2 && l1.n2 == l2.n1;
+      return (l1.n1 == l2.n1 && l1.n2 == l2.n2) || (l1.n1 == l2.n2 && l1.n2 == l2.n1);
     }
   };
 };

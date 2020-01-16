@@ -218,10 +218,8 @@ const Handle(ActAPI_IModel)& ActData_CAFConversionCtx::Result() const
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean
-  ActData_CAFConversionCtx::applyNormalization(const Handle(Message_ProgressIndicator)& theProgress)
+  ActData_CAFConversionCtx::applyNormalization(const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Construct relocation map
   m_sampler->BuildRelocationMap();
 
@@ -284,10 +282,8 @@ Standard_Boolean
 //! \param theProgress [in] Progress Indicator.
 //! \return true in case of success, false -- otherwise.
 Standard_Boolean
-  ActData_CAFConversionCtx::applyModifications(const Handle(Message_ProgressIndicator)& theProgress)
+  ActData_CAFConversionCtx::applyModifications(const Handle(Message_ProgressIndicator)& ActData_NotUsed(theProgress))
 {
-  ActData_NotUsed(theProgress);
-
   // Get modification lists
   NCollection_Sequence<Handle(HRecord)>& aListInsert = m_modif.ListInsert();
   NCollection_Sequence<Handle(HRecord)>& aListDelete = m_modif.ListDelete();

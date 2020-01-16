@@ -98,7 +98,7 @@ public:
   //! \return true/false.
   Standard_Boolean IsLess(const Handle(ActAux_TimeStamp)& theOther) const
   {
-    return (Time < theOther->Time) || (Time == theOther->Time) && (Internal < theOther->Internal);
+    return (Time < theOther->Time) || ( (Time == theOther->Time) && (Internal < theOther->Internal) );
   }
 
   //! Checks whether this timestamp is less or equal to the passed one.
@@ -114,7 +114,7 @@ public:
   //! \return true/false.
   Standard_Boolean IsGreater(const Handle(ActAux_TimeStamp)& theOther) const
   {
-    return (Time > theOther->Time) || (Time == theOther->Time) && (Internal > theOther->Internal);
+    return (Time > theOther->Time) || ( (Time == theOther->Time) && (Internal > theOther->Internal) );
   }
 
   //! Checks whether this timestamp is greater or equal to the passed one.

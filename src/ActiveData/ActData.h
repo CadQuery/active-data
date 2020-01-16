@@ -54,6 +54,6 @@
 #define ACTBinFormat "ACTBin" // "ACTBin" or "BinOcaf"
 
 // Macro to silent compiler warnings on unused function arguments
-#define ActData_NotUsed(x) x
+#define ActData_NotUsed(x)
 
 #endif

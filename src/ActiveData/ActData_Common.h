@@ -80,6 +80,6 @@ namespace ActData_Common
   ActData_EXPORT ActAPI_ParameterId
     TrimToParameterId(const ActAPI_DataObjectId& objectId,
                       bool&                      isValid);
-};
+} // ActData_Common namespace.
 
 #endif
