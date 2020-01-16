@@ -43,12 +43,10 @@
 #include <Standard_ImmutableObject.hxx>
 
 // Mesh includes
-#pragma warning(push, 0)
 #include <ActData_Mesh_ElementsIterator.h>
 #include <ActData_Mesh_Node.h>
 #include <ActData_Mesh_Quadrangle.h>
 #include <ActData_Mesh_Triangle.h>
-#pragma warning(pop)
 
 #pragma warning(disable: 4127) // "Conditional expression is constant" by ACT_VERIFY
 #pragma warning(disable: 4800) // "Standard_Boolean: forcing value to bool" by ACT_VERIFY

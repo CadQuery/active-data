@@ -66,8 +66,8 @@ public:
   //! Conversion history associated with Parameter.
   struct History
   {
-    Standard_Integer Evolution; //!< Evolution.
     Standard_Integer OriginPID; //!< Original PID.
+    Standard_Integer Evolution; //!< Evolution.
 
     //! Constructor.
     //! \param theOriginPID [in] original PID to set.

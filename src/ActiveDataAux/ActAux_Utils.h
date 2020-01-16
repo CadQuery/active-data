@@ -120,7 +120,7 @@ namespace ActAux_Utils
     ActAux_EXPORT TCollection_AsciiString
       Slashed(const TCollection_AsciiString& theStr);
 
-  };
-};
+  }
+}
 
 #endif

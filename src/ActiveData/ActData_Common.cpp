@@ -99,7 +99,7 @@ ActAPI_ParameterId
   ActAPI_ParameterId trimmedId;
   const int limit = Min( ActData_NumTags_UserParameterId, int( tags.size() ) );
   //
-  for ( size_t k = 0; k < limit; ++k )
+  for ( int k = 0; k < limit; ++k )
   {
     if ( k > 0 )
       trimmedId += ":";

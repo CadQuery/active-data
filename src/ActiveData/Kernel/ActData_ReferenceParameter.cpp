@@ -102,14 +102,6 @@ void ActData_ReferenceParameter::SetTarget(const Handle(ActAPI_IDataCursor)& the
   if ( theDC.IsNull() ) // Empty reference is simply not initialized
     return;
 
-  RefType aRefType = Ref_Undefined;
-  if ( theDC->IsKind( STANDARD_TYPE(ActAPI_IUserParameter) ) )
-    aRefType = Ref_Parameter;
-  else if ( theDC->IsKind( STANDARD_TYPE(ActAPI_INode) ) )
-    aRefType = Ref_Node;
-  else
-    Standard_ProgramError::Raise("Unexpected reference type");
-
   this->SetTarget(theDC->RootLabel(), theModType, doResetValidity, doResetPending);
 }
 

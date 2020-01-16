@@ -1215,10 +1215,10 @@ TDF_Label ActData_Utils::ChooseLabelByTag(const TDF_Label&       theLab,
 //! \return true/false.
 Standard_Boolean ActData_StringAux::IsNotSpecial(const Standard_Character Char)
 {
-  return Char == 95 ||               // Underscore
-         Char >= 48 && Char <= 57 || // Numbers
-         Char >= 65 && Char <= 90 || // Upper letters
-         Char >= 97 && Char <= 122;  // Lower letters
+  return (Char == 95) ||               // Underscore
+         (Char >= 48 && Char <= 57) || // Numbers
+         (Char >= 65 && Char <= 90) || // Upper letters
+         (Char >= 97 && Char <= 122);  // Lower letters
 }
 
 //! Checks whether the passed Source string contains the Piece string as a

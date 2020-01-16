@@ -219,7 +219,7 @@ Standard_Boolean ActAux_Utils::Str::FetchLine(OSD_File& FILE,
   {
     FILE.ReadLine(theLine, BUFLEN, NbChar);
 
-    if ( theLine.IsEmpty() || theFilter && !theFilter(theLine) )
+    if ( theLine.IsEmpty() || ( theFilter && !theFilter(theLine) ) )
       continue;
 
     isOk = Standard_True;

@@ -252,9 +252,9 @@ void ActData_CopyPasteEngine::flattenTree(const Handle(ActAPI_INode)& theRoot,
                                           const CopyDirection         theDirection,
                                           const Standard_Boolean      doUseSuffix)
 {
-  TDF_Label aCopyRoot = this->copyNode(theRoot, theDirection, doUseSuffix);
+  this->copyNode(theRoot, theDirection, doUseSuffix);
   theSTree.ID = theRoot->GetId();
-  
+
   Handle(ActAPI_IChildIterator) aChildIt = theRoot->GetChildIterator();
   for ( ; aChildIt->More(); aChildIt->Next() )
   {

@@ -88,22 +88,6 @@
 Standard_Boolean ActData_BaseModel::MTime_On = 1;
 
 //----------------------------------------------------------------------------
-
-namespace
-{
-  Standard_Boolean HasParentWithName(const Handle(ActAPI_INode)&       theCandidate,
-                                     const TCollection_ExtendedString& theParentName)
-  {
-    Handle(ActAPI_INode) aParent = theCandidate->GetParentNode();
-    //
-    if ( aParent->GetName() == theParentName )
-      return Standard_True;
-
-    return Standard_False;
-  }
-};
-
-//----------------------------------------------------------------------------
 // Construction methods
 //----------------------------------------------------------------------------
 

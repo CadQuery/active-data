@@ -37,11 +37,9 @@
 #include <ActData_Common.h>
 
 // OCCT includes
-#pragma warning(push, 0)
 #include <BinDrivers_DocumentRetrievalDriver.hxx>
 #include <BinMDF_ADriverTable.hxx>
 #include <Message_Messenger.hxx>
-#pragma warning(pop)
 
 DEFINE_STANDARD_HANDLE(ActData_BinRetrievalDriver, BinDrivers_DocumentRetrievalDriver)
 
