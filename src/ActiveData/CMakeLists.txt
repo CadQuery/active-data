@@ -463,22 +463,22 @@ endif()
 #------------------------------------------------------------------------------
 
 install (TARGETS ActiveData
-         RUNTIME DESTINATION bin COMPONENT Runtime
          CONFIGURATIONS Release
-         ARCHIVE DESTINATION lib LIBRARY DESTINATION lib COMPONENT Library
-         CONFIGURATIONS Release)
+         RUNTIME DESTINATION bin COMPONENT Runtime
+         ARCHIVE DESTINATION lib COMPONENT Library
+         LIBRARY DESTINATION lib COMPONENT Library)
 
 install (TARGETS ActiveData
-         RUNTIME DESTINATION bini COMPONENT Runtime
          CONFIGURATIONS RelWithDebInfo
-         ARCHIVE DESTINATION libi LIBRARY DESTINATION libi COMPONENT Library
-         CONFIGURATIONS RelWithDebInfo)
+         RUNTIME DESTINATION bini COMPONENT Runtime
+         ARCHIVE DESTINATION libi COMPONENT Library
+         LIBRARY DESTINATION libi COMPONENT Library)
 
 install (TARGETS ActiveData
-         RUNTIME DESTINATION bind COMPONENT Runtime
          CONFIGURATIONS Debug
-         ARCHIVE DESTINATION libd LIBRARY DESTINATION libd COMPONENT Library
-         CONFIGURATIONS Debug)
+         RUNTIME DESTINATION bind COMPONENT Runtime
+         ARCHIVE DESTINATION libd COMPONENT Library
+         LIBRARY DESTINATION libd COMPONENT Library)
 
 if (WIN32)
   install (FILES ${PROJECT_BINARY_DIR}/../../${PLATFORM}${COMPILER_BITNESS}/${COMPILER}/bind/ActiveData.pdb DESTINATION bind CONFIGURATIONS Debug)
