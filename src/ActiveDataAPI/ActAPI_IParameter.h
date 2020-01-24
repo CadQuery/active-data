@@ -39,6 +39,9 @@
 // OCCT includes
 #include <NCollection_SparseArray.hxx>
 
+// Standard includes
+#include <map>
+
 // Active Data (API) forward declarations
 class ActAPI_INode;
 
@@ -230,8 +233,8 @@ typedef NCollection_Shared<ActAPI_ParameterTypeList> ActAPI_HParameterTypeList;
 //! \ingroup AD_API
 //!
 //! Type definition for sparse collection of Parameters.
-typedef NCollection_SparseArray<Handle(ActAPI_IUserParameter)> ActAPI_SparseParameterList;
-typedef NCollection_Shared<ActAPI_SparseParameterList>         ActAPI_HSparseParameterList;
+typedef std::map<int, Handle(ActAPI_IUserParameter)>   ActAPI_IndexedParameterMap;
+typedef NCollection_Shared<ActAPI_IndexedParameterMap> ActAPI_HIndexedParameterMap;
 
 //-----------------------------------------------------------------------------
 // Parameter streaming

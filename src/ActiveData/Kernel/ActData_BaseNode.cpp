@@ -63,31 +63,31 @@ ActData_BaseParamIterator::ActData_BaseParamIterator(const Handle(ActAPI_INode)&
 void ActData_BaseParamIterator::Init(const Handle(ActAPI_INode)& theNode)
 {
   m_node = Handle(ActData_BaseNode)::DownCast(theNode);
-  m_it.Init( *m_node->m_paramScope.User.operator->() );
+  m_it = m_node->m_paramScope.User->cbegin();
 }
 
 //! \return true if there is something to iterate, false -- otherwise.
 Standard_Boolean ActData_BaseParamIterator::More() const
 {
-  return m_it.More();
+  return m_it != m_node->m_paramScope.User->cend();
 }
 
 //! Puts iterator to the next position.
 void ActData_BaseParamIterator::Next()
 {
-  m_it.Next();
+  ++m_it;
 }
 
 //! \return internal ID of the current Parameter.
 Standard_Integer ActData_BaseParamIterator::Key() const
 {
-  return (Standard_Integer) m_it.Key();
+  return m_it->first;
 }
 
 //! \return current Parameter.
 const Handle(ActAPI_IUserParameter)& ActData_BaseParamIterator::Value() const
 {
-  return m_it.Value();
+  return m_it->second;
 }
 
 //------------------------------------------------------------------------------
@@ -131,6 +131,13 @@ void ActData_BaseChildIterator::Next()
 //! \return current Node.
 Handle(ActAPI_INode) ActData_BaseChildIterator::Value() const
 {
+  return ActData_NodeFactory::NodeSettle( this->ValueLabel() );
+}
+
+
+//! \return root label of the current Node.
+TDF_Label ActData_BaseChildIterator::ValueLabel() const
+{
   Handle(TDataStd_TreeNode) aChildTreeNode = m_it.Value();
 
   // Use the convention that Tree Node Parameter is nested into Internal
@@ -139,7 +146,7 @@ Handle(ActAPI_INode) ActData_BaseChildIterator::Value() const
   //  * Father <-> Label for Node
   TDF_Label aNodeLab = aChildTreeNode->Label().Father();
 
-  return ActData_NodeFactory::NodeSettle(aNodeLab);
+  return aNodeLab;
 }
 
 //-----------------------------------------------------------------------------
@@ -152,7 +159,7 @@ ActData_BaseNode::ActData_BaseNode() : ActAPI_INode()
   m_paramScope.Meta = ActData_MetaParameter::Instance();
 
   // Initialize a collection for user Parameters
-  m_paramScope.User = new ActAPI_HSparseParameterList(10);
+  m_paramScope.User = new ActAPI_HIndexedParameterMap;
 }
 
 //-----------------------------------------------------------------------------
@@ -269,7 +276,7 @@ Handle(ActAPI_IParamIterator) ActData_BaseNode::GetParamIterator() const
 }
 
 //! \return collection of Parameters.
-Handle(ActAPI_HSparseParameterList) ActData_BaseNode::Parameters() const
+Handle(ActAPI_HIndexedParameterMap) ActData_BaseNode::Parameters() const
 {
   return m_paramScope.User;
 }
@@ -280,10 +287,12 @@ Handle(ActAPI_HSparseParameterList) ActData_BaseNode::Parameters() const
 Handle(ActAPI_IUserParameter)
   ActData_BaseNode::Parameter(const Standard_Integer theId) const
 {
-  if ( !m_paramScope.User->IsBound(theId) )
-    return NULL;
+  auto pit = m_paramScope.User->find(theId);
+  //
+  if ( pit == m_paramScope.User->cend() )
+    return nullptr;
 
-  return m_paramScope.User->Find(theId);
+  return pit->second;
 }
 
 //! Initializes user Parameter.
@@ -943,25 +952,21 @@ void ActData_BaseNode::registerParameter(const Standard_Integer               th
                                          const Standard_Boolean               isExpressible)
 {
   // Store detached Data Cursor in the internal map
-  if ( m_paramScope.User->IsBound(theId) )
-    m_paramScope.User->UnBind(theId);
-  //
-  m_paramScope.User->Bind(theId, theParam);
+  (*m_paramScope.User)[theId] = theParam;
 
   if ( isExpressible )
   {
     // Get the next free tag for the new TDF Label the internal Parameter
     // will be settled down to
-    ActAPI_SparseParameterList::Iterator aInternalIt( *m_paramScope.Meta->Evaluators().operator->() );
     Standard_Integer aLastOccupiedTag = 0;
-    for ( ; aInternalIt.More(); aInternalIt.Next() )
-      aLastOccupiedTag = (Standard_Integer) aInternalIt.Key();
+    for ( auto pit = m_paramScope.Meta->Evaluators()->cbegin(); pit != m_paramScope.Meta->Evaluators()->cend(); ++pit )
+      aLastOccupiedTag = pit->first;
 
     // Construct new DETACHED Tree Function Parameter serving evaluation
     // of the user Parameter. This Tree Function Parameter is hidden for
     // Data Framework clients
     Standard_Integer aEvalFuncTag = aLastOccupiedTag + 1;
-    m_paramScope.Meta->Evaluators()->Bind( aEvalFuncTag, ActData_TreeFunctionParameter::Instance() );
+    ( *m_paramScope.Meta->Evaluators() )[aEvalFuncTag] = ActData_TreeFunctionParameter::Instance();
 
     // Add the corresponding relation to the internal transient map
     m_paramScope.ExpressibleParams.Bind(theId, aEvalFuncTag);
@@ -1183,22 +1188,21 @@ void ActData_BaseNode::beforeRemoveMyReference(const Handle(ActData_ReferenceLis
 //!         the META section.
 Handle(ActAPI_HNodalParameterList) ActData_BaseNode::accessAllParameters()
 {
-  Handle(ActAPI_HNodalParameterList) aResult = new ActAPI_HNodalParameterList();
+  Handle(ActAPI_HNodalParameterList) result = new ActAPI_HNodalParameterList();
 
   // Add USER Parameters
-  ActAPI_SparseParameterList::Iterator aParamIt( *m_paramScope.User.operator->() );
-  for ( ; aParamIt.More(); aParamIt.Next() )
+  for ( auto pit = m_paramScope.User->cbegin(); pit != m_paramScope.User->cend(); ++pit )
   {
-    Handle(ActAPI_IUserParameter) pp = aParamIt.Value();
-    aResult->Append( ActAPI_NodalParameter(aParamIt.Value(), (Standard_Integer) aParamIt.Key(), Standard_False) );
+    result->Append( ActAPI_NodalParameter(pit->second, pit->first, Standard_False) );
   }
 
   // Add INTERNAL evaluation Tree Function Parameters
-  aParamIt.Init( *m_paramScope.Meta->Evaluators().operator->() );
-  for ( ; aParamIt.More(); aParamIt.Next() )
-    aResult->Append( ActAPI_NodalParameter(aParamIt.Value(), (Standard_Integer) aParamIt.Key(), Standard_True) );
+  for ( auto pit = m_paramScope.Meta->Evaluators()->cbegin(); pit != m_paramScope.Meta->Evaluators()->cend(); ++pit )
+  {
+    result->Append( ActAPI_NodalParameter(pit->second, pit->first, Standard_True) );
+  }
 
-  return aResult;
+  return result;
 }
 
 //! Gives access to the Tree Function Parameter identified by the given ID.
@@ -1342,12 +1346,12 @@ void ActData_BaseNode::attach(const TDF_Label&       theLabel,
    *  to sub-Labels of USER sub-container
    * =========================================================== */
 
-  ActAPI_SparseParameterList::Iterator aUserIt( *m_paramScope.User.operator->() );
-  for ( ; aUserIt.More(); aUserIt.Next() )
+  for ( auto pid = m_paramScope.User->cbegin(); pid != m_paramScope.User->cend(); ++pid )
   {
-    Handle(ActData_UserParameter) aBaseParam =
-      Handle(ActData_UserParameter)::DownCast( aUserIt.Value() );
-    Standard_Integer aNewTag = (Standard_Integer) aUserIt.Key();
+    const Handle(ActData_UserParameter)& aBaseParam =
+      Handle(ActData_UserParameter)::DownCast(pid->second);
+
+    Standard_Integer aNewTag = pid->first;
 
     // Allow construction of sub-Labels in EXPANDING mode ONLY
     TDF_Label aParamLabRoot = m_label.FindChild(TagUser, isExpanding);
@@ -1378,14 +1382,10 @@ Standard_Boolean ActData_BaseNode::canSettleOn(const TDF_Label& theLabel)
    *  be settled
    * ============================================================ */
 
-  ActAPI_SparseParameterList::Iterator aUserIt( *m_paramScope.User.operator->() );
-  for ( ; aUserIt.More(); aUserIt.Next() )
+  for ( auto pit = m_paramScope.User->cbegin(); pit != m_paramScope.User->cend(); ++pit )
   {
-    Handle(ActData_UserParameter) aBaseParam =
-      Handle(ActData_UserParameter)::DownCast( aUserIt.Value() );
-    Standard_Integer aNewTag = (Standard_Integer) aUserIt.Key();
-
-    TDF_Label aParamLabRoot = theLabel.FindChild(TagUser, Standard_False);
+    Standard_Integer aNewTag       = pit->first;
+    TDF_Label        aParamLabRoot = theLabel.FindChild(TagUser, Standard_False);
 
     if ( aParamLabRoot.IsNull() )
       return Standard_False;

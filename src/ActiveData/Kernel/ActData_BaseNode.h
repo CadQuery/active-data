@@ -75,7 +75,7 @@ public:
   Handle(ActData_MetaParameter) Meta;
 
   //! Custom Parameters specified by Data Framework user.
-  Handle(ActAPI_HSparseParameterList) User;
+  Handle(ActAPI_HIndexedParameterMap) User;
 
   //! Mapping between tags for expressible Parameters and their
   //! correspondent Tree Function evaluator Parameters.
@@ -93,8 +93,8 @@ public:
   T SafeCast(const Standard_Integer theId,
              const Standard_Boolean isInternal)
   {
-    Handle(ActAPI_IUserParameter) aBaseParam = (isInternal ? this->Meta->Evaluators()->Find(theId) :
-                                                             this->User->Find(theId) );
+    Handle(ActAPI_IUserParameter) aBaseParam = (isInternal ? this->Meta->Evaluators()->find(theId)->second :
+                                                             this->User->find(theId)->second );
     return T::DownCast(aBaseParam);
   }
 
@@ -134,8 +134,8 @@ public:
 
 private:
 
-  Handle(ActData_BaseNode)             m_node; //!< Owning Node.
-  ActAPI_SparseParameterList::Iterator m_it;   //!< Internal iterator for Parameters.
+  Handle(ActData_BaseNode)                   m_node; //!< Owning Node.
+  ActAPI_IndexedParameterMap::const_iterator m_it;   //!< Internal iterator for Parameters.
 
 };
 
@@ -169,6 +169,9 @@ public:
 
   ActData_EXPORT Handle(ActAPI_INode)
     Value() const;
+
+  ActData_EXPORT virtual TDF_Label
+    ValueLabel() const;
 
 private:
 
@@ -245,6 +248,11 @@ public:
   //! Stores a number of reserved tags for future extensions.
   static const Standard_Integer RESERVED_PARAM_RANGE = 100;
 
+public:
+
+  static const Standard_Integer TagInternal = 1;
+  static const Standard_Integer TagUser     = 2;
+
 // Transient properties of Data Cursor:
 public:
 
@@ -275,7 +283,7 @@ public:
   ActData_EXPORT virtual Handle(ActAPI_IParamIterator)
     GetParamIterator() const;
 
-  ActData_EXPORT virtual Handle(ActAPI_HSparseParameterList)
+  ActData_EXPORT virtual Handle(ActAPI_HIndexedParameterMap)
     Parameters() const;
 
   ActData_EXPORT virtual Handle(ActAPI_IUserParameter)
@@ -470,9 +478,6 @@ protected:
   };
 
 private:
-
-  static const Standard_Integer TagInternal = 1;
-  static const Standard_Integer TagUser     = 2;
 
   //! Observer types which can be connected with the Node.
   enum ObserverType

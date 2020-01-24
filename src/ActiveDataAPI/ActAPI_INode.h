@@ -138,6 +138,9 @@ public:
 
   virtual Handle(ActAPI_INode)
     Value() const = 0;
+
+  virtual TDF_Label
+    ValueLabel() const = 0;
 };
 
 //-----------------------------------------------------------------------------
@@ -207,7 +210,7 @@ public:
   virtual Handle(ActAPI_IParamIterator)
     GetParamIterator() const = 0;
 
-  virtual Handle(ActAPI_HSparseParameterList)
+  virtual Handle(ActAPI_HIndexedParameterMap)
     Parameters() const = 0;
 
   virtual Handle(ActAPI_IUserParameter)

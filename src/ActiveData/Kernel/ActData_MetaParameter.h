@@ -254,7 +254,7 @@ public:
 // Evaluation mechanism:
 public:
 
-  Handle(ActAPI_HSparseParameterList)& Evaluators() { return m_evaluators; }
+  Handle(ActAPI_HIndexedParameterMap)& Evaluators() { return m_evaluators; }
 
 protected:
 
@@ -297,7 +297,7 @@ protected:
   StorageStatus m_status;
 
   //! Tree Function evaluation Parameters.
-  Handle(ActAPI_HSparseParameterList) m_evaluators;
+  Handle(ActAPI_HIndexedParameterMap) m_evaluators;
 
 };
 

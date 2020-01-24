@@ -50,7 +50,7 @@ ActData_MetaParameter::ActData_MetaParameter() : ActAPI_IDataCursor()
   m_status = SS_Detached;
 
   // Initialize a collection for evaluation Tree Functions
-  m_evaluators = new ActAPI_HSparseParameterList(10);
+  m_evaluators = new ActAPI_HIndexedParameterMap;
 }
 
 //! Ensures correct construction of the Parameter object, e.g. prevents
@@ -523,12 +523,12 @@ void ActData_MetaParameter::expandOn(const TDF_Label& theLabel)
   TDataStd_ReferenceList::Set( m_label.FindChild(DS_Referrers) );
 
   // Expand Tree Function Parameters for evaluators
-  ActAPI_SparseParameterList::Iterator aEvalIt( *m_evaluators.operator->() );
-  for ( ; aEvalIt.More(); aEvalIt.Next() )
+  for ( auto pit = m_evaluators->cbegin(); pit != m_evaluators->cend(); ++pit )
   {
-    Handle(ActData_UserParameter) aBaseParam =
-      Handle(ActData_UserParameter)::DownCast( aEvalIt.Value() );
-    Standard_Integer aNewTag = (Standard_Integer) aEvalIt.Key();
+    const Handle(ActData_UserParameter)&
+      aBaseParam = Handle(ActData_UserParameter)::DownCast(pit->second);
+    //
+    Standard_Integer aNewTag = pit->first;
 
     // Allow construction of sub-Labels in EXPANDING mode ONLY
     TDF_Label aParamLabRoot = m_label.FindChild(DS_Evaluators, Standard_True);
@@ -547,12 +547,12 @@ void ActData_MetaParameter::settleOn(const TDF_Label& theLabel)
   this->attach(theLabel);
 
   // Settle Tree Function Parameters for evaluators
-  ActAPI_SparseParameterList::Iterator aEvalIt( *m_evaluators.operator->() );
-  for ( ; aEvalIt.More(); aEvalIt.Next() )
+  for ( auto pit = m_evaluators->cbegin(); pit != m_evaluators->cend(); ++pit )
   {
-    Handle(ActData_UserParameter) aBaseParam =
-      Handle(ActData_UserParameter)::DownCast( aEvalIt.Value() );
-    Standard_Integer aNewTag = (Standard_Integer) aEvalIt.Key();
+     const Handle(ActData_UserParameter)&
+      aBaseParam = Handle(ActData_UserParameter)::DownCast(pit->second);
+    //
+    Standard_Integer aNewTag = pit->first;
 
     // Allow construction of sub-Labels in EXPANDING mode ONLY
     TDF_Label aParamLabRoot = m_label.FindChild(DS_Evaluators, Standard_False);

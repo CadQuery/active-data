@@ -1531,17 +1531,19 @@ void ActData_BaseModel::chargeEvaluatorsWithVar(const Handle(ActData_BaseVarNode
         continue; // Skip the Variable Node itself
 
       // Iterate over all USER Parameters registered in the Node
-      Handle(ActAPI_HSparseParameterList) aParamList = aNode->Parameters();
-      ActAPI_SparseParameterList::Iterator aParamIt( *aParamList.operator->() );
-      for ( ; aParamIt.More(); aParamIt.Next() )
+      Handle(ActAPI_HIndexedParameterMap) params = aNode->Parameters();
+      //
+      for ( auto pit = params->cbegin(); pit != params->cend(); ++pit )
       {
-        Standard_Integer aRelParamID = (Standard_Integer) aParamIt.Key();
+        Standard_Integer aRelParamID = pit->first;
+        //
         if ( !aNode->IsEvaluable(aRelParamID) )
           continue; // Not evaluable Parameters are not interesting...
 
         // Check if eval string contains the reference
         Standard_Integer aStart = -1, aEnd = -1;
-        TCollection_AsciiString aEvalStr = aParamIt.Value()->GetEvalString();
+        TCollection_AsciiString aEvalStr = pit->second->GetEvalString();
+        //
         if ( !ActData_StringAux::IsLexeme(aEvalStr, aVarName, aStart, aEnd) )
           continue; // Variable is not referenced here
 
@@ -1573,8 +1575,9 @@ void ActData_BaseModel::chargeEvaluatorsWithVar(const Handle(ActData_BaseVarNode
           // mechanism. The following lines of code make a big deal of
           // registering current Expressible Parameter in a LogBook for
           // consequent Tree Function execution
-          Handle(ActData_UserParameter)
-            aBaseParam = Handle(ActData_UserParameter)::DownCast( aParamIt.Value() );
+          const Handle(ActData_UserParameter)&
+            aBaseParam = Handle(ActData_UserParameter)::DownCast(pit->second);
+          //
           aBaseParam->SetTouched();
         }
       }
