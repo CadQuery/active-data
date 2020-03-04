@@ -81,6 +81,7 @@ set (kernel_H_FILES
   Kernel/ActData_TreeFunctionPriority.h
   Kernel/ActData_TreeNodeParameter.h
   Kernel/ActData_TriangulationParameter.h
+  Kernel/ActData_UserExtParameter.h
   Kernel/ActData_UserParameter.h
   Kernel/ActData_Utils.h
 )
@@ -127,6 +128,7 @@ set (kernel_CPP_FILES
   Kernel/ActData_TreeFunctionParameter.cpp
   Kernel/ActData_TreeNodeParameter.cpp
   Kernel/ActData_TriangulationParameter.cpp
+  Kernel/ActData_UserExtParameter.cpp
   Kernel/ActData_UserParameter.cpp
   Kernel/ActData_Utils.cpp
 )

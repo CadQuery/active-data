@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // Created on: February 2012
 //-----------------------------------------------------------------------------
-// Copyright (c) 2017, OPEN CASCADE SAS
+// Copyright (c) 2012-present, OPEN CASCADE SAS
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -35,6 +35,7 @@
 
 // ActData includes
 #include <ActData_NodeFactory.h>
+#include <ActData_UserExtParameter.h>
 
 // OCCT includes
 #include <Standard_ProgramError.hxx>
@@ -146,6 +147,7 @@ Handle(ActAPI_IUserParameter)
 
     default:
       isUndefined = Standard_True;
+      aResult     = ActData_UserExtParameter::Instance();
       break;
   }
 

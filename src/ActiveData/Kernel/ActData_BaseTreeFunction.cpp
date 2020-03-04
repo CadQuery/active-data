@@ -277,6 +277,10 @@ Standard_Boolean
   for ( Standard_Integer i = 1; i <= theArgs->Length(); ++i )
   {
     const Handle(ActAPI_IUserParameter)& aNextParam = theArgs->Value(i);
+    //
+    if ( aNextParam.IsNull() )
+      return Standard_False; // BAD PARAMETER.
+
     Standard_Integer anActualType = aNextParam->GetParamType(),
                      anExpectedType = theSignature.List->Value(i);
 
