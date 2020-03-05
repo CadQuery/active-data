@@ -477,7 +477,7 @@ protected:
     UserParam_Last = UserParam_Undefined + RESERVED_PARAM_RANGE
   };
 
-private:
+protected:
 
   //! Observer types which can be connected with the Node.
   enum ObserverType
@@ -533,7 +533,7 @@ protected:
                             const Handle(ActAPI_INode)&                   theReferredNode);
 
 // Internal accessors:
-private:
+protected:
 
   Handle(ActAPI_HNodalParameterList)
     accessAllParameters();
@@ -554,7 +554,7 @@ private:
   Handle(ActAPI_HParameterList)
     accessObservers(const ObserverType theObsType);
 
-private:
+protected:
 
   //! Slots for Parameters and relations between slots.
   ActData_ParameterScope m_paramScope;
