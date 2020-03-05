@@ -339,6 +339,14 @@ Standard_Integer ActData_BaseNode::GetUserFlags()
   return m_paramScope.Meta->GetUserFlags();
 }
 
+//! Checks if this Node has the passed user flags enabled.
+//! \param theUFlags [in] flags to check.
+//! \return true/false.
+Standard_Boolean ActData_BaseNode::HasUserFlags(const Standard_Integer theUFlags)
+{
+  return m_paramScope.Meta->GetUserFlags() & theUFlags;
+}
+
 //! Sets application-specific flags for the Data Node.
 //! \param theUFlags [in] application-specific flags to set.
 void ActData_BaseNode::SetUserFlags(const Standard_Integer theUFlags)
@@ -351,6 +359,13 @@ void ActData_BaseNode::SetUserFlags(const Standard_Integer theUFlags)
 void ActData_BaseNode::AddUserFlags(const Standard_Integer theUFlags)
 {
   m_paramScope.Meta->SetUserFlags(this->GetUserFlags() | theUFlags);
+}
+
+//! Removes application-specific user flags for the Data Node.
+//! \param theUFlags [in] application-specific flags to remove.
+void ActData_BaseNode::RemoveUserFlags(const Standard_Integer theUFlags)
+{
+  m_paramScope.Meta->SetUserFlags( this->GetUserFlags() & (~theUFlags) );
 }
 
 //-----------------------------------------------------------------------------

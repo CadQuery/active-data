@@ -314,11 +314,17 @@ public:
   ActData_EXPORT virtual Standard_Integer
     GetUserFlags();
 
+  ActData_EXPORT virtual Standard_Boolean
+    HasUserFlags(const Standard_Integer theUFlags);
+
   ActData_EXPORT virtual void
     SetUserFlags(const Standard_Integer theUFlags);
 
   ActData_EXPORT virtual void
     AddUserFlags(const Standard_Integer theUFlags);
+
+  ActData_EXPORT virtual void
+    RemoveUserFlags(const Standard_Integer theUFlags);
 
 // Alternative hierarchy of Nodes:
 public:

@@ -238,11 +238,17 @@ public:
   virtual Standard_Integer
     GetUserFlags() = 0;
 
+  virtual Standard_Boolean
+    HasUserFlags(const Standard_Integer theUFlags) = 0;
+
   virtual void
     SetUserFlags(const Standard_Integer theUFlags) = 0;
 
   virtual void
     AddUserFlags(const Standard_Integer theUFlags) = 0;
+
+  virtual void
+    RemoveUserFlags(const Standard_Integer theUFlags) = 0;
 
 // Alternative hierarchy of Nodes:
 public:
