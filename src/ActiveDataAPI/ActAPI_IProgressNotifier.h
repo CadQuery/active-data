@@ -48,7 +48,7 @@ enum ActAPI_ProgressStatus
   Progress_Running,       //!< Job is currently running.
   Progress_Succeeded,     //!< Job has been performed successfully.
   Progress_Failed,        //!< Job has been failed.
-  Progress_Cancelled      //!< Job has been requested for cancellation.
+  Progress_Canceled       //!< Job has been requested for cancellation.
 };
 
 //-----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ enum ActAPI_ProgressStatus
 //!   job. This is normally an ASCII string localization key.
 //!
 //! - Set completeness state for the entire process. The following states
-//!   are supported: Not Defined, Running, Succeeded, Failed, Cancelled.
+//!   are supported: Not Defined, Running, Succeeded, Failed, Canceled.
 class ActAPI_IProgressNotifier : public Standard_Transient
 {
 public:

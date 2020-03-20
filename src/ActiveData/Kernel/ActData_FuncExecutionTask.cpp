@@ -109,7 +109,7 @@ tbb::task* ActData_FuncExecutionTask::execute()
   // See also Launch() method.
   ActAPI_ProgressEntry aPEntry(m_PNotifier);
   if ( aPEntry.IsCancelling() ) // Cancellation requested
-    aPEntry.SetProgressStatus(Progress_Cancelled);
+    aPEntry.SetProgressStatus(Progress_Canceled);
   else if ( ActAPI_IModel::IsExecutionFailed(aRes) )
     aPEntry.SetProgressStatus(Progress_Failed);
   else

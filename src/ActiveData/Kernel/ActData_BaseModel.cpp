@@ -1025,7 +1025,6 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   NCollection_Map<Handle(ActAPI_IUserParameter), ActAPI_IDataCursor::Hasher> UniqueParams;
   for ( ; aScopeIt.More(); aScopeIt.Next() )
   {
-    Standard_Integer Key1 = aScopeIt.Key1(); std::cout << Key1 << std::endl;
     const TDF_Label& aCurrentLab = aScopeIt.Key2();
     if ( aCurrentLab.IsNull() || !aCurrentLab.NbAttributes() )
       continue;
