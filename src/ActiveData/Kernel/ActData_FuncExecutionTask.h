@@ -43,8 +43,7 @@
 #include <ActAPI_IProgressNotifier.h>
 
 // Intel TBB includes
-#include <parallel_for.h>
-#include <tbb_thread.h>
+#include <tbb/task.h>
 
 //! \ingroup AD_DF
 //!

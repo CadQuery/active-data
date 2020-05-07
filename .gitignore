@@ -32,3 +32,5 @@ log.txt
 /test/*.brep
 /build*
 /install*
+
+src/.vscode/settings.json

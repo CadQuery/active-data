@@ -41,7 +41,7 @@
 
 // TBB includes
 #if defined USE_TBB
-#include <concurrent_vector.h>
+#include <tbb/concurrent_vector.h>
 #else
 #include <vector>
 #endif
