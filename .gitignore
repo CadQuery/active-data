@@ -34,3 +34,8 @@ log.txt
 /install*
 
 src/.vscode/settings.json
+
+.idea/
+
+cmake-build-debug/
+cmake-build-release/
