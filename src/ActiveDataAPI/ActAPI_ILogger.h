@@ -44,6 +44,8 @@
 #include <Standard_ProgramError.hxx>
 #include <Standard_Type.hxx>
 #include <TCollection_AsciiString.hxx>
+#include <TColStd_MapIteratorOfPackedMapOfInteger.hxx>
+#include <TColStd_PackedMapOfInteger.hxx>
 
 #define LogInfo(PriorityShort) \
   ActAPI_LogStream(Severity_Information, Priority_##PriorityShort)
@@ -361,6 +363,26 @@ public:
     m_args.Append(aTVal);
 
     return *this;
+  }
+
+  //! Appends the passed integer mask to the logging stream.
+  //! \param[in] mask integer mask to append.
+  //! \return this for subsequent appends.
+  ActAPI_LogStream&
+    operator<<(const TColStd_PackedMapOfInteger& mask)
+  {
+    TCollection_AsciiString str;
+
+    int iter = 0;
+    for ( TColStd_MapIteratorOfPackedMapOfInteger mit(mask); mit.More(); mit.Next() )
+    {
+      if ( iter++ )
+        str += " ";
+
+      str += mit.Key();
+    }
+
+    return this->operator<<(str);
   }
 
   //! Pushes the streamed message to the passed Logger.
