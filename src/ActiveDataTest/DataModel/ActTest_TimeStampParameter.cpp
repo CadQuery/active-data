@@ -54,7 +54,8 @@ bool ActTest_TimeStampParameter::accessValue(const int ActTestLib_NotUsed(funcID
 
   TEST_PRINT_DECOR_L("Create new TIMESTAMP Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_TimeStampParameter)
@@ -97,7 +98,8 @@ bool ActTest_TimeStampParameter::accessValueByPortions(const int ActTestLib_NotU
 
   TEST_PRINT_DECOR_L("Create new TIMESTAMP Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_TimeStampParameter)

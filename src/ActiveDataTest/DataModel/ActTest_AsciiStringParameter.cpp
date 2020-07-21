@@ -50,7 +50,8 @@ bool ActTest_AsciiStringParameter::accessASCIIStringValue(const int ActTestLib_N
 
   TEST_PRINT_DECOR_L("Create new ASCII STRING Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_AsciiStringParameter)
@@ -86,6 +87,7 @@ bool ActTest_AsciiStringParameter::accessASCIIStringValue(const int ActTestLib_N
   // Finally, we check if the output is equal to the input to ensure
   // that no corruption has happened during data transferring to/from CAF
   ACT_VERIFY( aString.IsEqual(VALUE) );
+
   return true;
 }
 

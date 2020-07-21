@@ -51,7 +51,8 @@ bool ActTest_StringArrayParameter::accessValue(const int ActTestLib_NotUsed(func
 
   TEST_PRINT_DECOR_L("Create new STRING ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_StringArrayParameter)
@@ -129,7 +130,8 @@ bool ActTest_StringArrayParameter::accessElements(const int ActTestLib_NotUsed(f
 
   TEST_PRINT_DECOR_L("Create new STRING ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_StringArrayParameter)

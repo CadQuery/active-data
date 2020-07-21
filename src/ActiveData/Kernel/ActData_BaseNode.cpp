@@ -344,7 +344,7 @@ Standard_Integer ActData_BaseNode::GetUserFlags()
 //! \return true/false.
 Standard_Boolean ActData_BaseNode::HasUserFlags(const Standard_Integer theUFlags)
 {
-  return m_paramScope.Meta->GetUserFlags() & theUFlags;
+  return (m_paramScope.Meta->GetUserFlags() & theUFlags) > 0;
 }
 
 //! Sets application-specific flags for the Data Node.

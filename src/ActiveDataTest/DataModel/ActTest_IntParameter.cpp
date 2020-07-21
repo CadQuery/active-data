@@ -47,7 +47,8 @@ bool ActTest_IntParameter::accessValue(const int ActTestLib_NotUsed(funcID))
 
   TEST_PRINT_DECOR_L("Create new INT Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_IntParameter)

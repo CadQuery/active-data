@@ -262,7 +262,9 @@ bool ActTest_MeshAttrBean::meshBeanTest(const int ActTestLib_NotUsed(funcID))
    *  Attach Mesh Attribute to CAF Document
    * ======================================= */
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   TDF_Label meshLab;
 
   initializeMeshAttr(doc, meshLab);
@@ -378,7 +380,9 @@ bool ActTest_MeshAttrTransactional::meshTransUndoRedoTest1(const int ActTestLib_
    *  and quadrangles (transaction #4)
    * ========================================================== */
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   TDF_Label meshLab;
 
   // Create Mesh Attribute
@@ -462,7 +466,9 @@ bool ActTest_MeshAttrTransactional::meshTransAbortTest1(const int ActTestLib_Not
   // Collection of resulting mesh elements (nodes, triangles, quadrangles)
   DatumIdList NODE_IDS, TRIANGLE_IDS, QUADRANGLE_IDS;
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   TDF_Label meshLab;
 
   // Create & Populate in a single transaction, then ABORT
@@ -487,7 +493,9 @@ bool ActTest_MeshAttrTransactional::meshTransAbortTest2(const int ActTestLib_Not
   // Collection of resulting mesh elements (nodes, triangles, quadrangles)
   DatumIdList NODE_IDS, TRIANGLE_IDS, QUADRANGLE_IDS;
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   TDF_Label meshLab;
 
   // Create Mesh Attribute
@@ -525,7 +533,9 @@ bool ActTest_MeshAttrPersistent::meshSaveOpenTest(const int ActTestLib_NotUsed(f
    *  Initialize Mesh Attribute with test data
    * ========================================== */
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   TDF_Label meshLab;
 
   doc->OpenCommand();

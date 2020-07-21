@@ -85,7 +85,8 @@ bool ActTest_TimeStamp::accessMTime(const int ActTestLib_NotUsed(funcID))
    *  Initialize underlying CAF document
    * ==================================== */
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   /* ===========================
    *  Create Integer Parameters

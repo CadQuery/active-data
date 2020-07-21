@@ -51,7 +51,8 @@ bool ActTest_ComplexArrayParameter::accessValue(const int ActTestLib_NotUsed(fun
 
   TEST_PRINT_DECOR_L("Create new COMPLEX ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ComplexArrayParameter)
@@ -130,7 +131,8 @@ bool ActTest_ComplexArrayParameter::accessElements(const int ActTestLib_NotUsed(
 
   TEST_PRINT_DECOR_L("Create new COMPLEX ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ComplexArrayParameter)

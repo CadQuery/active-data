@@ -41,10 +41,38 @@
 #include <ActTestLib_TestCase.h>
 
 // Active Data includes
+#include <ActData_Application.h>
 #include <ActData_ParameterFactory.h>
 
 // OCCT includes
 #include <TDocStd_Document.hxx>
+
+//! RAII interface for document. The purpose of this class is to ensure that
+//! the document is closed at the end of each test function that allocates it.
+class ActTest_DocAlloc
+{
+public:
+
+  //! Ctor.
+  ActTest_DocAlloc()
+  {
+    ActData_Application::Instance()->NewDocument(ACTBinFormat, Doc);
+    Doc->SetModificationMode(Standard_True);
+    Doc->SetUndoLimit(10);
+  }
+
+  //! Dtor.
+  ~ActTest_DocAlloc()
+  {
+    if ( !Doc.IsNull() && Doc->IsOpened() )
+      ActData_Application::Instance()->Close(Doc);
+  }
+
+public:
+
+  Handle(TDocStd_Document) Doc; //!< Document instance.
+
+};
 
 //! \ingroup AD_TEST
 //!
@@ -53,9 +81,6 @@
 class ActTest_DataFramework : public ActTestLib_TestCase
 {
 protected:
-
-  static Handle(TDocStd_Document)
-    initCAFDocument();
 
   static Standard_Boolean
     saveDocument(const Handle(TDocStd_Document)& doc,

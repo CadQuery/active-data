@@ -1,4 +1,4 @@
-ACTDATA_THIRDPARTY_PRODUCT("OCCT" "" "Standard.hxx" "TKernel")
+ACTDATA_THIRDPARTY_PRODUCT("OCCT" "" "Standard.hxx" "TKernel" "")
 
 message (STATUS "... OCCT Include dirs: ${3RDPARTY_OCCT_INCLUDE_DIR}")
 message (STATUS "... OCCT Library dirs: ${3RDPARTY_OCCT_LIBRARY_DIR}")

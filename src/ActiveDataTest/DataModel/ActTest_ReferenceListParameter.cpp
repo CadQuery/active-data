@@ -51,7 +51,8 @@ bool ActTest_ReferenceListParameter::testReferences(const int ActTestLib_NotUsed
 
   TEST_PRINT_DECOR_L("Create new REFERENCE LIST Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ReferenceListParameter)
@@ -135,7 +136,8 @@ bool ActTest_ReferenceListParameter::testReferenceListParameter_SwapTargets(cons
 
   TEST_PRINT_DECOR_L("Create new REFERENCE LIST Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ReferenceListParameter)

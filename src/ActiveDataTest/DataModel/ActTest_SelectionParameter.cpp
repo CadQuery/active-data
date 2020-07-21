@@ -52,7 +52,8 @@ bool ActTest_SelectionParameter::accessSelectionMask(const int ActTestLib_NotUse
 
   TEST_PRINT_DECOR_L("Create new SELECTION Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_SelectionParameter)
@@ -109,7 +110,8 @@ bool ActTest_SelectionParameter::accessSelectionMaskIDs(const int ActTestLib_Not
 
   TEST_PRINT_DECOR_L("Create new SELECTION Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_SelectionParameter)

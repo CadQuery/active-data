@@ -49,7 +49,9 @@ bool ActTest_ExtTransactionEngine::namedEngineCommits(const int ActTestLib_NotUs
   const Standard_Integer NbCommits = 4;
   TCollection_AsciiString Names[] = {"TR 1", "TR 2", "TR 3", "TR 4"};
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   Handle(ActData_ExtTransactionEngine) engine = new ActData_ExtTransactionEngine(doc);
 
   // Perform several named commits
@@ -95,7 +97,9 @@ bool ActTest_ExtTransactionEngine::namedEngineUndos(const int ActTestLib_NotUsed
                          NbUndos = 2;
   TCollection_AsciiString Names[] = {"TR 1", "TR 2", "TR 3", "TR 4", "TR 5"};
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   Handle(ActData_ExtTransactionEngine) engine = new ActData_ExtTransactionEngine(doc);
 
   // Perform several named commits
@@ -156,7 +160,9 @@ bool ActTest_ExtTransactionEngine::namedEngineRedos(const int ActTestLib_NotUsed
                          NbRedos = 3;
   TCollection_AsciiString Names[] = {"TR 1", "TR 2", "TR 3", "TR 4", "TR 5"};
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   Handle(ActData_ExtTransactionEngine) engine = new ActData_ExtTransactionEngine(doc);
 
   // Perform several named commits
@@ -219,7 +225,9 @@ bool ActTest_ExtTransactionEngine::namedEngineRedos(const int ActTestLib_NotUsed
 //! \return true if test is passed, false -- otherwise.
 bool ActTest_ExtTransactionEngine::namedEngineUndoLimit(const int ActTestLib_NotUsed(funcID))
 {
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
+
   Handle(ActData_ExtTransactionEngine) engine = new ActData_ExtTransactionEngine(doc);
 
   const Standard_Integer NbCommits = DEFAULT_UNDO_LIMIT + 1; // One more than limit

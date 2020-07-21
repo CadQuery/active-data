@@ -1,5 +1,5 @@
 if (USE_TBB)
-  ACTDATA_THIRDPARTY_PRODUCT("tbb" "tbb" "tbb.h" "tbb")
+  ACTDATA_THIRDPARTY_PRODUCT("tbb" "include" "tbb" "tbb" "")
 else()
   ACTDATA_UNSET_3RDPARTY("tbb")
 endif()

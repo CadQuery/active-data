@@ -51,7 +51,8 @@ bool ActTest_IntArrayParameter::accessValue(const int ActTestLib_NotUsed(funcID)
 
   TEST_PRINT_DECOR_L("Create new INT ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_IntArrayParameter)
@@ -125,7 +126,8 @@ bool ActTest_IntArrayParameter::accessElements(const int ActTestLib_NotUsed(func
 
   TEST_PRINT_DECOR_L("Create new INT ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_IntArrayParameter)

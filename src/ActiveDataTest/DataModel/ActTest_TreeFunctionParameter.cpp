@@ -90,7 +90,8 @@ bool ActTest_TreeFunctionParameter::accessFunction(const int ActTestLib_NotUsed(
 
   TEST_PRINT_DECOR_L("Create new TREE FUNCTION Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   // Root label
   TDF_Label label;
@@ -373,7 +374,8 @@ bool ActTest_TreeFunctionParameter::disconnect_soft(const int ActTestLib_NotUsed
 
   TEST_PRINT_DECOR_L("Create new TREE FUNCTION Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   // Root label
   TDF_Label label;
@@ -453,7 +455,8 @@ bool ActTest_TreeFunctionParameter::disconnect_full(const int ActTestLib_NotUsed
 
   TEST_PRINT_DECOR_L("Create new TREE FUNCTION Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   // Root label
   TDF_Label label;

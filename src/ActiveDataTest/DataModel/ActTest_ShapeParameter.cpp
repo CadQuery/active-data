@@ -56,7 +56,8 @@ bool ActTest_ShapeParameter::accessValue(const int ActTestLib_NotUsed(funcID))
 
   TEST_PRINT_DECOR_L("Create new SHAPE Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ShapeParameter)
@@ -107,7 +108,8 @@ bool ActTest_ShapeParameter::accessReversedValue(const int ActTestLib_NotUsed(fu
 
   TEST_PRINT_DECOR_L("Create new SHAPE Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ShapeParameter)

@@ -33,25 +33,11 @@
 // Own include
 #include <ActTest_DataFramework.h>
 
-// Active Data includes
-#include <ActData_Application.h>
-
 Standard_Integer ActTest_DataFramework::PARAM_TAG = 1;
 
 //-----------------------------------------------------------------------------
 // Test functions support
 //-----------------------------------------------------------------------------
-
-//! Initializes CAF document.
-//! \return CAF document.
-Handle(TDocStd_Document) ActTest_DataFramework::initCAFDocument()
-{
-  Handle(TDocStd_Document) doc;
-  ActData_Application::Instance()->NewDocument(ACTBinFormat, doc);
-  doc->SetModificationMode(Standard_True);
-  doc->SetUndoLimit(10);
-  return doc;
-}
 
 //! Saves the internal CAF document to file with the passed name.
 //! \param doc [in] CAF document to save.

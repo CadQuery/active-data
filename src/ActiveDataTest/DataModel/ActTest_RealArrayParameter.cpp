@@ -51,7 +51,8 @@ bool ActTest_RealArrayParameter::accessValue(const int ActTestLib_NotUsed(funcID
 
   TEST_PRINT_DECOR_L("Create new REAL ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_RealArrayParameter)
@@ -127,7 +128,8 @@ bool ActTest_RealArrayParameter::accessElements(const int ActTestLib_NotUsed(fun
 
   TEST_PRINT_DECOR_L("Create new REAL ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_RealArrayParameter)

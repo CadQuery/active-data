@@ -35,11 +35,11 @@ endmacro()
 # Name:    ACTDATA_THIRDPARTY_PRODUCT
 # Purpose: handles a single 3-rd party product
 #-------------------------------------------------------------------------------
-macro (ACTDATA_THIRDPARTY_PRODUCT
-       PRODUCT_NAME
-       SUBINC_NAME
-       HEADER_NAME
-       LIBRARY_NAME)
+macro (ACTDATA_THIRDPARTY_PRODUCT PRODUCT_NAME
+                                  SUBINC_NAME
+                                  HEADER_NAME
+                                  LIBRARY_NAME
+                                  SUBLIB_NAME )
 
   message (STATUS "Processing ${PRODUCT_NAME} 3-rd party")
 
@@ -51,9 +51,7 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
 
   # Root directories of products
   if (NOT DEFINED 3RDPARTY_${PRODUCT_NAME}_DIR)
-    set (3RDPARTY_${PRODUCT_NAME}_DIR ""
-         CACHE PATH
-         "The directory containing ${PRODUCT_NAME}")
+    set (3RDPARTY_${PRODUCT_NAME}_DIR "" CACHE PATH "The directory containing ${PRODUCT_NAME}")
   endif()
 
   # Specify product folder in connection with 3RDPARTY_DIR
@@ -69,6 +67,7 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
     endif()
   endif()
 
+  # Define empty product subfolders
   if (NOT DEFINED 3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR)
     set (3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR "" CACHE PATH "The path of ${HEADER_NAME}")
   endif()
@@ -76,7 +75,7 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
   if (NOT DEFINED 3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR)
     set (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR "" CACHE PATH "The directory containing ${PRODUCT_NAME} library")
   endif()
-  
+
   if (WIN32)
     if (NOT DEFINED 3RDPARTY_${PRODUCT_NAME}_DLL_DIR)
       set (3RDPARTY_${PRODUCT_NAME}_DLL_DIR "" CACHE PATH "The directory containing ${PRODUCT_NAME} dynamic library (DLL)")
@@ -85,8 +84,9 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
 
   #----------------------------------------------------------------------------
   # Headers
+  #----------------------------------------------------------------------------
   if (NOT 3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR OR NOT EXISTS "${3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR}")
-  
+
     # set 3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR as not found, otherwise find_path can't assign a new value to 3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR
     set (3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR "3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR-NOTFOUND" CACHE FILEPATH "the path to ${HEADER_NAME}" FORCE)
 
@@ -96,7 +96,7 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
       set (HEADER_SUFFIX_HINT inc include)
     else()
       message (STATUS "... Sub-dir hint for includes is ${SUBINC_NAME}")
-      set (HEADER_SUFFIX_HINT inc/${SUBINC_NAME} include/${SUBINC_NAME})
+      set (HEADER_SUFFIX_HINT ${SUBINC_NAME} inc/${SUBINC_NAME} include/${SUBINC_NAME})
     endif()
 
     if ("${HEADER_NAME}" STREQUAL "")
@@ -117,7 +117,8 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
       endif()
     endif()
   endif()
-  #
+
+  # Result
   if (3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR AND EXISTS "${3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR}")
     message (STATUS "... Include dir seems Ok")
     list (APPEND 3RDPARTY_INCLUDE_DIRS "${3RDPARTY_${PRODUCT_NAME}_INCLUDE_DIR}")
@@ -130,7 +131,9 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
 
   #----------------------------------------------------------------------------
   # Libraries
+  #----------------------------------------------------------------------------
   if (NOT 3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR OR NOT EXISTS "${3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR}")
+
     message (STATUS "... Attempting to find path by hint library \"${LIBRARY_NAME}\"")
 
     # suffix for searching of library dirs
@@ -141,23 +144,32 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
       set (LIB_SUFFIX_HINT ${LIB_SUFFIX_HINT} lib/ia32/${COMPILER})
     endif()
 
+    # suffix with SUBLIB_NAME
+    if ("x${SUBLIB_NAME}" STREQUAL "x")
+      message (STATUS "... Sub-dir hint for libraries is empty")
+    else()
+      message (STATUS "... Sub-dir hint for libraries is ${SUBLIB_NAME}")
+      set (LIB_SUFFIX_HINT ${LIB_SUFFIX_HINT} ${SUBLIB_NAME})
+    endif()
+
     message (STATUS "... Hint suffix for searching of libraries is ${LIB_SUFFIX_HINT}")
-    
+
     set (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR "3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR-NOTFOUND" CACHE FILEPATH "The path to ${PRODUCT_NAME} libraries" FORCE)
 
     if (3RDPARTY_${PRODUCT_NAME}_DIR AND EXISTS "${3RDPARTY_${PRODUCT_NAME}_DIR}")
-      find_path (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR NAMES ${LIBRARY_NAME}.lib ${LIBRARY_NAME}.so
+      find_path (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR NAMES ${LIBRARY_NAME}.lib lib${LIBRARY_NAME}.so ${LIBRARY_NAME}.so
                                                       PATHS ${3RDPARTY_${PRODUCT_NAME}_DIR}
                                                       PATH_SUFFIXES ${LIB_SUFFIX_HINT}
                                                       CMAKE_FIND_ROOT_PATH_BOTH
                                                       NO_DEFAULT_PATH)
     else()
-      find_path (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR NAMES ${LIBRARY_NAME}.lib ${LIBRARY_NAME}.so
+      find_path (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR NAMES ${LIBRARY_NAME}.lib lib${LIBRARY_NAME}.so
                                                       PATH_SUFFIXES ${LIB_SUFFIX_HINT}
                                                       CMAKE_FIND_ROOT_PATH_BOTH)
     endif()
   endif()
-  #
+
+  # Result
   if (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR AND EXISTS "${3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR}")
     list (APPEND 3RDPARTY_LIBRARY_DIRS "${3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR}")
   else()
@@ -165,9 +177,10 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
 
     set (3RDPARTY_${PRODUCT_NAME}_LIBRARY_DIR "" CACHE FILEPATH "The path to ${PRODUCT_NAME} libraries" FORCE)
   endif()
-  
+
   #----------------------------------------------------------------------------
   # DLLs for windows
+  #----------------------------------------------------------------------------
   if (WIN32)
     if (NOT 3RDPARTY_${PRODUCT_NAME}_DLL_DIR OR NOT EXISTS "${3RDPARTY_${PRODUCT_NAME}_DLL_DIR}")
       message (STATUS "... Attempting to find path by hint library \"${LIBRARY_NAME}\"")
@@ -181,7 +194,7 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
       endif()
 
       message (STATUS "... Hint suffix for searching of DLLs is ${DLL_SUFFIX_HINT}")
-      
+
       set (3RDPARTY_${PRODUCT_NAME}_DLL_DIR "3RDPARTY_${PRODUCT_NAME}_DLL_DIR-NOTFOUND" CACHE FILEPATH "The path to ${PRODUCT_NAME} DLLs" FORCE)
 
       if (3RDPARTY_${PRODUCT_NAME}_DIR AND EXISTS "${3RDPARTY_${PRODUCT_NAME}_DIR}")
@@ -196,10 +209,10 @@ macro (ACTDATA_THIRDPARTY_PRODUCT
                                                     CMAKE_FIND_ROOT_PATH_BOTH)
       endif()
     endif()
-    #
+
+    # Result
     if (NOT 3RDPARTY_${PRODUCT_NAME}_DLL_DIR OR NOT EXISTS "${3RDPARTY_${PRODUCT_NAME}_DLL_DIR}")
       set (3RDPARTY_${PRODUCT_NAME}_DLL_DIR "" CACHE FILEPATH "The path to ${PRODUCT_NAME} DLLs" FORCE)
     endif()
   endif()
-
 endmacro()

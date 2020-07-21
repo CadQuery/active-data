@@ -51,7 +51,8 @@ bool ActTest_ReferenceParameter::testReference(const int ActTestLib_NotUsed(func
 
   TEST_PRINT_DECOR_L("Create new REFERENCE Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_ReferenceParameter)

@@ -55,7 +55,8 @@ bool ActTest_TreeNodeParameter::accessUserTree(const int ActTestLib_NotUsed(func
 
   TEST_PRINT_DECOR_L("Create new TREE NODE Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   // Root label
   TDF_Label label;

@@ -51,7 +51,8 @@ bool ActTest_RealParameter::accessValue(const int ActTestLib_NotUsed(funcID))
 
   TEST_PRINT_DECOR_L("Create new REAL Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_RealParameter)

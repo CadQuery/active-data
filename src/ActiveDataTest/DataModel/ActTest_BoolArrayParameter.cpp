@@ -51,7 +51,8 @@ bool ActTest_BoolArrayParameter::accessValue(const int ActTestLib_NotUsed(funcID
 
   TEST_PRINT_DECOR_L("Create new BOOL ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_BoolArrayParameter)
@@ -125,7 +126,8 @@ bool ActTest_BoolArrayParameter::accessElements(const int ActTestLib_NotUsed(fun
 
   TEST_PRINT_DECOR_L("Create new BOOL ARRAY Parameter");
 
-  Handle(TDocStd_Document) doc = initCAFDocument();
+  ActTest_DocAlloc docAlloc;
+  Handle(TDocStd_Document) doc = docAlloc.Doc;
 
   doc->NewCommand();
   Handle(ActData_BoolArrayParameter)
