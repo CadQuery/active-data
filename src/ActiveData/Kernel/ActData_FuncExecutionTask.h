@@ -33,7 +33,7 @@
 #ifndef ActData_FuncExecutionTask_HeaderFile
 #define ActData_FuncExecutionTask_HeaderFile
 
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
 
 // Active Data includes
 #include <ActData_Common.h>
@@ -83,6 +83,6 @@ private:
 
 #else
   #pragma message("===== warning: TBB is disabled. You cannot use detached tasks for functions.")
-#endif // USE_TBB
+#endif // ActiveData_USE_TBB
 
 #endif

@@ -40,7 +40,7 @@
 #include <TCollection_AsciiString.hxx>
 
 // TBB includes
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
 #include <tbb/concurrent_vector.h>
 #else
 #include <vector>
@@ -442,7 +442,7 @@ public:
 //! \ingroup AD_API
 //!
 //! Collection of variables.
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
 typedef tbb::concurrent_vector<Handle(ActAPI_VariableBase)> ActAPI_VariableList;
 #else
 typedef std::vector<Handle(ActAPI_VariableBase)> ActAPI_VariableList;

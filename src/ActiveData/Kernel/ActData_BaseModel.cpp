@@ -55,7 +55,7 @@
 #include <ActData_Utils.h>
 
 // Detached tasks
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
 #include <ActData_FuncExecutionTask.h>
 #endif
 
@@ -1003,7 +1003,7 @@ Standard_Integer ActData_BaseModel::FuncExecuteAll(const Standard_Boolean doDeta
   // Proceed with request on detached execution
   if ( doDetach )
   {
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
     ActData_FuncExecutionTask::Launch(this->FuncProgressNotifier(), this, theData);
     return MS_Undefined;
 #else

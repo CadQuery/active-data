@@ -30,10 +30,10 @@ message (STATUS "Active Data VERSION_PATCH: ${VERSION_PATCH}")
 # Set a directory containing all 3-rd parties
 set (3RDPARTY_DIR "" CACHE PATH "The root directory for all 3-rd parties")
 
-# Set use tbb optional flag
-set (USE_TBB OFF CACHE BOOL "TBB is optional 3-rd party. Building with TBB enables multi-threaded Active Data tools (i.e. detached execution of Tree Functions).")
-if (USE_TBB)
-  add_definitions (-DUSE_TBB)
+# Set ActiveData_USE_TBB optional flag
+set (ActiveData_USE_TBB OFF CACHE BOOL "TBB is optional 3-rd party. Building with TBB enables multi-threaded Active Data tools (i.e. detached execution of Tree Functions).")
+if (ActiveData_USE_TBB)
+  add_definitions (-DActiveData_USE_TBB)
 endif()
 
 if (NOT DEFINED ${3RDPARTY_DIR} AND ${3RDPARTY_DIR} STREQUAL "")
@@ -46,7 +46,7 @@ include (${CMAKE_SOURCE_DIR}/cmake/actdata_OCCT.cmake)
 # OCCT 3rdparty
 include (${CMAKE_SOURCE_DIR}/cmake/actdata_OCCT_3rdparty.cmake)
 
-if (USE_TBB)
+if (ActiveData_USE_TBB)
   set (3RDPARTY_DLL_PATH "${3RDPARTY_DLL_PATH};${3RDPARTY_tbb_DLL_DIR}")
 endif()
 

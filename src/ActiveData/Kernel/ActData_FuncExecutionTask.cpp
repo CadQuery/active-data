@@ -33,7 +33,7 @@
 // Own include
 #include <ActData_FuncExecutionTask.h>
 
-#if defined USE_TBB
+#if defined ActiveData_USE_TBB
 
 // OCCT includes
 #include <Standard_ProgramError.hxx>
@@ -118,4 +118,4 @@ tbb::task* ActData_FuncExecutionTask::execute()
   return NULL; // No next task to execute
 }
 
-#endif // USE_TBB
+#endif // ActiveData_USE_TBB

@@ -50,7 +50,7 @@ set (OCCT_LIB_FILES
 # TBB libraries
 #------------------------------------------------------------------------------
 
-if (USE_TBB)
+if (ActiveData_USE_TBB)
   set (TBB_LIB_FILES
     tbb
   )
@@ -82,7 +82,7 @@ set (ActiveDataAPI_include_dir ${ActiveDataAPI_include_dir_loc} PARENT_SCOPE)
 include_directories ( ${ActiveDataAPI_include_dir_loc}
                       ${3RDPARTY_OCCT_INCLUDE_DIR} )
 
-if (USE_TBB)
+if (ActiveData_USE_TBB)
   include_directories ( ${3RDPARTY_tbb_INCLUDE_DIR} )
 endif()
 
@@ -98,7 +98,7 @@ add_library (ActiveDataAPI SHARED
 # Dependencies
 #------------------------------------------------------------------------------
 
-if (USE_TBB)
+if (ActiveData_USE_TBB)
   if (3RDPARTY_tbb_LIBRARY_DIR_DEBUG)
     link_directories(${3RDPARTY_tbb_LIBRARY_DIR_DEBUG})
   else()
@@ -121,7 +121,7 @@ foreach (LIB_FILE ${OCCT_LIB_FILES})
   endif()
 endforeach()
 
-if (USE_TBB)
+if (ActiveData_USE_TBB)
   foreach (LIB_FILE ${TBB_LIB_FILES})
     if (WIN32)
       set (LIB_FILENAME "${LIB_FILE}${CMAKE_STATIC_LIBRARY_SUFFIX}")

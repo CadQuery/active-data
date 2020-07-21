@@ -1,4 +1,8 @@
-ACTDATA_THIRDPARTY_PRODUCT("OCCT" "" "Standard.hxx" "TKernel" "")
+if (WIN32)
+  ACTDATA_THIRDPARTY_PRODUCT("OCCT" "" "Standard.hxx" "TKernel" "")
+else()
+  ACTDATA_THIRDPARTY_PRODUCT("OCCT" "opencascade" "Standard.hxx" "TKernel" "")
+endif()
 
 message (STATUS "... OCCT Include dirs: ${3RDPARTY_OCCT_INCLUDE_DIR}")
 message (STATUS "... OCCT Library dirs: ${3RDPARTY_OCCT_LIBRARY_DIR}")
